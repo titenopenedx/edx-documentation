@@ -1,0 +1,1035 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.7. Test Your E-Commerce Application &#8212; Installing, Configuring, and Running the Open edX Platform  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ecommerce/test_ecommerce';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.8. Additional E-Commerce Features" href="additional_features/index.html" />
+    <link rel="prev" title="6.6. Manage Orders" href="manage_orders.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Installing, Configuring, and Running the Open edX Platform
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/getting_help.html">1.2. Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.3. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.4. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../platform_releases/index.html">2. Open edX Platform Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/olive.html">2.1. Open edX Olive Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/nutmeg.html">2.2. Open edX Nutmeg Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/maple.html">2.3. Open edX Maple Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/lilac.html">2.4. Open edX Lilac Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/koa.html">2.5. Open edX Koa Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/juniper.html">2.6. Open edX Juniper Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ironwood.html">2.7. Open edX Ironwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/hawthorn.html">2.8. Open edX Hawthorn Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ginkgo.html">2.9. Open edX Ginkgo Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ficus.html">2.10. Open edX Ficus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/eucalyptus.html">2.11. Open edX Eucalyptus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/dogwood.html">2.12. Open edX Dogwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/cypress.html">2.13. Open edX Cypress Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/birch.html">2.14. Open edX Birch Release</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/index.html">3. Installing and Starting the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/tutor.html">3.2.1. Open edX Tutor Installation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../configuration/index.html">4. Configuring the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/updating_platform.html">4.1. Guidelines for Updating the Open edX Platform</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../configuration/sites/index.html">4.2. Configuring Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/sites/create_site.html">4.2.1. Create an Open edX Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/sites/configure_site.html">4.2.2. Configuring Sites Independently</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../configuration/changing_appearance/index.html">4.3. Changing the Appearance of Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../configuration/changing_appearance/theming/index.html">4.3.1. Changing Themes for an Open edX Site</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../configuration/changing_appearance/theming/overview_themes.html">4.3.1.1. Themes Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../configuration/changing_appearance/theming/theme_directories.html">4.3.1.2. Root Directories for Theme Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../configuration/changing_appearance/theming/create_theme.html">4.3.1.3. Creating a Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../configuration/changing_appearance/theming/enable_themes.html">4.3.1.4. Enabling and Applying Themes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../configuration/changing_appearance/theming/compiling_theme.html">4.3.1.5. Compiling a Theme</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/changing_appearance/drag_and_drop_problem_styling.html">4.3.2. Styling Drag and Drop Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/customize_registration_page.html">4.4. Adding Custom Fields to the Registration Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/config_allowed_regis_emails.html">4.5. Specifying Allowed Registration Email Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/deprecated_add_course_talk_widget.html">4.6. Adding the CourseTalk Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/edx_search.html">4.7. Enabling Open edX Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_badging.html">4.8. Enabling Badging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_certificates.html">4.9. Enabling Course Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_pacing.html">4.10. Enabling Self-Paced Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_public_course.html">4.11. Enabling Public Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_ccx.html">4.12. Enabling Custom Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_custom_course_settings.html">4.13. Enabling Custom Course Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_discussion_notifications.html">4.14. Enabling Discussion Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_entrance_exams.html">4.15. Enabling Entrance Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../configuration/ora2/index.html">4.16. Configuring Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/ora2/ora2_uploads.html">4.16.1. Configuring ORA2 to Upload Files to Alternative Storage Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/ora2/ora2_blacklist.html">4.16.2. Prohibiting Submission of Specified File Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_prerequisites.html">4.17. Enabling Course Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_licensing.html">4.18. Enabling Course and Video Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/transcripts.html">4.19. Configuring Transcript Behavior</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../configuration/lti/index.html">4.20. Configuring an edX Instance as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/lti/enable_lti.html">4.20.1. Enable LTI Provider Functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/lti/configure_lti.html">4.20.2. Configuring Credentials for a Tool Consumer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/lti/settings_lti.html">4.20.3. Define an Interval for Grade Aggregation (Optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/lti/authentication_options_lti.html">4.20.4. Options for LTI Authentication and User Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/lti/tpa_lti.html">4.20.5. Configuring Open edX User Authentication for LTI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_socialsharing_icons.html">4.21. Enabling Social Sharing of Courses and Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/password.html">4.22. Configuring a Password Policy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../configuration/tpa/index.html">4.23. Enabling Third Party Authentication</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/tpa/tpa_providers.html">4.23.1. Supported Identity Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/tpa/tpa_behavior.html">4.23.2. SSO Behavior</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../configuration/tpa/tpa_integrate_open/index.html">4.23.3. Integrating Third Party Authentication in Open edX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../configuration/tpa/tpa_integrate_open/tpa_oauth.html">4.23.3.2.1. Integrating with an OAuth2 Identity Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../configuration/tpa/tpa_integrate_open/tpa_SAML_IdP.html">4.23.3.2.2. Integrating with a SAML Identity Provider</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/tpa/tpa_SAML_SP.html">4.23.4. Configuring your Open edX Site as a SAML Service Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/tpa/tpa_advanced_features.html">4.23.5. Advanced Third Party Authentication Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/tpa/tpa_eliminating_pii.html">4.23.6. Eliminating PII From Third-Party Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../configuration/tpa/tpa_IDmap_api.html">4.23.7. Third Party Auth ID Mapping API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_timed_exams.html">4.24. Enabling Timed Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/youtube_api.html">4.25. Setting Up the YouTube API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/install_xblock.html">4.26. Installing an XBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/static_replace/cdn.html">4.27. Enabling a CDN for Course Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/enable_weekly_learning_goals.html">4.28. Enabling the Weekly Learning Goals Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../configuration/retrieve_extended_profile_metadata.html">4.29. Retrieving Extended Profile Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../insights/index.html">5. Adding edX Insights for Course Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../insights/install_insights.html">5.1. Options for Installing edX Insights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insights/elastic_mapreduce.html">5.2. Using Elastic MapReduce on AWS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Adding E-Commerce to the Open edX Platform</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="install_ecommerce.html">6.1. Install and Start the E-Commerce Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="theming.html">6.2. Comprehensive Theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage_assets.html">6.3. Manage Static Assets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="create_products/index.html">6.4. Create E-Commerce Products</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="create_products/create_products_overview.html">6.4.1. Creating Products Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_products/create_course_seats.html">6.4.2. Create Course Seats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_products/create_coupons.html">6.4.3. Create and Manage Coupons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_products/create_enrollment_codes.html">6.4.4. Enable and Create Enrollment Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_products/create_programs.html">6.4.5. About Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_products/create_program_offers.html">6.4.6. Create Program Offers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_receipt_page.html">6.5. Enable the E-Commerce Service Receipt Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manage_orders.html">6.6. Manage Orders</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.7. Test Your E-Commerce Application</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="additional_features/index.html">6.8. Additional E-Commerce Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="additional_features/send_notifications.html">6.8.1. Sending Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="additional_features/change_processors.html">6.8.2. Changing Payment Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="additional_features/apple_pay.html">6.8.3. Apple Pay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="additional_features/track_data.html">6.8.4. Tracking Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="additional_features/gate_ecommerce.html">6.8.5. Gating E-Commerce Service Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="additional_features/maintain_ecommerce.html">6.8.6. Maintaining the E-Commerce Service</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="internationalization.html">6.9. Internationalization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../mobile.html">7. Setting Up the Open edX Mobile Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature_flags/feature_flag_index.html">8. Index of Open edX Feature Flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/install_operations/source/ecommerce/test_ecommerce.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fecommerce/test_ecommerce.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/ecommerce/test_ecommerce.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Test Your E-Commerce Application</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-for-e-commerce">6.7.1. Tests for E-Commerce</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-e-commerce-unit-tests">6.7.1.1. Run E-Commerce Unit Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-unit-tests">6.7.1.1.1. Python Unit Tests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-unit-tests">6.7.1.1.2. JavaScript Unit Tests</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-e-commerce-acceptance-tests">6.7.1.2. Run E-Commerce Acceptance Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-the-lms">6.7.1.2.1. Configure the LMS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-e-commerce">6.7.1.2.2. Configure E-Commerce</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-acceptance-tests">6.7.1.2.3. Configure Acceptance Tests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-acceptance-tests">6.7.1.2.4. Run Acceptance Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="test-your-e-commerce-application">
+<span id="test-ecommerce"></span><h1><span class="section-number">6.7. </span>Test Your E-Commerce Application<a class="headerlink" href="#test-your-e-commerce-application" title="Link to this heading">#</a></h1>
+<p>To test new applications that you develop for the E-Commerce service, you
+create and run tests for the Open edX platform first, and then you run a set of
+tests that are specific to E-Commerce.</p>
+<section id="tests-for-e-commerce">
+<h2><span class="section-number">6.7.1. </span>Tests for E-Commerce<a class="headerlink" href="#tests-for-e-commerce" title="Link to this heading">#</a></h2>
+<p>When you develop E-Commerce applications, you must run a pre-packaged set of
+unit tests, Python tests, and E-Commerce acceptance tests.</p>
+<section id="run-e-commerce-unit-tests">
+<h3><span class="section-number">6.7.1.1. </span>Run E-Commerce Unit Tests<a class="headerlink" href="#run-e-commerce-unit-tests" title="Link to this heading">#</a></h3>
+<p>The E-Commerce unit tests include migrations, the unit test suite, and quality
+checks. You can run the full unit test, or save time for a local test by
+disabling the migrations. (You can also run the quality checks independent of
+the unit test suite.)</p>
+<ul>
+<li><p>To run the full unit test, including migrations and quality checks, use the
+following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>validate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If numerous unit tests fail with an <code class="docutils literal notranslate"><span class="pre">OfflineGenerationError</span></code> message, run
+the following command, then try to run unit tests again.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nv">DJANGO_SETTINGS_MODULE</span><span class="o">=</span>ecommerce.settings.test<span class="w"> </span>make<span class="w"> </span>static
+</pre></div>
+</div>
+</div>
+</li>
+<li><p>To run unit tests with quality checks but without migrations, run the
+following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nv">DISABLE_MIGRATIONS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>make<span class="w"> </span>validate
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We recommend that you only run tests without migrations when you run the
+tests locally.</p>
+</div>
+</li>
+<li><p>To validate code quality independently, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>quality
+</pre></div>
+</div>
+</li>
+</ul>
+<section id="python-unit-tests">
+<h4><span class="section-number">6.7.1.1.1. </span>Python Unit Tests<a class="headerlink" href="#python-unit-tests" title="Link to this heading">#</a></h4>
+<p>When you create E-Commerce tests, use the <code class="docutils literal notranslate"><span class="pre">TestCase</span></code> class in
+<code class="docutils literal notranslate"><span class="pre">ecommerce/tests/testcases.py</span></code> to ensure every test has <code class="docutils literal notranslate"><span class="pre">Site</span></code> and
+<code class="docutils literal notranslate"><span class="pre">Partner</span></code> objects configured. This will help you test any code that relies on
+these models, which are used for multi-tenancy.</p>
+<ul>
+<li><p>To run all Python unit tests and quality checks, run the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>validate_python
+</pre></div>
+</div>
+</li>
+<li><p>To run all Python unit tests and quality checks <em>in parallel</em>, run the
+following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>fast_validate_python
+</pre></div>
+</div>
+</li>
+<li><p>To run the Python unit tests in a specific file, such as
+<code class="docutils literal notranslate"><span class="pre">ecommerce/courses/tests/test_utils.py</span></code>, run the following command and
+substitute the desired file path.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nv">DISABLE_ACCEPTANCE_TESTS</span><span class="o">=</span>True<span class="w"> </span>./manage.py<span class="w"> </span><span class="nb">test</span>
+ecommerce.courses.tests.test_utils<span class="w"> </span>--settings<span class="o">=</span>ecommerce.settings.test
+--with-ignore-docstrings<span class="w"> </span>--logging-level<span class="o">=</span>DEBUG
+</pre></div>
+</div>
+<p>Setting the DISABLE_MIGRATIONS variable significantly decreases the time
+needed to run tests by creating the test database directly from Django model
+definitions as opposed to applying the defined migrations.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nv">DISABLE_MIGRATIONS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">DISABLE_ACCEPTANCE_TESTS</span><span class="o">=</span>True<span class="w"> </span>./manage.py<span class="w"> </span><span class="nb">test</span>
+ecommerce.courses.tests.test_utils<span class="w"> </span>--settings<span class="o">=</span>ecommerce.settings.test
+--with-ignore-docstrings<span class="w"> </span>--logging-level<span class="o">=</span>DEBUG
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="javascript-unit-tests">
+<h4><span class="section-number">6.7.1.1.2. </span>JavaScript Unit Tests<a class="headerlink" href="#javascript-unit-tests" title="Link to this heading">#</a></h4>
+<p>The E-Commerce project uses <a class="reference external" href="http://jasmine.github.io/2.3/introduction.html">Jasmine</a> for JavaScript unit testing. To create
+these tests, place your tests in the <code class="docutils literal notranslate"><span class="pre">ecommerce/static/js/test/specs</span></code>
+directory, and add a <code class="docutils literal notranslate"><span class="pre">_spec</span></code> suffix. For example, your test name may be
+<code class="docutils literal notranslate"><span class="pre">ecommerce/static/js/test/specs/course_list_view_spec.js</span></code>.</p>
+<p>All JavaScript code must adhere to standards outlined in the <a class="reference external" href="https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/style_guides/javascript-guidelines.html">edX JavaScript Style Guide</a>. These standards are enforced using <a class="reference external" href="https://openedx.atlassian.net/wiki/display/FEDX/ESLint">ESLint</a>.</p>
+<ul>
+<li><p>To run all JavaScript unit tests and linting checks, run the following
+command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>validate_js
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<section id="run-e-commerce-acceptance-tests">
+<h3><span class="section-number">6.7.1.2. </span>Run E-Commerce Acceptance Tests<a class="headerlink" href="#run-e-commerce-acceptance-tests" title="Link to this heading">#</a></h3>
+<p>To run specific acceptance tests for the E-Commerce service, you must complete
+the following procedures.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#configure-the-lms" id="id11">Configure the LMS</a></p></li>
+<li><p><a class="reference internal" href="#configure-e-commerce" id="id12">Configure E-Commerce</a></p></li>
+<li><p><a class="reference internal" href="#configure-acceptance-tests" id="id13">Configure Acceptance Tests</a></p></li>
+<li><p><a class="reference internal" href="#run-acceptance-tests" id="id14">Run Acceptance Tests</a></p></li>
+</ul>
+</nav>
+<section id="configure-the-lms">
+<h4><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">6.7.1.2.1. </span>Configure the LMS</a><a class="headerlink" href="#configure-the-lms" title="Link to this heading">#</a></h4>
+<p>To configure the LMS, follow these steps.</p>
+<ol class="arabic">
+<li><p>Verify that the following settings in <code class="docutils literal notranslate"><span class="pre">/edx/app/edxapp/lms.yml</span></code> are
+correct.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;ECOMMERCE_API_URL&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8002/api/v2/&quot;</span>
+<span class="s2">&quot;ECOMMERCE_PUBLIC_URL_ROOT&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8002&quot;</span>
+<span class="s2">&quot;JWT_ISSUER&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/oauth2&quot;</span> <span class="o">//</span> <span class="n">Must</span> <span class="n">match</span> <span class="n">the</span> <span class="n">E</span><span class="o">-</span><span class="n">Commerce</span> <span class="n">JWT_ISSUER</span> <span class="n">setting</span>
+<span class="s2">&quot;OAUTH_ENFORCE_SECURE&quot;</span><span class="p">:</span> <span class="n">false</span>
+<span class="s2">&quot;OAUTH_OIDC_ISSUER&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8000/oauth2&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the following settings in <code class="docutils literal notranslate"><span class="pre">/edx/app/edxapp/lms.yml</span></code> are
+correct.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s2">&quot;ECOMMERCE_API_SIGNING_KEY&quot;</span><span class="p">:</span> <span class="s2">&quot;insecure-secret-key&quot;</span> <span class="o">//</span> <span class="n">Must</span> <span class="n">match</span> <span class="n">the</span> <span class="n">E</span><span class="o">-</span><span class="n">Commerce</span> <span class="n">JWT_SECRET_KEY</span> <span class="n">setting</span>
+<span class="s2">&quot;EDX_API_KEY&quot;</span><span class="p">:</span> <span class="s2">&quot;PUT_YOUR_API_KEY_HERE&quot;</span> <span class="o">//</span> <span class="n">Must</span> <span class="n">match</span> <span class="n">the</span> <span class="n">E</span><span class="o">-</span><span class="n">Commerce</span> <span class="n">EDX_API_KEY</span> <span class="n">setting</span>
+</pre></div>
+</div>
+</li>
+<li><p>Verify that an LMS account with staff and superuser permissions exists.</p>
+<p>By default, most devstack and fullstack LMS instances include a user
+account that has staff permissions. This account has the username
+<code class="docutils literal notranslate"><span class="pre">staff</span></code>, the email address <code class="docutils literal notranslate"><span class="pre">staff&#64;example.com</span></code>, and the password
+<code class="docutils literal notranslate"><span class="pre">edx</span></code>. Run the following commands to grant the account superuser
+permissions.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/edx-platform
+./manage.py<span class="w"> </span>lms<span class="w"> </span>set_superuser<span class="w"> </span>staff<span class="w"> </span>--settings<span class="o">=</span>devstack
+</pre></div>
+</div>
+</li>
+<li><p>Navigate to the OAuth2 Clients section of the Django administration console
+(e.g. <a class="reference external" href="http://localhost:8000/admin/oauth2/client/">http://localhost:8000/admin/oauth2/client/</a>). Sign in using the
+superuser account you created earlier.</p>
+<p>Verify that an OAuth2 client with the following attributes exists.  If one
+does not already exist, <a class="reference internal" href="install_ecommerce.html#create-register-client"><span class="std std-ref">create a new OAuth 2 client</span></a>.</p>
+<p>The client ID and secret must match the values of the E-Commerce
+<code class="docutils literal notranslate"><span class="pre">SOCIAL_AUTH_EDX_OIDC_KEY</span></code> and <code class="docutils literal notranslate"><span class="pre">SOCIAL_AUTH_EDX_OIDC_SECRET</span></code> settings,
+respectively.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">ecommerce</span>
+<span class="n">URL</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8002</span><span class="o">/</span>
+<span class="n">Redirect</span> <span class="n">URI</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8002</span><span class="o">/</span><span class="n">complete</span><span class="o">/</span><span class="n">edx</span><span class="o">-</span><span class="n">oidc</span><span class="o">/</span>
+<span class="n">Client</span> <span class="n">ID</span><span class="p">:</span> <span class="s1">&#39;ecommerce-key&#39;</span>
+<span class="n">Client</span> <span class="n">Secret</span><span class="p">:</span> <span class="s1">&#39;ecommerce-secret&#39;</span>
+<span class="n">Client</span> <span class="n">Type</span><span class="p">:</span> <span class="n">Confidential</span> <span class="p">(</span><span class="n">Web</span> <span class="n">applications</span><span class="p">)</span>
+<span class="n">Logout</span> <span class="n">url</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8002</span><span class="o">/</span><span class="n">logout</span><span class="o">/</span>
+</pre></div>
+</div>
+</li>
+<li><p>Navigate to the Edx_Oauth2_Provider Trusted clients section of the Django
+administration console (<a class="reference external" href="http://localhost:8000/admin/edx_oauth2_provider/trustedclient/">http://localhost:8000/admin/edx_oauth2_provider/trustedclient/</a>).</p>
+<p>Verify that the OAuth2 client referred to above is designated as a
+trusted client (look for the Redirect URI). If this isn’t already
+the case, add the client created above as a new trusted client.</p>
+</li>
+<li><p>In the Django administration panel, create a new access token for
+the superuser account. Set the client to the OAuth2 client referred
+to above. Make note of this token; it is required to run the
+acceptance tests.</p></li>
+<li><p>Make sure that the LMS instance that you will use for testing has at least
+two courses that learners can enroll in. By default, most LMS instances
+include the edX demonstration course. Use Studio to create a second course.</p></li>
+</ol>
+</section>
+<section id="configure-e-commerce">
+<h4><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">6.7.1.2.2. </span>Configure E-Commerce</a><a class="headerlink" href="#configure-e-commerce" title="Link to this heading">#</a></h4>
+<p>You use the E-Commerce Course Administration Tool (“ECAT”) to finish
+configuring the two courses in your LMS instance.</p>
+<ol class="arabic">
+<li><p>Become the <code class="docutils literal notranslate"><span class="pre">ecommerce</span></code> user.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>su<span class="w"> </span>ecommerce
+</pre></div>
+</div>
+</li>
+<li><p>Verify that the following keys in <code class="docutils literal notranslate"><span class="pre">/edx/etc/ecommerce.yml</span></code> match your
+settings in <code class="docutils literal notranslate"><span class="pre">/edx/app/edxapp/lms.yml</span></code> and
+<code class="docutils literal notranslate"><span class="pre">/edx/app/edxapp/lms.yml</span></code>.</p>
+<ul class="simple">
+<li><p>One of the <code class="docutils literal notranslate"><span class="pre">JWT_AUTH:JWT_ISSUERS</span></code> entries should match
+<code class="docutils literal notranslate"><span class="pre">/edx/app/edxapp/lms.yml:JWT_ISSUER</span></code>. The default value is
+<code class="docutils literal notranslate"><span class="pre">http://127.0.0.1:8000/oauth2</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">JWT_AUTH:JWT_SECRET_KEY</span></code> should match
+<code class="docutils literal notranslate"><span class="pre">/edx/app/edxapp/lms.yml:ECOMMERCE_API_SIGNING_KEY</span></code>. The default
+value is <code class="docutils literal notranslate"><span class="pre">lms-secret</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">EDX_API_KEY</span></code> should match
+<code class="docutils literal notranslate"><span class="pre">/edx/app/edxapp/lms.yml:EDX_API_KEY</span></code>. The default value is
+<code class="docutils literal notranslate"><span class="pre">PUT_YOUR_API_KEY_HERE</span></code>.</p></li>
+</ul>
+</li>
+<li><p>Set up the E-Commerce environment.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/edx/app/ecommerce/ecommerce
+<span class="nb">source</span><span class="w"> </span>../ecommerce_env
+<span class="nb">source</span><span class="w"> </span>../venvs/ecommerce/bin/activate
+make<span class="w"> </span>requirements
+make<span class="w"> </span>static
+make<span class="w"> </span>migrate
+</pre></div>
+</div>
+</li>
+<li><p>Create a new site linking to the LMS.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./manage.py<span class="w"> </span>create_or_update_site<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--site-id<span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--site-domain<span class="o">=</span>localhost:8002<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--partner-code<span class="o">=</span>edX<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--partner-name<span class="o">=</span><span class="s1">&#39;Open edX&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--lms-url-root<span class="o">=</span>http://localhost:8000<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--theme-scss-path<span class="o">=</span>sass/themes/edx.scss<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--payment-processors<span class="o">=</span>cybersource,paypal<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--client-id<span class="o">=</span>ecommerce-key<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--client-secret<span class="o">=</span>ecommerce-secret<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--from-email<span class="w"> </span>staff@example.com
+</pre></div>
+</div>
+</li>
+<li><p>Start the E-Commerce Django development server.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>./manage.py<span class="w"> </span>runserver<span class="w"> </span><span class="m">0</span>.0.0.0:8002
+</pre></div>
+</div>
+</li>
+<li><p>Get the course key from the LMS by navigating to a course and examining its
+URL. The course key should look something like
+<code class="docutils literal notranslate"><span class="pre">course-v1:edX+DemoX+Demo_Course</span></code>.</p></li>
+<li><p>Navigate to the E-Commerce Courses page (<a class="reference external" href="http://localhost:8002/courses/">http://localhost:8002/courses/</a>) to
+add the two test courses that are on your LMS instance to E-Commerce. Configure
+one course as a “Free (Audit)” course, and the second as a “Verified” course.</p></li>
+<li><p>To configure the “Verified” course, click <strong>Add New Course</strong>. Leave the
+default values in all fields, with the exception of the following fields.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Course</span> <span class="n">ID</span><span class="p">:</span> <span class="n">The</span> <span class="n">course</span> <span class="n">key</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">LMS</span>
+<span class="n">Course</span> <span class="n">Name</span><span class="p">:</span> <span class="n">Use</span> <span class="nb">any</span> <span class="n">name</span>
+<span class="n">Course</span> <span class="n">Type</span><span class="p">:</span> <span class="n">Verified</span>
+<span class="n">Include</span> <span class="n">Honor</span> <span class="n">Seat</span><span class="p">:</span> <span class="n">No</span>
+</pre></div>
+</div>
+</li>
+<li><p>Navigate to the learner dashboard (e.g. <a class="reference external" href="http://localhost:8000/dashboard">http://localhost:8000/dashboard</a>) and
+confirm that the course you added in E-Commerce now has a green “Upgrade to
+Verified” badge, which you can select.</p></li>
+<li><p>In the ECAT, add the second course on your LMS instance to E-Commerce.
+Specify its course type as <code class="docutils literal notranslate"><span class="pre">Free</span> <span class="pre">(Audit)</span></code>.</p></li>
+<li><p>To test integration with external payment processors, update the contents
+of the <code class="docutils literal notranslate"><span class="pre">PAYMENT_PROCESSOR_CONFIG</span></code> dictionary found in the settings with
+valid credentials. To override the default values for development, create a
+private settings module, <code class="docutils literal notranslate"><span class="pre">private.py</span></code>, and set
+<code class="docutils literal notranslate"><span class="pre">PAYMENT_PROCESSOR_CONFIG</span></code> inside the module.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you created a <code class="docutils literal notranslate"><span class="pre">private.py</span></code> file to create settings overrides when you
+<a class="reference internal" href="install_ecommerce.html#set-up-a-virtual-environment"><span class="std std-ref">set up your virtual environment</span></a>, you
+can use that same <code class="docutils literal notranslate"><span class="pre">private.py</span></code> file.</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="configure-acceptance-tests">
+<span id="id1"></span><h4><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">6.7.1.2.3. </span>Configure Acceptance Tests</a><a class="headerlink" href="#configure-acceptance-tests" title="Link to this heading">#</a></h4>
+<p>You configure acceptance tests by using the settings in the <code class="docutils literal notranslate"><span class="pre">e2e/config.py</span></code>
+file. You can use the default values for most settings in this file. However,
+for the following settings, you must specify values using environment
+variables.</p>
+<blockquote>
+<div></div></blockquote>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ACCESS_TOKEN</p></td>
+<td><p>The OAuth2 access token used to authenticate requests.</p></td>
+</tr>
+<tr class="row-odd"><td><p>ECOMMERCE_URL_ROOT</p></td>
+<td><p>The URL root for the E-Commerce service.</p></td>
+</tr>
+<tr class="row-even"><td><p>LMS_URL_ROOT</p></td>
+<td><p>The URL root for the LMS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LMS_USERNAME</p></td>
+<td><p>A username for any current LMS user, to use during testing.</p></td>
+</tr>
+<tr class="row-even"><td><p>LMS_EMAIL</p></td>
+<td><p>The email address used to sign in to the LMS.</p></td>
+</tr>
+<tr class="row-odd"><td><p>LMS_PASSWORD</p></td>
+<td><p>The password used to sign in to the LMS.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If you test PayPal integration, you must also specify values for the following
+settings by using environment variables.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>PAYPAL_EMAIL</p></td>
+<td><p>The email address used to sign in to PayPal during payment.</p></td>
+</tr>
+<tr class="row-odd"><td><p>PAYPAL_PASSWORD</p></td>
+<td><p>The password used to sign in to PayPal during payment.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="run-acceptance-tests">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">6.7.1.2.4. </span>Run Acceptance Tests</a><a class="headerlink" href="#run-acceptance-tests" title="Link to this heading">#</a></h4>
+<p>Run all acceptance tests by executing <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">e2e</span></code>.</p>
+<blockquote>
+<div></div></blockquote>
+<p>To run a specific test, execute the following command.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>nosetests<span class="w"> </span>-v<span class="w"> </span>&lt;path/to/the/test/module&gt;
+</pre></div>
+</div>
+<p>The acceptance tests rely on the <a class="reference internal" href="#configure-acceptance-tests"><span class="std std-ref">environment variables that you have
+configured</span></a>. For example, when you run the
+acceptance tests against local instances of E-Commerce and the LMS, you might
+run the following command, replacing values between angle brackets (&lt;&gt;) with
+your own values.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ECOMMERCE_URL_ROOT=&quot;http://localhost:8002&quot; LMS_URL_ROOT=&quot;http://127.0.0.1:8000&quot; LMS_USERNAME=&quot;&lt;username&gt;&quot; LMS_EMAIL=&quot;&lt;email address&gt;&quot; LMS_PASSWORD=&quot;&lt;password&gt;&quot; ACCESS_TOKEN=&quot;&lt;access token&gt;&quot; LMS_HTTPS=&quot;False&quot; LMS_AUTO_AUTH=&quot;True&quot; PAYPAL_EMAIL=&quot;&lt;email address&gt;&quot; PAYPAL_PASSWORD=&quot;&lt;password&gt;&quot; ENABLE_CYBERSOURCE_TESTS=&quot;False&quot; VERIFIED_COURSE_ID=&quot;&lt;course ID&gt;&quot; make e2e
+</pre></div>
+</div>
+<p>When you run the acceptance tests against a production-like staging
+environment, you might run the following command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ECOMMERCE_URL_ROOT=&quot;https://ecommerce.stage.edx.org&quot; LMS_URL_ROOT=&quot;https://courses.stage.edx.org&quot; LMS_USERNAME=&quot;&lt;username&gt;&quot; LMS_EMAIL=&quot;&lt;email address&gt;&quot; LMS_PASSWORD=&quot;&lt;password&gt;&quot; ACCESS_TOKEN=&quot;&lt;access token&gt;&quot; LMS_HTTPS=&quot;True&quot; LMS_AUTO_AUTH=&quot;False&quot; PAYPAL_EMAIL=&quot;&lt;email address&gt;&quot; PAYPAL_PASSWORD=&quot;&lt;password&gt;&quot; BASIC_AUTH_USERNAME=&quot;&lt;username&gt;&quot; BASIC_AUTH_PASSWORD=&quot;&lt;password&gt;&quot; HONOR_COURSE_ID=&quot;&lt;course ID&gt;&quot; VERIFIED_COURSE_ID=&quot;&lt;course ID&gt;&quot; make e2e
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="manage_orders.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.6. </span>Manage Orders</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="additional_features/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.8. </span>Additional E-Commerce Features</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tests-for-e-commerce">6.7.1. Tests for E-Commerce</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-e-commerce-unit-tests">6.7.1.1. Run E-Commerce Unit Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#python-unit-tests">6.7.1.1.1. Python Unit Tests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-unit-tests">6.7.1.1.2. JavaScript Unit Tests</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#run-e-commerce-acceptance-tests">6.7.1.2. Run E-Commerce Acceptance Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-the-lms">6.7.1.2.1. Configure the LMS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-e-commerce">6.7.1.2.2. Configure E-Commerce</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-acceptance-tests">6.7.1.2.3. Configure Acceptance Tests</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#run-acceptance-tests">6.7.1.2.4. Run Acceptance Tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

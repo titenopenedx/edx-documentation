@@ -1,0 +1,966 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11.7. Custom JavaScript Display and Grading Problem &#8212; EdX Open Learning XML Guide - Alpha Version  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'problem-xml/custom_javascript';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11.8. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)" href="custom_python.html" />
+    <link rel="prev" title="11.6. Conditional Module" href="conditional_module.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EdX Open Learning XML Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-olx.html">2. What is Open Learning XML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">3. Getting Started with OLX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directory-structure.html">4. OLX Course Structure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../policies/index.html">5. Policies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../policies/course.html">5.1. Course Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/grading.html">5.2. Grading Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/assets-policy.html">5.3. Course Asset Policy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../assets/assets.html">6. Course Assets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../about/index.html">7. The Course About Pages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/overview.html">7.1. Course Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/short-description.html">7.2. Short Description</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pages.html">8. Course Tabs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../organizing-course/index.html">9. Organizing Courseware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-structure-overview.html">9.1. OLX Course Building Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-xml-file.html">9.2. The Courseware Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../components/index.html">10. Course Components (XBlocks)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../components/html-components.html">10.1. HTML Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/discussion-components.html">10.2. Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/video-components.html">10.3. Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/problem-components.html">10.4. Problem Components</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">11. Exercises, Tools, and Problem Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="levels_of_support.html">11.1. Levels of Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation.html">11.2. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chemical_equation.html">11.3. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_schematic_builder.html">11.4. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="completion.html">11.5. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional_module.html">11.6. Conditional Module</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.7. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_python.html">11.8. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag_and_drop.html">11.9. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropdown.html">11.10. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="full_screen_image.html">11.11. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gene_explorer.html">11.12. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_calendar.html">11.13. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_docs.html">11.14. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iframe.html">11.15. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image_mapped_input.html">11.16. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lti_component.html">11.17. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math_expression_input.html">11.18. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathjax.html">11.19. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_select.html">11.20. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerical_input.html">11.21. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="open_response_assessments/index.html">11.22. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/OpenResponseAssessments.html">11.22.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/CreateORAAssignment.html">11.22.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/Manage_ORA_Assignment.html">11.22.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/ORA_Staff_Grading.html">11.22.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/Access_ORA_Info.html">11.22.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="periodic_table.html">11.23. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll.html">11.24. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll_question.html">11.25. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_in_latex.html">11.26. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_with_hint.html">11.27. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_builder.html">11.28. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recommenderXBlock.html">11.29. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select.html">11.30. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select_num_input.html">11.31. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="survey.html">11.32. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbolic_response.html">11.33. Symbolic Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_input.html">11.34. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="word_cloud.html">11.35. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zooming_image.html">11.36. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content-experiments/index.html">12. Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_overview.html">12.1. Overview of Content Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_guidelines.html">12.2. Guidelines for Modifying Group Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_configure.html">12.3. Set Up Group Configuration for OLX Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_add.html">12.4. Add a Content Experiment in OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_test_olx.html">12.5. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../example-course/index.html">13. Example of an OLX Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-structure.html">13.1. The Structure of edX-Insider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-course-xml.html">13.2. The edX-Insider <code class="docutils literal notranslate"><span class="pre">course.xml</span></code> File</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../studio-example/index.html">14. Example of OLX for a Studio Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studio-example/manual-testing-structure.html">14.1. The Structure of the Manual Testing Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/index.html">15. Open Learning XML Uses</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/olx-studio.html">15.1. Use OLX with edX Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/deploy-lms.html">15.2. Build a Course in OLX and Deploy to the edX LMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/convert-to-olx.html">15.3. Convert Content in Other Formats to OLX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../drafts/index.html">16. Draft Course Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">17. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/olx/source/problem-xml/custom_javascript.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fproblem-xml/custom_javascript.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/problem-xml/custom_javascript.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Custom JavaScript Display and Grading Problem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-custom-javascript-display-and-grading-problem">11.7.1. Create a Custom JavaScript Display and Grading Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-input-example-problem-code">11.7.1.1. JavaScript Input Example Problem Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-input-problem-xml">11.7.2. JavaScript Input Problem XML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#template">11.7.2.1. Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-attributes">11.7.2.2. Required Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-attributes">11.7.2.3. Optional Attributes</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="custom-javascript-display-and-grading-problem">
+<span id="custom-javascript"></span><h1><span class="section-number">11.7. </span>Custom JavaScript Display and Grading Problem<a class="headerlink" href="#custom-javascript-display-and-grading-problem" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EdX offers full support for this problem type.</p>
+</div>
+<p>Custom JavaScript display and grading problems (also called custom JavaScript
+problems or JS input problems) allow you to create a custom problem or tool
+that uses JavaScript and then add the problem or tool directly into Studio.
+When you create a JS input problem, Studio embeds the problem in an inline
+frame (an HTML iframe element) so that your learners can interact with it in
+the LMS. You can grade your learners’ work using JavaScript and some basic
+Python, and the grading is integrated into the edX grading system.</p>
+<p>The JS input problem that you create must use HTML, JavaScript, and cascading
+style sheets (CSS). You can use any application creation tool, such as the
+Google Web Toolkit (GWT), to create your JS input problem.</p>
+<img alt="An example JavaScript Input problem that contains a dropdown selector inside an inline frame." src="../_images/JavaScriptInputExample.png" />
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<ul class="simple">
+<li><p>You cannot use a custom JavaScript problem in a component that contains
+more than one problem. Each custom JavaScript problem must be in its own
+component. See <a class="reference internal" href="../components/problem-components.html#multiple-problems-in-one-component"><span class="std std-ref">Multiple Problems in One Component</span></a> for more
+information.</p></li>
+<li><p>The <strong>Show Answer</strong> button does not work for JS input problems. By
+default, the <strong>Show Answer</strong> option is set to <strong>Never</strong>. If you change
+this option in the problem component, a <strong>Show Answer</strong> button appears in
+the learner’s view of the problem in the LMS, but the button does not work.</p></li>
+</ul>
+</div>
+<section id="create-a-custom-javascript-display-and-grading-problem">
+<h2><span class="section-number">11.7.1. </span>Create a Custom JavaScript Display and Grading Problem<a class="headerlink" href="#create-a-custom-javascript-display-and-grading-problem" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Create your JavaScript application, and then upload all files associated
+with that application to the <strong>Files &amp; Uploads</strong> page.</p></li>
+<li><p>In the unit where you want to create the problem, under <strong>Add New
+Component</strong> select <strong>Problem</strong>.</p></li>
+<li><p>In the problem editor, select <strong>Advanced problem types</strong>. Then select
+<strong>Custom JavaScript Display and Grading</strong>.</p></li>
+<li><p>In the advanced problem editor, modify the example code according to your problem.
+Be sure to specify a <code class="docutils literal notranslate"><span class="pre">title</span></code> attribute on the <code class="docutils literal notranslate"><span class="pre">jsinput</span></code> tag. This title
+is used for the title attribute on the generated inline frame.</p></li>
+<li><p>(Optional) To add a <strong>Save</strong> button to your problem, in the settings panels on
+the right side of the editor, set <strong>Attempts</strong> to a number larger than zero.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All problems include more than one resource. If all the resources in
+a problem have the same protocol, host, and port, then the problem conforms
+to the same-origin policy (SOP). For example, the resources
+<code class="docutils literal notranslate"><span class="pre">http://store.company.com:81/subdirectory_1/JSInputElement.html</span></code> and
+<code class="docutils literal notranslate"><span class="pre">http://store.company.com:81/subdirectory_2/JSInputElement.js</span></code> have the
+same protocol (<code class="docutils literal notranslate"><span class="pre">http</span></code>), host (<code class="docutils literal notranslate"><span class="pre">store.company.com</span></code>), and port (<code class="docutils literal notranslate"><span class="pre">81</span></code>).</p>
+<p>If any resources in your problem use a different protocol, host, or port,
+you need to bypass the SOP. For example,
+<code class="docutils literal notranslate"><span class="pre">https://info.company.com/JSInputElement2.html</span></code> uses a different
+protocol, host, and port from
+<code class="docutils literal notranslate"><span class="pre">http://store.company.com:81/subdirectory_1/JSInputElement.html</span></code>.</p>
+<p>To bypass the SOP, change <code class="docutils literal notranslate"><span class="pre">sop=&quot;true&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">sop=&quot;false&quot;</span></code>. In the example
+problem code, this attribute is just before the closing <code class="docutils literal notranslate"><span class="pre">customresponse</span></code>
+tag.</p>
+<p>If you bypass the same-origin policy, you require an additional file.
+The example problem uses the file <code class="docutils literal notranslate"><span class="pre">jschannel.js</span></code> to bypass the SOP.</p>
+<p>For more information, see the same-origin policy page on the <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/Security/">Mozilla
+Developer Network site</a>
+or on <a class="reference external" href="https://en.wikipedia.org/wiki/Same_origin_policy">Wikipedia</a>.</p>
+</div>
+<section id="javascript-input-example-problem-code">
+<h3><span class="section-number">11.7.1.1. </span>JavaScript Input Example Problem Code<a class="headerlink" href="#javascript-input-example-problem-code" title="Link to this heading">#</a></h3>
+<p>The following code recreates the JavaScript Input problem example shown in the
+overview. The example problem uses these files.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://files.edx.org/custom-js-example/jsinput_example.html">https://files.edx.org/custom-js-example/jsinput_example.html</a></p></li>
+<li><p><a class="reference external" href="https://files.edx.org/custom-js-example/jsinput_example.js">https://files.edx.org/custom-js-example/jsinput_example.js</a></p></li>
+<li><p><a class="reference external" href="https://files.edx.org/custom-js-example/jsinput_example.css">https://files.edx.org/custom-js-example/jsinput_example.css</a></p></li>
+<li><p><a class="reference external" href="https://files.edx.org/custom-js-example/jschannel.js">https://files.edx.org/custom-js-example/jschannel.js</a> (This file is used only
+because this example bypasses the SOP, as indicated by the line
+<code class="docutils literal notranslate"><span class="pre">sop=&quot;false&quot;</span></code>)</p></li>
+</ul>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">    </span><span class="nt">&lt;customresponse</span><span class="w"> </span><span class="na">cfn=</span><span class="s">&quot;check_function&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;script</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="cp">&lt;![CDATA[</span>
+<span class="cp">            import json</span>
+<span class="cp">            def check_function(e, ans):</span>
+<span class="cp">                &quot;&quot;&quot;</span>
+<span class="cp">                &quot;response&quot; is a dictionary that contains two keys, &quot;answer&quot; and</span>
+<span class="cp">                &quot;&quot;state&quot;.</span>
+
+<span class="cp">                The value of &quot;answer&quot; is the JSON string that &quot;getGrade&quot; returns.</span>
+<span class="cp">                The value of &quot;state&quot; is the JSON string that &quot;getState&quot; returns.</span>
+<span class="cp">                Clicking either &quot;Submit&quot; or &quot;Save&quot; registers the current state.</span>
+<span class="cp">                &quot;&quot;&quot;</span>
+<span class="cp">                response = json.loads(ans)</span>
+
+<span class="cp">                # You can use the value of the answer key to grade:</span>
+<span class="cp">                answer = json.loads(response[&quot;answer&quot;])</span>
+<span class="cp">                return answer == &quot;correct&quot;</span>
+
+<span class="cp">                # Or you can use the value of the state key to grade:</span>
+<span class="cp">                &quot;&quot;&quot;</span>
+<span class="cp">                state = json.loads(response[&quot;state&quot;])</span>
+<span class="cp">                return state[&quot;selectedChoice&quot;] == &quot;correct&quot;</span>
+<span class="cp">                &quot;&quot;&quot;</span>
+<span class="cp">            ]]&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/script&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>This<span class="w"> </span>is<span class="w"> </span>paragraph<span class="w"> </span>text<span class="w"> </span>displayed<span class="w"> </span>before<span class="w"> </span>the<span class="w"> </span>iframe.<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;jsinput</span>
+<span class="w">            </span><span class="na">gradefn=</span><span class="s">&quot;JSInputDemo.getGrade&quot;</span>
+<span class="w">            </span><span class="na">get_statefn=</span><span class="s">&quot;JSInputDemo.getState&quot;</span>
+<span class="w">            </span><span class="na">set_statefn=</span><span class="s">&quot;JSInputDemo.setState&quot;</span>
+<span class="w">            </span><span class="na">initial_state=</span><span class="s">&#39;{&quot;selectedChoice&quot;: &quot;incorrect1&quot;, &quot;availableChoices&quot;:</span>
+<span class="s">            [&quot;incorrect1&quot;, &quot;correct&quot;, &quot;incorrect2&quot;]}&#39;</span>
+<span class="w">            </span><span class="na">width=</span><span class="s">&quot;600&quot;</span>
+<span class="w">            </span><span class="na">height=</span><span class="s">&quot;100&quot;</span>
+<span class="w">            </span><span class="na">html_file=</span><span class="s">&quot;https://files.edx.org/custom-js-example/jsinput_example.html&quot;</span>
+<span class="w">            </span><span class="na">title=</span><span class="s">&quot;Dropdown with Dynamic Text&quot;</span>
+<span class="w">            </span><span class="na">sop=</span><span class="s">&quot;false&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/customresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Keep the following points in mind about this example problem.</p>
+<ul class="simple">
+<li><p>The jsinput_example.js file defines three JavaScript functions
+(<strong>JSInputDemo.getGrade</strong>, <strong>JSInputDemo.getState</strong>, and
+<strong>JSInputDemo.setState</strong>).</p></li>
+<li><p>The JavaScript input problem code uses <strong>JSInputDemo.getGrade</strong>,
+<strong>JSInputDemo.getState</strong>, and <strong>JSInputDemo.setState</strong> to grade, save, or
+restore a problem. These functions must be global in scope.</p></li>
+<li><p><strong>JSInputDemo.getState</strong> and <strong>JSInputDemo.setState</strong> are optional. You
+need to define these functions only if you want to conserve the state of
+the problem.</p></li>
+<li><p><strong>Width</strong> and <strong>height</strong> represent the dimensions of the inline frame that
+holds the application.</p></li>
+<li><p>The response is graded as correct if the <code class="docutils literal notranslate"><span class="pre">correct</span></code> option is selected in
+the dropdown control when the user selects <strong>Submit</strong>.</p></li>
+<li><p>Selecting <strong>Submit</strong> registers the problem’s current state.</p></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="javascript-input-problem-xml">
+<span id="js-input-problem-xml"></span><h2><span class="section-number">11.7.2. </span>JavaScript Input Problem XML<a class="headerlink" href="#javascript-input-problem-xml" title="Link to this heading">#</a></h2>
+<p>JSInput allows problem authors to turn stand-alone HTML files into problems
+that can be integrated into the edX platform. Since its aim is flexibility, it
+can be seen as the input and client-side equivalent of <strong>CustomResponse</strong>.</p>
+<p>A JSInput exercise creates an inline frame (iframe) in a static HTML page, and
+passes the return value of author-specified functions to the enclosing
+response type (generally <strong>CustomResponse</strong>). JSInput can also store and
+retrieve state.</p>
+<section id="template">
+<h3><span class="section-number">11.7.2.1. </span>Template<a class="headerlink" href="#template" title="Link to this heading">#</a></h3>
+<p>The following is the basic format of a JSInput problem.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">       </span><span class="nt">&lt;script</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+<span class="w">           </span>def<span class="w"> </span>all_true(exp,<span class="w"> </span>ans):<span class="w"> </span>return<span class="w"> </span>ans<span class="w"> </span>==<span class="w"> </span>&quot;hi&quot;
+<span class="w">       </span><span class="nt">&lt;/script&gt;</span>
+<span class="w">       </span><span class="nt">&lt;customresponse</span><span class="w"> </span><span class="na">cfn=</span><span class="s">&quot;all_true&quot;</span><span class="nt">&gt;</span>
+<span class="w">           </span><span class="nt">&lt;jsinput</span><span class="w"> </span><span class="na">gradefn=</span><span class="s">&quot;gradefn&quot;</span>
+<span class="w">               </span><span class="na">height=</span><span class="s">&quot;500&quot;</span>
+<span class="w">               </span><span class="na">get_statefn=</span><span class="s">&quot;getstate&quot;</span>
+<span class="w">               </span><span class="na">set_statefn=</span><span class="s">&quot;setstate&quot;</span>
+<span class="w">               </span><span class="na">html_file=</span><span class="s">&quot;/static/jsinput.html&quot;</span>
+<span class="w">               </span><span class="na">title=</span><span class="s">&quot;iframe Title&quot;</span><span class="nt">/&gt;</span>
+<span class="w">       </span><span class="nt">&lt;/customresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<p>The accepted attributes are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute Name</p></th>
+<th class="head"><p>Value Type</p></th>
+<th class="head"><p>Required</p></th>
+<th class="head"><p>Default</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>html_file</p></td>
+<td><p>URL string</p></td>
+<td><p>Yes</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>title</p></td>
+<td><p>string</p></td>
+<td><p>Yes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Problem</span> <span class="pre">Remote</span> <span class="pre">Content</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>gradefn</p></td>
+<td><p>Function name</p></td>
+<td><p>Yes</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">gradefn</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>set_statefn</p></td>
+<td><p>Function name</p></td>
+<td><p>No</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p>get_statefn</p></td>
+<td><p>Function name</p></td>
+<td><p>No</p></td>
+<td><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>height</p></td>
+<td><p>Integer</p></td>
+<td><p>No</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">300</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>width</p></td>
+<td><p>Integer</p></td>
+<td><p>No</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">400</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>title</p></td>
+<td><p>String</p></td>
+<td><p>No</p></td>
+<td><p>None</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="required-attributes">
+<h3><span class="section-number">11.7.2.2. </span>Required Attributes<a class="headerlink" href="#required-attributes" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>html_file</strong></p>
+<p>The <strong>html_file</strong> attribute specifies the HTML file that the iframe will
+point to. The HTML file must be located in the content directory.</p>
+<p>The iframe is created using the sandbox attribute. Although pop-ups,
+scripts, and pointer locks are allowed, the iframe cannot access its
+parent’s attributes.</p>
+<p>The HTML file must contain a <strong>gradefn</strong> function that the JSInput file can
+access. To determine whether the <strong>gradefn</strong> function is accessible, in the
+console, make sure that <strong>gradefn</strong> returns the right thing. When JSInput
+uses the <strong>gradefn</strong> function, <cite>gradefn</cite> is called with
+<cite>gradefn</cite>.call(<cite>obj</cite>), where <strong>obj</strong> is the object-part of <strong>gradefn</strong>. For
+example, if <strong>gradefn</strong> is <strong>myprog.myfn</strong>, JSInput calls
+<strong>myprog.myfun.call(myprog)</strong>.</p>
+<p>The HTML file has no specific requirements other than the <strong>gradefn</strong>
+function. Note that inheriting CSS or JavaScript from the parent (except for
+the Chrome-only <strong>seamless</strong> attribute, which is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> by default)
+is not currently supported.</p>
+</li>
+<li><p><strong>title</strong></p>
+<p>The <strong>title</strong> attribute specifies the title for the generated iframe.
+Generally, the title attribute on the iframe should match the title tag of
+the HTML file that is hosted within the iframe.</p>
+</li>
+<li><p><strong>gradefn</strong></p>
+<p>The <strong>gradefn</strong> attribute specifies the name of the function that will be
+called when a user selects <strong>Submit</strong>, and that returns the learner’s answer.
+Unless both the <strong>get_statefn</strong> and <strong>set_statefn</strong> attributes are also
+used, this answer is passed as a string to the enclosing response type. In
+the <strong>customresponse</strong> example above, this means <strong>cfn</strong> will be passed this
+answer as <code class="docutils literal notranslate"><span class="pre">ans</span></code>.</p>
+<p>If the <strong>gradefn</strong> function throws an exception when a learner attempts to
+submit a problem, the submission is aborted, and the learner receives a
+generic alert. The alert can be customized by making the exception name
+<code class="docutils literal notranslate"><span class="pre">Waitfor</span> <span class="pre">Exception</span></code>; in that case, the alert message will be the exception
+message.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To make sure the learner’s latest answer is passed correctly,
+make sure that the <strong>gradefn</strong> function is not asynchronous. Additionally,
+make sure that the function returns promptly. Currently the learner has no
+indication that her answer is being calculated or produced.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="optional-attributes">
+<h3><span class="section-number">11.7.2.3. </span>Optional Attributes<a class="headerlink" href="#optional-attributes" title="Link to this heading">#</a></h3>
+<ul>
+<li><p><strong>set_statefn</strong></p>
+<p>Sometimes a problem author will want information about a learner’s previous
+answers (“state”) to be saved and reloaded. If the attribute <strong>set_statefn</strong>
+is used, the function given as its value will be passed the state as a
+string argument whenever there is a state, and the learner returns to a
+problem. The function has the responsibility to then use this state
+appropriately.</p>
+<p>The state that is passed is:</p>
+<ul class="simple">
+<li><p>The previous output of <strong>gradefn</strong> (i.e., the previous answer) if
+<strong>get_statefn</strong> is not defined.</p></li>
+<li><p>The previous output of <strong>get_statefn</strong> (see below) otherwise.</p></li>
+</ul>
+<p>It is the responsibility of the iframe to do proper verification of the
+argument that it receives via <strong>set_statefn</strong>.</p>
+</li>
+<li><p><strong>get_statefn</strong></p>
+<p>Sometimes the state and the answer are quite different. For instance, a
+problem that involves using a JavaScript program that allows the learner to
+alter a molecule may grade based on the molecule’s hydrophobicity, but from
+the hydrophobicity it might be incapable of restoring the state. In that
+case, a <em>separate</em> state may be stored and loaded by <strong>set_statefn</strong>. Note
+that if <strong>get_statefn</strong> is defined, the answer (i.e., what is passed to the
+enclosing response type) will be a json string with the following format:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>{
+<span class="w">    </span>answer:<span class="w"> </span>`[answer<span class="w"> </span>string]`
+<span class="w">    </span>state:<span class="w"> </span>`[state<span class="w"> </span>string]`
+}
+</pre></div>
+</div>
+<p>The enclosing response type must then parse this as json.</p>
+</li>
+<li><p><strong>height</strong> and <strong>width</strong></p>
+<p>The <strong>height</strong> and <strong>width</strong> attributes are straightforward: they specify
+the height and width of the iframe. Both are limited by the enclosing DOM
+elements, so for instance there is an implicit max-width of around 900.</p>
+<p>In the future, JSInput may attempt to make these dimensions match the HTML
+file’s dimensions (up to the aforementioned limits), but currently it
+defaults to <code class="docutils literal notranslate"><span class="pre">300</span></code> and <code class="docutils literal notranslate"><span class="pre">400</span></code> for <strong>height</strong> and <strong>width</strong>, respectively.</p>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="conditional_module.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11.6. </span>Conditional Module</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="custom_python.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11.8. </span>Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-custom-javascript-display-and-grading-problem">11.7.1. Create a Custom JavaScript Display and Grading Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-input-example-problem-code">11.7.1.1. JavaScript Input Example Problem Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#javascript-input-problem-xml">11.7.2. JavaScript Input Problem XML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#template">11.7.2.1. Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-attributes">11.7.2.2. Required Attributes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-attributes">11.7.2.3. Optional Attributes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

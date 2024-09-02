@@ -1,0 +1,681 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.6. Open Response Assessment Data &#8212; EdX Research Guide  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'internal_data_formats/ora2_data';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6.7. Events in the Tracking Logs" href="tracking_logs/index.html" />
+    <link rel="prev" title="6.5. Wiki Data" href="wiki_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Research Guide  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Research Guide  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Using the edX Data Package
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../start/index.html">1. Getting Started with the edX Data Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_czars/index.html">2. Responsibilities of the Data Czar and Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../access/index.html">3. Accessing the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../access/credentials.html">3.1. Keys and Credentials for Data Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../access/download.html">3.2. Downloading the Data Package from Amazon S3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../using/index.html">4. Using the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using/data_security.html">4.1. Data Security Guidelines for Data Czars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/package.html">4.2. Data Delivered in Data Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/resources.html">4.3. Resources for Data Czars and Researchers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rdx/index.html">5. Using the Research Data Exchange Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rdx/rdx_data.html">5.1. Data Obfuscation Procedures for RDX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rdx/rdx_retrieval.html">5.2. Retrieving RDX Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">6. Data Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="institution_data.html">6.1. Email Opt-in Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_structure.html">6.2. Course Content Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sql_schema.html">6.3. User Info and Learner Progress Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discussion_data.html">6.4. Discussion Forums Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wiki_data.html">6.5. Wiki Data</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">6.6. Open Response Assessment Data</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tracking_logs/index.html">6.7. Events in the Tracking Logs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="tracking_logs/sample_events.html">6.7.1. Reviewing a Sample Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracking_logs/common_fields.html">6.7.2. Common Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracking_logs/student_event_types.html">6.7.3. Student Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tracking_logs/course_team_event_types.html">6.7.4. Course Team Events</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="event_list.html">6.8. Alphabetical Event List</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">7. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/data/source/internal_data_formats/ora2_data.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Finternal_data_formats/ora2_data.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/internal_data_formats/ora2_data.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Open Response Assessment Data</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-tables">6.6.1. Workflow Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment-and-rubric-tables">6.6.2. Assessment and Rubric Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-studentitem-and-score-tables">6.6.3. Submission, StudentItem, and Score Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-erd">6.6.4. Detailed ERD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">6.6.4.1. Notes</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="open-response-assessment-data">
+<span id="ora2-data"></span><h1><span class="section-number">6.6. </span>Open Response Assessment Data<a class="headerlink" href="#open-response-assessment-data" title="Link to this heading">#</a></h1>
+<p>This section describes the data schema for the edX open response assessment
+(ORA) system.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#workflow-tables" id="id11">Workflow Tables</a></p></li>
+<li><p><a class="reference internal" href="#assessment-and-rubric-tables" id="id12">Assessment and Rubric Tables</a></p></li>
+<li><p><a class="reference internal" href="#submission-studentitem-and-score-tables" id="id13">Submission, StudentItem, and Score Tables</a></p></li>
+<li><p><a class="reference internal" href="#detailed-erd" id="id14">Detailed ERD</a></p></li>
+</ul>
+</nav>
+<p>The schema includes a number of tables, and the ORA system offers a range of
+uses. As a result, the data can be complex. EdX recommends that you set up a
+course on a devstack instance so that you can create assessments and test the
+possible learner interactions.</p>
+<ul class="simple">
+<li><p>For more information about how course teams can set up open response
+assessments, see <a class="reference external" href="https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/exercises_tools/open_response_assessments/CreateORAAssignment.html#pa-create-an-ora-assignment" title="(in Building and Running an edX Course)"><span>Create an Open Response Assessment Assignment</span></a>.</p></li>
+<li><p>For more information about how learners respond to these assessments, see
+<span class="xref std std-ref">learners:SFD_ORA</span>.</p></li>
+<li><p>For more information about setting up an Open edX devstack instance, see
+<a class="reference external" href="https://github.com/openedx/devstack">Installing the Open edX Developer Stack</a>.</p></li>
+</ul>
+<p><strong>History</strong>:  These tables were added to the <code class="docutils literal notranslate"><span class="pre">ora</span></code> subdirectory of the
+<code class="docutils literal notranslate"><span class="pre">{org}-{date}.zip</span></code> database data file in data packages beginning with the 13
+Dec 2015 export. The data in these tables is for the current, fully supported
+version of the open response assessment feature. Data for the initial
+version (which was deprecated in May 2014) is not included.</p>
+<section id="workflow-tables">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">6.6.1. </span>Workflow Tables</a><a class="headerlink" href="#workflow-tables" title="Link to this heading">#</a></h2>
+<p>The ORA workflow tables store data about a response that a learner has
+submitted as it goes through each of the steps defined for the ORA component.</p>
+<p>The top level table is <code class="docutils literal notranslate"><span class="pre">AssessmentWorkflow</span></code>, which specifies the steps that a
+learner must complete for the ORA component.</p>
+<blockquote>
+<div><img alt="Diagram of the assessment workflow and assessment workflow step tables." src="../_images/ora2-tables-erd_AssessmentWorkflow.png" />
+</div></blockquote>
+<p>The self assessment step in an ORA component is a required, single step
+process. The <code class="docutils literal notranslate"><span class="pre">AssessmentWorkflowStep</span></code> table stores data about this step. A
+component can also include a training step, a peer evaluation step, or both.
+Additional tables store data for these optional steps.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">StudentTrainingWorkflow</span></code> stores data about a learner’s evaluation of a set
+of instructor-provided samples, including what evaluations the learner has
+completed and when each evaluation was made.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PeerWorkflow</span></code> stores data about the progress of a response as it undergoes
+peer grading, which can involve input from one or more peers.</p></li>
+</ul>
+</section>
+<section id="assessment-and-rubric-tables">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">6.6.2. </span>Assessment and Rubric Tables</a><a class="headerlink" href="#assessment-and-rubric-tables" title="Link to this heading">#</a></h2>
+<p>The assessment tables store the assessments that have been made for a
+particular response. Assessments can be self assessments, submitted by
+learners about their own work, or peer assessments, which are submitted by
+other learners. Assessments are scored against rubrics.</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">Rubric</span></code> specifies guidelines on how to assess submissions. Each rubric
+consists of a set of <code class="docutils literal notranslate"><span class="pre">Criterion</span></code> entries, each of which has a set of
+<code class="docutils literal notranslate"><span class="pre">CriterionOptions</span></code>.</p>
+<p>For example, a criterion for assessing writing might be, “The essay is well
+structured”. The options that a learner can choose for that criterion might be,
+“No evidence of structure; rambles”, “There is an attempt at organizing the
+material, but it doesn’t flow very well”, and “Clear structure from beginning
+to end”.</p>
+<p>The data for a rubric is written to these tables at the time of assessment. If
+a course team makes a change to the rubric for a problem, these tables contain
+different entries for assessments that were done before, and after, the change.</p>
+</section>
+<section id="submission-studentitem-and-score-tables">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">6.6.3. </span>Submission, StudentItem, and Score Tables</a><a class="headerlink" href="#submission-studentitem-and-score-tables" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Submission</span></code> table represents the responses made by a learner for a given
+component in a given course. Depending on the configuration of the ORA
+component, a learner can contribute multiple submissions for a given problem.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Submission</span></code> table includes only text responses. The data
+package does not include files uploaded by learners to accompany their text
+responses.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">StudentItem</span></code> table identifies a learner and the ORA component in the
+course. Rows in this table are linked to all submissions made by that learner
+for that component, as well as to each <code class="docutils literal notranslate"><span class="pre">Score</span></code> for that component.</p>
+<blockquote>
+<div><img alt="Diagram of the tables used for tracking submissions, student items, scores, and the related score summary table." src="../_images/ora2-tables-erd_SubmissionStudentItemScore.png" />
+</div></blockquote>
+</section>
+<section id="detailed-erd">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">6.6.4. </span>Detailed ERD</a><a class="headerlink" href="#detailed-erd" title="Link to this heading">#</a></h2>
+<p>This entity relationship diagram (ERD) provides a reference for the
+tables involved, their columns, and their relationships.</p>
+<p>Some of the tables modeled in this diagram have many to many relationships, in
+which case there is an additional table that stores data to reflect those
+relationships. An example is the
+<code class="docutils literal notranslate"><span class="pre">assessment_trainingexample_options_selected</span></code> table for the relationship
+between the <code class="docutils literal notranslate"><span class="pre">CriterionOption</span></code> and <code class="docutils literal notranslate"><span class="pre">TrainingExample</span></code> tables, identified on
+the diagram by <code class="docutils literal notranslate"><span class="pre">options_selected</span> <span class="pre">(trainingexample)</span></code>.</p>
+<blockquote>
+<div><img alt="Diagram of the primary tables used for ORA2 to track submissions, assessments, and rubrics." src="../_images/ora2-tables-erd.png" />
+</div></blockquote>
+<p>You might need to download this image to view it in sufficient detail. To
+ensure that this diagram can be viewed at full size, a duplicate of this image
+file is also available on the <a class="reference external" href="https://openedx.atlassian.net/wiki/display/AN/Entity+Relationship+Diagram+for+ORA+Data">Entity Relationship Diagram for ORA Data</a> page
+of the Open edX Analytics wiki.</p>
+<section id="notes">
+<h3><span class="section-number">6.6.4.1. </span>Notes<a class="headerlink" href="#notes" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Anonymous learner IDs are used throughout the ORA2 data. To link to full user
+data, you must join to the <code class="docutils literal notranslate"><span class="pre">student_anonymoususerid</span></code> table. For more
+information, see <a class="reference internal" href="sql_schema.html#student-anonymoususerid"><span class="std std-ref">Columns in the student_anonymoususerid Table</span></a>.</p></li>
+<li><p>The ERD includes several tables that include <code class="docutils literal notranslate"><span class="pre">AI</span></code> in the name. These tables
+were used for an edX prototype of an example based assessment system. That
+prototype system is not yet in general use, so the edX data packages do not
+include these tables.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="wiki_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.5. </span>Wiki Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tracking_logs/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.7. </span>Events in the Tracking Logs</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow-tables">6.6.1. Workflow Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment-and-rubric-tables">6.6.2. Assessment and Rubric Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#submission-studentitem-and-score-tables">6.6.3. Submission, StudentItem, and Score Tables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-erd">6.6.4. Detailed ERD</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#notes">6.6.4.1. Notes</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

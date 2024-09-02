@@ -1,0 +1,1511 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.26.1. Introduction to Open Response Assessments &#8212; Building and Running an edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises_tools/open_response_assessments/OpenResponseAssessments';</script>
+    <link rel="icon" href="https://www.edx.org/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="10.26.2. Create an Open Response Assessment Assignment" href="CreateORAAssignment.html" />
+    <link rel="prev" title="10.26. Open Response Assessments" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-light" alt="Building and Running an edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-dark" alt="Building and Running an edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Building and Running an edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started/CA_accounts.html">2.1. Getting Started with edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started/CA_get_started_Studio.html">2.2. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/accessibility_checker.html">5.4. Accessibility Checker</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/planning_course_information/index.html">6.1. Planning Course Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title, Number, and Enrollment Track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/index.html">6.3. Creating and Announcing a Course Using Publisher (edx.org Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_introduction.html">6.3.1. Introduction to Publisher</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/index.html">6.3.2. Creating a Course in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_course_creation.html">6.3.2.1. The Publisher Course Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_create_course.html">6.3.2.2. Create a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_find_course.html">6.3.2.3. Find a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_edit_course.html">6.3.2.4. Edit a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_send_course_marketing.html">6.3.2.5. Send a Course to edX Marketing for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_review_changes.html">6.3.2.6. Review Changes and Finalize the Course</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_add_comment_to_course.html">6.3.2.7. Add a Comment to a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_check_course_status.html">6.3.2.8. Check the Status of a Course in Publisher</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/index.html">6.3.3. Creating a Course Run in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_course_run_creation.html">6.3.3.1. The Publisher Course Run Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_create_course_run.html">6.3.3.2. Create a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_access_course_run_studio.html">6.3.3.3. Access a Course Run in Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_edit_course_run.html">6.3.3.4. Edit a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_course_run_staff.html">6.3.3.5. Add Course Run Staff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_send_course_run_review.html">6.3.3.6. Send a Course Run to the edX PC for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_comment_to_course_run.html">6.3.3.7. Add a Comment to the Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_finalize_course_run.html">6.3.3.8. Finalize a Course Run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_publish_about_page.html">6.3.4. Publishing an About Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_add_about_video.html">6.3.5. Add a Course or Program About Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_update_course_run_info.html">6.3.6. Change a Course Run After the About Page Is Published</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_change_publisher_settings.html">6.3.7. Change Publisher Settings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/studio_add_course_information/index.html">6.4. Add Course and Course Run Information in Studio (Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/creating_new_course.html">6.4.1. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_scheduling.html">6.4.2. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_course_image.html">6.4.3. Add a Course Image in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_course_staffing.html">6.4.4. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.4.5. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/creating_about_page.html">6.4.6. Creating a Course About Page in Studio</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../developing_course/index.html">7. Developing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/testing_courseware.html">7.9. Testing Your Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/social_sharing.html">7.10. Sharing Course Content on Social Media Platforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_components/index.html">8. Adding Course Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/upload_video.html">9.3. Managing Course Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/create_preroll_video.html">9.7. Adding a Pre-Roll Video to Your edX Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/troubleshoot_video.html">9.8. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">10. Adding Exercises and Tools</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conditional_module.html">10.7. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../completion.html">10.8. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drag_and_drop.html">10.10. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../drag_and_drop_deprecated.html">10.11. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../dropdown.html">10.12. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../external_graders.html">10.13. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../full_screen_image.html">10.14. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gene_explorer.html">10.15. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../google_calendar.html">10.16. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../google_docs.html">10.17. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../iframe.html">10.18. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../image_mapped_input.html">10.19. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../lti_component.html">10.20. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../math_expression_input.html">10.21. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mathjax.html">10.22. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_select.html">10.23. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../notes.html">10.24. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../numerical_input.html">10.25. Numerical Input Problem</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">10.26. Open Response Assessments</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">10.26.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CreateORAAssignment.html">10.26.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Manage_ORA_Assignment.html">10.26.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="ORA_Staff_Grading.html">10.26.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="Access_ORA_Info.html">10.26.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../oppia.html">10.27. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../peer_instruction_tool.html">10.28. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../periodic_table.html">10.29. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../poll_question.html">10.30. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../poll.html">10.31. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_with_hint.html">10.32. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem_in_latex.html">10.33. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../protein_builder.html">10.34. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../qualtrics.html">10.35. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../randomized_content_blocks.html">10.36. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../recommenderXBlock.html">10.37. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../scorm.html">10.38. SCORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../custom_python.html">10.45. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../zooming_image.html">10.46. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/course_live.html">11.6. Course Live</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../course_features/content_experiments/index.html">12.3. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/content_experiments/content_experiments_overview.html">12.3.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/content_experiments/content_experiments_configure.html">12.3.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/content_experiments/content_experiments_add.html">12.3.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/content_experiments/content_experiments_view.html">12.3.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../course_features/teams/index.html">12.4. Using the Teams Application</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/teams/teams_setup.html">12.4.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/teams/teams_learner_experience.html">12.4.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/teams/teams_discussions.html">12.4.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../course_features/credit_courses/index.html">12.5. Offering Academic Course Credit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/credit_courses/credit_courses.html">12.5.1. Academic Course Credit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_features/timed_exams.html">12.6. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../course_features/lti/index.html">12.7. Using edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/lti/lti_reuse_content.html">12.7.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/lti/lti_prepare_content.html">12.7.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/lti/lti_address_content.html">12.7.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/lti/lti_grade_content.html">12.7.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/lti/lti_canvas_example.html">12.7.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/lti/lti_blackboard_example.html">12.7.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../course_features/xpert_summaries/index.html">12.8. Xpert Unit Summaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/xpert_summaries/summaries_overview.html">12.8.1. Overview of Xpert Unit Summaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/xpert_summaries/summaries_enabling.html">12.8.2. Enabling Xpert Unit Summaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../course_features/xpert_translations/index.html">12.9. Xpert Course Translations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/xpert_translations/feature_description.html">12.9.1. Feature Description: Xpert Course Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/xpert_translations/enabling_disabling_translations.html">12.9.2. Enabling or Disabling Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../course_features/xpert_translations/reviewing_and_editing_translations.html">12.9.3. Reviewing and Editing Translations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/proctored_enabling.html">13.2. Enable Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/rpnow_create.html">13.3. Create a Proctored Exam with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/rpnow_results.html">13.4. Viewing Proctored Session Results with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/pt_create.html">13.5. Create a Proctored Exam with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/pt_results.html">13.6. Viewing Proctored Session Results with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/proctored_managing.html">13.7. Managing Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/proctored_learners.html">13.8. Preparing Learners for Proctored Exams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../managing_notifications/index.html">18. Managing Notifications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../managing_notifications/managing_notifications.html">18.1. Accessing the Notifications Tray</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../student_progress/index.html">19. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/course_student.html">19.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/course_answers.html">19.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/course_grades.html">19.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/certificate_data.html">19.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/checking_student_progress.html">19.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../rerun_course/index.html">20. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../rerun_course/course_rerun.html">20.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">21. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/course_authors/source/exercises_tools/open_response_assessments/OpenResponseAssessments.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fexercises_tools/open_response_assessments/OpenResponseAssessments.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/exercises_tools/open_response_assessments/OpenResponseAssessments.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Introduction to Open Response Assessments</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-of-an-open-response-assessment">10.26.1.1. Elements of an Open Response Assessment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompts">10.26.1.1.1. Prompts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubric">10.26.1.1.2. Rubric</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-criterion">10.26.1.1.2.1. An Example Criterion</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment-steps">10.26.1.1.3. Assessment Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-training-step">10.26.1.1.3.1. Learner Training Step</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#peer-assessment-step">10.26.1.1.3.2. Peer Assessment Step</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-responses-and-assessments">10.26.1.1.3.2.1. Number of Responses and Assessments</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-options">10.26.1.1.3.2.2. Feedback Options</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-additional-responses">10.26.1.1.3.2.3. Assessing Additional Responses</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#self-assessment-step">10.26.1.1.3.3. Self Assessment Step</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#staff-assessment-step">10.26.1.1.3.4. Staff Assessment Step</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-scores-for-open-response-assessments-are-calculated">10.26.1.2. How Scores for Open Response Assessments Are Calculated</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peer-assessment-scoring">10.26.1.2.1. Peer Assessment Scoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flexible-peer-grade-averaging">10.26.1.2.1.1. Flexible Peer Grade Averaging</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flexible-peer-grade-averaging-course-override">10.26.1.2.1.2. Flexible Peer Grade Averaging Course Override</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-assessment-scoring">10.26.1.2.2. Self Assessment Scoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staff-assessment-scoring">10.26.1.2.3. Staff Assessment Scoring</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-responses">10.26.1.3. Top Responses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-open-response-assessments">10.26.1.4. Best Practices for Open Response Assessments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-the-assignment">10.26.1.4.1. Designing the Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-and-rubrics">10.26.1.4.2. Grading and Rubrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peer-assessments">10.26.1.4.3. Peer Assessments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-learners-to-upload-files-in-responses">10.26.1.5. Asking Learners to Upload Files in Responses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prohibited-file-extensions">10.26.1.5.1. Prohibited File Extensions</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="introduction-to-open-response-assessments">
+<span id="open-response-assessments-two"></span><h1><span class="section-number">10.26.1. </span>Introduction to Open Response Assessments<a class="headerlink" href="#introduction-to-open-response-assessments" title="Link to this heading">#</a></h1>
+<p>In open response assessments (ORA), learners submit essay responses and then go
+through a series of assessment steps (such as peer assessment and self
+assessment) to complete the assignment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Open response assessments that are visible to all learners do not respect
+cohorts. In other words, it is possible for learners in one cohort to be
+asked to grade responses for learners in another cohort. If you want to make
+an open response assessment divided by cohort, you must create that
+assessment in a course component that is defined as cohort-specific. For  more
+information about cohorts and creating cohort-specific course content, see
+<a class="reference internal" href="../../course_features/cohorts/cohorts_overview.html#cohorts-overview"><span class="std std-ref">Using Cohorts in Your Courses</span></a> and <a class="reference internal" href="../../course_features/cohorts/cohorted_courseware.html#cohorted-courseware-overview"><span class="std std-ref">Creating Cohort-Specific Course Content</span></a>.</p>
+</div>
+<p>The following topics provide conceptual information about open response
+assessments.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#pa-elements"><span class="std std-ref">Elements of an Open Response Assessment</span></a></p></li>
+<li><p><a class="reference internal" href="#pa-scoring"><span class="std std-ref">How Scores for Open Response Assessments Are Calculated</span></a></p></li>
+<li><p><a class="reference internal" href="#best-practices-for-ora"><span class="std std-ref">Best Practices for Open Response Assessments</span></a></p></li>
+</ul>
+<p>For information about creating and managing open response assessments,
+including step by step instructions, see the following sections.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="CreateORAAssignment.html#pa-create-an-ora-assignment"><span class="std std-ref">Create an Open Response Assessment Assignment</span></a></p></li>
+<li><p><a class="reference internal" href="Manage_ORA_Assignment.html#managing-ora-assignments"><span class="std std-ref">Managing Open Response Assessment Assignments</span></a></p></li>
+<li><p><a class="reference internal" href="Access_ORA_Info.html#accessing-ora-assignment-information"><span class="std std-ref">Accessing Metrics for ORA Assignments</span></a></p></li>
+</ul>
+<p>For information about the learner experience with open response assessments,
+see <span class="xref std std-ref">learners:SFD_ORA</span> in the <em>edX Guide for Learners</em>.</p>
+<section id="elements-of-an-open-response-assessment">
+<span id="pa-elements"></span><h2><span class="section-number">10.26.1.1. </span>Elements of an Open Response Assessment<a class="headerlink" href="#elements-of-an-open-response-assessment" title="Link to this heading">#</a></h2>
+<p>When you create an open response assessment assignment, you include several
+elements.</p>
+<ul class="simple">
+<li><p>One or more <a class="reference internal" href="#pa-prompts"><span class="std std-ref">prompts</span></a>, or questions, that learners answer.</p></li>
+<li><p>A <a class="reference internal" href="#pa-rubric"><span class="std std-ref">rubric</span></a>. One rubric is used to grade all the prompts in
+the assessment.</p></li>
+<li><p>One or more <a class="reference internal" href="#pa-assessment-steps"><span class="std std-ref">assessment steps</span></a>. Assignments can
+include a learner training step, a peer assessment step, a self
+assessment step, and a staff assessment step.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you include a learner training step, you must also include a peer
+assessment step. The learner training step must come first, before the peer
+and self assessment steps. If you include a staff assessment step, it should
+be the final step in the assignment.</p>
+</div>
+<p>For step-by-step instructions for creating an open response assessment, see
+<a class="reference internal" href="CreateORAAssignment.html#pa-create-an-ora-assignment"><span class="std std-ref">Create an Open Response Assessment Assignment</span></a>.</p>
+<section id="prompts">
+<span id="pa-prompts"></span><h3><span class="section-number">10.26.1.1.1. </span>Prompts<a class="headerlink" href="#prompts" title="Link to this heading">#</a></h3>
+<p>A <strong>prompt</strong> is the question that you want your learners to answer. You can
+add more than one prompt in an ORA assignment. In addition to requiring a
+written response, you can require or allow learners to upload an image or
+other type of file to accompany their written response.</p>
+<p>Within each prompt, you can include helpful information for your learners,
+such as the approximate number of words or sentences that their responses
+should have, the types of files that they can upload, or what they can expect
+after they submit their responses. For more information, see <a class="reference internal" href="CreateORAAssignment.html#pa-add-prompt"><span class="std std-ref">Step 2. Add Prompts</span></a>.</p>
+<p>In the learner view of the assignment, each prompt appears above the field
+where learners enter their responses. For more information, see
+<span class="xref std std-ref">learners:Steps in an Open Response Assessment</span>.</p>
+</section>
+<section id="rubric">
+<span id="pa-rubric"></span><h3><span class="section-number">10.26.1.1.2. </span>Rubric<a class="headerlink" href="#rubric" title="Link to this heading">#</a></h3>
+<p>Your assignment must include a <strong>rubric</strong>. Grading for every type of
+assessment in an ORA assignment (self, peer, or staff) is done by comparing
+each response against the same rubric. You add one rubric for each problem,
+regardless of the number of prompts in the problem. The person performing the
+assessment sees the rubric when she begins grading, and compares the submitted
+response to the rubric.</p>
+<p>A rubric consists of several criteria and a set of options for each criterion.</p>
+<ul>
+<li><p><strong>Criteria</strong>. Each criterion describes characteristics that a response
+should have. Examples are concepts that a response should cover, or the amount
+of supporting information that a response must include.</p>
+<p>Each criterion has a name and a prompt.</p>
+<ul class="simple">
+<li><p>The <strong>criterion name</strong> is a one or two word summary of the criterion,
+such as “Content” or “Organization”. This name must be unique within the
+assignment and cannot be changed after you release the assignment.</p></li>
+<li><p>The <strong>criterion prompt</strong> describes how to evaluate a response based on
+this criterion.</p></li>
+</ul>
+</li>
+<li><p><strong>Options</strong>. Each criterion has a set of options, usually a range of
+ratings, which describe how well each response satisfies the criterion.
+For example a set of options might be “Fair”, “Good”, or “Excellent”.</p>
+<p>Each option has a name, an explanation, and a point value.</p>
+<ul class="simple">
+<li><p>The <strong>option name</strong> is a one or two word summary of the rating.</p></li>
+<li><p>The <strong>option explanation</strong> consists of details that help the person
+performing the assessment to decide whether the response matches the
+rating. Make sure the explanation for each option is as specific as
+possible.</p></li>
+<li><p>The <strong>option point value</strong> is the number of grade points given for this
+option.</p></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Different criteria in the same assignment can have different numbers of
+options.</p>
+<p>You can also include criteria that do not have options, but that do include
+a field where learners or staff can enter feedback. For more information,
+see  <a class="reference internal" href="CreateORAAssignment.html#pa-criteria-comment-field-only"><span class="std std-ref">Provide Only Comment Fields for Individual Criteria</span></a>.</p>
+</div>
+<p>In a rubric as it appears to a learner, the following elements are visible.</p>
+<ol class="arabic simple">
+<li><p>A criterion prompt</p></li>
+<li><p>The names of the criterion’s options</p></li>
+<li><p>Descriptions for each option</p></li>
+<li><p>The point value for each option</p></li>
+</ol>
+<a class="reference internal image-reference" href="../../_images/ORA_Rubric_CA.png"><img alt="Image of a rubric in the LMS with call-outs for the criterion prompt and option names, explanations, and points." src="../../_images/ORA_Rubric_CA.png" style="width: 600px;" />
+</a>
+<p>Criterion names do not display in the rubric that learners use to perform
+their assessments, but do appear on the page that shows the learner’s final
+ORA assignment grade.</p>
+<p>For information about creating a rubric, see <a class="reference internal" href="CreateORAAssignment.html#pa-add-rubric"><span class="std std-ref">Step 3. Add the Rubric</span></a>.</p>
+<section id="an-example-criterion">
+<h4><span class="section-number">10.26.1.1.2.1. </span>An Example Criterion<a class="headerlink" href="#an-example-criterion" title="Link to this heading">#</a></h4>
+<p>In a rubric, one criterion and its set of options might resemble the
+following.</p>
+<p><strong>Criterion</strong></p>
+<p>Name: Origins</p>
+<p>Prompt: Does this response explain the origins of the Hundred Years’ War? (5
+points possible)</p>
+<p><strong>Options</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 10.3%" />
+<col style="width: 25.6%" />
+<col style="width: 64.1%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>Points</p></th>
+<th class="head"><p>Name</p></th>
+<th class="head"><p>Explanation</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>0</p></th>
+<td><p>Not at all</p></td>
+<td><p>This response does not address the origins of the Hundred Years’ War.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>1</p></th>
+<td><p>Dynastic disagreement</p></td>
+<td><p>This response alludes to a dynastic disagreement between England and
+France, but doesn’t reference Edward III of England and Philip VI of
+France.</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>3</p></th>
+<td><p>Edward and Philip</p></td>
+<td><p>This response mentions the dynastic disagreement between Edward III and
+Philip VI, but doesn’t address the role of Salic law.</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>5</p></th>
+<td><p>Salic law</p></td>
+<td><p>This response explains the way that Salic law contributed to the
+dynastic disagreement between Edward III and Philip VI, leading to the
+Hundred Years’ War.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="assessment-steps">
+<span id="pa-assessment-steps"></span><h3><span class="section-number">10.26.1.1.3. </span>Assessment Steps<a class="headerlink" href="#assessment-steps" title="Link to this heading">#</a></h3>
+<p>In your assignment, you also specify the <strong>assessment steps</strong>. You can set the
+assignment to include some combination of the following steps.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#learner-training-step" id="id8">Learner Training Step</a></p></li>
+<li><p><a class="reference internal" href="#peer-assessment-step" id="id9">Peer Assessment Step</a></p></li>
+<li><p><a class="reference internal" href="#self-assessment-step" id="id10">Self Assessment Step</a></p></li>
+<li><p><a class="reference internal" href="#staff-assessment-step" id="id11">Staff Assessment Step</a></p></li>
+</ul>
+</nav>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you include a learner training step, you must also include a peer
+assessment step. The learner training step must come before peer or self
+assessment steps. If you include both peer and self assessment steps, edX
+recommends that you place the peer assessment before the self assessment.
+If you include a staff assessment step, it should be the final step in the
+assignment.</p>
+</div>
+<p>You can see the type and order of the assessments when you look at the
+assignment. In the following example, after learners submit their responses, they
+complete a learner training step (“Learn to Assess Responses”), complete peer
+assessments on other learners’ responses (“Assess Peers”), and then complete
+a self assessment (“Assess Your Response”).</p>
+<a class="reference internal image-reference" href="../../_images/ORA_Steps.png"><img alt="A peer assessment showing assessment steps." src="../../_images/ORA_Steps.png" style="width: 500px;" />
+</a>
+<section id="learner-training-step">
+<span id="pa-student-training-step"></span><h4><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">10.26.1.1.3.1. </span>Learner Training Step</a><a class="headerlink" href="#learner-training-step" title="Link to this heading">#</a></h4>
+<p>Learner training steps teach learners to perform their own assessments. A
+learner training assessment contains one or more sample responses that you
+write, together with the scores that you would give the sample responses.
+Learners review these responses and try to score them the way that you scored
+them.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you include a learner training step, you must also include a peer
+assessment step. The learner training step must come before any peer and self
+assessment steps.</p>
+</div>
+<p>In a learner training assessment, the <strong>Learn to Assess Responses</strong> step opens
+immediately after a learner submits a response. The learner sees one of the
+sample responses that you created, along with the rubric. The scores that you
+gave the response do not appear. The learner also sees the number of sample
+responses that he or she will assess.</p>
+<a class="reference internal image-reference" href="../../_images/ORA_TrainingStep.png"><img alt="The &quot;Learn to Assess Responses&quot; step, with the number of example responses circled." src="../../_images/ORA_TrainingStep.png" style="width: 500px;" />
+</a>
+<p>The learner selects an option for each of the assignment’s criteria, and then
+selects <strong>Compare your selections with the instructor’s selections</strong>. If all of
+the learner’s selections match the selections defined by the course team, the
+next sample response opens automatically.</p>
+<p>If any of the learner’s selections differ from those specified by the course
+team, the learner sees the response again, with a message indicating that his
+assessment differs from the instructor’s assessment.</p>
+<p>The learner continues to try scoring the sample response until his scoring for
+all criteria matches the scoring defined by the course team.</p>
+<p>For more information, see <a class="reference internal" href="CreateORAAssignment.html#pa-student-training"><span class="std std-ref">Learner Training</span></a>.</p>
+</section>
+<section id="peer-assessment-step">
+<span id="id1"></span><h4><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">10.26.1.1.3.2. </span>Peer Assessment Step</a><a class="headerlink" href="#peer-assessment-step" title="Link to this heading">#</a></h4>
+<p>In the peer assessment step, learners review the responses of other learners
+in the course. For each response, they select an option for each criterion in
+your rubric based on the response. Learners can also provide text feedback, or
+comments, on each response.</p>
+<p>If you include both peer and self assessment steps, edX recommends that you
+place the peer assessment before the self assessment.</p>
+<p>For information about how peer assessments affect a learner’s assignment grade,
+see <a class="reference internal" href="#pa-scoring"><span class="std std-ref">How Scores for Open Response Assessments Are Calculated</span></a>.</p>
+<section id="number-of-responses-and-assessments">
+<h5><span class="section-number">10.26.1.1.3.2.1. </span>Number of Responses and Assessments<a class="headerlink" href="#number-of-responses-and-assessments" title="Link to this heading">#</a></h5>
+<p>When you include a peer assessment step, you specify the number of responses
+that each learner must assess (<strong>Must Grade</strong>) and the number of peer
+assessments that each response must receive (<strong>Graded By</strong>) before the
+step is considered complete.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because some learners might submit a response without performing any
+peer assessments, some responses might not receive the required number of
+assessments. To increase the chance that all responses receive a sufficient
+number of assessments, you must set the number of responses that learners
+must assess to be higher than the number of assessments that each response
+must undergo. For example, if you require each response to receive three
+assessments, you could require each learner to assess five responses.</p>
+</div>
+<p>If all responses have received assessments, but some learners have not
+completed the required number of peer assessments, those learners can perform
+peer assessments on responses that have already been assessed by other
+learners. The learner who submitted the response sees the additional peer
+assessments when he sees his score. However, the additional peer assessments
+do not count toward the score that the response receives.</p>
+</section>
+<section id="feedback-options">
+<span id="id2"></span><h5><span class="section-number">10.26.1.1.3.2.2. </span>Feedback Options<a class="headerlink" href="#feedback-options" title="Link to this heading">#</a></h5>
+<p>By default, in peer assessment steps, learners can provide text feedback for
+the entire response, using a single comment field below the entire rubric. You
+can also add a comment field to an individual criterion or to several
+individual criteria. This comment field can contain up to 1000 characters.</p>
+<p>Comment fields for individual criterion appear below the options for the
+criterion.</p>
+<p>For more information, see <a class="reference internal" href="CreateORAAssignment.html#pa-add-rubric"><span class="std std-ref">Step 3. Add the Rubric</span></a> and <a class="reference internal" href="CreateORAAssignment.html#pa-criteria-comment-field-only"><span class="std std-ref">Provide Only Comment Fields for Individual Criteria</span></a>.</p>
+</section>
+<section id="assessing-additional-responses">
+<h5><span class="section-number">10.26.1.1.3.2.3. </span>Assessing Additional Responses<a class="headerlink" href="#assessing-additional-responses" title="Link to this heading">#</a></h5>
+<p>Learners can assess more than the required number of responses. After a
+learner completes the peer assessment step, the step “collapses” so that only
+the <strong>Assess Peers</strong> heading is visible.</p>
+<p>If the learner selects the <strong>Assess Peers</strong> heading, the step expands again.
+The learner can then select <strong>Continue Assessing Peers</strong> to perform additional
+peer assessments.</p>
+</section>
+</section>
+<section id="self-assessment-step">
+<span id="id3"></span><h4><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">10.26.1.1.3.3. </span>Self Assessment Step</a><a class="headerlink" href="#self-assessment-step" title="Link to this heading">#</a></h4>
+<p>In self assessment steps, the learner sees her own response followed by the rubric.
+As with peer assessments, the learner evaluates the response using the rubric,
+selecting an option for each criterion.</p>
+<p>If you include both peer and self assessments, edX recommends that you include
+the peer assessment before the self assessment.</p>
+</section>
+<section id="staff-assessment-step">
+<span id="id4"></span><h4><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">10.26.1.1.3.4. </span>Staff Assessment Step</a><a class="headerlink" href="#staff-assessment-step" title="Link to this heading">#</a></h4>
+<p>In staff assessment steps, a member of the course team performs an evaluation
+of the learner’s response. Course team members grade the response using the
+problem’s rubric, in the same way that self and peer assessments are done, and
+can include comments in their assessment.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a staff assessment step is included in an assignment, learners do
+not receive final grades until the staff assessment step has been completed.
+The scores that you give learners in staff assessment steps override
+scores from any other assessment type in the assignment, including peer
+assessments that are completed after the staff assessment.</p>
+</div>
+<p>Including a staff assessment step in an ORA assignment is best for courses with
+smaller groups of learners. For example, in a course with cohorts, you might
+create an ORA assignment that has both peer assessment and staff assessment
+steps, and make it available only to the members of one or more specific
+cohorts. For the members of the remaining cohorts, you create an ORA assignment
+that has only the peer assessment step. For details about creating different
+course experiences for learners in different cohorts, see
+<a class="reference internal" href="../../course_features/cohorts/cohorted_courseware.html#cohorted-courseware-overview"><span class="std std-ref">Creating Cohort-Specific Course Content</span></a>.</p>
+<p>For details about performing grading in staff assessment steps, see
+<a class="reference internal" href="Manage_ORA_Assignment.html#perform-a-staff-assessment"><span class="std std-ref">Perform Staff Assessments in an ORA Assignment</span></a>.</p>
+</section>
+</section>
+</section>
+<section id="how-scores-for-open-response-assessments-are-calculated">
+<span id="pa-scoring"></span><h2><span class="section-number">10.26.1.2. </span>How Scores for Open Response Assessments Are Calculated<a class="headerlink" href="#how-scores-for-open-response-assessments-are-calculated" title="Link to this heading">#</a></h2>
+<p>In open response assessments that contain staff assessments, staff assessments
+can be performed more than once, and the most recent staff assessment score is
+equivalent to the assignment’s final score. Peer and self assessment scores are
+not taken into account, although learners can see scores and comments from all
+assessments that were performed on their response.</p>
+<p>In open response assessments that do not contain staff assessments but do
+contain both peer assessment and self assessments, only the peer assessment
+score counts toward the assignment’s final score. The self assessment score is
+not taken into account. There is no option for weighting the peer and self
+assessment portions independently.</p>
+<p>In open response assessments that include only self assessments, the
+assignment’s final score is equivalent to the self assessment score.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Given the high level of subjectivity in peer assessments, edX
+recommends that you make ORA assignments count towards only a small
+percentage of a course’s final grade.</p>
+</div>
+<p>The following topics detail how the scores for peer assessments and self
+assessments are calculated.</p>
+<section id="peer-assessment-scoring">
+<h3><span class="section-number">10.26.1.2.1. </span>Peer Assessment Scoring<a class="headerlink" href="#peer-assessment-scoring" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If an open response assessment includes peer and self assessments
+but not staff assessments, only the peer assessment score counts towards
+the assignment’s final score. The self assessment score is not taken into
+account.</p>
+</div>
+<p>Peer assessments are scored by criteria. A number of peer assessors rate a
+learner’s response by each of the required criteria. The learner’s score for a
+particular criterion is the median of all scores that each peer assessor gave
+that criterion. For example, if the Ideas criterion in a peer assessment
+receives a 10 from one learner, a 7 from a second learner, and an 8 from a
+third learner, the Ideas criterion’s score is 8.</p>
+<p>The learner’s final score on a response is the sum of the median scores from
+all peer assessors for all of the required criteria.</p>
+<p>For example, a response might have received the following scores from peer
+assessors.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 38.5%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+<col style="width: 15.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head stub"><p>Criterion Name</p></th>
+<th class="head"><p>Peer 1</p></th>
+<th class="head"><p>Peer 2</p></th>
+<th class="head"><p>Peer 3</p></th>
+<th class="head"><p>Median</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><th class="stub"><p>Ideas (out of 10)</p></th>
+<td><p>10</p></td>
+<td><p>7</p></td>
+<td><p>8</p></td>
+<td><p><strong>8</strong></p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Content (out of 10)</p></th>
+<td><p>7</p></td>
+<td><p>9</p></td>
+<td><p>8</p></td>
+<td><p><strong>8</strong></p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Grammar (out of 5)</p></th>
+<td><p>4</p></td>
+<td><p>4</p></td>
+<td><p>5</p></td>
+<td><p><strong>4</strong></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>To calculate the final score for the response, add the median scores that were
+given for each criterion, as follows.</p>
+<blockquote>
+<div><p><strong>Ideas median (8/10) + Content median (8/10) + Grammar median (4/5) = final
+score (20/25)</strong></p>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Remember that final scores are calculated by criteria, not by
+individual assessor. Therefore, the score for the response is not the median
+of the scores that each individual peer assessor gave the response.</p>
+</div>
+<p>For information on scores for learner submissions that you have canceled and
+removed from peer assessment, refer to <a class="reference internal" href="Manage_ORA_Assignment.html#remove-a-learner-response-from-peer-grading"><span class="std std-ref">Remove a Learner’s Response</span></a>.</p>
+<section id="flexible-peer-grade-averaging">
+<span id="id5"></span><h4><span class="section-number">10.26.1.2.1.1. </span>Flexible Peer Grade Averaging<a class="headerlink" href="#flexible-peer-grade-averaging" title="Link to this heading">#</a></h4>
+<p>To reduce the change of users getting “stuck” in the waiting step, you can enable this feature to lower the requirements for a grade in the peer assessment step.</p>
+<p>When this feature is enabled, seven days after a learner submits, the number of peer reviews required for them to receive a grade decreases to 30% of what it previously was, rounded down to the nearest integer.</p>
+<p>For example, let’s say we have an assessment that requires learners to receive ten (10) peer reviews to receive a grade.</p>
+<p>Learner A has received five peer reviews. This isn’t enough to receive a grade, but seven days after submitting, Flexible Peer Grading activates and reduces the required peer reviews to 30% of the original ten. Now, Learner A only needs three peer reviews. Since they have received at least that many, they will immediately receive a grade.</p>
+<p>Learner B has received only one peer review. This isn’t enough for a grade, and seven days after submitting, Flexible Peer Grading also decreases Learner B’s required peer reviews to three. Learner B then receives a second review. This still isn’t enough. As soon as they receive their third peer review, however, they finally have enough peer reviews and immediately receive a grade.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Fexible Peer Grading will never reduce the number of required peer reviews below 1, but it will
+bring the number to 1. That means if a learner has not recieved any peer reviews after seven days, the
+very first peer review they will recieve will be the entirety of their peer grade.</p>
+</div>
+</section>
+<section id="flexible-peer-grade-averaging-course-override">
+<span id="id6"></span><h4><span class="section-number">10.26.1.2.1.2. </span>Flexible Peer Grade Averaging Course Override<a class="headerlink" href="#flexible-peer-grade-averaging-course-override" title="Link to this heading">#</a></h4>
+<p>There is an additional field at the course level to simplify turning flexible peer averaging on for all ORAs in a course. When set to “ON” all peer graded ORAs in the course will have flexible peer grade averaging enabled, with no need to manually change settings on each individual ORA. When set to “OFF” all peer Graded ORAs in the course will fallback to the setting on each individual assignment. This course field is set to ON by default for course reruns and new courses in order to facilitate students receiving a grade in a timely manner.</p>
+<p>You can adjust this setting by going to Pages and Resources, and selecting “ORA Flexible Peer Grading”</p>
+<a class="reference internal image-reference" href="../../_images/oraflex_coursesetting.png"><img alt="Image highlighting a card on the Pages and Resources page that enables flexible peer grading at the course level" src="../../_images/oraflex_coursesetting.png" style="width: 600px;" />
+</a>
+<p>Then set the toggle for this feature on or off</p>
+<a class="reference internal image-reference" href="../../_images/oraflex_card.png"><img alt="Image highlighting the toggle for flexible peer grading on the course level" src="../../_images/oraflex_card.png" style="width: 600px;" />
+</a>
+</section>
+</section>
+<section id="self-assessment-scoring">
+<h3><span class="section-number">10.26.1.2.2. </span>Self Assessment Scoring<a class="headerlink" href="#self-assessment-scoring" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If an open response assessment includes both peer and self
+assessments, the self assessment score does not count toward the final
+grade.</p>
+</div>
+<p>If an open response assessment includes only self assessments, the
+assignment’s final score is equivalent to the self assessment score.</p>
+<p>Self assessments are scored by criteria. Each learner rates herself on each
+criterion, using the rubric. The learner’s final score on a response is the
+total number of earned points, out of the total possible points.</p>
+</section>
+<section id="staff-assessment-scoring">
+<h3><span class="section-number">10.26.1.2.3. </span>Staff Assessment Scoring<a class="headerlink" href="#staff-assessment-scoring" title="Link to this heading">#</a></h3>
+<p>If an open response assessment includes a staff assessment step, the score
+that is given in the staff assessment step overrides all other scores in the
+assignment.</p>
+</section>
+</section>
+<section id="top-responses">
+<span id="pa-top-responses"></span><h2><span class="section-number">10.26.1.3. </span>Top Responses<a class="headerlink" href="#top-responses" title="Link to this heading">#</a></h2>
+<p>You can include a <strong>Top Responses</strong> section that shows the top scoring
+responses that learners have submitted for the assignment, along with the
+scores for those responses. The <strong>Top Responses</strong> section appears below the
+learner’s score information after the learner finishes every step in the
+assignment.</p>
+<a class="reference internal image-reference" href="../../_images/PA_TopResponses.png"><img alt="Section that shows the text and scores of the top three responses for the assignment." src="../../_images/PA_TopResponses.png" style="width: 500px;" />
+</a>
+<p>You can allow the <strong>Top Responses</strong> section to show between 1 and 100
+responses. Keep in mind, however, that each response might be up to 300 pixels
+in height in the list. (For longer responses, learners can scroll to see the
+entire response.) EdX recommends that you specify 20 or fewer responses to
+prevent the page from becoming too long.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It can take up to an hour for a high-scoring response to appear in the
+<strong>Top Responses</strong> list.</p>
+<p>If a high-scoring response is <a class="reference internal" href="Manage_ORA_Assignment.html#remove-a-learner-response-from-peer-grading"><span class="std std-ref">removed from peer assessment</span></a> it is also removed from the <strong>Top
+Responses</strong> list.</p>
+</div>
+<p>For more information, see <a class="reference internal" href="CreateORAAssignment.html#pa-show-top-responses"><span class="std std-ref">Include Top Responses</span></a>.</p>
+</section>
+<section id="best-practices-for-open-response-assessments">
+<span id="best-practices-for-ora"></span><h2><span class="section-number">10.26.1.4. </span>Best Practices for Open Response Assessments<a class="headerlink" href="#best-practices-for-open-response-assessments" title="Link to this heading">#</a></h2>
+<p>Open response assessments can be a powerful teaching tool, but they are more
+effective in some situations than in others. In general, open response
+assessments are best suited to open-ended or project-based assignments with
+subjective essay answers and discussion. For example, open response assessments
+work well in humanities assignments where learners are encouraged to make
+subjective assessments of text, images, or other contributions, but they might
+not be the ideal tool in chemistry assignments where there are definitively
+correct or incorrect answers to questions.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not add more than one ORA component in a course unit. Multiple ORA
+assignments in a unit cause errors when learners submit their assessments.</p>
+</div>
+<p>EdX suggests that you follow the guidelines and best practices in the
+following sections when you use open response assessments in your courses.</p>
+<section id="designing-the-assignment">
+<h3><span class="section-number">10.26.1.4.1. </span>Designing the Assignment<a class="headerlink" href="#designing-the-assignment" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Do not add more than one ORA component in a course unit. Multiple ORA
+assignments in a unit cause errors when learners submit their assessments.</p></li>
+<li><p>Do not include too many ORA assessments in your course. <a class="reference internal" href="#peer-assessment-step"><span class="std std-ref">Peer
+assessments</span></a> are hard work for learners, and having
+to perform too many peer assessments can have a negative impact on learners’
+course completion rates.</p></li>
+<li><p>For a manageable experience for course staff, use staff assessment steps
+only in assignments that are available to a limited number of learners. For
+example, in courses that have cohorts enabled, make the assignment
+containing the staff assessment step available only to members of one or
+more cohorts.</p></li>
+</ul>
+</section>
+<section id="grading-and-rubrics">
+<h3><span class="section-number">10.26.1.4.2. </span>Grading and Rubrics<a class="headerlink" href="#grading-and-rubrics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Make sure you have a well designed and clear <a class="reference internal" href="#pa-rubric"><span class="std std-ref">rubric</span></a> for
+the assignment. A good rubric is very important in helping to eliminate
+ambiguity in the peer grading process.</p></li>
+<li><p>Make ORA assignments count toward only a small percentage of the final
+course grade, or make them ungraded.</p></li>
+<li><p>In graded ORA assignments, consider setting the lowest possible score to a
+number higher than zero, so that learners can earn some credit for the work
+they have done, even if their peer assessors give them low grades.</p></li>
+<li><p>Provide an ungraded practice ORA assignment prior to the first graded ORA
+assignment in the course, so that learners can understand the peer grading
+process and get the most out of the eventual graded ORA assignment.</p></li>
+<li><p>Consider using ungraded ORA assignments to generate learner interaction and
+feedback without affecting grades.</p></li>
+</ul>
+</section>
+<section id="peer-assessments">
+<h3><span class="section-number">10.26.1.4.3. </span>Peer Assessments<a class="headerlink" href="#peer-assessments" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Set the <strong>Must Grade</strong> number higher than the <strong>Graded By</strong> number to
+minimize the chance that some responses will not be peer assessed. EdX
+recommends a setting such as <strong>Must Grade</strong> = 4 and <strong>Graded By</strong> = 3.</p></li>
+<li><p>To allow enough time for peer assessments to be performed after learners
+have submitted their own responses, set the response due date and time at
+least one week before the peer assessment due date and time.</p>
+<p>If the response due time and peer assessment due time are too close
+together, and a learner submits a response just before responses are due,
+other learners may not have time to perform peer assessments before peer
+assessments are due.</p>
+</li>
+<li><p>Use course discussion posts to provide guidance for peer grading of ORA
+assignments.</p></li>
+<li><p>Consider extending due dates to allow the discussion moderation team to
+monitor course discussions for questions about, or reactions to, peer
+grading, and to address issues when necessary.</p>
+<p>If learners raise concerns about ORA assignments in course discussions,
+course team members can perform actions such as <a class="reference internal" href="../../student_progress/course_grades.html#adjust-grades"><span class="std std-ref">deleting a learner’s
+history, or “state”</span></a> for a problem so that he can submit his
+assignment again, <a class="reference internal" href="Manage_ORA_Assignment.html#override-a-learner-assessment-grade"><span class="std std-ref">overriding a learner’s grade</span></a>, or <a class="reference internal" href="Manage_ORA_Assignment.html#remove-a-learner-response-from-peer-grading"><span class="std std-ref">removing a learner response</span></a> from peer grading. If there are more widespread
+issues with peer grading, the course team can reduce the weight of the peer
+assessment within the final course grade or allow learners to drop the
+lowest graded assignment from their grades.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="asking-learners-to-upload-files-in-responses">
+<span id="asking-learners-to-upload-other-files-in-responses"></span><h2><span class="section-number">10.26.1.5. </span>Asking Learners to Upload Files in Responses<a class="headerlink" href="#asking-learners-to-upload-files-in-responses" title="Link to this heading">#</a></h2>
+<p>In ORA assignments, you can ask your learners to upload images, .pdf files,
+or other types of files as a part of their responses. Other learners
+evaluate the responses and their accompanying files during the peer
+assessment. Offering the option to upload files in addition to a text
+response can give learners the opportunity to use tools and develop skills
+that are relevant to your course.</p>
+<p>Before you decide to ask learners to upload files along with their text
+responses, however, be aware of the following limitations and best practices.</p>
+<ul class="simple">
+<li><p>During the peer assessment step, learners download the files that other
+learners uploaded. To reduce the potential for problems from files with
+malicious content, learners cannot upload files with certain file extensions.
+For a complete list, see <a class="reference internal" href="#prohibited-file-extensions"><span class="std std-ref">Prohibited File Extensions</span></a>.</p></li>
+<li><p>Course teams can only access uploaded files for one learner at a time.
+Uploaded file content is not included in the reports of answer submissions
+that are available from the instructor dashboard, and course data packages do
+not include any of the uploaded files.</p></li>
+<li><p>The cumulative size of all uploaded files must be less than 500 MB.</p></li>
+<li><p>Image files must be in .jpg, .gif, or .png format.</p></li>
+</ul>
+<p>For more information, see <a class="reference internal" href="CreateORAAssignment.html#pa-allow-images"><span class="std std-ref">Specify the Response Type</span></a>.</p>
+<section id="prohibited-file-extensions">
+<span id="id7"></span><h3><span class="section-number">10.26.1.5.1. </span>Prohibited File Extensions<a class="headerlink" href="#prohibited-file-extensions" title="Link to this heading">#</a></h3>
+<p>Learners cannot upload file types that have the following file name extensions
+as part of an open response assessment on edx.org or edX Edge. When you define
+a set of custom file types for learners to upload with their responses, you
+cannot specify these file types. The extensions on this list are selected and
+maintained by the development operations team at edX, and are subject to
+change.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 83.3%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>A through I</p></td>
+<td><p>.action, .apk, .app, .application, .bat, .bin, .cmd, .com, .command,
+.cpl, .csh, .dmg, .exe, .gadget, .hta, .htm, .html, .inf, .ins, .inx,
+.ipa, .isu</p></td>
+</tr>
+<tr class="row-even"><td><p>J through P</p></td>
+<td><p>.jar, .job, .jse, .lnk., msc, .msh, .msh1, .msh2, .mshxml, .msh1xml,
+.msh2xml, .msi, .msp, .mst, .osx, .out, .paf, .pif, .prg, psc1, .psc2,
+.ps1, .ps1xml, .ps2, .ps2xml</p></td>
+</tr>
+<tr class="row-odd"><td><p>Q through Z</p></td>
+<td><p>.reg, .rgs, .run, .scf, .scr, .sct, .shb, .shs, .u3p, .vb, .vbe, .vbs,
+.vbscript, .workflow .ws, .wsc, .wsf, .wsh</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10.26. </span>Open Response Assessments</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="CreateORAAssignment.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.26.2. </span>Create an Open Response Assessment Assignment</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-of-an-open-response-assessment">10.26.1.1. Elements of an Open Response Assessment</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prompts">10.26.1.1.1. Prompts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rubric">10.26.1.1.2. Rubric</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#an-example-criterion">10.26.1.1.2.1. An Example Criterion</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#assessment-steps">10.26.1.1.3. Assessment Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-training-step">10.26.1.1.3.1. Learner Training Step</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#peer-assessment-step">10.26.1.1.3.2. Peer Assessment Step</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-responses-and-assessments">10.26.1.1.3.2.1. Number of Responses and Assessments</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#feedback-options">10.26.1.1.3.2.2. Feedback Options</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#assessing-additional-responses">10.26.1.1.3.2.3. Assessing Additional Responses</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#self-assessment-step">10.26.1.1.3.3. Self Assessment Step</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#staff-assessment-step">10.26.1.1.3.4. Staff Assessment Step</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-scores-for-open-response-assessments-are-calculated">10.26.1.2. How Scores for Open Response Assessments Are Calculated</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peer-assessment-scoring">10.26.1.2.1. Peer Assessment Scoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flexible-peer-grade-averaging">10.26.1.2.1.1. Flexible Peer Grade Averaging</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#flexible-peer-grade-averaging-course-override">10.26.1.2.1.2. Flexible Peer Grade Averaging Course Override</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#self-assessment-scoring">10.26.1.2.2. Self Assessment Scoring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staff-assessment-scoring">10.26.1.2.3. Staff Assessment Scoring</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#top-responses">10.26.1.3. Top Responses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-open-response-assessments">10.26.1.4. Best Practices for Open Response Assessments</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#designing-the-assignment">10.26.1.4.1. Designing the Assignment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-and-rubrics">10.26.1.4.2. Grading and Rubrics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#peer-assessments">10.26.1.4.3. Peer Assessments</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#asking-learners-to-upload-files-in-responses">10.26.1.5. Asking Learners to Upload Files in Responses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prohibited-file-extensions">10.26.1.5.1. Prohibited File Extensions</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>12.7.4. Grading Remote Content &#8212; Building and Running an edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course_features/lti/lti_grade_content';</script>
+    <link rel="icon" href="https://www.edx.org/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="12.7.5. Example: edX as an LTI Provider to Canvas" href="lti_canvas_example.html" />
+    <link rel="prev" title="12.7.3. Determining Content Addresses" href="lti_address_content.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-light" alt="Building and Running an edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-dark" alt="Building and Running an edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Building and Running an edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started/CA_accounts.html">2.1. Getting Started with edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started/CA_get_started_Studio.html">2.2. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../accessibility/accessibility_checker.html">5.4. Accessibility Checker</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/planning_course_information/index.html">6.1. Planning Course Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title, Number, and Enrollment Track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/index.html">6.3. Creating and Announcing a Course Using Publisher (edx.org Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_introduction.html">6.3.1. Introduction to Publisher</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/index.html">6.3.2. Creating a Course in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_course_creation.html">6.3.2.1. The Publisher Course Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_create_course.html">6.3.2.2. Create a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_find_course.html">6.3.2.3. Find a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_edit_course.html">6.3.2.4. Edit a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_send_course_marketing.html">6.3.2.5. Send a Course to edX Marketing for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_review_changes.html">6.3.2.6. Review Changes and Finalize the Course</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_add_comment_to_course.html">6.3.2.7. Add a Comment to a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_check_course_status.html">6.3.2.8. Check the Status of a Course in Publisher</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/index.html">6.3.3. Creating a Course Run in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_course_run_creation.html">6.3.3.1. The Publisher Course Run Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_create_course_run.html">6.3.3.2. Create a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_access_course_run_studio.html">6.3.3.3. Access a Course Run in Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_edit_course_run.html">6.3.3.4. Edit a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_course_run_staff.html">6.3.3.5. Add Course Run Staff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_send_course_run_review.html">6.3.3.6. Send a Course Run to the edX PC for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_comment_to_course_run.html">6.3.3.7. Add a Comment to the Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_finalize_course_run.html">6.3.3.8. Finalize a Course Run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_publish_about_page.html">6.3.4. Publishing an About Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_add_about_video.html">6.3.5. Add a Course or Program About Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_update_course_run_info.html">6.3.6. Change a Course Run After the About Page Is Published</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/pub_create_ann_course/pub_change_publisher_settings.html">6.3.7. Change Publisher Settings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../set_up_course/studio_add_course_information/index.html">6.4. Add Course and Course Run Information in Studio (Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/creating_new_course.html">6.4.1. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_scheduling.html">6.4.2. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_course_image.html">6.4.3. Add a Course Image in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_course_staffing.html">6.4.4. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.4.5. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../set_up_course/studio_add_course_information/creating_about_page.html">6.4.6. Creating a Course About Page in Studio</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../developing_course/index.html">7. Developing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/testing_courseware.html">7.9. Testing Your Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../developing_course/social_sharing.html">7.10. Sharing Course Content on Social Media Platforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_components/index.html">8. Adding Course Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_components/libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/upload_video.html">9.3. Managing Course Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/create_preroll_video.html">9.7. Adding a Pre-Roll Video to Your edX Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../video/troubleshoot_video.html">9.8. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../exercises_tools/index.html">10. Adding Exercises and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/conditional_module.html">10.7. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/completion.html">10.8. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/drag_and_drop.html">10.10. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/drag_and_drop_deprecated.html">10.11. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/dropdown.html">10.12. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/external_graders.html">10.13. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/full_screen_image.html">10.14. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/gene_explorer.html">10.15. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/google_calendar.html">10.16. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/google_docs.html">10.17. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/iframe.html">10.18. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/image_mapped_input.html">10.19. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/lti_component.html">10.20. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/math_expression_input.html">10.21. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/mathjax.html">10.22. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/multi_select.html">10.23. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/notes.html">10.24. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/numerical_input.html">10.25. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../exercises_tools/open_response_assessments/index.html">10.26. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../exercises_tools/open_response_assessments/OpenResponseAssessments.html">10.26.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../exercises_tools/open_response_assessments/CreateORAAssignment.html">10.26.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../exercises_tools/open_response_assessments/Manage_ORA_Assignment.html">10.26.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../exercises_tools/open_response_assessments/ORA_Staff_Grading.html">10.26.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../exercises_tools/open_response_assessments/Access_ORA_Info.html">10.26.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/oppia.html">10.27. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/peer_instruction_tool.html">10.28. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/periodic_table.html">10.29. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/poll_question.html">10.30. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/poll.html">10.31. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/problem_with_hint.html">10.32. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/problem_in_latex.html">10.33. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/protein_builder.html">10.34. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/qualtrics.html">10.35. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/randomized_content_blocks.html">10.36. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/recommenderXBlock.html">10.37. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/scorm.html">10.38. SCORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/custom_python.html">10.45. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../exercises_tools/zooming_image.html">10.46. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../course_assets/course_live.html">11.6. Course Live</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">12. Using Enhanced Capabilities In Your Course</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="../cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../content_experiments/index.html">12.3. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../content_experiments/content_experiments_overview.html">12.3.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content_experiments/content_experiments_configure.html">12.3.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content_experiments/content_experiments_add.html">12.3.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../content_experiments/content_experiments_view.html">12.3.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../teams/index.html">12.4. Using the Teams Application</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../teams/teams_setup.html">12.4.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../teams/teams_learner_experience.html">12.4.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../teams/teams_discussions.html">12.4.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../credit_courses/index.html">12.5. Offering Academic Course Credit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../credit_courses/credit_courses.html">12.5.1. Academic Course Credit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../timed_exams.html">12.6. Offering Timed Exams</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">12.7. Using edX as an LTI Tool Provider</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="lti_reuse_content.html">12.7.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti_prepare_content.html">12.7.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti_address_content.html">12.7.3. Determining Content Addresses</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">12.7.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti_canvas_example.html">12.7.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti_blackboard_example.html">12.7.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../xpert_summaries/index.html">12.8. Xpert Unit Summaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../xpert_summaries/summaries_overview.html">12.8.1. Overview of Xpert Unit Summaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../xpert_summaries/summaries_enabling.html">12.8.2. Enabling Xpert Unit Summaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../xpert_translations/index.html">12.9. Xpert Course Translations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../xpert_translations/feature_description.html">12.9.1. Feature Description: Xpert Course Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../xpert_translations/enabling_disabling_translations.html">12.9.2. Enabling or Disabling Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../xpert_translations/reviewing_and_editing_translations.html">12.9.3. Reviewing and Editing Translations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/proctored_enabling.html">13.2. Enable Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/rpnow_create.html">13.3. Create a Proctored Exam with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/rpnow_results.html">13.4. Viewing Proctored Session Results with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/pt_create.html">13.5. Create a Proctored Exam with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/pt_results.html">13.6. Viewing Proctored Session Results with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/proctored_managing.html">13.7. Managing Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../proctored_exams/proctored_learners.html">13.8. Preparing Learners for Proctored Exams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../managing_notifications/index.html">18. Managing Notifications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../managing_notifications/managing_notifications.html">18.1. Accessing the Notifications Tray</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../student_progress/index.html">19. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/course_student.html">19.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/course_answers.html">19.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/course_grades.html">19.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/certificate_data.html">19.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../student_progress/checking_student_progress.html">19.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../rerun_course/index.html">20. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../rerun_course/course_rerun.html">20.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">21. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/course_authors/source/course_features/lti/lti_grade_content.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fcourse_features/lti/lti_grade_content.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/course_features/lti/lti_grade_content.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Grading Remote Content</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="grading-remote-content">
+<span id="id1"></span><h1><span class="section-number">12.7.4. </span>Grading Remote Content<a class="headerlink" href="#grading-remote-content" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This feature was a closed pilot experiment. This feature is not
+supported for new users.</p>
+</div>
+<p>When you include the problem components in a graded edX subsection in an
+external LMS, the edX system grades the learner responses to those problems.
+The edX system then transfers the learner scores back to the external LMS. This
+exchange between an external LMS, the edX system, and the external LMS again is
+near real time. It can take a few moments to complete this exchange for a
+single problem component, and up to several minutes to return aggregated scores
+of all of the problems in a unit or subsection.</p>
+<p>When you include edX problem components in an external LMS, note the following
+requirements.</p>
+<ul class="simple">
+<li><p>The edX problem component must be in one of the graded subsections in your
+course.</p></li>
+<li><p>Your external LMS might also require that you use a specific part of the
+course for graded content. For example, in Canvas, you must add the LTI URL
+of a problem component to the “Assignments” section of a course, or to a
+module item that points to an assignment. In addition, the user who launches
+the LTI material must be eligible to get a grade for the assignment; that is,
+a learner and not a TA or course designer.</p></li>
+</ul>
+<p>For more information about constructing an LTI URL for a course component, see
+<a class="reference internal" href="lti_address_content.html#determining-content-addresses"><span class="std std-ref">Determining Content Addresses</span></a>.</p>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lti_address_content.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12.7.3. </span>Determining Content Addresses</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="lti_canvas_example.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">12.7.5. </span>Example: edX as an LTI Provider to Canvas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

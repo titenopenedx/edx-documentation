@@ -1,0 +1,27 @@
+# Read the Docs configuration file
+
+version: 2
+
+# Build settings
+sphinx:
+  configuration: shared/conf.py  # Path to your conf.py file in the en_us directory
+  builder: html
+
+# Python environment settings
+python:
+  version: 3.8  # Adjust this to the Python version you require
+  install:
+    - pip:
+        - en_us/requirements/base.txt  # Main requirements file
+        - en_us/requirements/dev.txt   # Additional development requirements
+        - en_us/requirements/pip.txt   # Pip requirements
+
+# Build settings
+build:
+  os: ubuntu-20.04
+  tools:
+    python: "3.8"  # Python version to use, adjust as needed
+
+# Custom build commands
+commands:
+  - ./build_all.sh  # Run your custom build script if applicable

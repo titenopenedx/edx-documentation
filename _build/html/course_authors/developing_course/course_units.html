@@ -1,0 +1,1383 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7.5. Developing Course Units &#8212; Building and Running an edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developing_course/course_units';</script>
+    <link rel="icon" href="https://www.edx.org/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="7.6. Developing Course Components" href="course_components.html" />
+    <link rel="prev" title="7.4. Developing Course Subsections" href="course_subsections.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-light" alt="Building and Running an edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-dark" alt="Building and Running an edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building and Running an edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_accounts.html">2.1. Getting Started with edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_get_started_Studio.html">2.2. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/accessibility_checker.html">5.4. Accessibility Checker</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_information/index.html">6.1. Planning Course Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title, Number, and Enrollment Track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/index.html">6.3. Creating and Announcing a Course Using Publisher (edx.org Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_introduction.html">6.3.1. Introduction to Publisher</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/index.html">6.3.2. Creating a Course in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_course_creation.html">6.3.2.1. The Publisher Course Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_create_course.html">6.3.2.2. Create a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_find_course.html">6.3.2.3. Find a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_edit_course.html">6.3.2.4. Edit a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_send_course_marketing.html">6.3.2.5. Send a Course to edX Marketing for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_review_changes.html">6.3.2.6. Review Changes and Finalize the Course</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_add_comment_to_course.html">6.3.2.7. Add a Comment to a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_check_course_status.html">6.3.2.8. Check the Status of a Course in Publisher</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/index.html">6.3.3. Creating a Course Run in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_course_run_creation.html">6.3.3.1. The Publisher Course Run Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_create_course_run.html">6.3.3.2. Create a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_access_course_run_studio.html">6.3.3.3. Access a Course Run in Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_edit_course_run.html">6.3.3.4. Edit a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_course_run_staff.html">6.3.3.5. Add Course Run Staff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_send_course_run_review.html">6.3.3.6. Send a Course Run to the edX PC for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_comment_to_course_run.html">6.3.3.7. Add a Comment to the Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_finalize_course_run.html">6.3.3.8. Finalize a Course Run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_publish_about_page.html">6.3.4. Publishing an About Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_add_about_video.html">6.3.5. Add a Course or Program About Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_update_course_run_info.html">6.3.6. Change a Course Run After the About Page Is Published</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_change_publisher_settings.html">6.3.7. Change Publisher Settings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/studio_add_course_information/index.html">6.4. Add Course and Course Run Information in Studio (Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html">6.4.1. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_scheduling.html">6.4.2. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_image.html">6.4.3. Add a Course Image in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_staffing.html">6.4.4. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.4.5. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_about_page.html">6.4.6. Creating a Course About Page in Studio</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">7. Developing Your Course</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="testing_courseware.html">7.9. Testing Your Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="social_sharing.html">7.10. Sharing Course Content on Social Media Platforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_components/index.html">8. Adding Course Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/upload_video.html">9.3. Managing Course Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/create_preroll_video.html">9.7. Adding a Pre-Roll Video to Your edX Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/troubleshoot_video.html">9.8. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises_tools/index.html">10. Adding Exercises and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/conditional_module.html">10.7. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/completion.html">10.8. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop.html">10.10. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop_deprecated.html">10.11. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/dropdown.html">10.12. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/external_graders.html">10.13. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/full_screen_image.html">10.14. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/gene_explorer.html">10.15. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_calendar.html">10.16. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_docs.html">10.17. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/iframe.html">10.18. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/image_mapped_input.html">10.19. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/lti_component.html">10.20. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/math_expression_input.html">10.21. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/mathjax.html">10.22. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/multi_select.html">10.23. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/notes.html">10.24. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/numerical_input.html">10.25. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/index.html">10.26. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/OpenResponseAssessments.html">10.26.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/CreateORAAssignment.html">10.26.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/Manage_ORA_Assignment.html">10.26.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/ORA_Staff_Grading.html">10.26.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/Access_ORA_Info.html">10.26.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/oppia.html">10.27. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/peer_instruction_tool.html">10.28. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/periodic_table.html">10.29. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll_question.html">10.30. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll.html">10.31. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_with_hint.html">10.32. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_in_latex.html">10.33. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/protein_builder.html">10.34. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/qualtrics.html">10.35. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/randomized_content_blocks.html">10.36. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/recommenderXBlock.html">10.37. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/scorm.html">10.38. SCORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_python.html">10.45. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/zooming_image.html">10.46. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_live.html">11.6. Course Live</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/content_experiments/index.html">12.3. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_overview.html">12.3.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_configure.html">12.3.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_add.html">12.3.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_view.html">12.3.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/teams/index.html">12.4. Using the Teams Application</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_setup.html">12.4.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_learner_experience.html">12.4.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_discussions.html">12.4.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/credit_courses/index.html">12.5. Offering Academic Course Credit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/credit_courses/credit_courses.html">12.5.1. Academic Course Credit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/timed_exams.html">12.6. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/lti/index.html">12.7. Using edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_reuse_content.html">12.7.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_prepare_content.html">12.7.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_address_content.html">12.7.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_grade_content.html">12.7.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_canvas_example.html">12.7.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_blackboard_example.html">12.7.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_summaries/index.html">12.8. Xpert Unit Summaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_overview.html">12.8.1. Overview of Xpert Unit Summaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_enabling.html">12.8.2. Enabling Xpert Unit Summaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_translations/index.html">12.9. Xpert Course Translations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/feature_description.html">12.9.1. Feature Description: Xpert Course Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/enabling_disabling_translations.html">12.9.2. Enabling or Disabling Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/reviewing_and_editing_translations.html">12.9.3. Reviewing and Editing Translations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_enabling.html">13.2. Enable Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_create.html">13.3. Create a Proctored Exam with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_results.html">13.4. Viewing Proctored Session Results with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_create.html">13.5. Create a Proctored Exam with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_results.html">13.6. Viewing Proctored Session Results with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_managing.html">13.7. Managing Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_learners.html">13.8. Preparing Learners for Proctored Exams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../managing_notifications/index.html">18. Managing Notifications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../managing_notifications/managing_notifications.html">18.1. Accessing the Notifications Tray</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../student_progress/index.html">19. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_student.html">19.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_answers.html">19.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_grades.html">19.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/certificate_data.html">19.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/checking_student_progress.html">19.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rerun_course/index.html">20. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rerun_course/course_rerun.html">20.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">21. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/course_authors/source/developing_course/course_units.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fdeveloping_course/course_units.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/developing_course/course_units.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Developing Course Units</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-unit">7.5.1. What Is a Unit?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-units-in-the-outline">7.5.2. Viewing Units in the Outline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-progress-information">7.5.2.1. Course Progress Information</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-unit-page">7.5.3. Viewing the Unit Page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-units-as-a-learner">7.5.4. Viewing Units as a Learner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unit-workflow">7.5.5. The Unit Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-publishing-status-and-visibility-to-learners">7.5.6. Unit Publishing Status and Visibility to Learners</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-publishing-statuses">7.5.7. Unit Publishing Statuses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-never-published">7.5.7.1. Draft (Never Published)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#published-and-live">7.5.7.2. Published and Live</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#published-not-yet-released">7.5.7.3. Published (not yet released)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-unpublished-changes">7.5.7.4. Draft (Unpublished changes)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visible-to-staff-only">7.5.7.5. Visible to Staff Only</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-unit">7.5.8. Create a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-unit">7.5.9. Edit a Unit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-the-unit-name">7.5.9.1. Edit the Unit Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reorganize-components-in-units">7.5.9.2. Reorganize Components in Units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-access-restrictions-for-a-unit">7.5.10. Set Access Restrictions For a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-a-unit">7.5.11. Preview a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-a-unit">7.5.12. Publish a Unit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-unit-page-to-publish-a-unit">7.5.12.1. Use the Unit Page to Publish a Unit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-outline-to-publish-a-unit">7.5.12.2. Use the Outline to Publish a Unit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discard-changes-to-a-unit">7.5.13. Discard Changes to a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-a-published-unit">7.5.14. View a Published Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-a-unit-from-learners">7.5.15. Hide a Unit from Learners</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-unit-page-to-hide-a-unit">7.5.15.1. Use the Unit Page to Hide a Unit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-outline-to-hide-a-unit">7.5.15.2. Use the Outline to Hide a Unit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-hidden-unit-visible-to-learners">7.5.15.3. Make a Hidden Unit Visible to Learners</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-unit">7.5.16. Delete a Unit</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="developing-course-units">
+<span id="id1"></span><h1><span class="section-number">7.5. </span>Developing Course Units<a class="headerlink" href="#developing-course-units" title="Link to this heading">#</a></h1>
+<p>To work with units in the course outline and develop your course, you need to
+understand the following concepts and complete the following tasks.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#what-is-a-unit" id="id17">What Is a Unit?</a></p></li>
+<li><p><a class="reference internal" href="#viewing-units-in-the-outline" id="id18">Viewing Units in the Outline</a></p></li>
+<li><p><a class="reference internal" href="#viewing-the-unit-page" id="id19">Viewing the Unit Page</a></p></li>
+<li><p><a class="reference internal" href="#viewing-units-as-a-learner" id="id20">Viewing Units as a Learner</a></p></li>
+<li><p><a class="reference internal" href="#the-unit-workflow" id="id21">The Unit Workflow</a></p></li>
+<li><p><a class="reference internal" href="#unit-publishing-status-and-visibility-to-learners" id="id22">Unit Publishing Status and Visibility to Learners</a></p></li>
+<li><p><a class="reference internal" href="#unit-publishing-statuses" id="id23">Unit Publishing Statuses</a></p></li>
+<li><p><a class="reference internal" href="#create-a-unit" id="id24">Create a Unit</a></p></li>
+<li><p><a class="reference internal" href="#edit-a-unit" id="id25">Edit a Unit</a></p></li>
+<li><p><a class="reference internal" href="#set-access-restrictions-for-a-unit" id="id26">Set Access Restrictions For a Unit</a></p></li>
+<li><p><a class="reference internal" href="#preview-a-unit" id="id27">Preview a Unit</a></p></li>
+<li><p><a class="reference internal" href="#publish-a-unit" id="id28">Publish a Unit</a></p></li>
+<li><p><a class="reference internal" href="#discard-changes-to-a-unit" id="id29">Discard Changes to a Unit</a></p></li>
+<li><p><a class="reference internal" href="#view-a-published-unit" id="id30">View a Published Unit</a></p></li>
+<li><p><a class="reference internal" href="#hide-a-unit-from-learners" id="id31">Hide a Unit from Learners</a></p></li>
+<li><p><a class="reference internal" href="#delete-a-unit" id="id32">Delete a Unit</a></p></li>
+</ul>
+</nav>
+<p>You add content to units with <a class="reference internal" href="course_components.html#developing-course-components"><span class="std std-ref">course components</span></a>.</p>
+<section id="what-is-a-unit">
+<span id="id2"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">7.5.1. </span>What Is a Unit?</a><a class="headerlink" href="#what-is-a-unit" title="Link to this heading">#</a></h2>
+<p>A unit is a part of a <a class="reference internal" href="course_subsections.html#developing-course-subsections"><span class="std std-ref">subsection</span></a> that
+learners view as a single page.</p>
+<p>A unit contains one or more <a class="reference internal" href="course_components.html#developing-course-components"><span class="std std-ref">components</span></a>,
+such as text with <a class="reference internal" href="../course_components/create_html_component.html#working-with-text-components"><span class="std std-ref">HTML</span></a> markup,
+<a class="reference internal" href="../course_components/create_problem.html#working-with-problem-components"><span class="std std-ref">problems</span></a>, a <a class="reference internal" href="../course_components/create_discussion.html#working-with-discussion-components"><span class="std std-ref">discussion</span></a>, or a
+<a class="reference internal" href="../course_components/create_video.html#working-with-video-components"><span class="std std-ref">video</span></a>.</p>
+</section>
+<section id="viewing-units-in-the-outline">
+<h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">7.5.2. </span>Viewing Units in the Outline</a><a class="headerlink" href="#viewing-units-in-the-outline" title="Link to this heading">#</a></h2>
+<p>In the following image, the Studio view of the course outline is on the left.
+On the right is the view of the course outline in the LMS.</p>
+<a class="reference internal image-reference" href="../_images/Course_Outline_LMS.png"><img alt="Sections, subsections, and units in the course outline in Studio and in the LMS." src="../_images/Course_Outline_LMS.png" style="width: 600px;" />
+</a>
+<p>The numbers represent the following levels.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="course_sections.html#developing-course-sections"><span class="std std-ref">Sections</span></a></p></li>
+<li><p><a class="reference internal" href="course_subsections.html#developing-course-subsections"><span class="std std-ref">Subsections</span></a></p></li>
+<li><p><a class="reference internal" href="#developing-course-units"><span class="std std-ref">Units</span></a></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Course Outline</strong> page does not show <a class="reference internal" href="course_components.html#developing-course-components"><span class="std std-ref">components</span></a>. You add or access components by selecting the units
+that contain the components.</p>
+</div>
+<section id="course-progress-information">
+<h3><span class="section-number">7.5.2.1. </span>Course Progress Information<a class="headerlink" href="#course-progress-information" title="Link to this heading">#</a></h3>
+<p>The course outline in the LMS also indicates a learner’s progress through the
+course. A green check mark next to the name of a section, subsection, or unit
+indicates that a learner has completed all the following actions in the
+section, subsection, or unit.</p>
+<ul class="simple">
+<li><p>Viewed all of each video.</p></li>
+<li><p>Submitted answers for all of the problems.</p></li>
+<li><p>Viewed all HTML content for at least five seconds.</p></li>
+</ul>
+<p>If a learner selects the <strong>Resume Course</strong> option, the course opens to the
+unit that the learner most recently completed.</p>
+<p>For information about more specific learner data, including the learner’s
+grades or answers for individual problems, see <a class="reference internal" href="../student_progress/index.html#manage-student-progress-index"><span class="std std-ref">Managing Learner Progress and Grades</span></a>.</p>
+</section>
+</section>
+<section id="viewing-the-unit-page">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">7.5.3. </span>Viewing the Unit Page</a><a class="headerlink" href="#viewing-the-unit-page" title="Link to this heading">#</a></h2>
+<p>In Studio, when you select a unit name in the outline, the <strong>Unit</strong> page opens.</p>
+<p>The following example shows a unit page in Studio with two components, with
+circles and text to show different areas and controls in the page.</p>
+<a class="reference internal image-reference" href="../_images/unit-page.png"><img alt="The unit page with numbered indicators." src="../_images/unit-page.png" style="width: 600px;" />
+</a>
+<ol class="arabic simple">
+<li><p>A component in the unit.</p></li>
+<li><p>Options for testing the unit.</p></li>
+<li><p>Status panel for the unit.</p></li>
+<li><p>A unit navigation bar that shows where in the subsection this unit is located, and provides easy navigation options to nearby unit pages.</p></li>
+<li><p>A way to add new units to a subsection through the unit navigation bar.</p></li>
+<li><p>Navigation tools to quickly get to other sections or subsections.</p></li>
+</ol>
+</section>
+<section id="viewing-units-as-a-learner">
+<h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">7.5.4. </span>Viewing Units as a Learner</a><a class="headerlink" href="#viewing-units-as-a-learner" title="Link to this heading">#</a></h2>
+<p>To a learner using the edX learning management system (LMS), each unit in the
+subsection is represented by an icon in the unit navigation bar at the top of
+the <strong>Course</strong> page. The current unit is indicated with bold underlining in the
+unit navigation bar. The components in the current unit appear below the unit
+navigation bar.</p>
+<p>The following image shows a subsection in the LMS that contains several units.</p>
+<a class="reference internal image-reference" href="../_images/Units_LMS.png"><img alt="A unit in the LMS, with all of the unit icons in the unit navigation bar indicated. Green check marks are visible for some units." src="../_images/Units_LMS.png" style="width: 500px;" />
+</a>
+<p>A green check mark next to a unit icon indicates that a learner has completed
+the unit. A learner has completed the unit if the learner has completed all the
+following actions.</p>
+<ul class="simple">
+<li><p>Viewed all of each video.</p></li>
+<li><p>Submitted answers for all of the problems.</p></li>
+<li><p>Viewed all HTML content for at least five seconds.</p></li>
+</ul>
+</section>
+<section id="the-unit-workflow">
+<span id="id3"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">7.5.5. </span>The Unit Workflow</a><a class="headerlink" href="#the-unit-workflow" title="Link to this heading">#</a></h2>
+<p>When you have set up the <a class="reference internal" href="course_sections.html#developing-course-sections"><span class="std std-ref">section</span></a> and
+<a class="reference internal" href="course_subsections.html#developing-course-subsections"><span class="std std-ref">subsection</span></a> in the course outline, you
+then work with units.</p>
+<p>The typical workflow includes these steps.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#create-a-unit"><span class="std std-ref">Create a unit</span></a>.</p></li>
+<li><p><a class="reference internal" href="course_components.html#add-a-component"><span class="std std-ref">Add components to the unit</span></a>.</p></li>
+<li><p><a class="reference internal" href="course_components.html#developing-course-components"><span class="std std-ref">Modify components in the unit</span></a>.</p></li>
+</ol>
+<a class="reference internal image-reference" href="../_images/workflow-create-unit.png"><img alt="Diagram of the unit development workflow." src="../_images/workflow-create-unit.png" style="width: 800px;" />
+</a>
+<p>You <a class="reference internal" href="#publish-a-unit"><span class="std std-ref">publish the unit</span></a> after you add all of its
+components. If you make additional modifications, you must publish the unit
+again for the changes to be visible to learners.</p>
+<p>As you work through these steps, the publishing status of the unit changes.
+The publishing status controls the content available to learners, along with
+<a class="reference internal" href="controlling_content_visibility.html#release-dates"><span class="std std-ref">release dates</span></a> (in an instructor-paced course). See the
+next section for more information.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Release dates apply only to instructor-paced courses. For more
+information about instructor-paced and self-paced courses, see <a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html#setting-course-pacing"><span class="std std-ref">Course Pacing</span></a>.</p>
+</div>
+</section>
+<section id="unit-publishing-status-and-visibility-to-learners">
+<span id="unit-states-and-visibility-to-students"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">7.5.6. </span>Unit Publishing Status and Visibility to Learners</a><a class="headerlink" href="#unit-publishing-status-and-visibility-to-learners" title="Link to this heading">#</a></h2>
+<p>The following information summarizes whether or not learners can see a unit.</p>
+<ul class="simple">
+<li><p>Learners never see a unit with the publishing status <a class="reference internal" href="#draft-never-published">Draft (Never
+Published)</a>.</p></li>
+<li><p>Learners never see a unit with the publishing status <a class="reference internal" href="#visible-to-staff-only">Visible to Staff
+Only</a>. For more information, see <a class="reference internal" href="#hide-a-unit-from-students"><span class="std std-ref">Hide a Unit from Learners</span></a>.</p></li>
+<li><p>Learners do not see a unit with the publishing status <a class="reference internal" href="#published-not-yet-released">Published Not Yet
+Released</a> until the <a class="reference internal" href="controlling_content_visibility.html#release-dates"><span class="std std-ref">release date</span></a> (in an
+instructor-paced course). On the release date, the status changes to
+<a class="reference internal" href="#published-and-live">Published and Live</a>.</p></li>
+<li><p>If the publishing status is <a class="reference internal" href="#published-and-live">Published and Live</a>, learners see the current
+version of the unit.</p></li>
+<li><p>If the publishing status is <a class="reference internal" href="#draft-unpublished-changes">Draft (Unpublished Changes)</a>, learners see the
+last published version of the unit if the <a class="reference internal" href="controlling_content_visibility.html#release-dates"><span class="std std-ref">release dates</span></a>
+for the containing section and subsection have passed.</p></li>
+<li><p>If you used <a class="reference internal" href="controlling_content_visibility.html#access-settings"><span class="std std-ref">access settings</span></a> to specify that a unit
+is available only to specific groups of learners (such as content groups
+associated with particular cohorts, or enrollment track groups), only those
+learners who are in groups to which you have given access can see the unit
+after it is published and live.</p></li>
+</ul>
+<p>For more information, see <a class="reference internal" href="controlling_content_visibility.html#controlling-content-visibility"><span class="std std-ref">Controlling Content Visibility and Access</span></a>. For
+information about testing content, see <a class="reference internal" href="testing_courseware.html#testing-your-course-content"><span class="std std-ref">Testing Your Course Content</span></a>.</p>
+</section>
+<section id="unit-publishing-statuses">
+<span id="unit-publishing-status"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">7.5.7. </span>Unit Publishing Statuses</a><a class="headerlink" href="#unit-publishing-statuses" title="Link to this heading">#</a></h2>
+<p>As a course author, you work with units that have the following statuses.</p>
+<nav class="contents local" id="id4">
+<ul class="simple">
+<li><p><a class="reference internal" href="#draft-never-published" id="id33">Draft (Never Published)</a></p></li>
+<li><p><a class="reference internal" href="#published-and-live" id="id34">Published and Live</a></p></li>
+<li><p><a class="reference internal" href="#published-not-yet-released" id="id35">Published (not yet released)</a></p></li>
+<li><p><a class="reference internal" href="#draft-unpublished-changes" id="id36">Draft (Unpublished changes)</a></p></li>
+<li><p><a class="reference internal" href="#visible-to-staff-only" id="id37">Visible to Staff Only</a></p></li>
+</ul>
+</nav>
+<section id="draft-never-published">
+<span id="id5"></span><h3><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">7.5.7.1. </span>Draft (Never Published)</a><a class="headerlink" href="#draft-never-published" title="Link to this heading">#</a></h3>
+<p>When you create a new unit and add components to it, the unit’s publishing
+status is <strong>Draft (Never Published)</strong>, as shown in the status panel.</p>
+<a class="reference internal image-reference" href="../_images/unit-never-published.png"><img alt="Status panel of a unit that has never been published, with &quot;Draft (Never published)&quot; at the top." src="../_images/unit-never-published.png" style="width: 200px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Release</strong> section applies only to instructor-paced courses. It
+does not appear for units in self-paced courses. For more information about
+instructor-paced and self-paced courses, see <a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html#setting-course-pacing"><span class="std std-ref">Course Pacing</span></a>.</p>
+</div>
+<p>In Studio, you see the draft content as you develop the unit. Though you do not
+see the unit in the LMS, you can <a class="reference internal" href="testing_courseware.html#preview-unpublished-content"><span class="std std-ref">preview the unit</span></a>.</p>
+<p>Learners never see a unit with this status, even after the release date (in an
+instructor-paced course). You must <a class="reference internal" href="#publish-a-unit"><span class="std std-ref">publish the unit</span></a> for
+it to be included in the LMS.</p>
+</section>
+<section id="published-and-live">
+<span id="id6"></span><h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">7.5.7.2. </span>Published and Live</a><a class="headerlink" href="#published-and-live" title="Link to this heading">#</a></h3>
+<p>You published the unit and have not modified it. The release dates for the
+section and subsection have passed (in an instructor-paced course). You, and
+enrolled learners, see the current version of the unit.</p>
+<a class="reference internal image-reference" href="../_images/unit-published.png"><img alt="Status panel of a unit that is published, with &quot;Published and Live&quot; at the top." src="../_images/unit-published.png" style="width: 200px;" />
+</a>
+<p>The <strong>Release</strong> section applies only to instructor-paced courses. It does not
+appear for units in self-paced courses. For more information, see <a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html#setting-course-pacing"><span class="std std-ref">Course Pacing</span></a>.</p>
+</section>
+<section id="published-not-yet-released">
+<span id="id7"></span><h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">7.5.7.3. </span>Published (not yet released)</a><a class="headerlink" href="#published-not-yet-released" title="Link to this heading">#</a></h3>
+<p>You published the unit, but the release date is still in the future. Learners
+cannot see this unit until the release date passes.</p>
+<a class="reference internal image-reference" href="../_images/unit-published_unreleased.png"><img alt="Status panel of a unit that is published but not released, with &quot;Published (not yet released)&quot; at the top." src="../_images/unit-published_unreleased.png" style="width: 200px;" />
+</a>
+<p>This status applies only to instructor-paced courses. It does not apply to
+self-paced courses.</p>
+</section>
+<section id="draft-unpublished-changes">
+<span id="id8"></span><h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">7.5.7.4. </span>Draft (Unpublished changes)</a><a class="headerlink" href="#draft-unpublished-changes" title="Link to this heading">#</a></h3>
+<p>When you edit a published unit, whether or not it is released, the unit’s
+publishing status changes to <strong>Draft (Unpublished Changes)</strong>, as shown in the
+status panel.</p>
+<a class="reference internal image-reference" href="../_images/unit-pending-changes.png"><img alt="Status panel of a unit that has pending changes, with &quot;Draft (Unpublished Changes)&quot; at the top." src="../_images/unit-pending-changes.png" style="width: 200px;" />
+</a>
+<p>The <strong>Release</strong> section applies only to instructor-paced courses. It does not
+appear for units in self-paced courses.</p>
+<p>In Studio, you see the draft content as you develop the unit. You can
+<a class="reference internal" href="testing_courseware.html#preview-unpublished-content"><span class="std std-ref">preview the changes to a unit</span></a> to test how
+your changes will appear to learners after you publish the unit.</p>
+<p>If the release date has passed in an instructor-paced course, learners see the
+last published version of the unit. If the release date is in the future,
+learners cannot see your content. You must <a class="reference internal" href="#publish-a-unit"><span class="std std-ref">publish the unit</span></a> for learners to see your changes.</p>
+</section>
+<section id="visible-to-staff-only">
+<span id="id9"></span><h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">7.5.7.5. </span>Visible to Staff Only</a><a class="headerlink" href="#visible-to-staff-only" title="Link to this heading">#</a></h3>
+<p>When you <a class="reference internal" href="#hide-a-unit-from-students"><span class="std std-ref">hide a unit from learners</span></a>, the
+unit’s publishing status changes to <strong>Visible to Staff Only</strong>.</p>
+<p>The publishing status of a unit also changes to <strong>Visible to Staff Only</strong> if
+you hide the parent <a class="reference internal" href="course_sections.html#hide-a-section-from-students"><span class="std std-ref">section</span></a> or
+<a class="reference internal" href="course_subsections.html#hide-a-subsection-from-students"><span class="std std-ref">subsection</span></a> from learners.</p>
+<p>Learners never see a unit with this status, even if it has been published and
+the release date has passed (in an instructor-paced course).</p>
+<a class="reference internal image-reference" href="../_images/unit-hide.png"><img alt="Status panel of a unit that is hidden from learners, with an icon and &quot;Hide from learners&quot; text visible." src="../_images/unit-hide.png" style="width: 200px;" />
+</a>
+<p>The <strong>Release</strong> section applies only to instructor-paced courses. It does not
+appear for units in self-paced courses.</p>
+</section>
+</section>
+<section id="create-a-unit">
+<span id="id10"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">7.5.8. </span>Create a Unit</a><a class="headerlink" href="#create-a-unit" title="Link to this heading">#</a></h2>
+<p>You can create a unit from the outline or create a unit in the same subsection
+from the unit page.</p>
+<p>To create a unit from the outline, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>In the outline, expand the subsection in which you want to create a new
+unit.</p></li>
+<li><p>Select <strong>New Unit</strong> at the bottom of the expanded subsection. A new
+page opens for you to add components to the unit.</p></li>
+<li><p>On the unit page, the unit name is selected. Supply an identifying name. A
+descriptive name can help learners locate content in the course. It can
+also help you select content when you analyze performance in edX Insights.</p></li>
+<li><p><a class="reference internal" href="course_components.html#add-a-component"><span class="std std-ref">Add components</span></a> to the new unit as needed.</p></li>
+</ol>
+<p>To create a unit from a unit page, follow these steps.</p>
+<ol class="arabic">
+<li><p>In the <strong>Unit Navigation Bar</strong> area, select <strong>New Unit</strong>.</p>
+<a class="reference internal image-reference" href="../_images/unit_location.png"><img alt="The Unit Navigation Bar in the Unit page." src="../_images/unit_location.png" style="width: 660px;" />
+</a>
+<p>The unit page for the new unit opens automatically.</p>
+</li>
+<li><p>On the unit page, the unit name is selected. Supply an identifying name. A
+descriptive name can help learners locate content in the course. It can
+also help you select content when you analyze performance in edX Insights.</p></li>
+<li><p><a class="reference internal" href="course_components.html#add-a-component"><span class="std std-ref">Add components</span></a> to the new unit as needed.</p></li>
+</ol>
+<p>You must then <a class="reference internal" href="#publish-a-unit"><span class="std std-ref">publish the unit</span></a> to make it visible to
+learners.</p>
+</section>
+<section id="edit-a-unit">
+<span id="id11"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">7.5.9. </span>Edit a Unit</a><a class="headerlink" href="#edit-a-unit" title="Link to this heading">#</a></h2>
+<p>You can edit a unit in the following ways.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#edit-the-unit-name">Edit the unit name</a></p></li>
+<li><p><a class="reference internal" href="course_components.html#developing-course-components"><span class="std std-ref">Add components to units</span></a></p></li>
+<li><p><a class="reference internal" href="#reorganize-components-in-units">Reorganize Components in Units</a></p></li>
+</ul>
+<p>When you make any of these changes, if you previously published the unit, the
+state changes to <a class="reference internal" href="#draft-unpublished-changes">Draft (Unpublished Changes)</a>. You must then <a class="reference internal" href="#publish-a-unit"><span class="std std-ref">publish
+the unit</span></a> to make your edits visible to learners.</p>
+<p>If you are designing your course to <a class="reference internal" href="../course_features/diff_content/index.html#offering-differentiated-content"><span class="std std-ref">offer different content</span></a> to different groups of learners, you can also
+<a class="reference internal" href="#set-access-restrictions-for-a-unit"><span class="std std-ref">Set access restrictions for the unit</span></a> to specify which learner groups a unit is available to.</p>
+<section id="edit-the-unit-name">
+<h3><span class="section-number">7.5.9.1. </span>Edit the Unit Name<a class="headerlink" href="#edit-the-unit-name" title="Link to this heading">#</a></h3>
+<p>To edit a unit name, on the unit page in Studio, select <strong>Edit</strong> next to the
+name.</p>
+<a class="reference internal image-reference" href="../_images/unit-edit-icon.png"><img alt="The Edit icon for the unit name with the mouseover help showing." src="../_images/unit-edit-icon.png" style="width: 300px;" />
+</a>
+<p>The name field becomes editable. Enter the new name, and then tab or click
+outside of the field to save the name.</p>
+</section>
+<section id="reorganize-components-in-units">
+<h3><span class="section-number">7.5.9.2. </span>Reorganize Components in Units<a class="headerlink" href="#reorganize-components-in-units" title="Link to this heading">#</a></h3>
+<p>You can reorganize components within a unit by dragging and dropping them to
+new locations.</p>
+<p>To change the location of a component, move your mouse pointer over the <strong>Drag
+to reorder</strong> handle on the component toolbar. The pointer changes to a four-
+headed arrow. You can then drag the component to the location that you want.</p>
+<p>In the image that follows, the handle for the discussion component is selected.</p>
+<a class="reference internal image-reference" href="../_images/unit-drag-selected.png"><img alt="A discussion component selected so that it can be dragged." src="../_images/unit-drag-selected.png" style="width: 600px;" />
+</a>
+<p>A blue outline indicates where the component will land when you release the
+mouse button. For example, in the image below, the discussion component is
+being moved to the top of the unit.</p>
+<img alt="A component being dragged to a new location. :width: 600" src="../_images/unit-drag-moved.png" />
+</section>
+</section>
+<section id="set-access-restrictions-for-a-unit">
+<span id="id12"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">7.5.10. </span>Set Access Restrictions For a Unit</a><a class="headerlink" href="#set-access-restrictions-for-a-unit" title="Link to this heading">#</a></h2>
+<p>If you have more than one enrollment track in your course, or if you have
+enabled cohorts, you can limit a unit’s availability to specific groups of
+learners. For information about offering different content to different learner
+groups, see <a class="reference internal" href="../course_features/diff_content/index.html#offering-differentiated-content"><span class="std std-ref">Offering Different Content to Different Learner Groups</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A unit’s group access settings are inherited by components in the
+unit. If you set additional group access restrictions for a component, make
+sure the component access settings do not contradict the unit access
+settings. For example, you cannot give Group A of learners access to a
+component if Group A does not have access to the unit that contains the
+component.</p>
+</div>
+<p>Tp specify a unit’s access settings, follow these steps.</p>
+<ol class="arabic">
+<li><p>In Studio, select <strong>Content</strong>, and then select <strong>Outline</strong>.</p></li>
+<li><p>For the unit that you want to restrict access to, select the <strong>Configure</strong>
+icon in the unit’s toolbar.</p>
+<a class="reference internal image-reference" href="../_images/unit-configure-icon.png"><img alt="The configure icon in a unit's toolbar in the Studio course outline." src="../_images/unit-configure-icon.png" style="width: 500px;" />
+</a>
+<p>You can also access the <strong>Restrict access to</strong> option from the gear icon
+next to a unit’s name on a unit page in Studio.</p>
+<a class="reference internal image-reference" href="../_images/unit-access-settings-gear-icon.png"><img alt="The gear icon next to a unit's title on the unit page in Studio is another way to launch the unit access settings dialog." src="../_images/unit-access-settings-gear-icon.png" style="width: 400px;" />
+</a>
+</li>
+<li><p>In the unit’s <strong>Settings</strong> dialog box, for the <strong>Restrict access to</strong>
+option, select the group type by which you want to restrict access.</p>
+<p>The <strong>Enrollment Track Groups</strong> option is available only if your course has
+more than one <a class="reference internal" href="../glossary.html#enrollment-track-g"><span class="std std-ref">enrollment track</span></a>. The <strong>Content
+Groups</strong> option is available only if you have created <a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html#about-content-groups"><span class="std std-ref">content
+groups</span></a> for use with cohorts.</p>
+<a class="reference internal image-reference" href="../_images/unit-access-settings.png"><img alt="The visibility and access settings dialog for a unit, with a" src="../_images/unit-access-settings.png" style="width: 200px;" />
+</a>
+<p>After you select a group type, you see a list of the groups that exist for
+that group type.</p>
+</li>
+</ol>
+<ol class="arabic" start="4">
+<li><p>Select the checkbox for each group for which you want the current unit to
+be available.</p>
+<a class="reference internal image-reference" href="../_images/unit-access-groupselected.png"><img alt="The visibility and access settings dialog for a unit, with enrollment track groups selected, and two enrollment tracks available for selecting." src="../_images/unit-access-groupselected.png" style="width: 200px;" />
+</a>
+</li>
+<li><p>Select <strong>Save</strong>.</p>
+<p>The groups which have access to the unit are listed under the unit title in
+the Studio course outline, as well as under the unit title on the unit page
+in Studio.</p>
+<a class="reference internal image-reference" href="../_images/unit-access-indicator.png"><img alt="When a unit has restricted access, a message listing the groups which have access to a unit appears under the unit title in the Studio course outline." src="../_images/unit-access-indicator.png" style="width: 500px;" />
+</a>
+</li>
+</ol>
+</section>
+<section id="preview-a-unit">
+<span id="id13"></span><h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">7.5.11. </span>Preview a Unit</a><a class="headerlink" href="#preview-a-unit" title="Link to this heading">#</a></h2>
+<p>You preview a unit to review and test the content before it is visible to
+learners.</p>
+<p>You can preview a unit before it is published and before the course is live.
+In a live course, after the unit is published and if there are no pending
+changes, previewing a unit is exactly the same as viewing the live version of
+the unit.</p>
+<p>To preview the unit, select <strong>Preview</strong> above the status panel in the Studio
+unit page.</p>
+<p>The unit opens in preview mode in the LMS.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you are revising a previously published unit, it can be helpful
+to preview your changes in one browser window and <a class="reference internal" href="#view-a-published-unit"><span class="std std-ref">view the published
+unit</span></a> in a second window.</p>
+</div>
+<p>For information about previewing and testing content, see <a class="reference internal" href="testing_courseware.html#testing-your-course-content"><span class="std std-ref">Testing Your Course Content</span></a>.</p>
+</section>
+<section id="publish-a-unit">
+<span id="id14"></span><h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">7.5.12. </span>Publish a Unit</a><a class="headerlink" href="#publish-a-unit" title="Link to this heading">#</a></h2>
+<p>Publishing a unit makes the current version of the unit in Studio available to
+learners. In an instructor-paced course, the release dates for the section and
+subsection must also have passed for learners to access a published unit.</p>
+<p>You publish a unit that has a status of <a class="reference internal" href="#draft-never-published">Draft (Never Published)</a> or <a class="reference internal" href="#draft-unpublished-changes">Draft
+(Unpublished Changes)</a>. When you publish a unit, the status changes to
+<a class="reference internal" href="#published-and-live">Published and Live</a> or <a class="reference internal" href="#published-not-yet-released">Published Not Yet Released</a>.</p>
+<p>You can publish a unit from the unit page or the course outline.</p>
+<p>For more information about instructor-paced and self-paced courses, see
+<a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html#setting-course-pacing"><span class="std std-ref">Course Pacing</span></a>.</p>
+<section id="use-the-unit-page-to-publish-a-unit">
+<h3><span class="section-number">7.5.12.1. </span>Use the Unit Page to Publish a Unit<a class="headerlink" href="#use-the-unit-page-to-publish-a-unit" title="Link to this heading">#</a></h3>
+<p>To publish the unit, select <strong>Publish</strong> in the status panel.</p>
+</section>
+<section id="use-the-outline-to-publish-a-unit">
+<h3><span class="section-number">7.5.12.2. </span>Use the Outline to Publish a Unit<a class="headerlink" href="#use-the-outline-to-publish-a-unit" title="Link to this heading">#</a></h3>
+<p>To publish a unit from the outline, select the <strong>Publish</strong> icon in the box for
+the unit.</p>
+<a class="reference internal image-reference" href="../_images/outline-publish-icon-unit.png"><img alt="The Course Outline page with an arrow pointing to the Publish icon for a unit." src="../_images/outline-publish-icon-unit.png" style="width: 500px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>Publish</strong> icon only appears when there is new or changed content in the
+unit.</p>
+</div>
+</section>
+</section>
+<section id="discard-changes-to-a-unit">
+<span id="id15"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">7.5.13. </span>Discard Changes to a Unit</a><a class="headerlink" href="#discard-changes-to-a-unit" title="Link to this heading">#</a></h2>
+<p>When you modify a published unit, your changes are saved in Studio, though the
+changes are not visible to learners until you publish the unit again.</p>
+<p>If you decide that you never want to publish your changes, you can discard the
+changes so that Studio reverts to the last published version of the unit.</p>
+<p>To discard changes and revert the Studio version of the unit to the last
+published version, select <strong>Discard Changes</strong> in the status panel.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>When you discard changes to a unit, the changes are permanently deleted. You
+cannot retrieve discarded changes or undo the action.</p>
+</div>
+</section>
+<section id="view-a-published-unit">
+<span id="id16"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">7.5.14. </span>View a Published Unit</a><a class="headerlink" href="#view-a-published-unit" title="Link to this heading">#</a></h2>
+<p>To view the last published version of a unit in the LMS, select <strong>View Live
+Version</strong> at the top of the page.</p>
+<p>The unit page opens in the LMS in Staff view. You might be prompted to log in
+to the LMS.</p>
+<p>If the unit status is <a class="reference internal" href="#draft-unpublished-changes">Draft (Unpublished Changes)</a>, you do not see your
+changes in the LMS until you publish the unit again.</p>
+<p>If the unit status is <a class="reference internal" href="#draft-never-published">Draft (Never Published)</a>, <strong>View Live Version</strong> is not
+enabled.</p>
+<p>For information about viewing and testing content, see <a class="reference internal" href="testing_courseware.html#testing-your-course-content"><span class="std std-ref">Testing Your Course Content</span></a>.</p>
+</section>
+<section id="hide-a-unit-from-learners">
+<span id="hide-a-unit-from-students"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">7.5.15. </span>Hide a Unit from Learners</a><a class="headerlink" href="#hide-a-unit-from-learners" title="Link to this heading">#</a></h2>
+<p>You can prevent learners from seeing a unit regardless of the unit status or
+the release schedules of the section and subsection.</p>
+<p>For more information, see <a class="reference internal" href="controlling_content_visibility.html#content-hidden-from-students"><span class="std std-ref">Visibility Settings</span></a>.</p>
+<p>You can hide a unit from learners using the course outline or the unit page.</p>
+<section id="use-the-unit-page-to-hide-a-unit">
+<h3><span class="section-number">7.5.15.1. </span>Use the Unit Page to Hide a Unit<a class="headerlink" href="#use-the-unit-page-to-hide-a-unit" title="Link to this heading">#</a></h3>
+<p>In the status panel, select <strong>Hide from learners</strong>.</p>
+<p>The <strong>Release</strong> section applies only to instructor-paced courses. It does not
+appear for units in self-paced courses.</p>
+<p>For more information, see <a class="reference internal" href="controlling_content_visibility.html#controlling-content-visibility"><span class="std std-ref">Controlling Content Visibility and Access</span></a>.</p>
+</section>
+<section id="use-the-outline-to-hide-a-unit">
+<h3><span class="section-number">7.5.15.2. </span>Use the Outline to Hide a Unit<a class="headerlink" href="#use-the-outline-to-hide-a-unit" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Select the <strong>Configure</strong> icon in the unit box.</p>
+<a class="reference internal image-reference" href="../_images/outline-unit-settings.png"><img alt="The Course Outline page with the Configure icon for a unit indicated." src="../_images/outline-unit-settings.png" style="width: 500px;" />
+</a>
+<p>The <strong>Settings</strong> dialog box opens.</p>
+</li>
+<li><p>In the <strong>Unit Visibility</strong> section, select <strong>Hide from learners</strong>.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+</section>
+<section id="make-a-hidden-unit-visible-to-learners">
+<h3><span class="section-number">7.5.15.3. </span>Make a Hidden Unit Visible to Learners<a class="headerlink" href="#make-a-hidden-unit-visible-to-learners" title="Link to this heading">#</a></h3>
+<p>Before you make a hidden unit visible to learners, be aware that course content
+will immediately be visible to learners, as follows.</p>
+<ul class="simple">
+<li><p>For a hidden unit that previously was published, deselecting <strong>Hide from
+learners</strong> publishes the current content for the unit. If you made changes to
+the unit while is was hidden, those draft changes are published.</p></li>
+<li><p>When you make a section or subsection that was previously hidden visible to
+learners, draft content in units is <em>not</em> published. Changes you made since
+last publishing units are not made visible to learners.</p></li>
+</ul>
+<p>You can make a hidden unit visible to learners from the unit page or the course
+outline. Follow the instructions above and clear the <strong>Hide from learners</strong>
+check box.</p>
+<p>You are prompted to confirm that you want to make the unit visible to learners.</p>
+</section>
+</section>
+<section id="delete-a-unit">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">7.5.16. </span>Delete a Unit</a><a class="headerlink" href="#delete-a-unit" title="Link to this heading">#</a></h2>
+<p>You delete a unit from the course outline in Studio.</p>
+<p>When you delete a unit, you delete all components within the unit.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You cannot restore course content after you delete it. To ensure that you do
+not delete any content that you need later, move the unit to a
+hidden section or subsection instead of deleting it.</p>
+</div>
+<p>To delete a unit, follow these steps.</p>
+<ol class="arabic">
+<li><p>On the course outline page in Studio, select the <strong>Delete</strong> icon in the box
+for the unit you want to delete.</p>
+<a class="reference internal image-reference" href="../_images/unit-delete.png"><img alt="The Course Outline page with the Delete icons for several units circled." src="../_images/unit-delete.png" style="width: 300px;" />
+</a>
+</li>
+<li><p>When you receive the confirmation prompt, select <strong>Yes, delete this
+unit</strong>.</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="course_subsections.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7.4. </span>Developing Course Subsections</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="course_components.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">7.6. </span>Developing Course Components</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-unit">7.5.1. What Is a Unit?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-units-in-the-outline">7.5.2. Viewing Units in the Outline</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-progress-information">7.5.2.1. Course Progress Information</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-the-unit-page">7.5.3. Viewing the Unit Page</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-units-as-a-learner">7.5.4. Viewing Units as a Learner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-unit-workflow">7.5.5. The Unit Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-publishing-status-and-visibility-to-learners">7.5.6. Unit Publishing Status and Visibility to Learners</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unit-publishing-statuses">7.5.7. Unit Publishing Statuses</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-never-published">7.5.7.1. Draft (Never Published)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#published-and-live">7.5.7.2. Published and Live</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#published-not-yet-released">7.5.7.3. Published (not yet released)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#draft-unpublished-changes">7.5.7.4. Draft (Unpublished changes)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#visible-to-staff-only">7.5.7.5. Visible to Staff Only</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-unit">7.5.8. Create a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-unit">7.5.9. Edit a Unit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-the-unit-name">7.5.9.1. Edit the Unit Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reorganize-components-in-units">7.5.9.2. Reorganize Components in Units</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-access-restrictions-for-a-unit">7.5.10. Set Access Restrictions For a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-a-unit">7.5.11. Preview a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-a-unit">7.5.12. Publish a Unit</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-unit-page-to-publish-a-unit">7.5.12.1. Use the Unit Page to Publish a Unit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-outline-to-publish-a-unit">7.5.12.2. Use the Outline to Publish a Unit</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#discard-changes-to-a-unit">7.5.13. Discard Changes to a Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-a-published-unit">7.5.14. View a Published Unit</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hide-a-unit-from-learners">7.5.15. Hide a Unit from Learners</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-unit-page-to-hide-a-unit">7.5.15.1. Use the Unit Page to Hide a Unit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-the-outline-to-hide-a-unit">7.5.15.2. Use the Outline to Hide a Unit</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-hidden-unit-visible-to-learners">7.5.15.3. Make a Hidden Unit Visible to Learners</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-unit">7.5.16. Delete a Unit</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

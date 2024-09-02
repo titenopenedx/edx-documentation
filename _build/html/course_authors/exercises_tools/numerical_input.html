@@ -1,0 +1,1922 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.25. Numerical Input Problem &#8212; Building and Running an edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises_tools/numerical_input';</script>
+    <link rel="icon" href="https://www.edx.org/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.26. Open Response Assessments" href="open_response_assessments/index.html" />
+    <link rel="prev" title="10.24. Notes Tool" href="notes.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-light" alt="Building and Running an edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-dark" alt="Building and Running an edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building and Running an edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_accounts.html">2.1. Getting Started with edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_get_started_Studio.html">2.2. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/accessibility_checker.html">5.4. Accessibility Checker</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_information/index.html">6.1. Planning Course Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title, Number, and Enrollment Track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/index.html">6.3. Creating and Announcing a Course Using Publisher (edx.org Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_introduction.html">6.3.1. Introduction to Publisher</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/index.html">6.3.2. Creating a Course in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_course_creation.html">6.3.2.1. The Publisher Course Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_create_course.html">6.3.2.2. Create a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_find_course.html">6.3.2.3. Find a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_edit_course.html">6.3.2.4. Edit a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_send_course_marketing.html">6.3.2.5. Send a Course to edX Marketing for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_review_changes.html">6.3.2.6. Review Changes and Finalize the Course</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_add_comment_to_course.html">6.3.2.7. Add a Comment to a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_check_course_status.html">6.3.2.8. Check the Status of a Course in Publisher</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/index.html">6.3.3. Creating a Course Run in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_course_run_creation.html">6.3.3.1. The Publisher Course Run Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_create_course_run.html">6.3.3.2. Create a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_access_course_run_studio.html">6.3.3.3. Access a Course Run in Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_edit_course_run.html">6.3.3.4. Edit a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_course_run_staff.html">6.3.3.5. Add Course Run Staff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_send_course_run_review.html">6.3.3.6. Send a Course Run to the edX PC for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_comment_to_course_run.html">6.3.3.7. Add a Comment to the Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_finalize_course_run.html">6.3.3.8. Finalize a Course Run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_publish_about_page.html">6.3.4. Publishing an About Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_add_about_video.html">6.3.5. Add a Course or Program About Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_update_course_run_info.html">6.3.6. Change a Course Run After the About Page Is Published</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_change_publisher_settings.html">6.3.7. Change Publisher Settings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/studio_add_course_information/index.html">6.4. Add Course and Course Run Information in Studio (Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html">6.4.1. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_scheduling.html">6.4.2. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_image.html">6.4.3. Add a Course Image in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_staffing.html">6.4.4. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.4.5. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_about_page.html">6.4.6. Creating a Course About Page in Studio</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developing_course/index.html">7. Developing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/testing_courseware.html">7.9. Testing Your Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/social_sharing.html">7.10. Sharing Course Content on Social Media Platforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_components/index.html">8. Adding Course Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/upload_video.html">9.3. Managing Course Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/create_preroll_video.html">9.7. Adding a Pre-Roll Video to Your edX Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/troubleshoot_video.html">9.8. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">10. Adding Exercises and Tools</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional_module.html">10.7. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="completion.html">10.8. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag_and_drop.html">10.10. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag_and_drop_deprecated.html">10.11. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropdown.html">10.12. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external_graders.html">10.13. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="full_screen_image.html">10.14. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gene_explorer.html">10.15. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_calendar.html">10.16. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_docs.html">10.17. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iframe.html">10.18. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image_mapped_input.html">10.19. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lti_component.html">10.20. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math_expression_input.html">10.21. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathjax.html">10.22. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_select.html">10.23. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes.html">10.24. Notes Tool</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.25. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="open_response_assessments/index.html">10.26. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/OpenResponseAssessments.html">10.26.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/CreateORAAssignment.html">10.26.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/Manage_ORA_Assignment.html">10.26.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/ORA_Staff_Grading.html">10.26.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/Access_ORA_Info.html">10.26.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="oppia.html">10.27. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peer_instruction_tool.html">10.28. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="periodic_table.html">10.29. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll_question.html">10.30. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll.html">10.31. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_with_hint.html">10.32. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_in_latex.html">10.33. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_builder.html">10.34. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qualtrics.html">10.35. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="randomized_content_blocks.html">10.36. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recommenderXBlock.html">10.37. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scorm.html">10.38. SCORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_python.html">10.45. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zooming_image.html">10.46. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_live.html">11.6. Course Live</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/content_experiments/index.html">12.3. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_overview.html">12.3.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_configure.html">12.3.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_add.html">12.3.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_view.html">12.3.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/teams/index.html">12.4. Using the Teams Application</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_setup.html">12.4.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_learner_experience.html">12.4.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_discussions.html">12.4.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/credit_courses/index.html">12.5. Offering Academic Course Credit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/credit_courses/credit_courses.html">12.5.1. Academic Course Credit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/timed_exams.html">12.6. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/lti/index.html">12.7. Using edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_reuse_content.html">12.7.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_prepare_content.html">12.7.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_address_content.html">12.7.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_grade_content.html">12.7.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_canvas_example.html">12.7.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_blackboard_example.html">12.7.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_summaries/index.html">12.8. Xpert Unit Summaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_overview.html">12.8.1. Overview of Xpert Unit Summaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_enabling.html">12.8.2. Enabling Xpert Unit Summaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_translations/index.html">12.9. Xpert Course Translations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/feature_description.html">12.9.1. Feature Description: Xpert Course Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/enabling_disabling_translations.html">12.9.2. Enabling or Disabling Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/reviewing_and_editing_translations.html">12.9.3. Reviewing and Editing Translations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_enabling.html">13.2. Enable Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_create.html">13.3. Create a Proctored Exam with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_results.html">13.4. Viewing Proctored Session Results with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_create.html">13.5. Create a Proctored Exam with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_results.html">13.6. Viewing Proctored Session Results with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_managing.html">13.7. Managing Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_learners.html">13.8. Preparing Learners for Proctored Exams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../managing_notifications/index.html">18. Managing Notifications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../managing_notifications/managing_notifications.html">18.1. Accessing the Notifications Tray</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../student_progress/index.html">19. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_student.html">19.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_answers.html">19.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_grades.html">19.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/certificate_data.html">19.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/checking_student_progress.html">19.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rerun_course/index.html">20. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rerun_course/course_rerun.html">20.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">21. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/course_authors/source/exercises_tools/numerical_input.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fexercises_tools/numerical_input.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/exercises_tools/numerical_input.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerical Input Problem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">10.25.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-numerical-input-problem">10.25.1.1. Example Numerical Input Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-numerical-input-problem">10.25.2. Adding a Numerical Input Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-tolerance-or-a-range">10.25.2.1. Adding a Tolerance or a Range</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-tolerance">10.25.2.1.1. Adding a Tolerance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-an-answer-range">10.25.2.1.2. Specifying an Answer Range</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-feedback">10.25.2.2. Adding Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-hints">10.25.2.3. Adding Hints</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-numerical-input-problems-using-the-advanced-editor">10.25.3. Editing Numerical Input Problems using the Advanced Editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.25.3.1. Adding Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-feedback-labels">10.25.3.1.1. Customizing Feedback Labels</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">10.25.3.2. Adding Hints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-correct-responses">10.25.3.3. Adding Multiple Correct Responses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">10.25.3.4. Adding a Tolerance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">10.25.3.5. Specifying an Answer Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#awarding-partial">10.25.3.6. Awarding Partial</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-close-answers">10.25.3.6.1. Identifying Close Answers</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-close-answers">10.25.3.6.1.1. Configure Close Answers</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#awarding-partial-credit-for-answers-in-a-list">10.25.3.6.2. Awarding Partial Credit for Answers in a List</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-a-list">10.25.3.6.2.1. Configure a List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-text-after-the-numeric-response-field">10.25.3.7. Adding Text after the Numeric Response Field</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-input-problem-olx-reference">10.25.4. Numerical Input Problem OLX Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#templates">10.25.4.1. Templates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-with-no-tolerance">10.25.4.1.1. Problem with No Tolerance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-created-using-a-script">10.25.4.1.2. Answer Created Using a Script</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements">10.25.4.2. Elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numericalresponse">10.25.4.2.1. <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">10.25.4.2.1.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#children">10.25.4.2.1.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label">10.25.4.2.2. <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.25.4.2.2.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">10.25.4.2.2.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#description">10.25.4.2.3. <code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">10.25.4.2.3.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">10.25.4.2.3.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formulaequationinput">10.25.4.2.4. <code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">10.25.4.2.4.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">10.25.4.2.4.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-answer">10.25.4.2.5. <code class="docutils literal notranslate"><span class="pre">&lt;additional_answer&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">10.25.4.2.5.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">10.25.4.2.5.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#responseparam">10.25.4.2.6. <code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">10.25.4.2.6.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">10.25.4.2.6.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correcthint">10.25.4.2.7. <code class="docutils literal notranslate"><span class="pre">&lt;correcthint&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">10.25.4.2.7.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">10.25.4.2.7.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#script">10.25.4.2.8. <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">10.25.4.2.8.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">10.25.4.2.8.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">10.25.4.2.9. <code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#demandhint">10.25.4.2.10. <code class="docutils literal notranslate"><span class="pre">&lt;demandhint&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">10.25.4.2.10.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">10.25.4.2.10.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">10.25.4.2.11. <code class="docutils literal notranslate"><span class="pre">&lt;hint&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">10.25.4.2.11.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">10.25.4.2.11.2. Children</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="numerical-input-problem">
+<span id="numerical-input"></span><h1><span class="section-number">10.25. </span>Numerical Input Problem<a class="headerlink" href="#numerical-input-problem" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EdX offers full support for this problem type.</p>
+</div>
+<p>The numerical input problem type is a simple problem type that can be added to
+any course. At a minimum, numerical input problems include a question or
+prompt and a response field for a numeric answer. By adding hints, feedback, or
+both, you can give learners guidance and help when they work on a problem.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id26">Overview</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-numerical-input-problem" id="id27">Example Numerical Input Problem</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#adding-a-numerical-input-problem" id="id28">Adding a Numerical Input Problem</a></p>
+<ul>
+<li><p><a class="reference internal" href="#adding-a-tolerance-or-a-range" id="id29">Adding a Tolerance or a Range</a></p></li>
+<li><p><a class="reference internal" href="#adding-feedback" id="id30">Adding Feedback</a></p></li>
+<li><p><a class="reference internal" href="#adding-hints" id="id31">Adding Hints</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#editing-numerical-input-problems-using-the-advanced-editor" id="id32">Editing Numerical Input Problems using the Advanced Editor</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id3" id="id33">Adding Feedback</a></p></li>
+<li><p><a class="reference internal" href="#id4" id="id34">Adding Hints</a></p></li>
+<li><p><a class="reference internal" href="#adding-multiple-correct-responses" id="id35">Adding Multiple Correct Responses</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id36">Adding a Tolerance</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id37">Specifying an Answer Range</a></p></li>
+<li><p><a class="reference internal" href="#awarding-partial" id="id38">Awarding Partial</a></p></li>
+<li><p><a class="reference internal" href="#adding-text-after-the-numeric-response-field" id="id39">Adding Text after the Numeric Response Field</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#numerical-input-problem-olx-reference" id="id40">Numerical Input Problem OLX Reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#templates" id="id41">Templates</a></p></li>
+<li><p><a class="reference internal" href="#elements" id="id42">Elements</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>For more information about the simple problem types, see
+<a class="reference internal" href="../course_components/create_problem.html#working-with-problem-components"><span class="std std-ref">Working with Problem Components</span></a>.</p>
+<section id="overview">
+<h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">10.25.1. </span>Overview</a><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In numerical input problems, learners enter numbers or specific and relatively
+simple mathematical expressions to answer a question. The LMS automatically
+converts the answer that learners enter into a symbolic expression that appears
+below the response field.</p>
+<p>Responses for numerical input problems can include integers, fractions, and
+constants such as pi and <em>g</em>. Responses can also include text representing
+common functions, such as square root (sqrt) and log base 2 (log2), as well as
+trigonometric functions and their inverses, such as sine (sin) and arcsine
+(arcsin). For these functions, learners enter text that is converted into
+mathematical symbols. The following example shows a response entered by a
+learner and the numerical expression that results.</p>
+<img alt="A learner typed n*x^(n-1) to enter the symbolic expression n times x to the n minus 1 power." src="../_images/Math5.png" />
+<p>For more information about how learners enter expressions, see
+<span class="xref std std-ref">learners:Math Formatting</span> in the <em>EdX Learner’s Guide</em> or
+<a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-learner-guide/en/latest/completing_assignments/SFD_mathformatting.html#math-formatting" title="(in Open edX Learner's Guide)"><span>Completing Mathematical and Scientific Assignments</span></a> in the <em>Open edX Learner’s Guide</em>.</p>
+<p>Some of the options for numerical input problems include the following.</p>
+<ul class="simple">
+<li><p>You can specify a correct answer explicitly or use a Python script.</p></li>
+<li><p>You can specify a margin of error, or tolerance, for the answers to numerical
+input problems so that learners’ responses do not have to be exact.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can make a calculator tool available to your learners on every unit
+page. For more information, see <a class="reference internal" href="calculator.html#calculator"><span class="std std-ref">Calculator Tool</span></a>.</p>
+</div>
+<section id="example-numerical-input-problem">
+<h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">10.25.1.1. </span>Example Numerical Input Problem</a><a class="headerlink" href="#example-numerical-input-problem" title="Link to this heading">#</a></h3>
+<p>In the LMS, learners enter a value into a response field to complete a
+numerical input problem. An example of a completed numerical input problem follows.</p>
+<img alt="A problem with one question, answered correctly, in the LMS." src="../_images/NumericalInputExample.png" />
+</section>
+</section>
+<section id="adding-a-numerical-input-problem">
+<h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">10.25.2. </span>Adding a Numerical Input Problem</a><a class="headerlink" href="#adding-a-numerical-input-problem" title="Link to this heading">#</a></h2>
+<p>You add numerical input problems in Studio by selecting the <strong>Problem</strong>
+component. In the problem editor, select the <strong>Numerical Input</strong> option. Fill in
+the fields on this screen to create your problem.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_numerical_input.png"><img alt="An example numerical input problem in the problem editor with number indicators labeling the various features." src="../_images/problem_editor_numerical_input.png" style="width: 800px;" />
+</a>
+<p>Creating a numerical input problem is as simple as:</p>
+<ol class="arabic simple">
+<li><p>Editing the <strong>Display Name</strong>. Click the pen symbol to edit.</p></li>
+<li><p>Filling in the <strong>Question</strong> field.</p></li>
+<li><p>Filling in the <strong>Explanation</strong> field. When this is shown to learners is
+based on the selection in the <strong>Show answer</strong> panel on the right.</p></li>
+<li><p>Filling in the <strong>Answer</strong> fields. For numerical input problems, only correct
+answers can be added here. Additional answers can be added by clicking the
+<strong>Add answer</strong> button. Answers can be deleted by clicking the trash can icon.
+Feedback can be provided for each answer. More information on feedback can be
+found in the following section.</p></li>
+<li><p>Selecting and filling in any desired settings on the right.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only correct answers can be added to a numerical input problem.</p>
+</div>
+<p>If you have any questions on the specifics of using the simple editor, please check
+out <a class="reference internal" href="../course_components/create_problem.html#simple-editor"><span class="std std-ref">The Simple Editor</span></a> and <a class="reference internal" href="../course_components/create_problem.html#problem-settings"><span class="std std-ref">Defining Settings for Problem Components</span></a>.</p>
+<section id="adding-a-tolerance-or-a-range">
+<h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">10.25.2.1. </span>Adding a Tolerance or a Range</a><a class="headerlink" href="#adding-a-tolerance-or-a-range" title="Link to this heading">#</a></h3>
+<p>To give learners the option to receive full credit for a close approximation of
+the correct answer, and to support a wide range of possible correct numerical
+answers, you can specify a tolerance for the correct answer or a range of values
+to mark as correct for the numerical input problem type.</p>
+<nav class="contents local" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#adding-a-tolerance" id="id43">Adding a Tolerance</a></p></li>
+<li><p><a class="reference internal" href="#specifying-an-answer-range" id="id44">Specifying an Answer Range</a></p></li>
+</ul>
+</nav>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can either have a <strong>tolerance</strong> or an <strong>answer range</strong> for a
+numerical input problem. You cannot add both.</p>
+</div>
+<section id="adding-a-tolerance">
+<h4><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">10.25.2.1.1. </span>Adding a Tolerance</a><a class="headerlink" href="#adding-a-tolerance" title="Link to this heading">#</a></h4>
+<p>You can specify a margin of error or tolerance for learner responses. You
+can specify a percentage or number. The tolerance settings panel can be
+found to the right of the editor.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_tolerance_box.png"><img alt="An example tolerance setting set to 5%." src="../_images/problem_editor_tolerance_box.png" style="width: 200px;" />
+</a>
+</section>
+<section id="specifying-an-answer-range">
+<h4><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">10.25.2.1.2. </span>Specifying an Answer Range</a><a class="headerlink" href="#specifying-an-answer-range" title="Link to this heading">#</a></h4>
+<p>You can specify an answer range so that any learner response within that range
+is marked correct.</p>
+<p>Add an answer range by selecting the <strong>Add answer range</strong> button from the
+<strong>Add answer</strong> dropdown. This option can only be selected if you only have one
+answer. This will replace your answer field with an answer range field.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_answer_range_box.png"><img alt="An example answer range set from 1 to 10. This includes 1 but not 10." src="../_images/problem_editor_answer_range_box.png" style="width: 200px;" />
+</a>
+<p>To format an answer range, you provide the starting and
+ending values and then separate them with a comma character (<code class="docutils literal notranslate"><span class="pre">,</span></code>). You then
+surround the range with bracket (<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>) or parentheses characters (<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>),
+or a combination of one bracket and one parenthesis.</p>
+<ul class="simple">
+<li><p>Use a bracket to include the number next to it in the range, as in a less
+than or equal to, or greater than or equal to, inequality.</p></li>
+<li><p>Use a parenthesis to exclude the number from the range, as in a less than or
+greater than inequality.</p></li>
+</ul>
+<p>For example, to identify the correct answers as 5, 6, or 7, but not 8, specify
+<code class="docutils literal notranslate"><span class="pre">[5,8)</span></code>. To identify the correct answers as 6, 7, and 8, but not 5, specify
+<code class="docutils literal notranslate"><span class="pre">(5,8]</span></code>.</p>
+</section>
+</section>
+<section id="adding-feedback">
+<span id="use-feedback-in-a-numerical-input-problems"></span><h3><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">10.25.2.2. </span>Adding Feedback</a><a class="headerlink" href="#adding-feedback" title="Link to this heading">#</a></h3>
+<p>For an overview of feedback in problems, see <a class="reference external" href="https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/components/problem-components.html#adding-feedback-and-hints-to-a-problem" title="(in EdX Open Learning XML Guide - Alpha Version)"><span>Adding Feedback and Hints to a Problem</span></a>. In numerical input problems, you can provide feedback for correct
+responses. If you define multiple correct responses, you can define feedback
+for each response. In numerical input problems, use feedback to reinforce the
+process used to arrive at the correct answer.</p>
+<p>You can add answer-specific feedback for each answer in a numerical input problem.
+You can access the feedback panel shown below by clicking the button to the right
+of the answer text.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_feedback_box_2.png"><img alt="An example of an expanded feedback section for dropdown problems showing the 'is selected' feedback field." src="../_images/problem_editor_feedback_box_2.png" style="width: 600px;" />
+</a>
+<p>Simply enter your feedback message in this text field. It will display when the
+learner submits this answer.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You cannot add feedback for an incorrect answer in numerical input
+problems. Add hints to guide the learners in the correct direction instead.</p>
+</div>
+</section>
+<section id="adding-hints">
+<span id="use-hints-in-a-numerical-input-problem"></span><h3><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">10.25.2.3. </span>Adding Hints</a><a class="headerlink" href="#adding-hints" title="Link to this heading">#</a></h3>
+<p>You can add hints to a numerical input problem using the simple editor or the
+advanced editor. For an overview of hints in problems, see
+<a class="reference external" href="https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/components/problem-components.html#adding-feedback-and-hints-to-a-problem" title="(in EdX Open Learning XML Guide - Alpha Version)"><span>Adding Feedback and Hints to a Problem</span></a>.</p>
+<p>In the settings panels on the right of the editor, you’ll find a Hints panel.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_hints_box.png"><img alt="An example of the hints settings panel." src="../_images/problem_editor_hints_box.png" style="width: 200px;" />
+</a>
+<p>Click the <strong>Add hint</strong> button to add a new hint text field. To delete any hints
+you’ve added, click the trash can icon next to its respective hint field.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can configure any number of hints. The learner views one hint at a time
+and views the next one by selecting <strong>Hint</strong> again.</p>
+</div>
+</section>
+</section>
+<section id="editing-numerical-input-problems-using-the-advanced-editor">
+<span id="id2"></span><h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">10.25.3. </span>Editing Numerical Input Problems using the Advanced Editor</a><a class="headerlink" href="#editing-numerical-input-problems-using-the-advanced-editor" title="Link to this heading">#</a></h2>
+<p>If the simple editor is not enough to meet your needs, you can switch over to the
+advanced editor. In the setting panels on the right of the editor, click
+<strong>Show advanced settings</strong>, then scroll down and click
+<strong>Switch to advanced editor</strong>.</p>
+<p>You can use the advanced editor to identify the elements of a numerical input problem
+with OLX. For more information, see <a class="reference internal" href="#numerical-input-problem-xml"><span class="std std-ref">Numerical Input Problem OLX Reference</span></a>. To format
+equations, you can use MathJax. For more information, see <a class="reference internal" href="mathjax.html#mathjax-in-studio"><span class="std std-ref">MathJax for Mathematics</span></a>.</p>
+<p>You can see the OLX for the example problem from the Overview section below.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>In<span class="w"> </span>what<span class="w"> </span>base<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>decimal<span class="w"> </span>numeral<span class="w"> </span>system?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;detailed-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Explanation<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>The<span class="w"> </span>decimal<span class="w"> </span>numeral<span class="w"> </span>system<span class="w"> </span>is<span class="w"> </span>base<span class="w"> </span>ten.<span class="nt">&lt;/p&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can begin work on the problem in the simple editor, and then
+switch to the advanced editor. However, after you save any advanced OLX
+changes you make in the advanced editor, you may not be able to cannot
+switch back to the simple editor.</p>
+</div>
+<section id="id3">
+<h3><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">10.25.3.1. </span>Adding Feedback</a><a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>In the advanced editor, you configure feedback with the following syntax.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;Correct Answer&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Question<span class="w"> </span>text<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;correcthint&gt;</span>Feedback<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>correct<span class="w"> </span>answer<span class="nt">&lt;/correcthint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<p>For example, the following problem has feedback for each answer.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;4&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>arithmetic<span class="w"> </span>mean<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>following<span class="w"> </span>set<span class="w"> </span>of<span class="w"> </span>numbers?
+<span class="w">    </span>(1,<span class="w"> </span>5,<span class="w"> </span>6,<span class="w"> </span>3,<span class="w"> </span>5)<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;correcthint&gt;</span>The<span class="w"> </span>mean<span class="w"> </span>for<span class="w"> </span>this<span class="w"> </span>set<span class="w"> </span>of<span class="w"> </span>numbers<span class="w"> </span>is<span class="w"> </span>20<span class="w"> </span>/<span class="w"> </span>5<span class="w"> </span>which<span class="w"> </span>equals<span class="w"> </span>4.<span class="nt">&lt;/correcthint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<p>If you define multiple correct responses, you can define feedback for each response.</p>
+<section id="customizing-feedback-labels">
+<h4><span class="section-number">10.25.3.1.1. </span>Customizing Feedback Labels<a class="headerlink" href="#customizing-feedback-labels" title="Link to this heading">#</a></h4>
+<p>By default, the feedback labels shown to learners are <strong>Correct</strong> and
+<strong>Incorrect</strong>. If you do not define feedback labels, learners see these terms
+when they submit an answer, as in the following example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Incorrect</span><span class="p">:</span> <span class="n">A</span> <span class="n">pumpkin</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">fertilized</span> <span class="n">ovary</span> <span class="n">of</span> <span class="n">a</span> <span class="n">squash</span> <span class="n">plant</span> <span class="ow">and</span> <span class="n">contains</span>
+<span class="n">seeds</span> <span class="n">classifying</span> <span class="n">it</span> <span class="k">as</span> <span class="n">a</span> <span class="n">fruit</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>You can configure the problem to override the default labels. For example, you
+can configure a custom label for a specific wrong answer.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Not</span> <span class="n">Quite</span><span class="p">:</span> <span class="n">Many</span> <span class="n">people</span> <span class="n">mistakenly</span> <span class="n">think</span> <span class="n">a</span> <span class="n">tomato</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">vegetable</span><span class="o">.</span> <span class="n">However</span><span class="p">,</span>
+<span class="n">because</span> <span class="n">a</span> <span class="n">tomato</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">fertilized</span> <span class="n">ovary</span> <span class="n">of</span> <span class="n">a</span> <span class="n">tomato</span> <span class="n">plant</span> <span class="ow">and</span> <span class="n">contains</span> <span class="n">seeds</span>
+<span class="n">it</span> <span class="ow">is</span> <span class="n">classified</span> <span class="k">as</span> <span class="n">a</span> <span class="n">fruit</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>In the <a class="reference internal" href="../course_components/create_problem.html#advanced-editor"><span class="std std-ref">advanced editor</span></a>, you configure custom feedback
+labels with the following syntax.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;choice</span><span class="w"> </span><span class="na">correct=</span><span class="s">&quot;true or false&quot;</span><span class="nt">&gt;</span>Answer
+<span class="w">  </span><span class="nt">&lt;choicehint</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;Custom Label&quot;</span><span class="nt">&gt;</span>Feedback<span class="w"> </span>for<span class="w"> </span>learners<span class="w"> </span>who<span class="w"> </span>select<span class="w"> </span>this
+<span class="w">  </span>answer.<span class="nt">&lt;/choicehint&gt;</span>
+<span class="nt">&lt;/choice&gt;</span>
+</pre></div>
+</div>
+<p>For example, the feedback for the following answer option is configured to use
+a custom label.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;choice</span><span class="w"> </span><span class="na">correct=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>tomato
+<span class="w">  </span><span class="nt">&lt;choicehint</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;Not Quite&quot;</span><span class="nt">&gt;</span>Many<span class="w"> </span>people<span class="w"> </span>mistakenly<span class="w"> </span>think<span class="w"> </span>a<span class="w"> </span>tomato<span class="w"> </span>is<span class="w"> </span>a
+<span class="w">  </span>vegetable.<span class="w"> </span>However,<span class="w"> </span>because<span class="w"> </span>a<span class="w"> </span>tomato<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>fertilized<span class="w"> </span>ovary<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span>tomato
+<span class="w">  </span>plant<span class="w"> </span>and<span class="w"> </span>contains<span class="w"> </span>seeds,<span class="w"> </span>it<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>fruit.<span class="nt">&lt;/choicehint&gt;</span>
+<span class="nt">&lt;/choice&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The default labels <strong>Correct</strong> and <strong>Incorrect</strong> display in the learner’s
+requested language. If you provide custom labels, they display as you define
+them to all learners. They are not translated into different languages.</p>
+</div>
+</section>
+</section>
+<section id="id4">
+<h3><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">10.25.3.2. </span>Adding Hints</a><a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>In the advanced editor, you add the <code class="docutils literal notranslate"><span class="pre">&lt;demandhint&gt;</span></code> element immediately before
+the closing <code class="docutils literal notranslate"><span class="pre">&lt;/problem&gt;</span></code> tag, and then configure each hint using the
+<code class="docutils literal notranslate"><span class="pre">&lt;hint&gt;</span></code> element.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+.
+.
+.
+<span class="nt">&lt;demandhint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;hint&gt;</span>Hint<span class="w"> </span>1<span class="nt">&lt;/hint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;hint&gt;</span>Hint<span class="w"> </span>2<span class="nt">&lt;/hint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;hint&gt;</span>Hint<span class="w"> </span>3<span class="nt">&lt;/hint&gt;</span>
+<span class="nt">&lt;/demandhint&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<p>For example, the following OLX for a single select problem shows two hints.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;multiplechoiceresponse&gt;</span>
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span><span class="nt">&lt;/multiplechoiceresponse&gt;</span>
+<span class="w">  </span><span class="nt">&lt;demandhint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;hint&gt;</span>A<span class="w"> </span>fruit<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>fertilized<span class="w"> </span>ovary<span class="w"> </span>from<span class="w"> </span>a<span class="w"> </span>flower.<span class="nt">&lt;/hint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;hint&gt;</span>A<span class="w"> </span>fruit<span class="w"> </span>contains<span class="w"> </span>seeds<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>plant.<span class="nt">&lt;/hint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/demandhint&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-multiple-correct-responses">
+<span id="multiple-responses-in-numerical-input-problems"></span><h3><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">10.25.3.3. </span>Adding Multiple Correct Responses</a><a class="headerlink" href="#adding-multiple-correct-responses" title="Link to this heading">#</a></h3>
+<p>You can specify more than one specific, correct response for numerical input problems.
+To do this, use the advanced editor.</p>
+<p>If you specify multiple correct responses, you cannot also specify a tolerance, a range,
+or a text string as correct answers. For example, when you define multiple correct
+responses, you can specify a numeric value for each correct answer but not a tolerance,
+range, or text string.</p>
+<p>To specify an additional correct response in the advanced editor, within the
+<code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code> element add the <code class="docutils literal notranslate"><span class="pre">&lt;additional_answer</span> <span class="pre">/&gt;</span></code> element with an
+<code class="docutils literal notranslate"><span class="pre">answer=&quot;&quot;</span></code> attribute value.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;9.3*10^7&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>How<span class="w"> </span>many<span class="w"> </span>miles<span class="w"> </span>away<span class="w"> </span>from<span class="w"> </span>Earth<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>sun?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Use<span class="w"> </span>scientific<span class="w"> </span>notation<span class="w"> </span>to<span class="w"> </span>answer.<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;additional_answer</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;9.296*10^7&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">10.25.3.4. </span>Adding a Tolerance</a><a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>You can specify a margin of error or tolerance for learner responses. You can
+specify a percentage, number, or range.</p>
+<p>To add a tolerance in the advanced editor you include a <code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code>
+element with a <code class="docutils literal notranslate"><span class="pre">type=&quot;tolerance&quot;</span></code> attribute and a <code class="docutils literal notranslate"><span class="pre">default</span></code> attribute set
+to either a number or a percentage value.</p>
+<p>The following example shows a problem with a decimal tolerance.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;ANSWER (NUMBER)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Question<span class="w"> </span>text<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;.02&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<p>The following example shows a problem with a percentage tolerance.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;ANSWER (NUMBER)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Question<span class="w"> </span>text<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;3%&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">10.25.3.5. </span>Specifying an Answer Range</a><a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<p>You can specify an answer range so that any learner response within that
+range is marked correct. To format an answer range, you provide the starting
+and ending values and then separate them with a comma character (<code class="docutils literal notranslate"><span class="pre">,`</span></code>). You
+then surround the range with bracket (<code class="docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code>) or parentheses characters
+(<code class="docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code>), or a combination of one bracket and one parenthesis.</p>
+<ul class="simple">
+<li><p>Use a bracket to include the number next to it in the range, as in a less
+than or equal to, or greater than or equal to, inequality.</p></li>
+<li><p>Use a parenthesis to exclude the number from the range, as in a less than or
+greater than inequality.</p></li>
+</ul>
+<p>For example, to identify the correct answers as 5, 6, or 7, but not 8, specify
+<code class="docutils literal notranslate"><span class="pre">[5,8)</span></code>. To identify the correct answers as 6, 7, and 8, but not 5, specify
+<code class="docutils literal notranslate"><span class="pre">(5,8]</span></code>.</p>
+<p>To specify a range in the advanced editor, you enter the complete, formatted
+range in the <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code> element as the value for the <code class="docutils literal notranslate"><span class="pre">answer</span></code>
+attribute: <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse</span> <span class="pre">answer=&quot;[5,8)&quot;&gt;</span></code> or
+<code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse</span> <span class="pre">answer=&quot;(5,8]&quot;&gt;</span></code>.</p>
+</section>
+<section id="awarding-partial">
+<span id="awarding-partial-credit-in-a-numerical-input-problem"></span><h3><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">10.25.3.6. </span>Awarding Partial</a><a class="headerlink" href="#awarding-partial" title="Link to this heading">#</a></h3>
+<p>You can configure a numerical input problem to award partial credit to learners
+who submit an answer that is close or related to the correct answer. You must
+use the <a class="reference internal" href="../course_components/create_problem.html#advanced-editor"><span class="std std-ref">advanced editor</span></a> to configure partial credit.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Support for partial credit problems in courses on edx.org and edX
+Edge is provisional. Ensure that you test such problems thoroughly before
+releasing them to learners. For more information, contact your edX partner
+manager.</p>
+</div>
+<p>In the following example, the learner entered an answer that was close to the
+correct answer and received partial credit.</p>
+<img alt="A numerical input problem with partial credit for a close answer." src="../_images/partial_credit_numerical_input.png" />
+<p>For an overview of partial credit in problems, see
+<a class="reference internal" href="../course_components/create_problem.html#awarding-partial-credit-for-a-problem"><span class="std std-ref">Awarding Partial Credit for a Problem</span></a>.</p>
+<p>You can use the following methods to award partial credit in a numerical input
+problem.</p>
+<nav class="contents local" id="id7">
+<ul class="simple">
+<li><p><a class="reference internal" href="#identifying-close-answers" id="id45">Identifying Close Answers</a></p></li>
+<li><p><a class="reference internal" href="#awarding-partial-credit-for-answers-in-a-list" id="id46">Awarding Partial Credit for Answers in a List</a></p></li>
+</ul>
+</nav>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use these methods of awarding partial credit individually or
+in combination.</p>
+</div>
+<section id="identifying-close-answers">
+<h4><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">10.25.3.6.1. </span>Identifying Close Answers</a><a class="headerlink" href="#identifying-close-answers" title="Link to this heading">#</a></h4>
+<p>You can configure a numerical input problem so that answers that are close to
+the correct answer receive partial credit.</p>
+<p>To do so, you configure the tolerance for incorrect answers. Learners receive
+partial credit for close answers based on the tolerance. By default, the
+tolerance is multiplied by 2 and the following rules are applied.</p>
+<ul class="simple">
+<li><p>An answer within the tolerance receives 100% of the points for the problem.</p></li>
+<li><p>An answer within or equal to 2x of the tolerance receives 50%.</p></li>
+<li><p>An answer more than 2x the outside of the tolerance receives 0%.</p></li>
+</ul>
+<p>You can optionally specify a different multiplier for the tolerance. For
+example, you could set the multiplier to 3. In this case, the following rules
+apply.</p>
+<ul class="simple">
+<li><p>An answer within the tolerance receives 100% of the points for the problem.</p></li>
+<li><p>An answer within or equal to 3x of the tolerance receives 50%.</p></li>
+<li><p>An answer more than 3x outside of the tolerance receives 0%.</p></li>
+</ul>
+<section id="configure-close-answers">
+<h5><span class="section-number">10.25.3.6.1.1. </span>Configure Close Answers<a class="headerlink" href="#configure-close-answers" title="Link to this heading">#</a></h5>
+<p>To configure a numerical input problem to award partial credit for close
+answers, you add the following attributes to the problem XML.</p>
+<ul>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">partial_credit=&quot;close&quot;</span></code> attribute to the <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code>
+element.</p>
+<p>You can use close answers in combination with a list. Set the
+attribute to <code class="docutils literal notranslate"><span class="pre">partial_credit=&quot;close,list&quot;</span></code>.</p>
+</li>
+<li><p>Optionally, add the <code class="docutils literal notranslate"><span class="pre">partial_range</span></code> attribute to the <code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code>
+element and set its value to the tolerance multiplier. If you do not set the
+<code class="docutils literal notranslate"><span class="pre">partial_range</span></code> attribute, 2 is used as the tolerance multiplier.</p></li>
+</ul>
+<p>For example, the following OLX shows a numerical problem that provides partial
+credit for close answers.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;9.3*10^7&quot;</span><span class="w"> </span><span class="na">partial_credit=</span><span class="s">&quot;close&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>How<span class="w"> </span>many<span class="w"> </span>miles<span class="w"> </span>away<span class="w"> </span>from<span class="w"> </span>Earth<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>sun?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Use<span class="w"> </span>scientific<span class="w"> </span>notation<span class="w"> </span>to<span class="w"> </span>answer.<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;1%&quot;</span><span class="w"> </span><span class="na">partial_range=</span><span class="s">&quot;3&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="awarding-partial-credit-for-answers-in-a-list">
+<h4><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">10.25.3.6.2. </span>Awarding Partial Credit for Answers in a List</a><a class="headerlink" href="#awarding-partial-credit-for-answers-in-a-list" title="Link to this heading">#</a></h4>
+<p>For some numerical input problems, mistakes do not help a learner arrive at the
+correct answer. For example, a small mistake can lead to negative instead of
+positive results, or to an answer that is off by a square root or numerical
+factor.</p>
+<p>For these types of problems, you can configure a list of wrong answers that
+receive partial credit. Learners who submit answers that are on the list
+receive 50% of the problem’s points.</p>
+<section id="configure-a-list">
+<h5><span class="section-number">10.25.3.6.2.1. </span>Configure a List<a class="headerlink" href="#configure-a-list" title="Link to this heading">#</a></h5>
+<p>To configure a numerical input problem to award partial credit for answers in a
+list, you add the following attributes to the problem XML.</p>
+<ul>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">partial_credit=&quot;list&quot;</span></code> attribute to the <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code>
+element.</p>
+<p>You can use a list in combination with close answers. Set the
+attribute to <code class="docutils literal notranslate"><span class="pre">partial_credit=&quot;close,list&quot;</span></code>.</p>
+</li>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">partial_answers</span></code> attribute to the <code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code> element. Set
+its value to one or more answers that should earn 50% of the problem’s
+points. Separate multiple values by a comma (,).</p></li>
+</ul>
+<p>For example, the following XML shows the numerical problem template
+updated to provide partial credit for a different answer.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;9.3*10^7&quot;</span><span class="w"> </span><span class="na">partial_credit=</span><span class="s">&quot;close&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>How<span class="w"> </span>many<span class="w"> </span>miles<span class="w"> </span>away<span class="w"> </span>from<span class="w"> </span>Earth<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>sun?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Use<span class="w"> </span>scientific<span class="w"> </span>notation<span class="w"> </span>to<span class="w"> </span>answer.<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">partial_answers=</span><span class="s">&quot;150*10^6&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="adding-text-after-the-numeric-response-field">
+<h3><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">10.25.3.7. </span>Adding Text after the Numeric Response Field</a><a class="headerlink" href="#adding-text-after-the-numeric-response-field" title="Link to this heading">#</a></h3>
+<p>You might want to include a word, phrase, or sentence after the response field
+in a numerical input problem to help guide your students or resolve ambiguity.</p>
+<a class="reference internal image-reference" href="../_images/NI_trailing_text.png"><img alt="Three numerical input problems with text after the response field: &quot;km&quot;, a percent sign, and a symbol for meters per second squared." src="../_images/NI_trailing_text.png" style="width: 500px;" />
+</a>
+<p>To do this, you use the advanced editor.</p>
+<p>In the problem, locate the <code class="docutils literal notranslate"><span class="pre">formulaequationinput</span></code> element. This element
+creates the response field for the problem and is a child of the
+<code class="docutils literal notranslate"><span class="pre">numericalresponse</span></code> element.</p>
+<p>To add text after the response field, add the <code class="docutils literal notranslate"><span class="pre">trailing_text</span></code> attribute
+together with the symbol or text that you want to use inside the
+<code class="docutils literal notranslate"><span class="pre">formulaequationinput</span></code> element. An example problem follows with three
+questions that use this attribute.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can use MathJax inside the <code class="docutils literal notranslate"><span class="pre">trailing_text</span></code> attribute, as the
+third question in this example shows. You cannot use HTML inside this
+attribute.</p>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;12.87&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>How<span class="w"> </span>far<span class="w"> </span>is<span class="w"> </span>8<span class="w"> </span>miles<span class="w"> </span>in<span class="w"> </span>kilometers?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="na">trailing_text=</span><span class="s">&quot;km&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;91&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>According<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>Pew<span class="w"> </span>Research<span class="w"> </span>Center&#39;s<span class="w"> </span>Internet<span class="w"> </span>and<span class="w"> </span>American<span class="w"> </span>Life
+<span class="w">     </span>Project,<span class="w"> </span>what<span class="w"> </span>percentage<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>world&#39;s<span class="w"> </span>population<span class="w"> </span>had<span class="w"> </span>a<span class="w"> </span>cellular<span class="w"> </span>phone
+<span class="w">     </span>as<span class="w"> </span>of<span class="w"> </span>May<span class="w"> </span>2013?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="na">trailing_text=</span><span class="s">&quot;%&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;9.81&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>What<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>strength<span class="w"> </span>of<span class="w"> </span>Earth&#39;s<span class="w"> </span>gravity,<span class="w"> </span>to<span class="w"> </span>two<span class="w"> </span>decimal<span class="w"> </span>places?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="na">trailing_text=</span><span class="s">&quot;\(m/s^{2}\)&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="numerical-input-problem-olx-reference">
+<span id="numerical-input-problem-xml"></span><h2><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">10.25.4. </span>Numerical Input Problem OLX Reference</a><a class="headerlink" href="#numerical-input-problem-olx-reference" title="Link to this heading">#</a></h2>
+<section id="templates">
+<h3><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">10.25.4.1. </span>Templates</a><a class="headerlink" href="#templates" title="Link to this heading">#</a></h3>
+<p>The following templates represent problems without, and with, a Python script.</p>
+<section id="problem-with-no-tolerance">
+<h4><span class="section-number">10.25.4.1.1. </span>Problem with No Tolerance<a class="headerlink" href="#problem-with-no-tolerance" title="Link to this heading">#</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;ANSWER (NUMBER)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Question<span class="w"> </span>text<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Optional<span class="w"> </span>tip<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;correcthint&gt;</span>Feedback<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>correct<span class="w"> </span>answer.<span class="nt">&lt;/correcthint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;detailed-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Explanation<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>TEXT<span class="w"> </span>OF<span class="w"> </span>SOLUTION<span class="nt">&lt;/p&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="answer-created-using-a-script">
+<h4><span class="section-number">10.25.4.1.2. </span>Answer Created Using a Script<a class="headerlink" href="#answer-created-using-a-script" title="Link to this heading">#</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following example includes a Python script. When you add a
+script to a problem component, make sure that it is not indented. A “jailed
+code” error message appears when you save the problem in Studio if the script
+element is indented.</p>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;$computed_response&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Question<span class="w"> </span>text<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Optional<span class="w"> </span>tip<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;0.0001&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="nt">&lt;script</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+computed_response<span class="w"> </span>=<span class="w"> </span>math.sqrt(math.fsum([math.pow(math.pi,2),<span class="w"> </span>math.pow(math.e,2)]))
+<span class="nt">&lt;/script&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;correcthint&gt;</span>Feedback<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>correct<span class="w"> </span>answer.<span class="nt">&lt;/correcthint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;detailed-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Explanation<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>TEXT<span class="w"> </span>OF<span class="w"> </span>SOLUTION<span class="nt">&lt;/p&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="elements">
+<h3><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">10.25.4.2. </span>Elements</a><a class="headerlink" href="#elements" title="Link to this heading">#</a></h3>
+<p>For numerical input problems, the <code class="docutils literal notranslate"><span class="pre">&lt;problem&gt;</span></code> element can include this
+hierarchy of child elements.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;numericalresponse&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput&gt;</span>
+<span class="w">    </span><span class="nt">&lt;additional_answer&gt;</span>
+<span class="w">    </span><span class="nt">&lt;correcthint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam&gt;</span>
+<span class="w">    </span><span class="nt">&lt;script&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="nt">&lt;demandhint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;hint&gt;</span>
+</pre></div>
+</div>
+<p>In addition, standard HTML tags can be used to format text.</p>
+<section id="numericalresponse">
+<h4><span class="section-number">10.25.4.2.1. </span><code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code><a class="headerlink" href="#numericalresponse" title="Link to this heading">#</a></h4>
+<p>Required. Indicates that the problem is a numerical input problem.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code> element is similar to the <code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code>
+element used by the <a class="reference internal" href="math_expression_input.html#math-expression-input"><span class="std std-ref">math expression input</span></a> problem
+type, but the <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code> element does not allow unspecified
+variables.</p>
+<section id="attributes">
+<h5><span class="section-number">10.25.4.2.1.1. </span>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">answer</span></code></p></td>
+<td><p>Required. The correct answer to the problem, given as a mathematical
+expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">partial_credit</span></code></p></td>
+<td><p>Optional. Specifies the type of partial credit given. <code class="docutils literal notranslate"><span class="pre">close</span></code>,
+<code class="docutils literal notranslate"><span class="pre">list</span></code>, or a combination of both in any order separated by a comma (,).</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you include a variable name preceded with a dollar sign
+($) in the problem <code class="docutils literal notranslate"><span class="pre">answer</span></code>, you can include a script in the problem that
+computes the expression in terms of that variable.</p>
+</div>
+<p>The grader evaluates the answer that you provide and the learner’s response
+in the same way. The grader also automatically simplifies any numeric
+expressions that you or a learner provides. Answers can include simple
+expressions such as “0.3” and “42”, or more complex expressions such as
+“1/3” and “sin(pi/5)”.</p>
+</section>
+<section id="children">
+<h5><span class="section-number">10.25.4.2.1.2. </span>Children<a class="headerlink" href="#children" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;additional_answer&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;correcthint&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="label">
+<h4><span class="section-number">10.25.4.2.2. </span><code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code><a class="headerlink" href="#label" title="Link to this heading">#</a></h4>
+<p>Required. Identifies the question or prompt. You can include HTML tags within
+this element.</p>
+<section id="id8">
+<h5><span class="section-number">10.25.4.2.2.1. </span>Attributes<a class="headerlink" href="#id8" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+<section id="id9">
+<h5><span class="section-number">10.25.4.2.2.2. </span>Children<a class="headerlink" href="#id9" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="description">
+<h4><span class="section-number">10.25.4.2.3. </span><code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code><a class="headerlink" href="#description" title="Link to this heading">#</a></h4>
+<p>Optional. Provides clarifying information about how to answer the question. You
+can include HTML tags within this element.</p>
+<section id="id10">
+<h5><span class="section-number">10.25.4.2.3.1. </span>Attributes<a class="headerlink" href="#id10" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+<section id="id11">
+<h5><span class="section-number">10.25.4.2.3.2. </span>Children<a class="headerlink" href="#id11" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="formulaequationinput">
+<h4><span class="section-number">10.25.4.2.4. </span><code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code><a class="headerlink" href="#formulaequationinput" title="Link to this heading">#</a></h4>
+<p>Required. Creates a response field in the LMS where learners enter a response.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some older problems use a <code class="docutils literal notranslate"><span class="pre">&lt;textline</span> <span class="pre">math=&quot;1&quot;</span> <span class="pre">/&gt;</span></code> element instead of
+<code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code>. However, the <code class="docutils literal notranslate"><span class="pre">&lt;textline</span> <span class="pre">math=&quot;1&quot;</span> <span class="pre">/&gt;</span></code>
+element has been deprecated. All new problems should use the
+<code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code> element.</p>
+</div>
+<section id="id12">
+<h5><span class="section-number">10.25.4.2.4.1. </span>Attributes<a class="headerlink" href="#id12" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p></td>
+<td><p>Optional. Defines the width, in characters, of the response field in
+the LMS.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">trailing_text</span></code></p></td>
+<td><p>Optional. Specified text to appear immediately after the response field.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id13">
+<h5><span class="section-number">10.25.4.2.4.2. </span>Children<a class="headerlink" href="#id13" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="additional-answer">
+<h4><span class="section-number">10.25.4.2.5. </span><code class="docutils literal notranslate"><span class="pre">&lt;additional_answer&gt;</span></code><a class="headerlink" href="#additional-answer" title="Link to this heading">#</a></h4>
+<p>Optional. Specifies an additional correct answer for the problem. A problem can
+contain an unlimited number of additional answers.</p>
+<section id="id14">
+<h5><span class="section-number">10.25.4.2.5.1. </span>Attributes<a class="headerlink" href="#id14" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">answer</span></code></p></td>
+<td><p>Required. The alternative correct answer.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id15">
+<h5><span class="section-number">10.25.4.2.5.2. </span>Children<a class="headerlink" href="#id15" title="Link to this heading">#</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">correcthint</span></code></p>
+</section>
+</section>
+<section id="responseparam">
+<h4><span class="section-number">10.25.4.2.6. </span><code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code><a class="headerlink" href="#responseparam" title="Link to this heading">#</a></h4>
+<p>Specifies a tolerance, or margin of error, for an answer.</p>
+<section id="id16">
+<h5><span class="section-number">10.25.4.2.6.1. </span>Attributes<a class="headerlink" href="#id16" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>Optional. <code class="docutils literal notranslate"><span class="pre">&quot;tolerance&quot;</span></code> defines a tolerance for a number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default</span></code></p></td>
+<td><dl class="simple">
+<dt>Optional. A number or a percentage specifying a numerical or percent</dt><dd><p>tolerance.</p>
+</dd>
+</dl>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">partial_range</span></code></p></td>
+<td><p>Optional. For partial credit problems of <code class="docutils literal notranslate"><span class="pre">type=&quot;close&quot;</span></code>, a
+multiplier for the tolerance. Default is 2.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">partial_answers</span></code></p></td>
+<td><dl class="simple">
+<dt>Optional. For partial credit problems of <code class="docutils literal notranslate"><span class="pre">type=&quot;list&quot;</span></code>, a comma-</dt><dd><p>separated list of values that are to receive 50% credit.</p>
+</dd>
+</dl>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id17">
+<h5><span class="section-number">10.25.4.2.6.2. </span>Children<a class="headerlink" href="#id17" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="correcthint">
+<h4><span class="section-number">10.25.4.2.7. </span><code class="docutils literal notranslate"><span class="pre">&lt;correcthint&gt;</span></code><a class="headerlink" href="#correcthint" title="Link to this heading">#</a></h4>
+<p>Optional. Specifies feedback to appear after the learner submits the correct
+answer.</p>
+<section id="id18">
+<h5><span class="section-number">10.25.4.2.7.1. </span>Attributes<a class="headerlink" href="#id18" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Attribute</p></td>
+<td><p>Description</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">label</span></code></p></td>
+<td><p>Optional. The text of the custom feedback label.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id19">
+<h5><span class="section-number">10.25.4.2.7.2. </span>Children<a class="headerlink" href="#id19" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="script">
+<h4><span class="section-number">10.25.4.2.8. </span><code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code><a class="headerlink" href="#script" title="Link to this heading">#</a></h4>
+<p>Optional. Specifies a script that the grader uses to evaluate a learner’s
+response. A problem behaves as if all of the code in all of the <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code>
+elements were in a single <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> element. Specifically, any variables
+that are used in multiple <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> elements share a namespace and can be
+overridden.</p>
+<p>As with all Python, indentation matters, even though the code is embedded in
+XML.</p>
+<section id="id20">
+<h5><span class="section-number">10.25.4.2.8.1. </span>Attributes<a class="headerlink" href="#id20" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>Required. Must be set to <code class="docutils literal notranslate"><span class="pre">loncapa/python</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id21">
+<h5><span class="section-number">10.25.4.2.8.2. </span>Children<a class="headerlink" href="#id21" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="solution">
+<h4><span class="section-number">10.25.4.2.9. </span><code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code><a class="headerlink" href="#solution" title="Link to this heading">#</a></h4>
+<p>Optional. Identifies the explanation or solution for the problem, or for one of
+the questions in a problem that contains more than one question.</p>
+<p>This element contains an HTML division <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>. The division contains one or
+more paragraphs <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> of explanatory text.</p>
+</section>
+<section id="demandhint">
+<h4><span class="section-number">10.25.4.2.10. </span><code class="docutils literal notranslate"><span class="pre">&lt;demandhint&gt;</span></code><a class="headerlink" href="#demandhint" title="Link to this heading">#</a></h4>
+<p>Optional. Specifies hints for the learner. For problems that include multiple
+questions, the hints apply to the entire problem.</p>
+<section id="id22">
+<h5><span class="section-number">10.25.4.2.10.1. </span>Attributes<a class="headerlink" href="#id22" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+<section id="id23">
+<h5><span class="section-number">10.25.4.2.10.2. </span>Children<a class="headerlink" href="#id23" title="Link to this heading">#</a></h5>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;hint&gt;</span></code></p>
+</section>
+</section>
+<section id="hint">
+<h4><span class="section-number">10.25.4.2.11. </span><code class="docutils literal notranslate"><span class="pre">&lt;hint&gt;</span></code><a class="headerlink" href="#hint" title="Link to this heading">#</a></h4>
+<p>Required. Specifies additional information that learners can access if needed.</p>
+<section id="id24">
+<h5><span class="section-number">10.25.4.2.11.1. </span>Attributes<a class="headerlink" href="#id24" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+<section id="id25">
+<h5><span class="section-number">10.25.4.2.11.2. </span>Children<a class="headerlink" href="#id25" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="notes.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10.24. </span>Notes Tool</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="open_response_assessments/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.26. </span>Open Response Assessments</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">10.25.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-numerical-input-problem">10.25.1.1. Example Numerical Input Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-numerical-input-problem">10.25.2. Adding a Numerical Input Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-tolerance-or-a-range">10.25.2.1. Adding a Tolerance or a Range</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-tolerance">10.25.2.1.1. Adding a Tolerance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specifying-an-answer-range">10.25.2.1.2. Specifying an Answer Range</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-feedback">10.25.2.2. Adding Feedback</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-hints">10.25.2.3. Adding Hints</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-numerical-input-problems-using-the-advanced-editor">10.25.3. Editing Numerical Input Problems using the Advanced Editor</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">10.25.3.1. Adding Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#customizing-feedback-labels">10.25.3.1.1. Customizing Feedback Labels</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">10.25.3.2. Adding Hints</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-correct-responses">10.25.3.3. Adding Multiple Correct Responses</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">10.25.3.4. Adding a Tolerance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">10.25.3.5. Specifying an Answer Range</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#awarding-partial">10.25.3.6. Awarding Partial</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#identifying-close-answers">10.25.3.6.1. Identifying Close Answers</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-close-answers">10.25.3.6.1.1. Configure Close Answers</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#awarding-partial-credit-for-answers-in-a-list">10.25.3.6.2. Awarding Partial Credit for Answers in a List</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-a-list">10.25.3.6.2.1. Configure a List</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-text-after-the-numeric-response-field">10.25.3.7. Adding Text after the Numeric Response Field</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerical-input-problem-olx-reference">10.25.4. Numerical Input Problem OLX Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#templates">10.25.4.1. Templates</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-with-no-tolerance">10.25.4.1.1. Problem with No Tolerance</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-created-using-a-script">10.25.4.1.2. Answer Created Using a Script</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements">10.25.4.2. Elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#numericalresponse">10.25.4.2.1. <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">10.25.4.2.1.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#children">10.25.4.2.1.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label">10.25.4.2.2. <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">10.25.4.2.2.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">10.25.4.2.2.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#description">10.25.4.2.3. <code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">10.25.4.2.3.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id11">10.25.4.2.3.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formulaequationinput">10.25.4.2.4. <code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id12">10.25.4.2.4.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id13">10.25.4.2.4.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-answer">10.25.4.2.5. <code class="docutils literal notranslate"><span class="pre">&lt;additional_answer&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id14">10.25.4.2.5.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id15">10.25.4.2.5.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#responseparam">10.25.4.2.6. <code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id16">10.25.4.2.6.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id17">10.25.4.2.6.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#correcthint">10.25.4.2.7. <code class="docutils literal notranslate"><span class="pre">&lt;correcthint&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id18">10.25.4.2.7.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id19">10.25.4.2.7.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#script">10.25.4.2.8. <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id20">10.25.4.2.8.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id21">10.25.4.2.8.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">10.25.4.2.9. <code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#demandhint">10.25.4.2.10. <code class="docutils literal notranslate"><span class="pre">&lt;demandhint&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id22">10.25.4.2.10.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id23">10.25.4.2.10.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hint">10.25.4.2.11. <code class="docutils literal notranslate"><span class="pre">&lt;hint&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id24">10.25.4.2.11.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id25">10.25.4.2.11.2. Children</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1314 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9.3. Managing Course Videos &#8212; Building and Running an edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'video/upload_video';</script>
+    <link rel="icon" href="https://www.edx.org/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9.4. Adding a Video to a Course" href="add_video_to_course.html" />
+    <link rel="prev" title="9.2.3. Obtain a Video Transcript" href="prepare_video/obtain_transcript.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-light" alt="Building and Running an edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-dark" alt="Building and Running an edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building and Running an edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_accounts.html">2.1. Getting Started with edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_get_started_Studio.html">2.2. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/accessibility_checker.html">5.4. Accessibility Checker</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_information/index.html">6.1. Planning Course Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title, Number, and Enrollment Track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/index.html">6.3. Creating and Announcing a Course Using Publisher (edx.org Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_introduction.html">6.3.1. Introduction to Publisher</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/index.html">6.3.2. Creating a Course in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_course_creation.html">6.3.2.1. The Publisher Course Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_create_course.html">6.3.2.2. Create a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_find_course.html">6.3.2.3. Find a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_edit_course.html">6.3.2.4. Edit a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_send_course_marketing.html">6.3.2.5. Send a Course to edX Marketing for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_review_changes.html">6.3.2.6. Review Changes and Finalize the Course</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_add_comment_to_course.html">6.3.2.7. Add a Comment to a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_check_course_status.html">6.3.2.8. Check the Status of a Course in Publisher</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/index.html">6.3.3. Creating a Course Run in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_course_run_creation.html">6.3.3.1. The Publisher Course Run Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_create_course_run.html">6.3.3.2. Create a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_access_course_run_studio.html">6.3.3.3. Access a Course Run in Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_edit_course_run.html">6.3.3.4. Edit a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_course_run_staff.html">6.3.3.5. Add Course Run Staff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_send_course_run_review.html">6.3.3.6. Send a Course Run to the edX PC for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_comment_to_course_run.html">6.3.3.7. Add a Comment to the Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_finalize_course_run.html">6.3.3.8. Finalize a Course Run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_publish_about_page.html">6.3.4. Publishing an About Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_add_about_video.html">6.3.5. Add a Course or Program About Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_update_course_run_info.html">6.3.6. Change a Course Run After the About Page Is Published</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_change_publisher_settings.html">6.3.7. Change Publisher Settings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/studio_add_course_information/index.html">6.4. Add Course and Course Run Information in Studio (Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html">6.4.1. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_scheduling.html">6.4.2. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_image.html">6.4.3. Add a Course Image in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_staffing.html">6.4.4. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.4.5. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_about_page.html">6.4.6. Creating a Course About Page in Studio</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developing_course/index.html">7. Developing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/testing_courseware.html">7.9. Testing Your Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/social_sharing.html">7.10. Sharing Course Content on Social Media Platforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_components/index.html">8. Adding Course Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">9. Creating and Adding Video Content</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">9.3. Managing Course Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_preroll_video.html">9.7. Adding a Pre-Roll Video to Your edX Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="troubleshoot_video.html">9.8. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises_tools/index.html">10. Adding Exercises and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/conditional_module.html">10.7. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/completion.html">10.8. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop.html">10.10. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop_deprecated.html">10.11. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/dropdown.html">10.12. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/external_graders.html">10.13. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/full_screen_image.html">10.14. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/gene_explorer.html">10.15. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_calendar.html">10.16. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_docs.html">10.17. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/iframe.html">10.18. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/image_mapped_input.html">10.19. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/lti_component.html">10.20. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/math_expression_input.html">10.21. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/mathjax.html">10.22. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/multi_select.html">10.23. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/notes.html">10.24. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/numerical_input.html">10.25. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/index.html">10.26. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/OpenResponseAssessments.html">10.26.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/CreateORAAssignment.html">10.26.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/Manage_ORA_Assignment.html">10.26.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/ORA_Staff_Grading.html">10.26.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/Access_ORA_Info.html">10.26.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/oppia.html">10.27. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/peer_instruction_tool.html">10.28. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/periodic_table.html">10.29. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll_question.html">10.30. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll.html">10.31. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_with_hint.html">10.32. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_in_latex.html">10.33. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/protein_builder.html">10.34. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/qualtrics.html">10.35. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/randomized_content_blocks.html">10.36. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/recommenderXBlock.html">10.37. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/scorm.html">10.38. SCORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_python.html">10.45. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/zooming_image.html">10.46. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_live.html">11.6. Course Live</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/content_experiments/index.html">12.3. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_overview.html">12.3.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_configure.html">12.3.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_add.html">12.3.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_view.html">12.3.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/teams/index.html">12.4. Using the Teams Application</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_setup.html">12.4.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_learner_experience.html">12.4.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_discussions.html">12.4.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/credit_courses/index.html">12.5. Offering Academic Course Credit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/credit_courses/credit_courses.html">12.5.1. Academic Course Credit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/timed_exams.html">12.6. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/lti/index.html">12.7. Using edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_reuse_content.html">12.7.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_prepare_content.html">12.7.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_address_content.html">12.7.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_grade_content.html">12.7.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_canvas_example.html">12.7.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_blackboard_example.html">12.7.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_summaries/index.html">12.8. Xpert Unit Summaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_overview.html">12.8.1. Overview of Xpert Unit Summaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_enabling.html">12.8.2. Enabling Xpert Unit Summaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_translations/index.html">12.9. Xpert Course Translations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/feature_description.html">12.9.1. Feature Description: Xpert Course Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/enabling_disabling_translations.html">12.9.2. Enabling or Disabling Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/reviewing_and_editing_translations.html">12.9.3. Reviewing and Editing Translations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_enabling.html">13.2. Enable Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_create.html">13.3. Create a Proctored Exam with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_results.html">13.4. Viewing Proctored Session Results with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_create.html">13.5. Create a Proctored Exam with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_results.html">13.6. Viewing Proctored Session Results with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_managing.html">13.7. Managing Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_learners.html">13.8. Preparing Learners for Proctored Exams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../managing_notifications/index.html">18. Managing Notifications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../managing_notifications/managing_notifications.html">18.1. Accessing the Notifications Tray</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../student_progress/index.html">19. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_student.html">19.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_answers.html">19.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_grades.html">19.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/certificate_data.html">19.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/checking_student_progress.html">19.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rerun_course/index.html">20. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rerun_course/course_rerun.html">20.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">21. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/course_authors/source/video/upload_video.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fvideo/upload_video.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/video/upload_video.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Managing Course Videos</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-videos-page">9.3.1. Course Videos Page</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-info-modal">9.3.1.1. Video Info Modal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-a-video-for-an-edx-org-course">9.3.2. Uploading a Video for an edx.org Course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-video-process">9.3.2.1. Automated Video Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-video-process-for-integrated-transcripts">9.3.3. Automated Video Process for Integrated Transcripts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-video-process-for-non-integrated-transcripts">9.3.4. Automated Video Process for Non-Integrated Transcripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-a-video-for-an-edx-org-course-for-videos-page">9.3.4.1. Upload a Video for an edx.org Course (for Videos page)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitor-video-processing">9.3.4.2. Monitor Video Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-processing-statuses">9.3.5. Video Processing Statuses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-available-encodings-report">9.3.6. Downloading the Available Encodings Report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-an-uploaded-video">9.3.7. Find an Uploaded Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-and-filter-videos">9.3.8. Sort and Filter Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-video">9.3.9. Delete a Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-video">9.3.10. Download a Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-a-video-for-an-edge-course">9.3.11. Uploading a Video for an Edge Course</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <span class="target" id="managing-course-videos"></span><section id="upload-a-video-on-edx">
+<span id="id1"></span><h1><span class="section-number">9.3. </span>Managing Course Videos<a class="headerlink" href="#upload-a-video-on-edx" title="Link to this heading">#</a></h1>
+<p>Uploading a video and transcript is different depending on whether your
+course is on edx.org or Edge.</p>
+<p>For more information, see the following topics.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#course-videos-page" id="id22">Course Videos Page</a></p>
+<ul>
+<li><p><a class="reference internal" href="#video-info-modal" id="id23">Video Info Modal</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#uploading-a-video-for-an-edx-org-course" id="id24">Uploading a Video for an edx.org Course</a></p>
+<ul>
+<li><p><a class="reference internal" href="#automated-video-process" id="id25">Automated Video Process</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#automated-video-process-for-integrated-transcripts" id="id26">Automated Video Process for Integrated Transcripts</a></p></li>
+<li><p><a class="reference internal" href="#automated-video-process-for-non-integrated-transcripts" id="id27">Automated Video Process for Non-Integrated Transcripts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#upload-a-video-for-an-edx-org-course-for-videos-page" id="id28">Upload a Video for an edx.org Course (for Videos page)</a></p></li>
+<li><p><a class="reference internal" href="#monitor-video-processing" id="id29">Monitor Video Processing</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#video-processing-statuses" id="id30">Video Processing Statuses</a></p></li>
+<li><p><a class="reference internal" href="#downloading-the-available-encodings-report" id="id31">Downloading the Available Encodings Report</a></p></li>
+<li><p><a class="reference internal" href="#find-an-uploaded-video" id="id32">Find an Uploaded Video</a></p></li>
+<li><p><a class="reference internal" href="#sort-and-filter-videos" id="id33">Sort and Filter Videos</a></p></li>
+<li><p><a class="reference internal" href="#delete-a-video" id="id34">Delete a Video</a></p></li>
+<li><p><a class="reference internal" href="#download-a-video" id="id35">Download a Video</a></p></li>
+<li><p><a class="reference internal" href="#uploading-a-video-for-an-edge-course" id="id36">Uploading a Video for an Edge Course</a></p></li>
+</ul>
+</nav>
+<section id="course-videos-page">
+<span id="id2"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">9.3.1. </span>Course Videos Page</a><a class="headerlink" href="#course-videos-page" title="Link to this heading">#</a></h2>
+<p>You manage videos for your course on the Videos page. This page lists the
+videos that you have added, along with the following capabilities and
+information regarding the videos.</p>
+<a class="reference internal image-reference" href="../_images/videos_page.png"><img alt="The Videos page lists all course videos.  Additional features include: title search; sort and filter; add videos; download videos; delete videos; view file name, video length, transcript status, and whether video is active in the course at a glance." src="../_images/videos_page.png" style="width: 600px;" />
+</a>
+<ul class="simple">
+<li><p>A checkbox for Download and Delete bulk actions</p></li>
+<li><p>A thumbnail of the file</p></li>
+<li><p>The video name</p></li>
+<li><p>The video length</p></li>
+<li><p>Transcript status</p></li>
+<li><p>An indication of whether the video is active in the course</p></li>
+<li><p>An indication of the video status (failed, processing, or blank. The video
+is ready when that column is blank)</p></li>
+<li><p>The three dot menu allows you to copy the Video ID, download the video,
+launch the Info Modal, and delete a video</p></li>
+</ul>
+<section id="video-info-modal">
+<h3><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">9.3.1.1. </span>Video Info Modal</a><a class="headerlink" href="#video-info-modal" title="Link to this heading">#</a></h3>
+<p>The Info Modal shows the date added, the file size, and the length of the
+video. The “Usage” section lists all Units where the file is referenced
+within the course. Clicking on each link will take you to the corresponding
+Studio Unit page.</p>
+<a class="reference internal image-reference" href="../_images/videos_page_info_modal.png"><img alt="The Info Modal shows the thumbnail, the date the video was added, the file size, the video length, and if the video is active, then there is a link on the bottom left hand corner of the page that will take you to the location of the video in the course." src="../_images/videos_page_info_modal.png" style="width: 400px;" />
+</a>
+<p>This page also includes a Search option to help you find specific videos.
+For more information, see <a class="reference internal" href="#find-an-uploaded-video"><span class="std std-ref">Find an Uploaded Video</span></a>.</p>
+</section>
+</section>
+<section id="uploading-a-video-for-an-edx-org-course">
+<span id="id3"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">9.3.2. </span>Uploading a Video for an edx.org Course</a><a class="headerlink" href="#uploading-a-video-for-an-edx-org-course" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>This information applies only to courses that run on the edx.org site.</strong>
+For information about adding video files to courses that run on Edge,
+see <a class="reference internal" href="#uploading-a-video-for-an-edge-course"><span class="std std-ref">Uploading a Video for an Edge Course</span></a>.</p>
+</div>
+<p>When you upload a video, a banner message will appear at the top, alerting you to the upload now in progress.
+Once the video thumbnail says “uploaded” over it and the banner message at the top has gone away,
+it is safe to move on to other things.
+Until that time, please remain on the page until the upload has completed. You can do any other work in studio
+by opening an additional tab, just make sure you don’t close the first one until the upload is done.</p>
+<p>For <a class="reference internal" href="#uploading-a-video-for-an-edx-org-course"><span class="std std-ref">edx.org courses</span></a>, you
+upload your videos to the <strong>Videos</strong> page. The edX video process then
+creates multiple formats and sources for your videos.</p>
+<p>For more information, see the following topics.</p>
+<nav class="contents local" id="id4">
+<ul class="simple">
+<li><p><a class="reference internal" href="#automated-video-process" id="id37">Automated Video Process</a></p></li>
+</ul>
+</nav>
+<section id="automated-video-process">
+<span id="id5"></span><h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">9.3.2.1. </span>Automated Video Process</a><a class="headerlink" href="#automated-video-process" title="Link to this heading">#</a></h3>
+<p>So that the edX video player can automatically play videos in the best format
+for a learner’s device and internet connection, after you upload a video for an
+edx.org course, an automated video process creates multiple formats and sources
+for every video. The process also assigns a single video ID to the video that
+represents all of the formats and hosting locations for the video.</p>
+<ul class="simple">
+<li><p>For courses that have <a class="reference internal" href="#automated-video-process-for-integrated-transcripts"><span class="std std-ref">integrated transcripts</span></a> through 3Play Media or cielo24, the edX
+automated video process also creates transcripts for each video.</p></li>
+<li><p>For courses that have <a class="reference internal" href="#automated-video-process-for-non-integrated-transcripts"><span class="std std-ref">non-integrated transcripts</span></a>, you must obtain your transcripts
+from your third party provider. You later <a class="reference internal" href="additional_transcript_options.html#add-a-transcript"><span class="std std-ref">add the video transcripts
+manually</span></a> when you create a video component. Transcripts
+can also be added in the Transcript tab within the Info Modal.</p></li>
+</ul>
+<a class="reference internal image-reference" href="../_images/videos_page_info_modal_transcripts.png"><img alt="The Transcript Tab shows the languages a video has transcripts for and also offers the capability to add languages." src="../_images/videos_page_info_modal_transcripts.png" style="width: 400px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a step in the process does not complete successfully, the process
+automatically tries again multiple times. If the process does not complete
+successfully after multiple tries, an <a class="reference internal" href="#video-processing-statuses"><span class="std std-ref">error status</span></a> appears in the list of videos on the <strong>Videos</strong> page as
+well as within the video component.</p>
+</div>
+<p>For more information, see the following topics:</p>
+</section>
+</section>
+<section id="automated-video-process-for-integrated-transcripts">
+<span id="id7"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">9.3.3. </span>Automated Video Process for Integrated Transcripts</a><a class="headerlink" href="#automated-video-process-for-integrated-transcripts" title="Link to this heading">#</a></h2>
+<p>If the course has integrated video transcripts through 3Play Media or cielo24,
+the process has the following steps.</p>
+<a class="reference internal image-reference" href="../_images/VidProc-IT.png"><img alt="The video process for courses with integrated video transcripts, as explained in the following numbered list." src="../_images/VidProc-IT.png" style="width: 600px;" />
+</a>
+<ol class="arabic">
+<li><p>The course team uploads the video file on the <strong>Videos</strong> page.</p></li>
+<li><p>The process assigns a unique video ID to the video. This video ID represents
+all of the files, hosting locations, and transcripts that the automated
+process creates.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As soon as the automated video process has assigned a video ID to the
+video, you can add the video to the course. However, the video is not
+visible in the course until the automated process is complete. The process
+can take up to 24 hours.</p>
+</div>
+</li>
+<li><p>The process encodes video files in different formats, and then uploads the
+video files to the hosting service.</p></li>
+<li><p>The process creates transcripts for the video, and then uploads the
+transcripts to the hosting service.</p></li>
+</ol>
+<p>After the automated video process is complete, the course team creates a video
+component and adds the video ID to the video component. For more information,
+see <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/video/add_video_to_course.html#add-a-video-to-a-course" title="(in Building and Running an Open edX Course)"><span>Adding a Video to a Course</span></a>.</p>
+</section>
+<section id="automated-video-process-for-non-integrated-transcripts">
+<span id="id8"></span><h2><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">9.3.4. </span>Automated Video Process for Non-Integrated Transcripts</a><a class="headerlink" href="#automated-video-process-for-non-integrated-transcripts" title="Link to this heading">#</a></h2>
+<p>If the course uses a transcript provider that does not offer integrated
+transcripts, the video processing service completes the following steps.</p>
+<a class="reference internal image-reference" href="../_images/VidProc-NoIT.png"><img alt="The video process for courses without integrated video transcripts, as explained in the following numbered list." src="../_images/VidProc-NoIT.png" style="width: 600px;" />
+</a>
+<ol class="arabic">
+<li><p>The course team uploads the video file on the <strong>Videos</strong> page.</p></li>
+<li><p>The process assigns a unique video ID to the video. This video ID represents
+all of the files and hosting locations that the automated process creates.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>As soon as the automated video process has assigned a video ID to the
+video, you can add the video to the course. However, the video is not
+visible in the course until the automated process is complete. The process
+can take up to 24 hours.</p>
+</div>
+</li>
+<li><p>The process encodes video files in different formats.</p></li>
+<li><p>The process uploads the video files to the hosting service.</p></li>
+</ol>
+<p>Either before or after the course team uploads a video on the <strong>Videos</strong>
+page, the course team <a class="reference internal" href="prepare_video/obtain_transcript.html#obtain-a-video-transcript"><span class="std std-ref">obtains transcripts</span></a>
+from a transcript provider. When the edX video process is complete, and the
+course team has obtained transcripts from the transcript provider, the course
+team creates a video component and adds the video ID and transcript to the
+component. For more information, see <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/video/add_video_to_course.html#add-a-video-to-a-course" title="(in Building and Running an Open edX Course)"><span>Adding a Video to a Course</span></a>.</p>
+<section id="upload-a-video-for-an-edx-org-course-for-videos-page">
+<h3><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">9.3.4.1. </span>Upload a Video for an edx.org Course (for Videos page)</a><a class="headerlink" href="#upload-a-video-for-an-edx-org-course-for-videos-page" title="Link to this heading">#</a></h3>
+<p>To upload video files, both for videos with integrated transcripts and
+non-integrated transcripts, follow these steps.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You must leave the <strong>Videos</strong> page open in your browser until the
+upload process is complete for all files.</p>
+</div>
+<ol class="arabic">
+<li><p>Open the course in Studio.</p></li>
+<li><p>On the <strong>Content</strong> menu, select <strong>Videos</strong>.</p></li>
+<li><p>Add video files to the <strong>Videos</strong> page by clicking the “Add videos” button
+and browsing your computer to locate the files to upload.</p></li>
+<li><p>(optional) Specify a thumbnail image for the video. The thumbnail image is
+the image that learners see before the video begins to play. To do this,
+hover the cursor over <strong>Add Thumbnail</strong>, select an image from your computer,
+and then select <strong>Open</strong>.</p>
+<p>If a thumbnail image exists for the video and you want to change the image,
+hover the cursor over the image, and then select <strong>Edit Thumbnail</strong>. Select
+an image from your computer, and then select <strong>Open</strong>.</p>
+</li>
+</ol>
+<p>After you have uploaded video files, the edX video process begins. You can
+check the progress of a video file through the service at any time. For more
+information, see <a class="reference internal" href="#monitor-video-processing"><span class="std std-ref">Monitor Video Processing</span></a> or <a class="reference internal" href="#reporting-video-status"><span class="std std-ref">Downloading the Available Encodings Report</span></a>.</p>
+</section>
+<section id="monitor-video-processing">
+<span id="id9"></span><h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">9.3.4.2. </span>Monitor Video Processing</a><a class="headerlink" href="#monitor-video-processing" title="Link to this heading">#</a></h3>
+<p>After your video files are successfully uploaded, the video processing service
+begins.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This service takes up to 24 hours to complete.</p>
+</div>
+<p>A list of every file that you attempt to upload to the edX servers appears on
+the <strong>Videos</strong> page. The list includes each file’s status in the encoding and
+hosting workflow. In addition, you can download a report of the video files
+that you uploaded. For more information, see <a class="reference internal" href="#reporting-video-status"><span class="std std-ref">Downloading the Available Encodings Report</span></a>.</p>
+</section>
+</section>
+<section id="video-processing-statuses">
+<span id="id10"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">9.3.5. </span>Video Processing Statuses</a><a class="headerlink" href="#video-processing-statuses" title="Link to this heading">#</a></h2>
+<p>The encoding and hosting process assigns the following statuses to video files.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Status</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Failed</strong></p></td>
+<td><p>Files did not complete processing successfully. If this status appears,
+follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Verify that you can play your original .mp4 or .mov file and that the
+file meets all <a class="reference internal" href="prepare_video/create_video.html#video-guidelines"><span class="std std-ref">specifications</span></a> for successful
+video processing.</p></li>
+<li><p>Remove the video file from the <strong>Videos</strong> page.</p></li>
+<li><p>Upload the original file again, or upload a replacement file.</p></li>
+</ol>
+<p>There might be failure instances where a small error message will be displayed
+under the <strong>Failed</strong> status. In most of the cases when the error message is displayed, there
+is a possibility of corruption in the uploaded file (either during the upload or the original
+video file itself). However, if processing fails more than one time for a file, contact edX partner
+support at <code class="docutils literal notranslate"><span class="pre">partner-support&#64;edx.org</span></code>.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Failed Duplicate</strong></p></td>
+<td><p>Files failed to upload because the system identified the files as
+duplicates.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>In Progress</strong></p></td>
+<td><p>Files are undergoing processing to create additional file formats, or are
+waiting for successful transfer to the host sites.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Invalid Token</strong></p></td>
+<td><p>A configuration problem has occurred. If this status appears, contact edX
+partner support at <code class="docutils literal notranslate"><span class="pre">partner-support&#64;edx.org</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Ready</strong></p></td>
+<td><p>The encoding process is complete for your files. When you click the names
+of these files, a file on one of the external host sites plays. The
+encoding process might take 24 hours after you upload a file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For all courses, the “Ready” status means that the <strong>encoding</strong> process
+is complete. It does not refer to the <strong>transcript</strong> creation process.</p>
+<p>For courses that have integrated transcripts through 3Play Media or
+cielo24, the video is not ready for you to add to the course, or for
+learners to view, until the “Ready” status changes to “Transcript
+Ready”, signifying that the transcript creation process is complete.</p>
+<p>For courses that do not have integrated transcripts, you must make sure
+that each video has a transcript. For more information, see <a class="reference internal" href="prepare_video/obtain_transcript.html#non-integrated-transcripts"><span class="std std-ref">Non-Integrated Transcripts</span></a>.</p>
+</div>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Transcription in Progress</strong></p></td>
+<td><p>The encoding process has completed, and video transcripts are being
+created.</p>
+<p>If a video has this status longer than the time that you specified for
+the <strong>Transcript Turnaround</strong> time, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Verify that the file that you uploaded is in .mp4 or .mov format and
+that the file meets all <a class="reference internal" href="prepare_video/create_video.html#video-guidelines"><span class="std std-ref">specifications</span></a> for
+successful video processing.</p></li>
+<li><p>Remove the video file from the <strong>Videos</strong> page.</p></li>
+<li><p>Upload the original file again, or upload a replacement file.</p></li>
+</ol>
+<p>If this problem occurs more than one time for a file, contact edX partner
+support at <code class="docutils literal notranslate"><span class="pre">partner-support&#64;edx.org</span></code>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><strong>Transcript Ready</strong></p></td>
+<td><p>Both the video encoding and transcript creation processes are complete.
+The video and transcripts are ready to add to your course and for
+learners to view.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Partial Failure</strong></p></td>
+<td><p>This status appears when the transcription process has been started for
+more than one languages and either one or more processes fail. This
+indicates a combination of successful and unsuccessful transcription
+processes.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Transcript Failed</strong></p></td>
+<td><p>All the transcription processes have failed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Unknown</strong></p></td>
+<td><p>A configuration problem has occurred. If this status appears, contact edX
+partner support at <code class="docutils literal notranslate"><span class="pre">partner-support&#64;edx.org</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Uploaded</strong></p></td>
+<td><p>The file has successfully completed uploading to the edX servers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Uploading</strong></p></td>
+<td><p>The file has not yet reached the edX servers. If a video has this status
+for more than 48 hours, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Verify that the file that you uploaded is in .mp4 or .mov format and
+that the file meets all <a class="reference internal" href="prepare_video/create_video.html#video-guidelines"><span class="std std-ref">specifications</span></a> for
+successful video processing.</p></li>
+<li><p>Remove the video file from the <strong>Videos</strong> page.</p></li>
+<li><p>Upload the original file again, or upload a replacement file.</p></li>
+</ol>
+<p>If this problem occurs more than one time for a file, contact edX partner
+support at <code class="docutils literal notranslate"><span class="pre">partner-support&#64;edx.org</span></code>.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="downloading-the-available-encodings-report">
+<span id="reporting-video-status"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">9.3.6. </span>Downloading the Available Encodings Report</a><a class="headerlink" href="#downloading-the-available-encodings-report" title="Link to this heading">#</a></h2>
+<p>The Available Encodings report is a comma separated values (.csv) file that
+provides detailed information about the video files that you have uploaded.
+This report includes the status of the encoding and hosting process for each
+video file that you have uploaded, the identifier for the video, and the URLs
+for each encoding format. The edX encoding and hosting process produces these
+alternative formats to ensure optimal playback quality for your learners.</p>
+<p>You can view the Available Encodings report in a spreadsheet application or
+text editor.</p>
+<p>To download the Available Encodings report, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Open the course in Studio.</p></li>
+<li><p>On the <strong>Content</strong> menu, select <strong>Videos</strong>.</p></li>
+<li><p>On the <strong>Videos</strong> page, click <strong>Download available encodings
+(.csv)</strong>.</p></li>
+<li><p>Use a spreadsheet application or text editor to open the .csv file.</p></li>
+</ol>
+<p>The .csv file includes the following columns.</p>
+<ul class="simple">
+<li><p>The file <strong>Name</strong>.</p></li>
+<li><p>The file <strong>Duration</strong>. If the upload process has not yet determined how long
+the file is, <strong>Pending</strong> appears in the <strong>Duration</strong> column for a video.</p></li>
+<li><p>The <strong>Date Added</strong>, which shows the date and time that you uploaded the
+video file.</p></li>
+<li><p>The unique, identifying <strong>Video ID</strong>. When you add a video component to your
+course, you supply the video ID for the file you want to add. For more
+information, see <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/video/add_video_to_course.html#add-a-video-to-a-course" title="(in Building and Running an Open edX Course)"><span>Adding a Video to a Course</span></a>.</p></li>
+<li><p>The <strong>Status</strong> of the encoding and hosting process for the file. For more
+information, see <a class="reference internal" href="#video-processing-statuses"><span class="std std-ref">Video Processing Statuses</span></a>.</p></li>
+</ul>
+<p>The .csv file also includes a column for each of the formats that are the
+result of the edX encoding and hosting process. These columns include the URL
+of a host site only after the format is successfully generated and delivered to
+its destination.</p>
+<ul>
+<li><p><strong>desktop_mp4 URL</strong>: The location of a 720p resolution video file in .mp4
+format. Learners who view course videos with mp4 players view this file.</p></li>
+<li><p><strong>desktop_webm URL</strong>: The location of a 720p resolution video file in .webm
+format. Learners who view course videos with webm players view this file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The encoding and hosting process no longer creates .webm versions of the
+video files that you upload. Modern web browsers do not require the webm
+format. The .csv file includes the <strong>desktop_webm URL</strong> column to show the
+webm URLs for videos uploaded before this change. When you upload a new
+video, the column will remain empty, even after the encoding and hosting
+process is complete.</p>
+</div>
+</li>
+<li><p><strong>mobile_low URL</strong>: The location of a 360p resolution video file. Learners
+who download and view course videos on mobile devices view this file.</p></li>
+<li><p><strong>youtube URL</strong>: EdX no longer supports YouTube videos.</p></li>
+</ul>
+</section>
+<section id="find-an-uploaded-video">
+<span id="id11"></span><h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">9.3.7. </span>Find an Uploaded Video</a><a class="headerlink" href="#find-an-uploaded-video" title="Link to this heading">#</a></h2>
+<p>The Videos page lists up to 50 videos at one time. If your course has more
+than 50 videos, additional videos are listed on subsequent pages.</p>
+<p>To find a video on the Videos page, you can use the Search option, or you can
+view the page that lists the video.</p>
+<p>To use the Search option, enter one of the following search terms in the Search
+field</p>
+<ul class="simple">
+<li><p>The full video name.</p></li>
+<li><p>The video name extension, or video type.</p></li>
+<li><p>Any part or multiple parts of the video name.</p></li>
+</ul>
+</section>
+<section id="sort-and-filter-videos">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">9.3.8. </span>Sort and Filter Videos</a><a class="headerlink" href="#sort-and-filter-videos" title="Link to this heading">#</a></h2>
+<a class="reference internal image-reference" href="../_images/videos_page_sort_filter.png"><img alt="The Sort &amp; Filter button allows you to sort videos by Name (A-Z) or (Z-A), Newest, Oldest, File size (high to low) or (low to high). You can filter by videos that are Transcribed, Not Transcribed, Active, Inactive, Processing, or Failed." src="../_images/videos_page_sort_filter.png" style="width: 400px;" />
+</a>
+<p>On the Videos page, you can sort your files by Name (A-Z), Name (Z-A), Newest,
+Oldest, File size (high to low), and File size (low to high). To sort by one of
+these, select what you wish to sort by and click Apply.</p>
+<p>You can filter videos by type so that only a selected type of video is visible.
+The list remains in the current sort order.</p>
+<p>To filter the list of videos by type, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>On the Videos page, click the Sort &amp; Filters button.</p></li>
+<li><p>In the list, select the checkboxes for the type of video that you want.</p></li>
+</ol>
+<p>The list refreshes to show only the type or types of file you selected. To reset
+the list and view videos of all types, clear all checkboxes.</p>
+</section>
+<section id="delete-a-video">
+<h2><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">9.3.9. </span>Delete a Video</a><a class="headerlink" href="#delete-a-video" title="Link to this heading">#</a></h2>
+<p>To delete a video, first click on the corresponding checkboxes of the video(s)
+that you wish to delete, then click on the Actions button, and then select Delete.</p>
+<p>To delete all files, select the very first checkbox, then select the Action button
+and then select Delete. After you delete a video, any links to the video from
+inside or outside the course are broken. You must update links to files that you
+delete, and it is recommended to do this using the Info Modal before deleting any
+referenced videos.</p>
+</section>
+<section id="download-a-video">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">9.3.10. </span>Download a Video</a><a class="headerlink" href="#download-a-video" title="Link to this heading">#</a></h2>
+<p>To download a video, which includes the ability to download individual videos,
+multiple videos at once, or all of your videos, first click on the corresponding
+checkboxes of the videos that you wish to download, then click on the Actions
+button, and then select Download. To download all videos, select the very first
+checkbox, then select the Action button and then select Download.</p>
+</section>
+<section id="uploading-a-video-for-an-edge-course">
+<span id="id12"></span><h2><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">9.3.11. </span>Uploading a Video for an Edge Course</a><a class="headerlink" href="#uploading-a-video-for-an-edge-course" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This information applies only to courses that run on Edge. For information
+about uploading videos to courses that run on edx.org, see
+<a class="reference internal" href="#uploading-a-video-for-an-edx-org-course"><span class="std std-ref">Uploading a Video for an edx.org Course</span></a>.</p>
+</div>
+<p>For <a class="reference internal" href="#uploading-a-video-for-an-edge-course"><span class="std std-ref">Edge courses</span></a>, you upload your
+videos to the third party hosting site that you selected. You also obtain the
+transcripts for the videos from your third party provider. You <a class="reference internal" href="add_video_to_course.html#add-a-video"><span class="std std-ref">add the
+video location</span></a> and <a class="reference internal" href="additional_transcript_options.html#add-a-transcript"><span class="std std-ref">transcripts manually</span></a> when you
+create a video component.</p>
+<p>To upload a video to a third party hosting site, follow the instructions for
+that site. Keep the following guidelines in mind.</p>
+<ul>
+<li><p>The URL for the video that you upload on a third party hosting site must end
+in .mp4, .mpeg, .webm, or .ogg. The video player cannot support videos that
+you upload on sites such as Vimeo, Dailymotion, or other sites that use their
+own player.</p>
+<p>To help make sure all standard browsers can play your video, edX strongly
+recommends that you use .mp4 format.</p>
+<p>The video URL might resemble the following example.</p>
+<p><code class="docutils literal notranslate"><span class="pre">https://s3.amazonaws.com/edx-course-videos/edx-edx101/EDXSPCPJSP13-G030300.mp4</span></code></p>
+</li>
+<li><p>If you have copies of a video in multiple resolutions, you must upload each
+copy to the hosting site. For more information, see <a class="reference internal" href="prepare_video/create_video.html#video-guidelines"><span class="std std-ref">General Guidelines</span></a>.</p></li>
+<li><p>After you upload a video on a hosting site, you must make sure you have the
+URL for that copy of the video. If you upload copies of your video on more
+than one hosting site, make sure you have the URL for each video location.</p></li>
+</ul>
+<p>For more information about hosting your videos, see <a class="reference internal" href="prepare_video/set_up_host.html#set-up-a-hosting-service"><span class="std std-ref">Set Up a Hosting Service</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="prepare_video/obtain_transcript.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">9.2.3. </span>Obtain a Video Transcript</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="add_video_to_course.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9.4. </span>Adding a Video to a Course</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-videos-page">9.3.1. Course Videos Page</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#video-info-modal">9.3.1.1. Video Info Modal</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-a-video-for-an-edx-org-course">9.3.2. Uploading a Video for an edx.org Course</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-video-process">9.3.2.1. Automated Video Process</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-video-process-for-integrated-transcripts">9.3.3. Automated Video Process for Integrated Transcripts</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#automated-video-process-for-non-integrated-transcripts">9.3.4. Automated Video Process for Non-Integrated Transcripts</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#upload-a-video-for-an-edx-org-course-for-videos-page">9.3.4.1. Upload a Video for an edx.org Course (for Videos page)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#monitor-video-processing">9.3.4.2. Monitor Video Processing</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-processing-statuses">9.3.5. Video Processing Statuses</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#downloading-the-available-encodings-report">9.3.6. Downloading the Available Encodings Report</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#find-an-uploaded-video">9.3.7. Find an Uploaded Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sort-and-filter-videos">9.3.8. Sort and Filter Videos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-video">9.3.9. Delete a Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-a-video">9.3.10. Download a Video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-a-video-for-an-edge-course">9.3.11. Uploading a Video for an Edge Course</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

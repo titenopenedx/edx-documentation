@@ -1,0 +1,816 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>9. Media Accessibility &#8212; EdX Style Guide  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'media_accessibility';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10. Working with edX Documentation Source Files" href="WorkingWithEdXDocSource.html" />
+    <link rel="prev" title="8. Guidelines for Writing Global English" href="global_English.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Style Guide  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Style Guide  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    edX Style Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferred.html">2. Preferred Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wordlist.html">3. Word List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userinterface.html">4. Documenting User Interface Interactions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="templates/index.html">5. Topic Templates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates/concept.html">5.1. Writing Concept Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates/concept_template.html">5.2. {Using this Concept Template}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates/task.html">5.3. Writing Task Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates/task_template.html">5.4. {Using This Task Template}</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="formattinglayout.html">6. Style Conventions and Content Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">7. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="global_English.html">8. Guidelines for Writing Global English</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9. Media Accessibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WorkingWithEdXDocSource.html">10. Working with edX Documentation Source Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DocTranslationGuidelines.html">11. Guidelines for Translators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DocTranslationProcess.html">12. Documentation Translation Process</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ExampleRSTFile.html">13. Example .rst File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">14. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/edx_style_guide/source/media_accessibility.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fmedia_accessibility.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/media_accessibility.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Media Accessibility</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blindness">9.2. Blindness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-keep-in-mind">9.2.1. Things to Keep in Mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-these-techniques-can-benefit-a-broader-audience">9.2.2. How These Techniques Can Benefit a Broader Audience</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-vision">9.3. Low Vision</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.3.1. Things to Keep in Mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.3.2. How These Techniques Can Benefit a Broader Audience</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deafness">9.4. Deafness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.4.1. Things to Keep in Mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.4.2. How These Techniques Can Benefit a Broader Audience</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-of-hearing">9.5. Hard of Hearing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">9.5.1. Things to Keep in Mind</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wcag-2-aa-requirements-for-media">9.6. WCAG 2 AA Requirements for Media</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-1-perceivable">9.6.1. Principle 1: Perceivable</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#guideline-1-1-text-alternatives">9.6.1.1. Guideline 1.1 Text Alternatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#non-text-content">9.6.1.1.1. 1.1.1 Non-text Content</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-only-and-video-only-prerecorded">9.6.1.1.2. 1.2.1 Audio-only and Video-only (Prerecorded)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#captions-prerecorded">9.6.1.1.3. 1.2.2 Captions (Prerecorded)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-description-or-media-alternative-prerecorded">9.6.1.1.4. 1.2.3 Audio Description or Media Alternative (Prerecorded)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#captions-live">9.6.1.1.5. 1.2.4 Captions (Live)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-description-prerecorded">9.6.1.1.6. 1.2.5 Audio Description (Prerecorded)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-description">9.7. Audio Description</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="media-accessibility">
+<span id="id1"></span><h1><span class="section-number">9. </span>Media Accessibility<a class="headerlink" href="#media-accessibility" title="Link to this heading">#</a></h1>
+<p>The edX documentation team is committed to providing resources that are
+accessible to everyone. The following information was originally written by
+Mark Sadecki, the edX accessibility specialist, for course teams who need to
+prepare accessible media. Its content is also useful for writers who are
+preparing instructional videos and technical documentation.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id8">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#blindness" id="id9">Blindness</a></p></li>
+<li><p><a class="reference internal" href="#low-vision" id="id10">Low Vision</a></p></li>
+<li><p><a class="reference internal" href="#deafness" id="id11">Deafness</a></p></li>
+<li><p><a class="reference internal" href="#hard-of-hearing" id="id12">Hard of Hearing</a></p></li>
+<li><p><a class="reference internal" href="#wcag-2-aa-requirements-for-media" id="id13">WCAG 2 AA Requirements for Media</a></p></li>
+<li><p><a class="reference internal" href="#audio-description" id="id14">Audio Description</a></p></li>
+</ul>
+</nav>
+<section id="introduction">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">9.1. </span>Introduction</a><a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>Sometimes it can be helpful to start any discussion on media accessibility by
+dispelling common myths and talking about the challenges people with
+disabilities face when consuming media before talking about the solutions. Mark
+put together the following information about how people with disabilities
+consume media, what their challenges are, and how authors can provide
+solutions.</p>
+</section>
+<section id="blindness">
+<h2><a class="toc-backref" href="#id9" role="doc-backlink"><span class="section-number">9.2. </span>Blindness</a><a class="headerlink" href="#blindness" title="Link to this heading">#</a></h2>
+<p>People who are blind cannot access the visual information contained in videos.
+Some would conclude that the visual medium is inherently inaccessible to those
+who cannot see. However, audio and digital text are still very accessible. In
+accessibility we often talk about “alternative content.” With regard to media,
+audio and text can easily serve as alternative content for the blind. Good
+alternative content is equivalent content. Content is equivalent to other
+content when both fulfill the same function or purpose when presented to the
+user.</p>
+<section id="things-to-keep-in-mind">
+<h3><span class="section-number">9.2.1. </span>Things to Keep in Mind<a class="headerlink" href="#things-to-keep-in-mind" title="Link to this heading">#</a></h3>
+<p>Here are a few things to keep in mind when creating media for your courses.</p>
+<ul class="simple">
+<li><p>Vocalize any print that appears in your video.</p></li>
+<li><p>Explain visual events that are important to the context of the video. This
+will improve the quality of your material, ensuring that all students
+understand the significance of what they are observing.</p></li>
+<li><p>Avoid using phrases like “over here we have…” or “this number…” that rely
+on a visual cue to comprehend.</p></li>
+</ul>
+</section>
+<section id="how-these-techniques-can-benefit-a-broader-audience">
+<h3><span class="section-number">9.2.2. </span>How These Techniques Can Benefit a Broader Audience<a class="headerlink" href="#how-these-techniques-can-benefit-a-broader-audience" title="Link to this heading">#</a></h3>
+<p>Learners are increasingly consuming media while performing other tasks, such as
+driving, doing household chores, and so on, and they may not be able to focus
+on the video content at all. Try listening to only the audio track from your
+video. Is the information presented “equivalent”?</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With regard to blindness, Mark feels that it is important to drive
+home the fact that if you do not vocalize unspoken visual events that are
+important to understanding the video, you will trigger a requirement to
+provide <a class="reference internal" href="#audio-description"><span class="std std-ref">audio descriptions</span></a>, which is both expensive
+and time consuming.</p>
+</div>
+</section>
+</section>
+<section id="low-vision">
+<h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">9.3. </span>Low Vision</a><a class="headerlink" href="#low-vision" title="Link to this heading">#</a></h2>
+<p>People with low vision can access some visual information. Depending on their
+visual ability, they might have specific issues such as difficulty discerning
+foreground information from background information, or discerning between
+colors. They may be unable to react quickly to transient information, and may
+have a narrow angle of view and so may not detect key information presented
+temporarily where they are not looking, or in text that is moving or scrolling.</p>
+<p>A person with low vision is likely to use screen magnification software. This
+means that they will only be viewing a portion of the screen, and so must
+manage tracking media content.</p>
+<p>Others with low vision may have difficulty reading when text is too small, has
+poor background contrast, or when decorative fonts or effects are used. Users
+with low vision often benefit from the same vocalization techniques used to
+provide access to those who are blind.</p>
+<section id="id2">
+<h3><span class="section-number">9.3.1. </span>Things to Keep in Mind<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Make sure important visual content remains on the screen long enough to be
+processed.</p></li>
+<li><p>Consider contrast and lighting when choosing settings and adding visual
+content.</p></li>
+<li><p>Use as much of the viewport as possible to present information.</p></li>
+<li><p>Be consistent with the placement of important visual information.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h3><span class="section-number">9.3.2. </span>How These Techniques Can Benefit a Broader Audience<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<p>Multimedia is increasingly being consumed on mobile devices that have a very
+small viewport. Many of the techniques mentioned above will benefit users who
+consume your content on a mobile device.</p>
+</section>
+</section>
+<section id="deafness">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">9.4. </span>Deafness</a><a class="headerlink" href="#deafness" title="Link to this heading">#</a></h2>
+<p>People who are deaf generally cannot access the audio content of your media. As
+a result, an alternative format is required. On edX, this is provided through
+synchronized captions.</p>
+<section id="id4">
+<h3><span class="section-number">9.4.1. </span>Things to Keep in Mind<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<p>When creating timed-text caption files, be sure to include descriptions of
+audible, non-speech content that is important to comprehending the video (such
+as [APPLAUSE], [BUZZER], [ASCENDING TONE]).</p>
+<p>The text should “fulfill the same function or purpose” as the audio.</p>
+</section>
+<section id="id5">
+<h3><span class="section-number">9.4.2. </span>How These Techniques Can Benefit a Broader Audience<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>Captions are useful for those who do not speak the same language as the speaker
+in the video. Onscreen text is easier to comprehend than spoken words. Captions
+can also be translated into other languages very easily.</p>
+</section>
+</section>
+<section id="hard-of-hearing">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">9.5. </span>Hard of Hearing</a><a class="headerlink" href="#hard-of-hearing" title="Link to this heading">#</a></h2>
+<p>People who are hard of hearing may be able to access some audio material, but
+might not be able to discern certain types of sound, and may miss any
+information presented as audio only if it contains frequencies they can’t hear,
+or is masked by background noise or distortion. They may miss audio which is
+too quiet, or of poor quality. People with cochlear implants may not have
+issues with audio volume levels, but comprehension may be challenging if the
+media experience is overwhelming. People who are deaf or hard of hearing may
+also read lips.</p>
+<section id="id6">
+<h3><span class="section-number">9.5.1. </span>Things to Keep in Mind<a class="headerlink" href="#id6" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Speak loudly and clearly.</p></li>
+<li><p>Try to face the camera as much as possible when speaking onscreen.</p></li>
+<li><p>Avoid background noise and/or music that competes with the primary audio.</p></li>
+</ul>
+</section>
+</section>
+<section id="wcag-2-aa-requirements-for-media">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">9.6. </span>WCAG 2 AA Requirements for Media</a><a class="headerlink" href="#wcag-2-aa-requirements-for-media" title="Link to this heading">#</a></h2>
+<p>EdX is committed to satisfying the requirements defined in WCAG 2.0 Level AA.
+Excerpted below are the <a class="reference external" href="http://www.w3.org/TR/WCAG20/">WCAG 2.0 guidelines</a> that refer specifically to
+media. The goal of any training done at edX should be to ensure that course
+teams create content that satisfies these criteria.</p>
+<section id="principle-1-perceivable">
+<h3><span class="section-number">9.6.1. </span>Principle 1: Perceivable<a class="headerlink" href="#principle-1-perceivable" title="Link to this heading">#</a></h3>
+<p>Information and user interface components must be presentable to users in ways
+they can perceive.</p>
+<section id="guideline-1-1-text-alternatives">
+<h4><span class="section-number">9.6.1.1. </span>Guideline 1.1 Text Alternatives<a class="headerlink" href="#guideline-1-1-text-alternatives" title="Link to this heading">#</a></h4>
+<p>Provide text alternatives for any non-text content so that it can be changed
+into other forms people need, such as large print, braille, speech, symbols or
+simpler language.</p>
+<section id="non-text-content">
+<h5><span class="section-number">9.6.1.1.1. </span>1.1.1 Non-text Content<a class="headerlink" href="#non-text-content" title="Link to this heading">#</a></h5>
+<p>All non-text content that is presented to the user has a text alternative that
+serves the equivalent purpose, except for the situations listed below. (Level
+A)</p>
+<ul class="simple">
+<li><p>Time-Based Media: If non-text content is time-based media, then text
+alternatives at least provide descriptive identification of the non-text
+content. (Refer to Guideline 1.2 for additional requirements for media.)</p></li>
+<li><p>Guideline 1.2 Time-based Media: Provide alternatives for time-based media.</p></li>
+</ul>
+</section>
+<section id="audio-only-and-video-only-prerecorded">
+<h5><span class="section-number">9.6.1.1.2. </span>1.2.1 Audio-only and Video-only (Prerecorded)<a class="headerlink" href="#audio-only-and-video-only-prerecorded" title="Link to this heading">#</a></h5>
+<p>For prerecorded audio-only and prerecorded video-only media, the following are
+true, except when the audio or video is a media alternative for text and is
+clearly labeled as such: (Level A)</p>
+<ul class="simple">
+<li><p>Prerecorded Audio-only: An alternative for time-based media is provided that
+presents equivalent information for prerecorded audio-only content.</p></li>
+<li><p>Prerecorded Video-only: Either an alternative for time-based media or an
+audio track is provided that presents equivalent information for prerecorded
+video-only content.</p></li>
+</ul>
+</section>
+<section id="captions-prerecorded">
+<h5><span class="section-number">9.6.1.1.3. </span>1.2.2 Captions (Prerecorded)<a class="headerlink" href="#captions-prerecorded" title="Link to this heading">#</a></h5>
+<p>Captions are provided for all prerecorded audio content in synchronized media,
+except when the media is a media alternative for text and is clearly labeled as
+such. (Level A)</p>
+</section>
+<section id="audio-description-or-media-alternative-prerecorded">
+<h5><span class="section-number">9.6.1.1.4. </span>1.2.3 Audio Description or Media Alternative (Prerecorded)<a class="headerlink" href="#audio-description-or-media-alternative-prerecorded" title="Link to this heading">#</a></h5>
+<p>An alternative for time-based media or audio description of the prerecorded
+video content is provided for synchronized media, except when the media is a
+media alternative for text and is clearly labeled as such. (Level A)</p>
+</section>
+<section id="captions-live">
+<h5><span class="section-number">9.6.1.1.5. </span>1.2.4 Captions (Live)<a class="headerlink" href="#captions-live" title="Link to this heading">#</a></h5>
+<p>Captions are provided for all live audio content in synchronized media. (Level
+AA)</p>
+</section>
+<section id="audio-description-prerecorded">
+<h5><span class="section-number">9.6.1.1.6. </span>1.2.5 Audio Description (Prerecorded)<a class="headerlink" href="#audio-description-prerecorded" title="Link to this heading">#</a></h5>
+<p>Audio description is provided for all prerecorded video content in synchronized
+media. (Level AA)</p>
+</section>
+</section>
+</section>
+</section>
+<section id="audio-description">
+<span id="id7"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">9.7. </span>Audio Description</a><a class="headerlink" href="#audio-description" title="Link to this heading">#</a></h2>
+<p>Most people are not familiar with <a class="reference external" href="http://www.w3.org/TR/WCAG20/#audiodescdef">audio descriptions</a>. This video was made
+expressly to demonstrate both the need for, and the level of detail required
+for, quality audio description. It also happens to be a good example of quality
+captioning as well.</p>
+<p><a class="reference external" href="https://www.youtube.com/watch?v=rgRv4bSdLdU">The Interviewer - Captions and Audio Descriptions</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="global_English.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Guidelines for Writing Global English</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="WorkingWithEdXDocSource.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Working with edX Documentation Source Files</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">9.1. Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blindness">9.2. Blindness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-keep-in-mind">9.2.1. Things to Keep in Mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#how-these-techniques-can-benefit-a-broader-audience">9.2.2. How These Techniques Can Benefit a Broader Audience</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#low-vision">9.3. Low Vision</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">9.3.1. Things to Keep in Mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">9.3.2. How These Techniques Can Benefit a Broader Audience</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deafness">9.4. Deafness</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">9.4.1. Things to Keep in Mind</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">9.4.2. How These Techniques Can Benefit a Broader Audience</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-of-hearing">9.5. Hard of Hearing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">9.5.1. Things to Keep in Mind</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wcag-2-aa-requirements-for-media">9.6. WCAG 2 AA Requirements for Media</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#principle-1-perceivable">9.6.1. Principle 1: Perceivable</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#guideline-1-1-text-alternatives">9.6.1.1. Guideline 1.1 Text Alternatives</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#non-text-content">9.6.1.1.1. 1.1.1 Non-text Content</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-only-and-video-only-prerecorded">9.6.1.1.2. 1.2.1 Audio-only and Video-only (Prerecorded)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#captions-prerecorded">9.6.1.1.3. 1.2.2 Captions (Prerecorded)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-description-or-media-alternative-prerecorded">9.6.1.1.4. 1.2.3 Audio Description or Media Alternative (Prerecorded)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#captions-live">9.6.1.1.5. 1.2.4 Captions (Live)</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-description-prerecorded">9.6.1.1.6. 1.2.5 Audio Description (Prerecorded)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#audio-description">9.7. Audio Description</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,652 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>5.2. Retrieving RDX Packages &#8212; EdX Research Guide  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'rdx/rdx_retrieval';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="6. Data Reference" href="../internal_data_formats/index.html" />
+    <link rel="prev" title="5.1. Data Obfuscation Procedures for RDX" href="rdx_data.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Research Guide  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Research Guide  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Using the edX Data Package
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../start/index.html">1. Getting Started with the edX Data Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../data_czars/index.html">2. Responsibilities of the Data Czar and Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../access/index.html">3. Accessing the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../access/credentials.html">3.1. Keys and Credentials for Data Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../access/download.html">3.2. Downloading the Data Package from Amazon S3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../using/index.html">4. Using the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using/data_security.html">4.1. Data Security Guidelines for Data Czars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/package.html">4.2. Data Delivered in Data Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/resources.html">4.3. Resources for Data Czars and Researchers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">5. Using the Research Data Exchange Data Package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rdx_data.html">5.1. Data Obfuscation Procedures for RDX</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">5.2. Retrieving RDX Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../internal_data_formats/index.html">6. Data Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/institution_data.html">6.1. Email Opt-in Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/course_structure.html">6.2. Course Content Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/sql_schema.html">6.3. User Info and Learner Progress Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/discussion_data.html">6.4. Discussion Forums Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/wiki_data.html">6.5. Wiki Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/ora2_data.html">6.6. Open Response Assessment Data</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../internal_data_formats/tracking_logs/index.html">6.7. Events in the Tracking Logs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/sample_events.html">6.7.1. Reviewing a Sample Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/common_fields.html">6.7.2. Common Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/student_event_types.html">6.7.3. Student Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/course_team_event_types.html">6.7.4. Course Team Events</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/event_list.html">6.8. Alphabetical Event List</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">7. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/data/source/rdx/rdx_retrieval.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Frdx/rdx_retrieval.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/rdx/rdx_retrieval.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Retrieving RDX Packages</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rdx-package-identifiers">5.2.1. Identifying an RDX Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locating-rdx-data-on-amazon-s3">5.2.2. Locating RDX Data on Amazon S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-an-rdx-package-from-amazon-s3">5.2.3. Download an RDX Package from Amazon S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-the-org-course-run-tar-gz-gpg-file">5.2.4. Extract the <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> File</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="retrieving-rdx-packages">
+<span id="id1"></span><h1><span class="section-number">5.2. </span>Retrieving RDX Packages<a class="headerlink" href="#retrieving-rdx-packages" title="Link to this heading">#</a></h1>
+<p>Data czars retrieve RDX packages from AWS. The procedures for downloading RDX
+data packages and extracting their contents is similar to the procedures you
+follow for your organization’s data packages.</p>
+<p>The topics in this section describe the differences between RDX packages and
+organizational data packages.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#rdx-package-identifiers" id="id3">Identifying an RDX Package</a></p></li>
+<li><p><a class="reference internal" href="#locating-rdx-data-on-amazon-s3" id="id4">Locating RDX Data on Amazon S3</a></p></li>
+<li><p><a class="reference internal" href="#download-an-rdx-package-from-amazon-s3" id="id5">Download an RDX Package from Amazon S3</a></p></li>
+<li><p><a class="reference internal" href="#extract-the-org-course-run-tar-gz-gpg-file" id="id6">Extract the <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> File</a></p></li>
+</ul>
+</nav>
+<p>For more information about downloading and extracting your organizational data
+packages, see <a class="reference internal" href="../using/package.html#package"><span class="std std-ref">Data Delivered in Data Packages</span></a>.</p>
+<section id="rdx-package-identifiers">
+<span id="identifying-an-rdx-package"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">5.2.1. </span>Identifying an RDX Package</a><a class="headerlink" href="#rdx-package-identifiers" title="Link to this heading">#</a></h2>
+<p>When researchers propose projects that require RDX data, they request data
+either for specific courses or for courses that meet specified criteria. EdX
+identifies courses that meet these specifications and, on approval, assigns an
+RDX request ID to the project.</p>
+<p>EdX provides a single RDX data package for each approved project. The RDX
+package contains all of the data files, after the <a class="reference internal" href="rdx_data.html#data-obfuscation-procedures-for-rdx"><span class="std std-ref">data obfuscation
+procedures</span></a> are applied, for all of the
+courses in the project. On AWS, data czars can identify the RDX packages by
+request ID.</p>
+</section>
+<section id="locating-rdx-data-on-amazon-s3">
+<span id="amazon-s3-buckets-and-directories-for-rdx-data"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">5.2.2. </span>Locating RDX Data on Amazon S3</a><a class="headerlink" href="#locating-rdx-data-on-amazon-s3" title="Link to this heading">#</a></h2>
+<p>EdX uploads RDX data packages to an Amazon S3
+<code class="docutils literal notranslate"><span class="pre">s3://edx-course-data/{org}/rdx/{requestID}</span></code> folder. This folder contains
+one <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> file for each of the requested courses.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> file contains data and event files for
+the requested time period in the course’s history.</p>
+</section>
+<section id="download-an-rdx-package-from-amazon-s3">
+<span id="id2"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">5.2.3. </span>Download an RDX Package from Amazon S3</a><a class="headerlink" href="#download-an-rdx-package-from-amazon-s3" title="Link to this heading">#</a></h2>
+<p>Only the data czar at a participating partner institution can download an RDX
+data package.</p>
+<p>To download an RDX data package from the Amazon S3 storage service, follow
+these steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using a third party tool to connect to Amazon S3, you
+might not be able to navigate directly from the bucket that contains your
+own organization’s data to the bucket for RDX data. You might need to
+disconnect from Amazon S3 and then reconnect to the RDX destination.</p>
+</div>
+<ol class="arabic">
+<li><p>Use the AWS Command Line Interface or a third party tool to connect to the
+<code class="docutils literal notranslate"><span class="pre">s3://edx-course-data/</span></code> folder on Amazon S3.</p>
+<p>For information about providing your credentials to connect to Amazon S3,
+see <a class="reference external" href="https://edx.readthedocs.io/projects/devdata/en/latest/access/download.html#access-amazon-s3" title="(in EdX Research Guide)"><span class="xref std std-ref">Access Amazon S3</span></a>.</p>
+</li>
+<li><p>Navigate to the RDX folder for a specific research project. The RDX data
+package is located in the <code class="docutils literal notranslate"><span class="pre">s3://edx-course-data/{org}/rdx/{requestID}</span></code>
+folder.</p></li>
+<li><p>Download the compressed, encrypted <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> file
+for each of the courses in the project.</p></li>
+</ol>
+</section>
+<section id="extract-the-org-course-run-tar-gz-gpg-file">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">5.2.4. </span>Extract the <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> File</a><a class="headerlink" href="#extract-the-org-course-run-tar-gz-gpg-file" title="Link to this heading">#</a></h2>
+<p>After you download each of the <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> files for an
+RDX research project, you complete these tasks. You repeat this process for
+each <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> file in the RDX package.</p>
+<ol class="arabic">
+<li><p>Use your private key to decrypt the file. The result is a file named
+<code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz</span></code>. See <a class="reference internal" href="../access/credentials.html#decrypt-an-encrypted-file"><span class="std std-ref">Decrypt an Encrypted File</span></a>.</p></li>
+<li><p>Use the gunzip command to expand the .gz file. The result is a file named
+<code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar</span></code>.</p></li>
+<li><p>Extract the .tar file. The result of this decryption and extraction process
+is a <code class="docutils literal notranslate"><span class="pre">metadata_file.json</span></code> file and a set of folders that contain the event
+and state data for the requested time period. The file and folder hierarchy
+follows this pattern.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">metadata_file</span><span class="o">.</span><span class="n">json</span>
+  <span class="o">/</span><span class="n">events</span>
+    <span class="p">{</span><span class="n">org</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">course</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">run</span><span class="p">}</span><span class="o">-</span><span class="n">events</span><span class="o">-</span><span class="n">CCYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">dd</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">gz</span>
+    <span class="o">...</span>
+  <span class="o">/</span><span class="n">state</span>
+    <span class="o">/</span><span class="n">CCYY</span><span class="o">-</span><span class="n">MM</span><span class="o">-</span><span class="n">dd</span>
+      <span class="p">{</span><span class="n">org</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">course</span><span class="p">}</span><span class="n">_</span><span class="p">{</span><span class="n">run</span><span class="p">}</span><span class="o">-</span><span class="p">{</span><span class="n">suffix</span><span class="p">}</span>
+      <span class="o">...</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">metadata_file.json</span></code> file provides information about the version of
+the edX analytics pipeline that was in use when edX obfuscated PII and other
+sensitive values in the package.</p>
+</li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rdx_data.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">5.1. </span>Data Obfuscation Procedures for RDX</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../internal_data_formats/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6. </span>Data Reference</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rdx-package-identifiers">5.2.1. Identifying an RDX Package</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#locating-rdx-data-on-amazon-s3">5.2.2. Locating RDX Data on Amazon S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-an-rdx-package-from-amazon-s3">5.2.3. Download an RDX Package from Amazon S3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-the-org-course-run-tar-gz-gpg-file">5.2.4. Extract the <code class="docutils literal notranslate"><span class="pre">{org}_{course}_{run}.tar.gz.gpg</span></code> File</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

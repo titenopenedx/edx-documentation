@@ -1,0 +1,1026 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.9. Enabling Course Certificates &#8212; Installing, Configuring, and Running the Open edX Platform  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'configuration/enable_certificates';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.10. Enabling Self-Paced Courses" href="enable_pacing.html" />
+    <link rel="prev" title="4.8. Enabling Badging" href="enable_badging.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Installing, Configuring, and Running the Open edX Platform
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/getting_help.html">1.2. Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.3. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.4. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../platform_releases/index.html">2. Open edX Platform Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/olive.html">2.1. Open edX Olive Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/nutmeg.html">2.2. Open edX Nutmeg Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/maple.html">2.3. Open edX Maple Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/lilac.html">2.4. Open edX Lilac Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/koa.html">2.5. Open edX Koa Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/juniper.html">2.6. Open edX Juniper Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ironwood.html">2.7. Open edX Ironwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/hawthorn.html">2.8. Open edX Hawthorn Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ginkgo.html">2.9. Open edX Ginkgo Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ficus.html">2.10. Open edX Ficus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/eucalyptus.html">2.11. Open edX Eucalyptus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/dogwood.html">2.12. Open edX Dogwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/cypress.html">2.13. Open edX Cypress Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/birch.html">2.14. Open edX Birch Release</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/index.html">3. Installing and Starting the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/tutor.html">3.2.1. Open edX Tutor Installation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">4. Configuring the Open edX Platform</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="updating_platform.html">4.1. Guidelines for Updating the Open edX Platform</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sites/index.html">4.2. Configuring Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sites/create_site.html">4.2.1. Create an Open edX Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sites/configure_site.html">4.2.2. Configuring Sites Independently</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="changing_appearance/index.html">4.3. Changing the Appearance of Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="changing_appearance/theming/index.html">4.3.1. Changing Themes for an Open edX Site</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/overview_themes.html">4.3.1.1. Themes Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/theme_directories.html">4.3.1.2. Root Directories for Theme Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/create_theme.html">4.3.1.3. Creating a Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/enable_themes.html">4.3.1.4. Enabling and Applying Themes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/compiling_theme.html">4.3.1.5. Compiling a Theme</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="changing_appearance/drag_and_drop_problem_styling.html">4.3.2. Styling Drag and Drop Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="customize_registration_page.html">4.4. Adding Custom Fields to the Registration Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_allowed_regis_emails.html">4.5. Specifying Allowed Registration Email Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated_add_course_talk_widget.html">4.6. Adding the CourseTalk Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="edx_search.html">4.7. Enabling Open edX Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_badging.html">4.8. Enabling Badging</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.9. Enabling Course Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_pacing.html">4.10. Enabling Self-Paced Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_public_course.html">4.11. Enabling Public Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_ccx.html">4.12. Enabling Custom Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_custom_course_settings.html">4.13. Enabling Custom Course Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_discussion_notifications.html">4.14. Enabling Discussion Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_entrance_exams.html">4.15. Enabling Entrance Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ora2/index.html">4.16. Configuring Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ora2/ora2_uploads.html">4.16.1. Configuring ORA2 to Upload Files to Alternative Storage Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ora2/ora2_blacklist.html">4.16.2. Prohibiting Submission of Specified File Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_prerequisites.html">4.17. Enabling Course Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_licensing.html">4.18. Enabling Course and Video Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripts.html">4.19. Configuring Transcript Behavior</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lti/index.html">4.20. Configuring an edX Instance as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lti/enable_lti.html">4.20.1. Enable LTI Provider Functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/configure_lti.html">4.20.2. Configuring Credentials for a Tool Consumer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/settings_lti.html">4.20.3. Define an Interval for Grade Aggregation (Optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/authentication_options_lti.html">4.20.4. Options for LTI Authentication and User Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/tpa_lti.html">4.20.5. Configuring Open edX User Authentication for LTI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_socialsharing_icons.html">4.21. Enabling Social Sharing of Courses and Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="password.html">4.22. Configuring a Password Policy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tpa/index.html">4.23. Enabling Third Party Authentication</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_providers.html">4.23.1. Supported Identity Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_behavior.html">4.23.2. SSO Behavior</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tpa/tpa_integrate_open/index.html">4.23.3. Integrating Third Party Authentication in Open edX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="tpa/tpa_integrate_open/tpa_oauth.html">4.23.3.2.1. Integrating with an OAuth2 Identity Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tpa/tpa_integrate_open/tpa_SAML_IdP.html">4.23.3.2.2. Integrating with a SAML Identity Provider</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_SAML_SP.html">4.23.4. Configuring your Open edX Site as a SAML Service Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_advanced_features.html">4.23.5. Advanced Third Party Authentication Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_eliminating_pii.html">4.23.6. Eliminating PII From Third-Party Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_IDmap_api.html">4.23.7. Third Party Auth ID Mapping API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_timed_exams.html">4.24. Enabling Timed Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="youtube_api.html">4.25. Setting Up the YouTube API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_xblock.html">4.26. Installing an XBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="static_replace/cdn.html">4.27. Enabling a CDN for Course Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_weekly_learning_goals.html">4.28. Enabling the Weekly Learning Goals Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="retrieve_extended_profile_metadata.html">4.29. Retrieving Extended Profile Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../insights/index.html">5. Adding edX Insights for Course Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../insights/install_insights.html">5.1. Options for Installing edX Insights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insights/elastic_mapreduce.html">5.2. Using Elastic MapReduce on AWS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ecommerce/index.html">6. Adding E-Commerce to the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/install_ecommerce.html">6.1. Install and Start the E-Commerce Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/theming.html">6.2. Comprehensive Theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/manage_assets.html">6.3. Manage Static Assets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ecommerce/create_products/index.html">6.4. Create E-Commerce Products</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_products_overview.html">6.4.1. Creating Products Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_course_seats.html">6.4.2. Create Course Seats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_coupons.html">6.4.3. Create and Manage Coupons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_enrollment_codes.html">6.4.4. Enable and Create Enrollment Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_programs.html">6.4.5. About Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_program_offers.html">6.4.6. Create Program Offers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/enable_receipt_page.html">6.5. Enable the E-Commerce Service Receipt Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/manage_orders.html">6.6. Manage Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/test_ecommerce.html">6.7. Test Your E-Commerce Application</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ecommerce/additional_features/index.html">6.8. Additional E-Commerce Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/send_notifications.html">6.8.1. Sending Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/change_processors.html">6.8.2. Changing Payment Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/apple_pay.html">6.8.3. Apple Pay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/track_data.html">6.8.4. Tracking Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/gate_ecommerce.html">6.8.5. Gating E-Commerce Service Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/maintain_ecommerce.html">6.8.6. Maintaining the E-Commerce Service</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/internationalization.html">6.9. Internationalization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../mobile.html">7. Setting Up the Open edX Mobile Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature_flags/feature_flag_index.html">8. Index of Open edX Feature Flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/install_operations/source/configuration/enable_certificates.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fconfiguration/enable_certificates.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/configuration/enable_certificates.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enabling Course Certificates</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-certificates-overview">4.9.1. Course Certificates Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-course-certificates-in-studio-and-the-lms">4.9.2. Enable Course Certificates in Studio and the LMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-course-certificates-in-studio">4.9.3. Configuring Course Certificates in Studio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-course-certificates-for-your-open-edx-instance">4.9.4. Configure Course Certificates for Your Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discontinue-audit-track-certificates">4.9.4.1. Discontinue Audit Track Certificates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-certificate-templates-for-your-organization">4.9.5. Customize Certificate Templates For Your Organization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-certificates-in-additional-languages">4.9.6. Enable Certificates in Additional Languages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-course-certificates-in-additional-languages">4.9.6.1. Configure Course Certificates in Additional Languages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-hours-of-effort-on-course-certificates">4.9.7. Display Hours of Effort on Course Certificates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-automatic-certificate-generation">4.9.8. Enable Automatic Certificate Generation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-generate-certificates-for-a-course">4.9.9. Manually Generate Certificates For a Course</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enabling-course-certificates">
+<span id="enable-certificates"></span><h1><span class="section-number">4.9. </span>Enabling Course Certificates<a class="headerlink" href="#enabling-course-certificates" title="Link to this heading">#</a></h1>
+<p>This topic describes how to enable and configure course certificates in your
+instance of Open edX.</p>
+<p>For information about configuring program certificates, refer to documentation
+in the <a class="reference external" href="https://github.com/openedx/credentials">edx/credentials</a> GitHub repository.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#course-certificates-overview" id="id13">Course Certificates Overview</a></p></li>
+<li><p><a class="reference internal" href="#enable-course-certificates-in-studio-and-the-lms" id="id14">Enable Course Certificates in Studio and the LMS</a></p></li>
+<li><p><a class="reference internal" href="#configuring-course-certificates-in-studio" id="id15">Configuring Course Certificates in Studio</a></p></li>
+<li><p><a class="reference internal" href="#configure-course-certificates-for-your-open-edx-instance" id="id16">Configure Course Certificates for Your Open edX Instance</a></p></li>
+<li><p><a class="reference internal" href="#customize-certificate-templates-for-your-organization" id="id17">Customize Certificate Templates For Your Organization</a></p></li>
+<li><p><a class="reference internal" href="#enable-certificates-in-additional-languages" id="id18">Enable Certificates in Additional Languages</a></p></li>
+<li><p><a class="reference internal" href="#display-hours-of-effort-on-course-certificates" id="id19">Display Hours of Effort on Course Certificates</a></p></li>
+<li><p><a class="reference internal" href="#enable-automatic-certificate-generation" id="id20">Enable Automatic Certificate Generation</a></p></li>
+<li><p><a class="reference internal" href="#manually-generate-certificates-for-a-course" id="id21">Manually Generate Certificates For a Course</a></p></li>
+</ul>
+</nav>
+<section id="course-certificates-overview">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">4.9.1. </span>Course Certificates Overview</a><a class="headerlink" href="#course-certificates-overview" title="Link to this heading">#</a></h2>
+<p>Organizations and course teams can choose to generate certificates for learners
+who pass a course. Learners can view, print, or share their certificates.</p>
+<p>For additional information about certificates, see
+<a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/set_up_course/studio_add_course_information/studio_creating_certificates.html#setting-up-certificates" title="(in Building and Running an Open edX Course)"><span>Setting Up Certificates in Studio</span></a> in the <em>Building and Running an
+Open edX Course</em> guide or <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-learner-guide/en/latest/OpenSFD_certificates.html#print-a-web-certificate" title="(in Open edX Learner's Guide)"><span>Print a Web Certificate</span></a> in the
+<em>Open edX Learner’s Guide</em>.</p>
+<p>To enable course certificates on your instance of Open edX, you must enable a
+feature flag in both Studio and the Learning Management System and complete the
+configuration tasks described in this topic.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before proceeding, review <a class="reference internal" href="updating_platform.html#guidelines-for-updating-the-open-edx-platform"><span class="std std-ref">Guidelines for Updating the Open edX Platform</span></a>.</p>
+</div>
+</section>
+<section id="enable-course-certificates-in-studio-and-the-lms">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">4.9.2. </span>Enable Course Certificates in Studio and the LMS</a><a class="headerlink" href="#enable-course-certificates-in-studio-and-the-lms" title="Link to this heading">#</a></h2>
+<p>To enable certificates, modify the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">studio.yml</span></code>
+files, which are located one level above the <code class="docutils literal notranslate"><span class="pre">edx-platform</span></code> directory.</p>
+<ol class="arabic">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">studio.yml</span></code> files, set the value of
+<code class="docutils literal notranslate"><span class="pre">CERTIFICATES_HTML_VIEW</span></code> within the <code class="docutils literal notranslate"><span class="pre">FEATURES</span></code> object  to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;FEATURES&quot;: {
+    ...
+    &#39;CERTIFICATES_HTML_VIEW&#39;: true,
+    ...
+}
+</pre></div>
+</div>
+</li>
+<li><p>Save the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">studio.yml</span></code> files.</p></li>
+<li><p>If it does not exist already, create the folder <code class="docutils literal notranslate"><span class="pre">/tmp/certificates</span></code> owned
+by the user and group <code class="docutils literal notranslate"><span class="pre">www-data</span></code>. Depending on your configuration, this
+folder might not survive reboots, and so might need to be created by a
+script.</p></li>
+<li><p>Run database migrations.</p></li>
+</ol>
+</section>
+<section id="configuring-course-certificates-in-studio">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">4.9.3. </span>Configuring Course Certificates in Studio</a><a class="headerlink" href="#configuring-course-certificates-in-studio" title="Link to this heading">#</a></h2>
+<p>Within Studio, course team members with the Admin role can create and edit a
+certificate configuration that is used to generate certificates for their
+course, including adding signatories and images for organization logo and
+signature images for signatories. For details, <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/set_up_course/studio_add_course_information/studio_creating_certificates.html#setting-up-certificates" title="(in Building and Running an Open edX Course)"><span>Setting Up Certificates in Studio</span></a> in <em>Building and Running an Open edX Course</em>.</p>
+</section>
+<section id="configure-course-certificates-for-your-open-edx-instance">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">4.9.4. </span>Configure Course Certificates for Your Open edX Instance</a><a class="headerlink" href="#configure-course-certificates-for-your-open-edx-instance" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Access the LMS Django Administration website for your instance of Open edX.
+To do this, go to <code class="docutils literal notranslate"><span class="pre">https://&lt;host</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">Open</span> <span class="pre">edX</span> <span class="pre">instance&gt;/admin</span></code>.
+For example, this might be <code class="docutils literal notranslate"><span class="pre">https://courses.YourOrganization.com/admin</span></code>.</p></li>
+<li><p>Under <strong>Site Administration</strong> &gt; <strong>Certificates</strong>, add an HTML View
+Configuration, and select <strong>Enabled</strong>.</p></li>
+<li><p>Set the following certificates-related parameters for your Open edX
+instance.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">platform_name</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">company_about_url</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">company_privacy_url</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">company_tos_url</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">company_verified_certificate_url</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logo_src</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logo_url</span></code></p></li>
+</ul>
+<p>For each course mode for which you want to offer certificates (such as
+“honor” or “verified”), define these parameters.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">certificate_type</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">certificate_title</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">document_body_class_append</span></code>.</p></li>
+</ul>
+<p>Make sure the mode name matches your course mode name exactly. An example
+follows.</p>
+<p>For more information about course modes, also called enrollment modes
+or enrollment tracks, see <a class="reference internal" href="../glossary.html#enrollment-track-g"><span class="std std-ref">enrollment track</span></a>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+    &quot;default&quot;: {
+        &quot;accomplishment_class_append&quot;: &quot;accomplishment-certificate&quot;,
+        &quot;platform_name&quot;: &quot;YourPlatformName&quot;,
+        &quot;company_about_url&quot;:&quot;https://www.YourOrganization.com/about-us&quot;,
+        &quot;company_privacy_url&quot;: &quot;https://www.YourOrganization.com/our-privacy-policy&quot;,
+        &quot;company_tos_url&quot;: &quot;https://www.YourOrganization.com/our-terms-service&quot;,
+        &quot;company_verified_certificate_url&quot;: &quot;https://www.YourOrganization.com/about_verified_certificates&quot;,
+        &quot;logo_src&quot;: &quot;/static/certificates/images/our_logo.svg&quot;,
+        &quot;logo_url&quot;: &quot;www.YourOrganization.com&quot;
+    },
+    &quot;honor&quot;: {
+        &quot;certificate_type&quot;: &quot;honor&quot;,
+        &quot;certificate_title&quot;: &quot;Honor Certificate&quot;,
+        &quot;document_body_class_append&quot;: &quot;is-honorcode&quot;
+    },
+    &quot;verified&quot;: {
+        &quot;certificate_type&quot;: &quot;verified&quot;,
+        &quot;certificate_title&quot;: &quot;Verified Certificate&quot;,
+        &quot;document_body_class_append&quot;: &quot;is-idverified&quot;
+    },
+    &quot;base&quot;: {
+        &quot;certificate_type&quot;: &quot;base&quot;,
+        &quot;certificate_title&quot;: &quot;Certificate of Achievement&quot;,
+        &quot;document_body_class_append&quot;: &quot;is-base&quot;
+    }
+}
+</pre></div>
+</div>
+</li>
+<li><p>Save the configuration parameters.</p></li>
+<li><p>Restart the Studio and LMS processes to load the updated environment
+configurations.</p></li>
+</ol>
+<section id="discontinue-audit-track-certificates">
+<span id="discontinue-audit-certificates"></span><h3><span class="section-number">4.9.4.1. </span>Discontinue Audit Track Certificates<a class="headerlink" href="#discontinue-audit-track-certificates" title="Link to this heading">#</a></h3>
+<p>Organizations that previously offered certificates to audit track learners will
+no longer be able to grant certificates to these learners. Learners can
+continue to audit courses, but they will not be able to earn a certificate.</p>
+<p>For more information about course tracks, also called enrollment modes or
+enrollment tracks, see <a class="reference internal" href="../glossary.html#enrollment-track-g"><span class="std std-ref">enrollment track</span></a>.</p>
+</section>
+</section>
+<section id="customize-certificate-templates-for-your-organization">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">4.9.5. </span>Customize Certificate Templates For Your Organization</a><a class="headerlink" href="#customize-certificate-templates-for-your-organization" title="Link to this heading">#</a></h2>
+<p>Set up the templates for certificates that your organization will issue. Base
+templates are included, but you must ensure that they are customized for your
+organization. For example, you can change the images that appear on
+certificates for each course mode that your organization supports, as well as
+fonts and colors that are used on certificates.</p>
+<p>To issue certificates in more than one language, see <a class="reference internal" href="#certificates-in-additional-languages"><span class="std std-ref">Enable Certificates in Additional Languages</span></a>.</p>
+<p>To display hours of effort on certificates, see <a class="reference internal" href="#display-hours-of-effort"><span class="std std-ref">Display Hours of Effort on Course Certificates</span></a>.</p>
+<p>Assets for HTML certificates exist in the following locations.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">lms/templates/certificates</span></code> - this folder contains .html files for
+certificates. The file <code class="docutils literal notranslate"><span class="pre">valid.html</span></code> is an example of a certificate file.
+Files with names that start with an underscore, such as
+<code class="docutils literal notranslate"><span class="pre">_certificate_footer.html</span></code>, are partial files that can be referenced in the
+main certificate .html files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lms/static/certificates</span></code> - subfolders of this folder contain assets used
+in creating certificates, such as images, fonts, and sass/css files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The organization logo on a certificate is uploaded in Studio. For
+details, see <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/set_up_course/studio_add_course_information/studio_creating_certificates.html#setting-up-certificates" title="(in Building and Running an Open edX Course)"><span>Setting Up Certificates in Studio</span></a> in <em>Building
+and Running an Open edX Course</em>.</p>
+</div>
+</li>
+</ul>
+</section>
+<section id="enable-certificates-in-additional-languages">
+<span id="certificates-in-additional-languages"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">4.9.6. </span>Enable Certificates in Additional Languages</a><a class="headerlink" href="#enable-certificates-in-additional-languages" title="Link to this heading">#</a></h2>
+<p>You can configure course certificates to render in a specific language.</p>
+<nav class="contents local" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#configure-course-certificates-in-additional-languages" id="id22">Configure Course Certificates in Additional Languages</a></p></li>
+</ul>
+</nav>
+<section id="configure-course-certificates-in-additional-languages">
+<h3><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">4.9.6.1. </span>Configure Course Certificates in Additional Languages</a><a class="headerlink" href="#configure-course-certificates-in-additional-languages" title="Link to this heading">#</a></h3>
+<p>To enable generating course certificates in languages other than the
+default language of your platform, follow these steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Base certificate templates already exist for English and
+Spanish. If you want a course certificate that is different from the
+default certificate for the organization or language, create a new
+certificate template.</p>
+</div>
+<ol class="arabic">
+<li><p>Add the language in which you want to generate certificates to
+<code class="docutils literal notranslate"><span class="pre">EDXAPP_CERTIFICATE_TEMPLATE_LANGUAGES</span></code>
+(<code class="docutils literal notranslate"><span class="pre">edx/configuration/playbooks/roles/edxapp/defaults/main.yml</span></code>), where the
+key is the language code and the value is the name of the language.</p>
+<p>For example,    <code class="docutils literal notranslate"><span class="pre">'fr':'français'</span></code>.</p>
+</li>
+<li><p>In the LMS Django Administration site for your instance of Open edX, under
+<strong>Site Administration</strong> &gt; <strong>Certificates</strong> &gt; <strong>Certificate templates</strong>, add
+a certificate template for each additional language in which you want to
+generate certificates.</p></li>
+<li><p>In each certificate template, modify the configuration parameters as
+required to apply the template either to all course runs in an
+organization, or to a single course run.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 12.5%" />
+<col style="width: 43.8%" />
+<col style="width: 43.8%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>To apply the template to all course runs
+in the organization</p></th>
+<th class="head"><p>To apply the template to a specific course run</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Language</span></code></p></td>
+<td><p>Select the language that you want the certificate to be generated
+in.</p></td>
+<td><p>Select the language that you want the certificate to be generated
+in.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Organization</span> <span class="pre">ID</span></code></p></td>
+<td><p>Enter the ID for the organization whose courses should use this
+certificate template.</p></td>
+<td><p>Select <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Course</span> <span class="pre">Key</span></code></p></td>
+<td><p>Leave empty.</p></td>
+<td><p>Enter the course key for the course run which should use this
+certificate template.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">Mode</span></code></p></td>
+<td><p>(Optional) Specify the course mode for which certificates will be
+generated using this template. If no mode is specified, this template
+is used for all course modes.</p></td>
+<td><p>(Optional) Specify the course mode for which certificates will be
+generated using this template. If no mode is specified, this template
+is used for all course modes.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">Is</span> <span class="pre">Active</span></code></p></td>
+<td><p>Select this checkbox to make this template active.</p></td>
+<td><p>Select this checkbox to make this template active.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If more than one certificate template would apply to a course
+run, the most specific (lowest level) template is used. For example, if
+you define a certificate template for all courses in an organization and
+another template for a specific course run, the template for the course
+run is used.</p>
+</div>
+</li>
+<li><p>Save each certificate template.</p></li>
+<li><p>ONLY if you are enabling additional language certificates for a specific
+course run, add a certificate generation course setting in LMS Django
+Administration, under <strong>Site Administration</strong> &gt; <strong>Certificates</strong>.</p></li>
+<li><p>In the <strong>Course key</strong> field of the certificate generation course setting,
+specify the course run for which you are enabling language specific
+certificate templates.</p></li>
+<li><p>Select <strong>Language specific templates enabled</strong>, and save the configuration.</p></li>
+</ol>
+</section>
+</section>
+<section id="display-hours-of-effort-on-course-certificates">
+<span id="display-hours-of-effort"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">4.9.7. </span>Display Hours of Effort on Course Certificates</a><a class="headerlink" href="#display-hours-of-effort-on-course-certificates" title="Link to this heading">#</a></h2>
+<p>To display hours of effort for a course run on a course certificate, follow
+these steps.</p>
+<ol class="arabic simple">
+<li><p>Log in to the Discovery service Django Administration site for your instance
+of Open edX. To do this, go to <code class="docutils literal notranslate"><span class="pre">https://&lt;discovery.host</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">Open</span>
+<span class="pre">edX</span> <span class="pre">instance&gt;/admin</span></code>. For example, this might be
+<code class="docutils literal notranslate"><span class="pre">https://discovery.YourOrganization.com/admin</span></code>.</p></li>
+<li><p>Under <strong>Course Metadata</strong> &gt; <strong>Course Runs</strong>, locate the course run, and make
+sure there are values for the following attributes.</p>
+<ul class="simple">
+<li><p>Max effort</p></li>
+<li><p>Weeks to complete</p></li>
+</ul>
+</li>
+<li><p>Log in to the LMS Django Administration site for your instance of Open edX.
+To do this, go to <code class="docutils literal notranslate"><span class="pre">https://&lt;courses.host</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">Open</span> <span class="pre">edX</span>
+<span class="pre">instance&gt;/admin</span></code>. For example, this might be
+<code class="docutils literal notranslate"><span class="pre">https://courses.YourOrganization.com/admin</span></code>.</p></li>
+<li><p>Under <strong>Site Administration</strong> &gt; <strong>Certificates</strong>, add or edit a
+certificate generation course setting.</p></li>
+<li><p>Select <code class="docutils literal notranslate"><span class="pre">Yes</span></code> for <strong>Include hours of effort</strong> and save the configuration.</p></li>
+<li><p>Under <strong>Site Administration</strong> &gt; <strong>Certificates</strong>, add or edit a certificate
+template.</p></li>
+<li><p>In the certificate template, ensure that a <code class="docutils literal notranslate"><span class="pre">div</span></code> element exists that
+includes the context variable <code class="docutils literal notranslate"><span class="pre">hours_of_effort</span></code>.</p></li>
+<li><p>Save your edits to the certificate template.</p></li>
+</ol>
+</section>
+<section id="enable-automatic-certificate-generation">
+<span id="id2"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">4.9.8. </span>Enable Automatic Certificate Generation</a><a class="headerlink" href="#enable-automatic-certificate-generation" title="Link to this heading">#</a></h2>
+<p>It is suggested that automatic certificate generation
+be enabled in order to provide the best experience for learners.
+Particularly in self-paced courses (see <a class="reference internal" href="enable_pacing.html#enable-self-paced-courses"><span class="std std-ref">Enabling Self-Paced Courses</span></a>), your learners might not want to wait until an instructor
+initiates certificate generation; instead, they would typically expect
+to be able to download their certificates as soon as they achieve a
+passing grade. This can be achieved by enabling <em>auto_certificate_generation</em>
+as described below.</p>
+<p>To globally enable this functionality, you must set a <a class="reference external" href="https://waffle.readthedocs.io/en/latest/types/switch.html">Waffle switch</a>:</p>
+<ol class="arabic simple">
+<li><p>In the LMS Django Administration site for your instance of Open
+edX, under <strong>Django-Waffle</strong> &gt; <strong>Switches</strong>, select <strong>Add Switch</strong>.</p></li>
+<li><p>Name the switch <code class="docutils literal notranslate"><span class="pre">certificates.auto_certificate_generation</span></code>.</p></li>
+<li><p>Tick the <strong>Active</strong> checkbox.</p></li>
+<li><p>Optionally, add a <strong>Note</strong> describing that the switch enables
+certificate auto-generation for self-paced courses, or any other
+information you consider necessary. The <strong>Note</strong> contents are never
+shown to learners.</p></li>
+<li><p>Click <strong>Save</strong> to activate the switch.</p></li>
+</ol>
+<p>Open edX caches the value of this Waffle switch, thus the changed
+setting may take several minutes to propagate in a large installation.</p>
+<p>In addition to this Waffle switch, automatic certificate generation
+requires certain settings to be defined for the course, by a member of
+the course staff. For more details, see <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/student_progress/checking_student_progress.html#allow-learners-to-receive-early-certificates" title="(in Building and Running an Open edX Course)"><span>Allow Learners to Receive Early Certificates</span></a> and
+<a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/student_progress/checking_student_progress.html#allow-learners-to-download-certificates" title="(in Building and Running an Open edX Course)"><span>Allow Learners to Download Early Certificates</span></a> in
+<em>Building and Running an Open edX Course</em>.</p>
+</section>
+<section id="manually-generate-certificates-for-a-course">
+<span id="id3"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">4.9.9. </span>Manually Generate Certificates For a Course</a><a class="headerlink" href="#manually-generate-certificates-for-a-course" title="Link to this heading">#</a></h2>
+<p>To manually generate certificates for a course, run the <code class="docutils literal notranslate"><span class="pre">manage.py</span></code> script
+with the following settings. When the script finishes running, course certificates
+will have been generated for eligible learners.</p>
+<ol class="arabic">
+<li><p>Obtain the course ID for the course for which you are generating
+certificates. When you view course content in your browser, the course ID
+appears as part of the URL. For example, in the URL
+<code class="docutils literal notranslate"><span class="pre">http://www.edx.org/course/course-v1:edX+demoX_Demo_2015</span></code>, the course ID
+is <code class="docutils literal notranslate"><span class="pre">course-v1:edX+demoX_Demo_2015</span></code>. For some courses, the course ID
+contains slashes, however it will not contain beginning or trailing slashes.
+For example, a course id look like <code class="docutils literal notranslate"><span class="pre">edX/Demox/Demo_2014</span></code>.</p></li>
+<li><p>Obtain the user IDs for any learners for whom you’d like to generate course
+certificates. These can be found in the <code class="docutils literal notranslate"><span class="pre">auth_user</span></code> database table.</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">manage.py</span></code> with the following settings, replacing {UserID} with a user id
+and <code class="docutils literal notranslate"><span class="pre">{CourseID}</span></code> with the course ID. Do not include beginning or trailing slashes.</p>
+<p><code class="docutils literal notranslate"><span class="pre">./manage.py</span> <span class="pre">lms</span> <span class="pre">--settings=production</span> <span class="pre">cert_generation</span> <span class="pre">-u</span> <span class="pre">{UserID}</span> <span class="pre">{UserID}</span> <span class="pre">-c</span> <span class="pre">{CourseID}</span></code></p>
+<p>For example,</p>
+<p><code class="docutils literal notranslate"><span class="pre">./manage.py</span> <span class="pre">lms</span> <span class="pre">--settings=production</span> <span class="pre">cert_generation</span> <span class="pre">-u</span> <span class="pre">123</span> <span class="pre">456</span> <span class="pre">-c</span> <span class="pre">course-v1:edX+DemoX+Demo_Course</span></code></p>
+</li>
+<li><p>You can then view the certificates in the <code class="docutils literal notranslate"><span class="pre">certificates_generatedcertificate</span></code> database table.</p></li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="enable_badging.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.8. </span>Enabling Badging</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="enable_pacing.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.10. </span>Enabling Self-Paced Courses</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#course-certificates-overview">4.9.1. Course Certificates Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-course-certificates-in-studio-and-the-lms">4.9.2. Enable Course Certificates in Studio and the LMS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuring-course-certificates-in-studio">4.9.3. Configuring Course Certificates in Studio</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-course-certificates-for-your-open-edx-instance">4.9.4. Configure Course Certificates for Your Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#discontinue-audit-track-certificates">4.9.4.1. Discontinue Audit Track Certificates</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#customize-certificate-templates-for-your-organization">4.9.5. Customize Certificate Templates For Your Organization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-certificates-in-additional-languages">4.9.6. Enable Certificates in Additional Languages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-course-certificates-in-additional-languages">4.9.6.1. Configure Course Certificates in Additional Languages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#display-hours-of-effort-on-course-certificates">4.9.7. Display Hours of Effort on Course Certificates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-automatic-certificate-generation">4.9.8. Enable Automatic Certificate Generation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-generate-certificates-for-a-course">4.9.9. Manually Generate Certificates For a Course</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

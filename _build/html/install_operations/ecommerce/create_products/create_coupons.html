@@ -1,0 +1,1329 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.4.3. Create and Manage Coupons &#8212; Installing, Configuring, and Running the Open edX Platform  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ecommerce/create_products/create_coupons';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6.4.4. Enable and Create Enrollment Codes" href="create_enrollment_codes.html" />
+    <link rel="prev" title="6.4.2. Create Course Seats" href="create_course_seats.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Installing, Configuring, and Running the Open edX Platform
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/getting_help.html">1.2. Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/preface.html">1.3. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../front_matter/browsers.html">1.4. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../platform_releases/index.html">2. Open edX Platform Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/olive.html">2.1. Open edX Olive Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/nutmeg.html">2.2. Open edX Nutmeg Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/maple.html">2.3. Open edX Maple Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/lilac.html">2.4. Open edX Lilac Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/koa.html">2.5. Open edX Koa Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/juniper.html">2.6. Open edX Juniper Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/ironwood.html">2.7. Open edX Ironwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/hawthorn.html">2.8. Open edX Hawthorn Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/ginkgo.html">2.9. Open edX Ginkgo Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/ficus.html">2.10. Open edX Ficus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/eucalyptus.html">2.11. Open edX Eucalyptus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/dogwood.html">2.12. Open edX Dogwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/cypress.html">2.13. Open edX Cypress Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../platform_releases/birch.html">2.14. Open edX Birch Release</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../installation/index.html">3. Installing and Starting the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../installation/tutor.html">3.2.1. Open edX Tutor Installation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../configuration/index.html">4. Configuring the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/updating_platform.html">4.1. Guidelines for Updating the Open edX Platform</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../configuration/sites/index.html">4.2. Configuring Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/sites/create_site.html">4.2.1. Create an Open edX Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/sites/configure_site.html">4.2.2. Configuring Sites Independently</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../configuration/changing_appearance/index.html">4.3. Changing the Appearance of Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../configuration/changing_appearance/theming/index.html">4.3.1. Changing Themes for an Open edX Site</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../configuration/changing_appearance/theming/overview_themes.html">4.3.1.1. Themes Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../configuration/changing_appearance/theming/theme_directories.html">4.3.1.2. Root Directories for Theme Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../configuration/changing_appearance/theming/create_theme.html">4.3.1.3. Creating a Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../configuration/changing_appearance/theming/enable_themes.html">4.3.1.4. Enabling and Applying Themes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../configuration/changing_appearance/theming/compiling_theme.html">4.3.1.5. Compiling a Theme</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/changing_appearance/drag_and_drop_problem_styling.html">4.3.2. Styling Drag and Drop Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/customize_registration_page.html">4.4. Adding Custom Fields to the Registration Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/config_allowed_regis_emails.html">4.5. Specifying Allowed Registration Email Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/deprecated_add_course_talk_widget.html">4.6. Adding the CourseTalk Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/edx_search.html">4.7. Enabling Open edX Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_badging.html">4.8. Enabling Badging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_certificates.html">4.9. Enabling Course Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_pacing.html">4.10. Enabling Self-Paced Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_public_course.html">4.11. Enabling Public Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_ccx.html">4.12. Enabling Custom Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_custom_course_settings.html">4.13. Enabling Custom Course Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_discussion_notifications.html">4.14. Enabling Discussion Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_entrance_exams.html">4.15. Enabling Entrance Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../configuration/ora2/index.html">4.16. Configuring Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/ora2/ora2_uploads.html">4.16.1. Configuring ORA2 to Upload Files to Alternative Storage Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/ora2/ora2_blacklist.html">4.16.2. Prohibiting Submission of Specified File Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_prerequisites.html">4.17. Enabling Course Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_licensing.html">4.18. Enabling Course and Video Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/transcripts.html">4.19. Configuring Transcript Behavior</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../configuration/lti/index.html">4.20. Configuring an edX Instance as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/lti/enable_lti.html">4.20.1. Enable LTI Provider Functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/lti/configure_lti.html">4.20.2. Configuring Credentials for a Tool Consumer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/lti/settings_lti.html">4.20.3. Define an Interval for Grade Aggregation (Optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/lti/authentication_options_lti.html">4.20.4. Options for LTI Authentication and User Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/lti/tpa_lti.html">4.20.5. Configuring Open edX User Authentication for LTI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_socialsharing_icons.html">4.21. Enabling Social Sharing of Courses and Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/password.html">4.22. Configuring a Password Policy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../configuration/tpa/index.html">4.23. Enabling Third Party Authentication</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/tpa/tpa_providers.html">4.23.1. Supported Identity Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/tpa/tpa_behavior.html">4.23.2. SSO Behavior</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../configuration/tpa/tpa_integrate_open/index.html">4.23.3. Integrating Third Party Authentication in Open edX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../configuration/tpa/tpa_integrate_open/tpa_oauth.html">4.23.3.2.1. Integrating with an OAuth2 Identity Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../configuration/tpa/tpa_integrate_open/tpa_SAML_IdP.html">4.23.3.2.2. Integrating with a SAML Identity Provider</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/tpa/tpa_SAML_SP.html">4.23.4. Configuring your Open edX Site as a SAML Service Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/tpa/tpa_advanced_features.html">4.23.5. Advanced Third Party Authentication Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/tpa/tpa_eliminating_pii.html">4.23.6. Eliminating PII From Third-Party Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../configuration/tpa/tpa_IDmap_api.html">4.23.7. Third Party Auth ID Mapping API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_timed_exams.html">4.24. Enabling Timed Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/youtube_api.html">4.25. Setting Up the YouTube API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/install_xblock.html">4.26. Installing an XBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/static_replace/cdn.html">4.27. Enabling a CDN for Course Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/enable_weekly_learning_goals.html">4.28. Enabling the Weekly Learning Goals Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../configuration/retrieve_extended_profile_metadata.html">4.29. Retrieving Extended Profile Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../insights/index.html">5. Adding edX Insights for Course Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../insights/install_insights.html">5.1. Options for Installing edX Insights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../insights/elastic_mapreduce.html">5.2. Using Elastic MapReduce on AWS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">6. Adding E-Commerce to the Open edX Platform</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../install_ecommerce.html">6.1. Install and Start the E-Commerce Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../theming.html">6.2. Comprehensive Theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_assets.html">6.3. Manage Static Assets</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">6.4. Create E-Commerce Products</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="create_products_overview.html">6.4.1. Creating Products Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_course_seats.html">6.4.2. Create Course Seats</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">6.4.3. Create and Manage Coupons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_enrollment_codes.html">6.4.4. Enable and Create Enrollment Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_programs.html">6.4.5. About Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="create_program_offers.html">6.4.6. Create Program Offers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../enable_receipt_page.html">6.5. Enable the E-Commerce Service Receipt Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_orders.html">6.6. Manage Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../test_ecommerce.html">6.7. Test Your E-Commerce Application</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../additional_features/index.html">6.8. Additional E-Commerce Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../additional_features/send_notifications.html">6.8.1. Sending Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../additional_features/change_processors.html">6.8.2. Changing Payment Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../additional_features/apple_pay.html">6.8.3. Apple Pay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../additional_features/track_data.html">6.8.4. Tracking Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../additional_features/gate_ecommerce.html">6.8.5. Gating E-Commerce Service Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../additional_features/maintain_ecommerce.html">6.8.6. Maintaining the E-Commerce Service</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../internationalization.html">6.9. Internationalization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../mobile.html">7. Setting Up the Open edX Mobile Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../feature_flags/feature_flag_index.html">8. Index of Open edX Feature Flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">9. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/install_operations/source/ecommerce/create_products/create_coupons.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fecommerce/create_products/create_coupons.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ecommerce/create_products/create_coupons.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Create and Manage Coupons</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-coupon">6.4.3.1. Create a Coupon</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-basic-information">6.4.3.1.1. Enter Basic Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-the-coupon-code-type">6.4.3.1.2. Specify the Coupon Code Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-courses">6.4.3.1.3. Specify Courses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-query-for-multiple-courses">6.4.3.1.3.1. Create a Query for Multiple Courses</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-usage-limitations">6.4.3.1.4. Specify Usage Limitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-invoicing-options">6.4.3.1.5. Specify Invoicing Options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finish-and-review-coupon">6.4.3.1.6. Finish and Review Coupon</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-coupon-information">6.4.3.2. Download Coupon Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-coupon">6.4.3.3. Edit a Coupon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivate-a-coupon">6.4.3.4. Deactivate a Coupon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-coupon-codes-to-learners">6.4.3.5. Distribute Coupon Codes to Learners</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-coupon-code-or-url">6.4.3.5.1. Find a Coupon Code or URL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-code-or-url-on-the-coupon-page">6.4.3.5.1.1. Find a Code or URL on the Coupon Page</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-code-or-url-in-a-downloaded-file">6.4.3.5.1.2. Find a Code or URL in a Downloaded File</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send-an-email-message">6.4.3.5.2. Send an Email Message</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-email-messages">6.4.3.5.2.1. Example Email Messages</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#if-learners-enter-a-coupon-code-on-the-checkout-page">6.4.3.5.2.1.1. If Learners Enter a Coupon Code on the Checkout Page</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#if-learners-visit-an-offer-landing-page">6.4.3.5.2.1.2. If Learners Visit an Offer Landing Page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-invoice-for-a-coupon">6.4.3.6. View the Invoice for a Coupon</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="create-and-manage-coupons">
+<span id="id1"></span><h1><span class="section-number">6.4.3. </span>Create and Manage Coupons<a class="headerlink" href="#create-and-manage-coupons" title="Link to this heading">#</a></h1>
+<p>This topic covers how to create and distribute coupons and their associated
+coupon codes. You can use coupons to provide discounted or free course
+enrollments, also called “course seats”, to your learners.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#create-a-coupon" id="id21">Create a Coupon</a></p></li>
+<li><p><a class="reference internal" href="#download-coupon-information" id="id22">Download Coupon Information</a></p></li>
+<li><p><a class="reference internal" href="#edit-a-coupon" id="id23">Edit a Coupon</a></p></li>
+<li><p><a class="reference internal" href="#deactivate-a-coupon" id="id24">Deactivate a Coupon</a></p></li>
+<li><p><a class="reference internal" href="#distribute-coupon-codes-to-learners" id="id25">Distribute Coupon Codes to Learners</a></p></li>
+<li><p><a class="reference internal" href="#view-the-invoice-for-a-coupon" id="id26">View the Invoice for a Coupon</a></p></li>
+</ul>
+</nav>
+<section id="create-a-coupon">
+<span id="id2"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">6.4.3.1. </span>Create a Coupon</a><a class="headerlink" href="#create-a-coupon" title="Link to this heading">#</a></h2>
+<p>To create a coupon, you create one or more coupon codes that learners use to
+receive their discounts. You then use your email system to distribute the
+discount or enrollment codes for that coupon.</p>
+<p>Creating a coupon code has several steps.</p>
+<nav class="contents local" id="id3">
+<ul class="simple">
+<li><p><a class="reference internal" href="#enter-basic-information" id="id27">Enter Basic Information</a></p></li>
+<li><p><a class="reference internal" href="#specify-the-coupon-code-type" id="id28">Specify the Coupon Code Type</a></p></li>
+<li><p><a class="reference internal" href="#specify-courses" id="id29">Specify Courses</a></p></li>
+<li><p><a class="reference internal" href="#specify-usage-limitations" id="id30">Specify Usage Limitations</a></p></li>
+<li><p><a class="reference internal" href="#specify-invoicing-options" id="id31">Specify Invoicing Options</a></p></li>
+<li><p><a class="reference internal" href="#finish-and-review-coupon" id="id32">Finish and Review Coupon</a></p></li>
+</ul>
+</nav>
+<p>You create coupons and their associated discount or enrollment codes on the
+<strong>Create New Coupon</strong> page in the E-Commerce Coupon Administration tool, which
+is located at <code class="docutils literal notranslate"><span class="pre">http://localhost:8002/coupons/</span></code>. In the tool, you enter basic
+information and select the options for your coupon.</p>
+<section id="enter-basic-information">
+<span id="enter-basic-coupon-information"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">6.4.3.1.1. </span>Enter Basic Information</a><a class="headerlink" href="#enter-basic-information" title="Link to this heading">#</a></h3>
+<p>Each coupon requires some basic information. To enter basic information for
+your coupon, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Start the E-Commerce Service on your site. For details, see <a class="reference internal" href="create_products_overview.html#start-ecommerce-service"><span class="std std-ref">Start the E-Commerce Service</span></a>.</p></li>
+<li><p>In a browser on your E-Commerce server, go to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8002/coupons/</span></code> to access the E-Commerce Coupon
+Administration tool.</p></li>
+<li><p>On the <strong>Coupon Codes</strong> page, select <strong>Create Coupon</strong>.</p></li>
+<li><p>On the <strong>Create New Coupon</strong> page, enter the following information.</p>
+<ul class="simple">
+<li><p><strong>Coupon Name</strong>: The name you want to give the coupon, such as “January
+15% Promotion”. The name must have fewer than 30 characters.</p></li>
+<li><p><strong>Category</strong>: A list of possible classifications for your coupon,
+such as “Course Promotion” and “Financial Assistance”. Categories
+can help you keep track of your coupons.</p></li>
+<li><p><strong>Valid from</strong> and <strong>Valid until</strong>: The dates and times when the discount
+or enrollment code is valid for use. The time zone is set to Universal
+Coordinated Time (UTC).</p></li>
+<li><p><strong>Email Domains</strong>: Optional. A list of comma separated domains. If
+specified, only users registered with an email address that matches can
+use the coupon. If null, any user can use the coupon.</p></li>
+<li><p><strong>Discount Value</strong>: The discount that you want to apply to the course fee,
+specified as a percentage between 1% and 99% or a fixed amount in U.S.
+dollars.</p></li>
+<li><p><strong>Client</strong>: The name of the organization that you create the codes for.
+Note that the current system cannot automatically send this organization
+an invoice for the codes you create. For more information, see
+<a class="reference internal" href="#specify-invoicing-options"><span class="std std-ref">Specify Invoicing Options</span></a> and <a class="reference internal" href="#view-the-invoice-for-a-coupon"><span class="std std-ref">View the Invoice for a Coupon</span></a>.</p></li>
+<li><p><strong>Note</strong> (optional): Any additional information that you want to add to
+your coupon, such as why the coupon was created. The note is visible on
+the coupon page in the coupon administration tool and in the .csv file for
+the coupon. It is not visible to learners.</p></li>
+<li><p><strong>Tax Deducted Source (TDS)</strong>: This field is not yet active.</p></li>
+</ul>
+</li>
+</ol>
+<p>After you specify basic information for your coupon, you must specify the
+coupon code type.</p>
+</section>
+<section id="specify-the-coupon-code-type">
+<span id="id4"></span><h3><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">6.4.3.1.2. </span>Specify the Coupon Code Type</a><a class="headerlink" href="#specify-the-coupon-code-type" title="Link to this heading">#</a></h3>
+<p>In addition to entering basic information, you must specify a coupon code type.
+The coupon code type is either “enrollment code” or “discount code”.</p>
+<ul class="simple">
+<li><p>An enrollment code covers the entire fee for a course seat.</p></li>
+<li><p>A discount code offers between 1% and 99% or a fixed dollar amount off the
+fee for a course seat.</p></li>
+</ul>
+<p>A “course seat” is a single course enrollment in a specific course track.</p>
+<p>To specify the coupon code type, follow these steps.</p>
+<ol class="arabic">
+<li><p>For <strong>Code Type</strong>, select <strong>Enrollment Code</strong> if you want the coupon code to
+cover the entire course fee, or select <strong>Discount Code</strong> if you want to
+provide a discount for the course.</p></li>
+<li><p>If you selected <strong>Enrollment Code</strong>, locate the <strong>Number of Codes</strong> field,
+and then enter the number of enrollment codes that you want to create.</p>
+<p>If you selected <strong>Discount Code</strong>, the following fields are visible.</p>
+<ul>
+<li><p><strong>Discount per Code</strong> (required): Enter the percent or U.S. dollar amount
+of the discount that you want to offer, then select <strong>Percent</strong> or
+<strong>Fixed</strong>. Do not add a percent sign or a dollar sign.</p></li>
+<li><p><strong>Code</strong> (optional): If you want to specify your own discount code, such
+as <code class="docutils literal notranslate"><span class="pre">SCHOLAR15</span></code>, enter the code that you want in this field. This code
+can have 1 to 16 characters.</p>
+<p>If you want the system to generate a discount code for you, leave this
+field empty, and then enter the number of discount codes that you want to
+create in the <strong>Number of Codes</strong> field.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>After you complete this step, you must specify the courses that you want your
+coupon to apply to.</p>
+</section>
+<section id="specify-courses">
+<span id="coupons-specify-courses"></span><h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">6.4.3.1.3. </span>Specify Courses</a><a class="headerlink" href="#specify-courses" title="Link to this heading">#</a></h3>
+<p>In addition to specifying your coupon’s code type, you must specify the courses
+for your coupon. Your coupon can apply to a single course or to multiple
+courses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want your coupon to apply to multiple courses, you must use the edX
+Course Catalog API. The Course Catalog API is in beta and is not documented
+or fully supported.</p>
+</div>
+<p>To specify the courses for your coupon, follow these steps.</p>
+<ol class="arabic">
+<li><p>On the <strong>Create New Coupon</strong> page, select <strong>Single Course</strong> or <strong>Multiple
+Courses</strong>.</p></li>
+<li><p>Specify the courses for your coupon.</p>
+<p>If you selected <strong>Single Course</strong>, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>For <strong>Course ID</strong>, enter the ID of the course that you want. To find the
+course ID, open the course administration tool at
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8002/courses</span></code>, select your course name in the list of
+courses, and then locate the <strong>Course ID</strong> field on the page for the
+course.</p></li>
+<li><p>For <strong>Seat Type</strong>, select the type of seat for the coupon. A “seat” is
+a single course enrollment in a specific course track. For example, the
+seat type might be “verified” or “professional”. The options for this
+field appear after you enter a valid value in the <strong>Course ID</strong> field.</p></li>
+</ol>
+<p>If you selected <strong>Multiple Courses</strong>, follow these steps.</p>
+<ol class="arabic">
+<li><p>In the <strong>Valid for</strong> field, enter a query to retrieve the courses that
+you want. For more information about creating a query, see <a class="reference internal" href="#create-a-query-for-multiple-courses"><span class="std std-ref">Create a Query for Multiple Courses</span></a>.</p>
+<p>To see a preview of the results that your query will return, enter your
+query in the <strong>Valid for</strong> field, and then select <strong>Preview</strong>. A dialog
+box opens that lists the courses in your query results.</p>
+</li>
+<li><p>For <strong>Seat Types</strong>, select <strong>Non-credit</strong> or <strong>Credit</strong>.</p>
+<p>If you select <strong>Non-credit</strong>, you must also select <strong>Verified</strong>,
+<strong>Professional</strong>, or both.</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>After you complete these steps, you must <a class="reference internal" href="#specify-coupon-usage-limitations"><span class="std std-ref">specify usage limitations for
+your coupon</span></a>.</p>
+<section id="create-a-query-for-multiple-courses">
+<span id="id5"></span><h4><span class="section-number">6.4.3.1.3.1. </span>Create a Query for Multiple Courses<a class="headerlink" href="#create-a-query-for-multiple-courses" title="Link to this heading">#</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To create a query, you must use the edX Course Catalog API. The Course
+Catalog API is in beta and is not documented or fully supported.</p>
+</div>
+<p>The coupon administration tool uses queries to return a catalog of courses. The
+coupons that you create apply to each course in that catalog.</p>
+<p>These queries use the following syntax.</p>
+<p><code class="docutils literal notranslate"><span class="pre">field_name:search_terms</span></code></p>
+<p>Your query can contain operators such as quotation marks (“), asterisks (*),
+and hyphens (-).</p>
+<p>For example, your query might resemble one of the following queries.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">org</span><span class="p">:(</span><span class="n">Company</span> <span class="n">OR</span> <span class="n">University</span><span class="p">)</span>
+
+<span class="n">org</span><span class="p">:(</span><span class="o">-</span><span class="n">Company</span> <span class="n">OR</span> <span class="o">-</span><span class="n">University</span><span class="p">)</span>
+
+<span class="n">start</span><span class="p">:[</span><span class="mi">2016</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span> <span class="n">TO</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span><span class="p">]</span>
+
+<span class="n">number</span><span class="p">:</span><span class="mf">6.002</span><span class="n">x</span><span class="o">*</span>
+</pre></div>
+</div>
+<p>For more information about queries, including syntax and operators, see <a class="reference external" href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html#query-string-syntax">Query
+string syntax</a>.</p>
+<p>The following table lists the field names that you can use in your query, along
+with a description for each field name.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 29.4%" />
+<col style="width: 70.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">announcement</span></code></p></td>
+<td><p>The date the course is announced to the public, in YYYY-MM-DD format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">end</span></code></p></td>
+<td><p>The course run end date, in YYYY-MM-DD format.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enrollment_end</span></code></p></td>
+<td><p>The enrollment end date, in YYYY-MM-DD format.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enrollment_start</span></code></p></td>
+<td><p>The enrollment start date, in YYYY-MM-DD format.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">key</span></code></p></td>
+<td><p>The course run key, sometimes also called the course ID.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">language</span></code></p></td>
+<td><p>The language in which the course is administered.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_effort</span></code></p></td>
+<td><p>The estimated maximum number of hours necessary to complete the course.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min_effort</span></code></p></td>
+<td><p>The estimated minimum number of hours necessary to complete the course.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">number</span></code></p></td>
+<td><p>The course number (for example, 6.002x).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">org</span></code></p></td>
+<td><p>The organization associated with the course (for example, MITx).</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pacing_type</span></code></p></td>
+<td><p>The pacing for the course run. Options are <code class="docutils literal notranslate"><span class="pre">instructor_paced</span></code> or
+<code class="docutils literal notranslate"><span class="pre">self_paced</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">start</span></code></p></td>
+<td><p>The course run start date, in YYYY-MM-DD format.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></td>
+<td><p>The course title.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="specify-usage-limitations">
+<span id="specify-coupon-usage-limitations"></span><h3><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">6.4.3.1.4. </span>Specify Usage Limitations</a><a class="headerlink" href="#specify-usage-limitations" title="Link to this heading">#</a></h3>
+<p>In addition to specifying courses for your coupon, you must specify usage
+limitations. Usage limitations control whether one or more customers can use
+the coupon, as well as the number of times each customer can use the coupon.</p>
+<p>To specify usage limitations, follow these steps.</p>
+<ol class="arabic">
+<li><p>On the <strong>Create New Coupon</strong> page, locate <strong>Usage Limitations</strong>.</p></li>
+<li><p>Select one of the following options.</p>
+<ul>
+<li><p><strong>Can be used once by one customer</strong></p>
+<p>If you select this option, the <strong>Number of Codes</strong> field is visible. In
+this field, specify the number of individual discount or enrollment codes
+you want to create. The value must be between 1 and 1000. Make sure that
+you create enough discount or enrollment codes so that each person receives
+one code.</p>
+</li>
+<li><p><strong>Can be used once by multiple customers</strong> or</p></li>
+<li><p><strong>Can be used multiple times by multiple customers</strong></p>
+<p>If you select one of these options, the <strong>Maximum Number of Uses</strong> field is
+visible. In this field, specify the number of times customers can use the
+coupon code.</p>
+<p>For example, if you want to create a single coupon code that is available
+for use by 10 different customers, and each customer can use the code
+only one time, select <strong>Can be used once by multiple customers</strong> , <code class="docutils literal notranslate"><span class="pre">1</span></code>
+for <strong>Number of Codes</strong>, and <code class="docutils literal notranslate"><span class="pre">10</span></code> for <strong>Maximum Number of Uses</strong>.</p>
+<p>If you want to create a coupon code that is available for 10 uses,
+whether by one customer or multiple customers, select <strong>Can be used
+multiple times by multiple customers</strong>, <code class="docutils literal notranslate"><span class="pre">1</span></code> for <strong>Number of Codes</strong>,
+and <code class="docutils literal notranslate"><span class="pre">10</span></code> for <strong>Maximum Number of Uses</strong>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>After you specify usage limitations, you must specify invoicing options for
+your coupon.</p>
+</section>
+<section id="specify-invoicing-options">
+<span id="id6"></span><h3><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">6.4.3.1.5. </span>Specify Invoicing Options</a><a class="headerlink" href="#specify-invoicing-options" title="Link to this heading">#</a></h3>
+<p>In addition to setting usage limitations for your coupon, you must specify
+invoicing options. You can send an invoice when you create the coupon or after
+one or more customers have redeemed the coupon. The invoice can be for the
+total amount or for part of the total amount.</p>
+<p>To specify the way you want to invoice your client, follow these steps.</p>
+<ol class="arabic">
+<li><p>On the <strong>Create New Coupon</strong> page, locate <strong>Invoice Type</strong>.</p></li>
+<li><p>Select one of the following options.</p>
+<ul>
+<li><p><strong>Already invoiced</strong>: Select this option if you have already sent an
+invoice to your client.</p>
+<p>If you select this option, you must also enter information in the
+following fields.</p>
+<ul class="simple">
+<li><p><strong>Invoice Number</strong>: Your internal invoice number.</p></li>
+<li><p><strong>Invoice Amount</strong>: The amount that you have already invoiced the
+client.</p></li>
+<li><p><strong>Payment Date</strong>: The date when payment is due from the client.</p></li>
+</ul>
+</li>
+<li><p><strong>Invoice after redemption</strong>: Select this option if you will send an
+invoice to your client after one or more coupon codes have been redeemed.</p></li>
+<li><p><strong>N/A</strong>: Select this option if neither of the other options
+applies to your situation.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="finish-and-review-coupon">
+<h3><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">6.4.3.1.6. </span>Finish and Review Coupon</a><a class="headerlink" href="#finish-and-review-coupon" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>After you have <a class="reference internal" href="#enter-basic-coupon-information"><span class="std std-ref">entered all the basic coupon information</span></a> and specified the options that you want, select <strong>Create
+Coupon</strong>.</p></li>
+</ul>
+<p>When you select <strong>Create Coupon</strong>, the system generates one or more discount or
+enrollment codes as well as the URLs where users can redeem these codes.</p>
+<p>When the system has finished generating the coupon, a page for the coupon
+opens. This page lists the information for your coupon, including all discount
+or enrollment codes for the coupon, the coupon’s status, URLs where users can
+redeem the codes, dates the coupon is valid, and the course that the coupon
+applies to. You can also <a class="reference internal" href="#download-coupon-information"><span class="std std-ref">download a .csv file with the coupon information</span></a> from this page.</p>
+</section>
+</section>
+<section id="download-coupon-information">
+<span id="id7"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">6.4.3.2. </span>Download Coupon Information</a><a class="headerlink" href="#download-coupon-information" title="Link to this heading">#</a></h2>
+<p>After you create a coupon, you can download a .csv file that lists the
+information that you entered when you created the coupon. The .csv file also
+includes additional information, such as the discount or enrollment codes that
+are associated with your coupon and the system-generated URL where a user can
+redeem each code.</p>
+<ol class="arabic simple">
+<li><p>In your browser, go to <code class="docutils literal notranslate"><span class="pre">http://localhost:8002/coupons/</span></code> to open the coupon
+administration tool.</p></li>
+<li><p>On the <strong>Coupon Codes</strong> page, locate the coupon that you want in the table,
+and then select the name of the coupon. The page for the coupon opens.</p></li>
+<li><p>On the page for the coupon, select <strong>Download</strong>. Your .csv file begins
+downloading automatically.</p></li>
+</ol>
+<p>The .csv file for your coupon lists the following information.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 29.4%" />
+<col style="width: 70.6%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><strong>Coupon Name</strong></p></th>
+<th class="head"><p>The name of the coupon.</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Code</strong></p></td>
+<td><p>The 16-digit alphanumeric discount or enrollment code. The .csv file
+lists at least one entry for each code. The system creates an additional
+entry for the code each time the status of the code changes (for
+example, when the status changes from <strong>Active</strong> to <strong>Redeemed</strong>).</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Maximum Coupon Usage</strong></p></td>
+<td><p>The number of times that the discount code or enrollment code that is
+associated with the coupon can be used. For single-use coupons, this
+value is 1. For multi-use coupons, this is the value that you specified
+in the <strong>Maximum Number of Uses</strong> field.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Redemption Count</strong></p></td>
+<td><p>The number of times the coupon has been redeemed. The initial value is
+0, and the value is incremented each time that a discount code or
+enrollment code for the coupon is redeemed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Coupon Type</strong></p></td>
+<td><p>The type of coupon code associated with this coupon. Possible values are
+<strong>Enrollment</strong> and <strong>Discount</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>URL</strong></p></td>
+<td><p>The URL where the user redeems the coupon code.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Catalog Query</strong> (for multi-course coupons only)</p></td>
+<td><p>The query that was used to determine which courses the coupon applies
+to.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Course Seat Types</strong> (for multi-course coupons only)</p></td>
+<td><p>The seat type that the coupon applies to. For example, the seat type
+might be “verified” or “professional”. For more information about seat
+types, see <a class="reference internal" href="#coupons-specify-courses"><span class="std std-ref">Specify Courses</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>(for single-course coupons only) <strong>Course ID</strong></p></td>
+<td><p>The ID of the course that the coupon applies to.</p></td>
+</tr>
+<tr class="row-even"><td><p>(for single-course coupons only) <strong>Organization</strong></p></td>
+<td><p>The organization that provides the course.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Client</strong></p></td>
+<td><p>The organization that purchased the coupon codes.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Category</strong></p></td>
+<td><p>The value that you selected for the <strong>Category</strong> field when you created
+the coupon.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Note</strong></p></td>
+<td><p>The text, if any, that you entered in the <strong>Note</strong> field when you
+created the coupon.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Price</strong></p></td>
+<td><p>The regular fee for the course.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Email Domains</strong></p></td>
+<td><p>The email domains allowed to use this coupon.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Invoiced Amount</strong></p></td>
+<td><p>The text, if any, that you entered in the <strong>Total to Invoice to Client</strong>
+field when you created the coupon.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Discount Percentage</strong></p></td>
+<td><p>The percent discount, if any, that you specified when you created the
+coupon.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Discount Amount</strong></p></td>
+<td><p>The dollar amount discount, if any, that you specified when you created
+the coupon.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Status</strong></p></td>
+<td><p>The status of the coupon. Possible values are <strong>Active</strong>, <strong>Redeemed</strong>,
+or <strong>Expired</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Order Number</strong></p></td>
+<td><p>The order number associated with the redemption of the enrollment or
+discount code.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Redeemed By Username</strong></p></td>
+<td><p>The username of the customer who redeemed the enrollment or discount
+code.</p></td>
+</tr>
+<tr class="row-even"><td><p>(for multi-course coupons only) <strong>Redeemed for Course ID</strong></p></td>
+<td><p>The course ID of the course for which the coupon was redeemed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Created By</strong></p></td>
+<td><p>The username of the user who created the coupon.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Create Date</strong></p></td>
+<td><p>The date the coupon was created.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Coupon Start Date</strong></p></td>
+<td><p>The first date the coupon can be used.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Coupon Expiry Date</strong></p></td>
+<td><p>The last date the coupon can be used.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="edit-a-coupon">
+<span id="edit-coupons"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">6.4.3.3. </span>Edit a Coupon</a><a class="headerlink" href="#edit-a-coupon" title="Link to this heading">#</a></h2>
+<p>You edit a coupon by using the coupon administration tool.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You cannot edit the following fields.</p>
+<ul class="simple">
+<li><p><strong>Code Type</strong></p></li>
+<li><p><strong>Course ID</strong></p></li>
+<li><p><strong>Single course</strong> or <strong>Multiple courses</strong></p></li>
+<li><p><strong>Seat Type</strong></p></li>
+<li><p><strong>Usage Limitations</strong></p></li>
+<li><p><strong>Number of Codes</strong> or <strong>Maximum Number of Uses</strong></p></li>
+</ul>
+</div>
+<ol class="arabic simple">
+<li><p>In your browser, go to <code class="docutils literal notranslate"><span class="pre">http://localhost:8002/coupons/</span></code> to open the coupon
+administration tool.</p></li>
+<li><p>On the <strong>Coupon Codes</strong> page, locate the coupon that you want in the table,
+and then select the name of the coupon. The page for the coupon opens.</p></li>
+<li><p>On the page for the coupon, select <strong>Edit Coupon</strong>.</p></li>
+<li><p>Make the changes that you want.</p></li>
+<li><p>Select <strong>Save Changes</strong>.</p></li>
+</ol>
+</section>
+<section id="deactivate-a-coupon">
+<span id="deactivate-coupons"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">6.4.3.4. </span>Deactivate a Coupon</a><a class="headerlink" href="#deactivate-a-coupon" title="Link to this heading">#</a></h2>
+<p>To deactivate a coupon, change the <strong>Valid from</strong> and <strong>Valid until</strong> date
+fields so that both dates are in the past. For more information, see <a class="reference internal" href="#edit-coupons"><span class="std std-ref">Edit a Coupon</span></a>.</p>
+</section>
+<section id="distribute-coupon-codes-to-learners">
+<span id="distribute-coupon-codes"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">6.4.3.5. </span>Distribute Coupon Codes to Learners</a><a class="headerlink" href="#distribute-coupon-codes-to-learners" title="Link to this heading">#</a></h2>
+<p>You can distribute both discount codes and enrollment codes to learners in two
+ways.</p>
+<ul>
+<li><p>You provide a coupon code that learners enter on the <strong>Checkout</strong> page for
+the verified or professional certificate track. If you do this, edX
+recommends that you also provide the URL for the course About page to make
+signing up for the course easier.</p></li>
+<li><p>You provide a URL for an offer landing page. This automatically generated
+page presents information about the course, lets the learner know that the
+coupon code has been applied, and provides the opportunity for the learner to
+enroll. Learners can access this URL if they do not have an edX account or
+they are not signed in. However, learners must sign in or create an edX
+account to redeem the coupon and enroll in the course.</p>
+<p>A URL for an offer landing page has the following format.</p>
+<p><code class="docutils literal notranslate"><span class="pre">http://localhost:8002/coupons/offer/?code=################</span></code></p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the coupon code is a discount code, the learner must pay any balance due
+before enrolling in the course for a verified or professional certificate.</p>
+</div>
+<p>To distribute the coupon code or URL to learners, you determine the coupon code
+or the URL for the learner to use, and then you create and send an email that
+includes the coupon code or the URL. For suggestions for email message text,
+see <a class="reference internal" href="#example-email-messages"><span class="std std-ref">Example Email Messages</span></a>.</p>
+<section id="find-a-coupon-code-or-url">
+<span id="id8"></span><h3><span class="section-number">6.4.3.5.1. </span>Find a Coupon Code or URL<a class="headerlink" href="#find-a-coupon-code-or-url" title="Link to this heading">#</a></h3>
+<p>You can find coupon codes, whether discount codes or enrollment codes, and
+their associated URLs in two places: on the page for the coupon in the coupon
+administration tool, and in a downloadable .csv file. You can use either option
+to find the coupon code or URL for your learners.</p>
+<section id="find-a-code-or-url-on-the-coupon-page">
+<h4><span class="section-number">6.4.3.5.1.1. </span>Find a Code or URL on the Coupon Page<a class="headerlink" href="#find-a-code-or-url-on-the-coupon-page" title="Link to this heading">#</a></h4>
+<p>To find a coupon code or URL on the page for the coupon in the coupon
+administration tool, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>In your browser, go to <code class="docutils literal notranslate"><span class="pre">http://localhost:8002/coupons/</span></code> to open the coupon
+administration tool.</p></li>
+<li><p>On the <strong>Coupon Codes</strong> page, locate the coupon that you want in the table,
+and then select the name of the coupon. The page for the coupon opens.</p></li>
+<li><p>On the page for the coupon, locate the table under <strong>Codes</strong>.</p></li>
+<li><p>In the table, locate the information that you want.</p>
+<ul class="simple">
+<li><p>For a coupon code that the learner will enter on the <strong>Checkout</strong> page,
+use the value in the <strong>Code</strong> column.</p></li>
+<li><p>For an offer landing page, use the URL in the <strong>Redemption URL</strong> column.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="find-a-code-or-url-in-a-downloaded-file">
+<h4><span class="section-number">6.4.3.5.1.2. </span>Find a Code or URL in a Downloaded File<a class="headerlink" href="#find-a-code-or-url-in-a-downloaded-file" title="Link to this heading">#</a></h4>
+<p>To find a coupon code or URL in the .csv file for a coupon, follow these steps.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#download-coupon-information"><span class="std std-ref">Download a .csv file</span></a> that lists
+the information for your coupon, and then open the .csv file.</p></li>
+<li><p>In the .csv file, locate the information that you want.</p>
+<ul class="simple">
+<li><p>For a coupon code that the learner will enter on the <strong>Checkout</strong> page,
+use the value in the <strong>Code</strong> column.</p></li>
+<li><p>For an offer landing page, use the URL in the <strong>URL</strong> column.</p></li>
+</ul>
+</li>
+</ol>
+</section>
+</section>
+<section id="send-an-email-message">
+<span id="id9"></span><h3><span class="section-number">6.4.3.5.2. </span>Send an Email Message<a class="headerlink" href="#send-an-email-message" title="Link to this heading">#</a></h3>
+<p>After you <a class="reference internal" href="#find-a-coupon-code-or-url"><span class="std std-ref">locate the coupon code or URL</span></a> that
+you want to use, you use your email system to provide that information in a
+message to potential learners.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When you send a coupon code for a learner to use on the <strong>Checkout</strong> page,
+edX recommends that you include the About page URL for the course as well
+as the coupon code to help the learner enroll more easily.</p>
+</div>
+<section id="example-email-messages">
+<span id="id10"></span><h4><span class="section-number">6.4.3.5.2.1. </span>Example Email Messages<a class="headerlink" href="#example-email-messages" title="Link to this heading">#</a></h4>
+<p>You can use the following email messages as examples of the communication that
+you send to your learners.</p>
+<section id="if-learners-enter-a-coupon-code-on-the-checkout-page">
+<h5><span class="section-number">6.4.3.5.2.1.1. </span>If Learners Enter a Coupon Code on the Checkout Page<a class="headerlink" href="#if-learners-enter-a-coupon-code-on-the-checkout-page" title="Link to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Dear learner,
+
+This message includes a discount &lt;or an enrollment&gt; code for edX101: Overview
+of Creating an edX Course. For more information about the course, see
+https://www.edx.org/course/overview-creating-edx-course-edx-edx101.
+
+To redeem this code, sign up for a verified &lt;or professional&gt; certificate, and
+then enter the following coupon code in the **Coupon Code** field on the
+**Checkout** page:
+
+ZDPC3AQV3732RQT5
+
+We look forward to learning with you!
+
+The edX101 course team
+</pre></div>
+</div>
+</section>
+<section id="if-learners-visit-an-offer-landing-page">
+<h5><span class="section-number">6.4.3.5.2.1.2. </span>If Learners Visit an Offer Landing Page<a class="headerlink" href="#if-learners-visit-an-offer-landing-page" title="Link to this heading">#</a></h5>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Dear learner,
+
+This message includes a discount &lt;or an enrollment&gt; code for edX101: Overview
+of Creating an edX Course. To redeem this code and enroll in the course, visit
+the following URL:
+
+http://localhost:8002/coupons/offer/?code=ZDPC3AQV3732RQT5
+
+We look forward to learning with you!
+
+The edX101 course team
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+</section>
+<section id="view-the-invoice-for-a-coupon">
+<span id="id11"></span><h2><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">6.4.3.6. </span>View the Invoice for a Coupon</a><a class="headerlink" href="#view-the-invoice-for-a-coupon" title="Link to this heading">#</a></h2>
+<p>When you create a coupon, the E-Commerce service generates and fulfills an
+order. The Invoice Payment Processor module in the service then records the
+fulfilled order. Because the Invoice Payment Processor module assumes that you
+have sent or will send an invoice to the client who purchased the coupon, the
+module also records the order in the Invoice table in the Django administration
+panel so that you can view and reconcile the order.</p>
+<p>To view your coupon invoices in the Invoice table, go to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8002/admin/invoice/invoice/</span></code>. The table lists all of the
+invoices for your coupons, along with information such as the client name and
+the invoice status.</p>
+<p>For more information about the way that the E-Commerce service manages orders,
+see <a class="reference internal" href="../manage_orders.html#manage-orders"><span class="std std-ref">Manage Orders</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="create_course_seats.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.4.2. </span>Create Course Seats</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="create_enrollment_codes.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.4.4. </span>Enable and Create Enrollment Codes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-coupon">6.4.3.1. Create a Coupon</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#enter-basic-information">6.4.3.1.1. Enter Basic Information</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-the-coupon-code-type">6.4.3.1.2. Specify the Coupon Code Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-courses">6.4.3.1.3. Specify Courses</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-query-for-multiple-courses">6.4.3.1.3.1. Create a Query for Multiple Courses</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-usage-limitations">6.4.3.1.4. Specify Usage Limitations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-invoicing-options">6.4.3.1.5. Specify Invoicing Options</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#finish-and-review-coupon">6.4.3.1.6. Finish and Review Coupon</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#download-coupon-information">6.4.3.2. Download Coupon Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-coupon">6.4.3.3. Edit a Coupon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deactivate-a-coupon">6.4.3.4. Deactivate a Coupon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#distribute-coupon-codes-to-learners">6.4.3.5. Distribute Coupon Codes to Learners</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-coupon-code-or-url">6.4.3.5.1. Find a Coupon Code or URL</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-code-or-url-on-the-coupon-page">6.4.3.5.1.1. Find a Code or URL on the Coupon Page</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-a-code-or-url-in-a-downloaded-file">6.4.3.5.1.2. Find a Code or URL in a Downloaded File</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#send-an-email-message">6.4.3.5.2. Send an Email Message</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-email-messages">6.4.3.5.2.1. Example Email Messages</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#if-learners-enter-a-coupon-code-on-the-checkout-page">6.4.3.5.2.1.1. If Learners Enter a Coupon Code on the Checkout Page</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#if-learners-visit-an-offer-landing-page">6.4.3.5.2.1.2. If Learners Visit an Offer Landing Page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-invoice-for-a-coupon">6.4.3.6. View the Invoice for a Coupon</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

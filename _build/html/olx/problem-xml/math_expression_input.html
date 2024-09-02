@@ -1,0 +1,1110 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11.18. Math Expression Input Problems &#8212; EdX Open Learning XML Guide - Alpha Version  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'problem-xml/math_expression_input';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11.19. MathJax for Mathematics" href="mathjax.html" />
+    <link rel="prev" title="11.17. LTI Component" href="lti_component.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EdX Open Learning XML Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-olx.html">2. What is Open Learning XML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">3. Getting Started with OLX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directory-structure.html">4. OLX Course Structure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../policies/index.html">5. Policies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../policies/course.html">5.1. Course Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/grading.html">5.2. Grading Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/assets-policy.html">5.3. Course Asset Policy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../assets/assets.html">6. Course Assets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../about/index.html">7. The Course About Pages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/overview.html">7.1. Course Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/short-description.html">7.2. Short Description</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pages.html">8. Course Tabs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../organizing-course/index.html">9. Organizing Courseware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-structure-overview.html">9.1. OLX Course Building Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-xml-file.html">9.2. The Courseware Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../components/index.html">10. Course Components (XBlocks)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../components/html-components.html">10.1. HTML Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/discussion-components.html">10.2. Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/video-components.html">10.3. Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/problem-components.html">10.4. Problem Components</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">11. Exercises, Tools, and Problem Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="levels_of_support.html">11.1. Levels of Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation.html">11.2. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chemical_equation.html">11.3. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_schematic_builder.html">11.4. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="completion.html">11.5. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional_module.html">11.6. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_javascript.html">11.7. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_python.html">11.8. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag_and_drop.html">11.9. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropdown.html">11.10. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="full_screen_image.html">11.11. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gene_explorer.html">11.12. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_calendar.html">11.13. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_docs.html">11.14. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iframe.html">11.15. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image_mapped_input.html">11.16. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lti_component.html">11.17. LTI Component</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.18. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathjax.html">11.19. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_select.html">11.20. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerical_input.html">11.21. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="open_response_assessments/index.html">11.22. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/OpenResponseAssessments.html">11.22.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/CreateORAAssignment.html">11.22.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/Manage_ORA_Assignment.html">11.22.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/ORA_Staff_Grading.html">11.22.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/Access_ORA_Info.html">11.22.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="periodic_table.html">11.23. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll.html">11.24. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll_question.html">11.25. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_in_latex.html">11.26. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_with_hint.html">11.27. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_builder.html">11.28. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recommenderXBlock.html">11.29. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select.html">11.30. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select_num_input.html">11.31. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="survey.html">11.32. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbolic_response.html">11.33. Symbolic Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_input.html">11.34. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="word_cloud.html">11.35. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zooming_image.html">11.36. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content-experiments/index.html">12. Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_overview.html">12.1. Overview of Content Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_guidelines.html">12.2. Guidelines for Modifying Group Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_configure.html">12.3. Set Up Group Configuration for OLX Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_add.html">12.4. Add a Content Experiment in OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_test_olx.html">12.5. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../example-course/index.html">13. Example of an OLX Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-structure.html">13.1. The Structure of edX-Insider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-course-xml.html">13.2. The edX-Insider <code class="docutils literal notranslate"><span class="pre">course.xml</span></code> File</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../studio-example/index.html">14. Example of OLX for a Studio Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studio-example/manual-testing-structure.html">14.1. The Structure of the Manual Testing Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/index.html">15. Open Learning XML Uses</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/olx-studio.html">15.1. Use OLX with edX Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/deploy-lms.html">15.2. Build a Course in OLX and Deploy to the edX LMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/convert-to-olx.html">15.3. Convert Content in Other Formats to OLX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../drafts/index.html">16. Draft Course Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">17. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/olx/source/problem-xml/math_expression_input.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fproblem-xml/math_expression_input.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/problem-xml/math_expression_input.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Math Expression Input Problems</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.18.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-math-expression-input-problem">11.18.1.1. Example Math Expression Input Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-performance-on-math-expression-input-problems">11.18.1.2. Analyzing Performance on Math Expression Input Problems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-math-expression-input-problem">11.18.2. Adding a Math Expression Input Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math-expression-input-problem-olx-reference">11.18.3. Math Expression Input Problem OLX Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#template">11.18.3.1. Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements">11.18.3.2. Elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formularesponse">11.18.3.2.1. <code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">11.18.3.2.1.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#children">11.18.3.2.1.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label">11.18.3.2.2. <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.18.3.2.2.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.18.3.2.2.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#description">11.18.3.2.3. <code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.18.3.2.3.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">11.18.3.2.3.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formulaequationinput">11.18.3.2.4. <code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">11.18.3.2.4.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">11.18.3.2.4.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#responseparam">11.18.3.2.5. <code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">11.18.3.2.5.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">11.18.3.2.5.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#script">11.18.3.2.6. <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">11.18.3.2.6.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">11.18.3.2.6.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">11.18.3.2.7. <code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="math-expression-input-problems">
+<span id="math-expression-input"></span><h1><span class="section-number">11.18. </span>Math Expression Input Problems<a class="headerlink" href="#math-expression-input-problems" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EdX offers full support for this problem type.</p>
+</div>
+<p>The math expression input problem type is a core problem type that can be added
+to any course. At a minimum, math expression problems include a question or
+prompt and a response field for a numeric answer.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id11">Overview</a></p>
+<ul>
+<li><p><a class="reference internal" href="#example-math-expression-input-problem" id="id12">Example Math Expression Input Problem</a></p></li>
+<li><p><a class="reference internal" href="#analyzing-performance-on-math-expression-input-problems" id="id13">Analyzing Performance on Math Expression Input Problems</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#adding-a-math-expression-input-problem" id="id14">Adding a Math Expression Input Problem</a></p></li>
+<li><p><a class="reference internal" href="#math-expression-input-problem-olx-reference" id="id15">Math Expression Input Problem OLX Reference</a></p>
+<ul>
+<li><p><a class="reference internal" href="#template" id="id16">Template</a></p></li>
+<li><p><a class="reference internal" href="#elements" id="id17">Elements</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<p>For more information about the core problem types, see
+<a class="reference external" href="https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/course_components/create_problem.html#working-with-problem-components" title="(in Building and Running an edX Course)"><span>Working with Problem Components</span></a>.</p>
+<section id="overview">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">11.18.1. </span>Overview</a><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>In math expression input problems, learners enter text that represents a
+mathematical expression. The text is converted to a symbolic expression that
+appears below the response field. Unlike numerical input problems, which only
+allow integers and a few select constants, math expression input problems can
+include unknown variables and more complicated symbolic expressions.</p>
+<p>For more information about how learners enter expressions, see
+<span class="xref std std-ref">learners:Math Formatting</span> in the <em>EdX Learner’s Guide</em> or
+<a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-learner-guide/en/latest/completing_assignments/SFD_mathformatting.html#math-formatting" title="(in Open edX Learner's Guide)"><span>Completing Mathematical and Scientific Assignments</span></a> in the <em>Open edX Learner’s Guide</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can make a calculator tool available to your learners on every unit
+page. For more information, see <a class="reference external" href="https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/exercises_tools/calculator.html#calculator" title="(in Building and Running an edX Course)"><span>Calculator Tool</span></a>.</p>
+</div>
+<p>For math expression input problems, the grader uses numerical sampling to
+determine whether a learner’s response matches the math expression that you
+provide, to a specified numerical tolerance. You specify the allowed variables
+in the expression as well as the range of values for each variable.</p>
+<p>When you create a math expression input problem in Studio, you use <a class="reference external" href="http://www.mathjax.org">MathJax</a> to format text strings into “beautiful math.” For
+more information about how to use MathJax in Studio, see <a class="reference internal" href="mathjax.html#mathjax-in-studio"><span class="std std-ref">MathJax for Mathematics</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Math expression input problems currently cannot include negative
+numbers raised to fractional powers, such as (-1)^(1/2). Math expression
+input problems can include complex numbers raised to fractional powers, or
+positive non-complex numbers raised to fractional powers.</p>
+</div>
+<section id="example-math-expression-input-problem">
+<h3><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">11.18.1.1. </span>Example Math Expression Input Problem</a><a class="headerlink" href="#example-math-expression-input-problem" title="Link to this heading">#</a></h3>
+<p>In the LMS, learners enter a value into a response field to complete a math
+expression input problem. The following example shows a completed math
+expression input problem that contains two questions.</p>
+<a class="reference internal image-reference" href="../_images/MathExpressionInputExample.png"><img alt="A problem shown in the LMS that requests the symbolic expressions for displacement and for elongation of a blade. Both questions were answered correctly. The solutions are not shown." src="../_images/MathExpressionInputExample.png" style="width: 500px;" />
+</a>
+<p>The open learning XML (OLX) markup for this example math expression input
+problem follows.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;formularesponse</span><span class="w"> </span><span class="na">inline=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;cs&quot;</span><span class="w"> </span><span class="na">samples=</span><span class="s">&quot;R,omega,E,rho,L@0.1,0.1,0.1,0.1,0.1:10,10,10,10,10#10&quot;</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;(rho*omega^2*L^2)/E*((11*L)/48 +(3*R)/8)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Find<span class="w"> </span>a<span class="w"> </span>symbolic<span class="w"> </span>expression<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>displacement<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>blade<span class="w"> </span>mid-section,<span class="w"> </span>\(<span class="w"> </span>u_{x}(L/2)<span class="w"> </span>\),<span class="w"> </span>in<span class="w"> </span>terms<span class="w"> </span>of<span class="w"> </span>\(R\),<span class="w"> </span>\(L\),<span class="w"> </span>\(\rho\),<span class="w"> </span>\(\omega\),<span class="w"> </span>and<span class="w"> </span>\(E\).<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>\(u_x(L/2)<span class="w"> </span>=<span class="w"> </span>\)<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;1%&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;textline</span><span class="w"> </span><span class="na">inline=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">math=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;worked-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;&lt;b&gt;</span>Obtaining<span class="w"> </span>the<span class="w"> </span>displacement<span class="w"> </span>at<span class="w"> </span>the<span class="w"> </span>mid-section<span class="w"> </span>\(<span class="w"> </span>u_{x}(x<span class="w"> </span>=<span class="w"> </span>L<span class="w"> </span>/<span class="w"> </span>2)\):<span class="nt">&lt;/b&gt;&lt;/p&gt;&lt;p&gt;</span>According<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>definition<span class="w"> </span>of<span class="w"> </span>strain,<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span>\[<span class="w"> </span>\frac<span class="w"> </span>{du_{x}(x)}<span class="w"> </span>{dx}<span class="w"> </span>=<span class="w"> </span>\epsilon_a(x).\]
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Therefore,<span class="w"> </span>we<span class="w"> </span>can<span class="w"> </span>obtain<span class="w"> </span>the<span class="w"> </span>displacement<span class="w"> </span>field<span class="w"> </span>as<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span>\[<span class="w"> </span>u_x(x)<span class="w"> </span>=<span class="w"> </span>u_x(0)<span class="w"> </span>+<span class="w"> </span>\int_0^x<span class="w"> </span>\epsilon_a<span class="w"> </span>(x&#39;)<span class="w"> </span>dx&#39;<span class="w"> </span>=<span class="w"> </span>u_x(0)<span class="w"> </span>+<span class="w"> </span>\left[<span class="w"> </span>\frac{\rho<span class="w"> </span>\omega^2}{E}<span class="w"> </span>\left(\frac{L^2x&#39;}{2}<span class="w"> </span>-<span class="w"> </span>\frac{(x&#39;)^3}{6}<span class="w"> </span>+<span class="w"> </span>RLx&#39;<span class="w"> </span>-<span class="w"> </span>\frac{R(x&#39;)^2}{2}<span class="w"> </span>\right)<span class="w"> </span>\right]_0^x\]
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Since<span class="w"> </span>the<span class="w"> </span>bar<span class="w"> </span>is<span class="w"> </span>fixed<span class="w"> </span>at<span class="w"> </span>x=0,<span class="w"> </span>therefore<span class="w"> </span>\(u_x(0)=0\).<span class="w"> </span>Hence<span class="w"> </span>we<span class="w"> </span>obtain<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span>\[\Rightarrow<span class="w"> </span>u_x(x)<span class="w"> </span>=<span class="w"> </span>\frac{\rho\omega^2}{E}<span class="w"> </span>\left(<span class="w"> </span>\frac{L^2x}{2}<span class="w"> </span>-<span class="w"> </span>\frac{x^3}{6}<span class="w"> </span>+<span class="w"> </span>RLx<span class="w"> </span>-<span class="w"> </span>\frac{Rx^2}{2}<span class="w"> </span>\right).\]
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>The<span class="w"> </span>displacement<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>bar<span class="w"> </span>at<span class="w"> </span>\(x=L/2\)<span class="w"> </span>is<span class="w"> </span><span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span>\[u_{x}(L/2)<span class="w"> </span>=<span class="w"> </span>\frac<span class="w"> </span>{\rho\omega^2L^2}{E}<span class="w"> </span>\left(<span class="w"> </span>\frac<span class="w"> </span>{11L}{48}<span class="w"> </span>+<span class="w"> </span>\frac<span class="w"> </span>{3R}{8}<span class="w"> </span>\right).\]
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/formularesponse&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;formularesponse</span><span class="w"> </span><span class="na">inline=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;cs&quot;</span><span class="w"> </span><span class="na">samples=</span><span class="s">&quot;R,omega,E,rho,L@0.1,0.1,0.1,0.1,0.1:10,10,10,10,10#10&quot;</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;(rho*omega^2)/E*(L^3/3 + (R*L^2)/2)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Find<span class="w"> </span>a<span class="w"> </span>symbolic<span class="w"> </span>expression<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>blade<span class="w"> </span>elongation<span class="w"> </span>\(<span class="w"> </span>\delta<span class="w"> </span>\)<span class="w"> </span>in<span class="w"> </span>terms<span class="w"> </span>of<span class="w"> </span>\(R\),<span class="w"> </span>\(L\),<span class="w"> </span>\(\rho\),<span class="w"> </span>\(\omega\),<span class="w"> </span>and<span class="w"> </span>\(E\).<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>\(\delta<span class="w"> </span>=<span class="w"> </span>\)<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;1%&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;textline</span><span class="w"> </span><span class="na">inline=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">math=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;worked-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>\[<span class="w">  </span>\delta<span class="w"> </span>=<span class="w"> </span>\frac<span class="w"> </span>{\rho<span class="w"> </span>\omega^2}{E}<span class="w"> </span>\left(<span class="w"> </span>\frac<span class="w"> </span>{L^3}<span class="w"> </span>{3}<span class="w"> </span>+<span class="w"> </span>\frac<span class="w"> </span>{<span class="w"> </span>RL^2}<span class="w"> </span>{2}<span class="w"> </span>\right)<span class="w"> </span>\]
+<span class="w">        </span><span class="nt">&lt;p&gt;&lt;b&gt;</span>Obtaining<span class="w"> </span>the<span class="w"> </span>total<span class="w"> </span>elongation<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>blade<span class="w">  </span>\(<span class="w"> </span>\delta<span class="w"> </span>\):<span class="nt">&lt;/b&gt;&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>The<span class="w"> </span>strain<span class="w"> </span>field<span class="w"> </span>in<span class="w"> </span>the<span class="w"> </span>bar<span class="w"> </span>is<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span>\[<span class="w">  </span>\epsilon_a(x)<span class="w"> </span>=<span class="w"> </span>\frac<span class="w"> </span>{\mathcal{N}(x)}{EA}<span class="w"> </span>=<span class="w"> </span>\frac<span class="w"> </span>{\rho<span class="w"> </span>\omega^2<span class="w"> </span>\left(<span class="w"> </span>\frac<span class="w"> </span>{L^2<span class="w"> </span>-<span class="w"> </span>x^2}{2}<span class="w"> </span>+<span class="w"> </span>R\left(L-x\right)\right)}{E}.<span class="w"> </span>\]
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>We<span class="w"> </span>can<span class="w"> </span>now<span class="w"> </span>calculate<span class="w"> </span>the<span class="w"> </span>elongation<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>bar<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>following.<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span>\[<span class="w"> </span>\delta<span class="w"> </span>=<span class="w"> </span>\int_0^L<span class="w"> </span>\epsilon_{a}(x)dx<span class="w"> </span>=<span class="w"> </span>\int_0^L<span class="w"> </span>\frac<span class="w"> </span>{\rho<span class="w"> </span>\omega^2}{E}<span class="w"> </span>\left(<span class="w"> </span>\frac<span class="w"> </span>{L^2<span class="w"> </span>-<span class="w"> </span>x^2}{2}<span class="w"> </span>+<span class="w"> </span>R\left(L-x\right)\right)dx.<span class="w"> </span>\]
+<span class="w">        </span>\[<span class="w"> </span>\Rightarrow<span class="w"> </span>\delta=<span class="w"> </span>\left[<span class="w"> </span>\frac<span class="w"> </span>{<span class="w"> </span>\rho<span class="w"> </span>\omega^2}{E}<span class="w"> </span>\left(<span class="w"> </span>\frac<span class="w"> </span>{L^2x}{2}<span class="w">  </span>-<span class="w"> </span>\frac<span class="w"> </span>{x^3}{6}<span class="w"> </span>+<span class="w"> </span>RLx<span class="w"> </span>-<span class="w"> </span>\frac<span class="w"> </span>{Rx^2}{2}<span class="w"> </span>\right)\right]_0^L.\]
+<span class="w">        </span>\[<span class="w"> </span>\Rightarrow<span class="w"> </span>\delta<span class="w"> </span>=<span class="w"> </span>\frac<span class="w"> </span>{\rho<span class="w"> </span>\omega^2}{E}<span class="w"> </span>\left(<span class="w"> </span>\frac<span class="w"> </span>{L^3}{2}<span class="w"> </span>-<span class="w"> </span>\frac{L^3}{6}<span class="w"> </span>+<span class="w"> </span>RL^2<span class="w"> </span>-<span class="w"> </span>\frac<span class="w"> </span>{RL^2}{2}<span class="w"> </span>\right).\]
+<span class="w">        </span>\[\Rightarrow<span class="w"> </span>\delta=<span class="w"> </span>\frac<span class="w"> </span>{\rho<span class="w"> </span>\omega^2}{E}<span class="w"> </span>\left(<span class="w"> </span>\frac<span class="w"> </span>{L^3}{3}<span class="w"> </span>+<span class="w"> </span>\frac<span class="w"> </span>{RL^2}{2}<span class="w"> </span>\right).<span class="w"> </span>\]
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/formularesponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="analyzing-performance-on-math-expression-input-problems">
+<h3><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">11.18.1.2. </span>Analyzing Performance on Math Expression Input Problems</a><a class="headerlink" href="#analyzing-performance-on-math-expression-input-problems" title="Link to this heading">#</a></h3>
+<p>For the math expression input problems in your course, you can use edX Insights
+to review aggregated learner performance data and examine submitted answers.
+For more information, see <a class="reference external" href="https://edx.readthedocs.io/projects/edx-insights/en/latest/index.html#using-edx-insights" title="(in Using edX Insights)"><span>Using edX Insights</span></a>.</p>
+</section>
+</section>
+<section id="adding-a-math-expression-input-problem">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">11.18.2. </span>Adding a Math Expression Input Problem</a><a class="headerlink" href="#adding-a-math-expression-input-problem" title="Link to this heading">#</a></h2>
+<p>You add math expression input problems in Studio by selecting the <strong>Problem</strong>
+component type and then using the advanced editor to specify the prompt and the
+acceptable answer or answers.</p>
+<p>To create a math expression input problem, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>In the unit where you want to create the problem, under <strong>Add New
+Component</strong> select <strong>Problem</strong>.</p></li>
+<li><p>In the problem editor, select <strong>Advanced problem types</strong>. Then select
+<strong>Math Expression Input</strong>.</p></li>
+<li><p>Replace the guidance provided by the template to add your own text. For
+example, replace the question or prompt, answer options, and solution.</p></li>
+<li><p>Update the OLX to use any additional elements and attributes in your
+problem.</p></li>
+<li><p>Provide an identifying <strong>Display Name</strong> and define
+settings for the problem. For more information, see <a class="reference external" href="https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/course_components/create_problem.html#problem-settings" title="(in Building and Running an edX Course)"><span>Defining Settings for Problem Components</span></a>.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+</section>
+<section id="math-expression-input-problem-olx-reference">
+<span id="math-expression-input-problem-xml"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">11.18.3. </span>Math Expression Input Problem OLX Reference</a><a class="headerlink" href="#math-expression-input-problem-olx-reference" title="Link to this heading">#</a></h2>
+<section id="template">
+<h3><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">11.18.3.1. </span>Template</a><a class="headerlink" href="#template" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following template includes a Python script. When you add a
+script to a problem component, do not add to or change its internal
+indentation. A “jailed code” error message appears when you save
+the problem in Studio if the <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> element is indented.</p>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;formularesponse</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ci&quot;</span><span class="w"> </span><span class="na">samples=</span><span class="s">&quot;R_1,R_2,R_3@1,2,3:3,4,5#10&quot;</span><span class="w">  </span><span class="na">answer=</span><span class="s">&quot;$computed_response&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Problem<span class="w"> </span>text<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;responseparam</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;tolerance&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;0.00001&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;20&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;script</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+computed_response<span class="w"> </span>=<span class="w"> </span>PYTHON<span class="w"> </span>SCRIPT
+<span class="nt">&lt;/script&gt;</span>
+
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;detailed-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Explanation<span class="w"> </span>or<span class="w"> </span>solution<span class="w"> </span>header<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Explanation<span class="w"> </span>or<span class="w"> </span>solution<span class="w"> </span>text<span class="nt">&lt;/p&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/formularesponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<p>This template includes a placeholder value for the <code class="docutils literal notranslate"><span class="pre">samples</span></code> attribute of
+<code class="docutils literal notranslate"><span class="pre">samples=&quot;R_1,R_2,R_3&#64;1,2,3:3,4,5#10&quot;</span></code>. You enter values for this attribute
+in the following format:
+<code class="docutils literal notranslate"><span class="pre">samples=&quot;VARIABLES&#64;LOWER_BOUNDS:UPPER_BOUNDS#NUMBER_OF_SAMPLES&quot;</span></code>. Additional detail follows in the description of the <code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code>
+element.</p>
+</section>
+<section id="elements">
+<h3><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">11.18.3.2. </span>Elements</a><a class="headerlink" href="#elements" title="Link to this heading">#</a></h3>
+<p>For math expression input problems, the <code class="docutils literal notranslate"><span class="pre">&lt;problem&gt;</span></code> element can include this
+hierarchy of child elements.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formularesponse&gt;</span>
+<span class="w">        </span><span class="nt">&lt;label&gt;</span>
+<span class="w">        </span><span class="nt">&lt;description&gt;</span>
+<span class="w">        </span><span class="nt">&lt;formulaequationinput&gt;</span>
+<span class="w">        </span><span class="nt">&lt;responseparam&gt;</span>
+<span class="w">        </span><span class="nt">&lt;script&gt;</span>
+<span class="w">        </span><span class="nt">&lt;solution&gt;</span>
+</pre></div>
+</div>
+<p>In addition, standard HTML tags can be used to format text.</p>
+<section id="formularesponse">
+<h4><span class="section-number">11.18.3.2.1. </span><code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code><a class="headerlink" href="#formularesponse" title="Link to this heading">#</a></h4>
+<p>Required. Indicates that the problem is a math expression input problem.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code> tag is similar to the <code class="docutils literal notranslate"><span class="pre">&lt;numericalresponse&gt;</span></code> tag
+used  by <a class="reference internal" href="numerical_input.html#numerical-input"><span class="std std-ref">numerical input</span></a> problem types, but
+<code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code> allows unknown variables.</p>
+<section id="attributes">
+<h5><span class="section-number">11.18.3.2.1.1. </span>Attributes<a class="headerlink" href="#attributes" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>Can be <code class="docutils literal notranslate"><span class="pre">&quot;cs&quot;</span></code> for case sensitive, which is the default, or <code class="docutils literal notranslate"><span class="pre">&quot;ci&quot;</span></code>
+for case insensitive, so that capitalization does not matter in variable
+names.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">answer</span></code></p></td>
+<td><p>The correct answer to the problem, given as a mathematical expression.</p>
+<p>If you precede a variable name in the problem with a dollar sign ($),
+you can include a script in the problem that computes the expression
+in terms of that variable.</p>
+</td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">samples</span></code></p></td>
+<td><p>Specifies important information about the problem in the following
+lists.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">variables</span></code>: A set of variables that learners can enter.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lower_bounds</span></code>: For every defined variable, a lower bound on the
+numerical tests to use for that variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upper_bounds</span></code>: For every defined variable, an upper bound on the
+numerical tests to use for that variable.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">num_samples</span></code>: The number of times to test the expression.</p></li>
+</ul>
+<p>Commas separate items inside each of the four individual lists. The at
+sign (&#64;), colon (:), and hash tag (#) characters separate the lists.
+An example of the format follows.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&quot;variables&#64;lower_bounds:upper_bounds#num_samples&quot;</span></code></p>
+<p>For example, a <code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code> element that includes the
+<code class="docutils literal notranslate"><span class="pre">samples</span></code> attribute might look like either of the following.</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;formularesponse</span> <span class="pre">samples=&quot;x,n&#64;1,2:3,4#10&quot;&gt;</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;formularesponse</span> <span class="pre">samples=&quot;R_1,R_2,R_3&#64;1,2,3:3,4,5#10&quot;&gt;</span></code></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Variable names must be at least one character long. They must start with a letter, which can be followed by letters, numbers and underscores. We strongly recommend only using one underscore, which renders to students as a subscript.</p>
+<p>Tensor notation is also supported, as <code class="docutils literal notranslate"><span class="pre">Name_{ijk}^{123}</span></code>, where the name must start with a letter, but can otherwise contain letters or numbers, subscripts are contained in the lower braces, and superscripts are contained in the raised braces. Superscripts and subscripts must only be letters or numbers. No other underscores can appear in the name. Note that the subscript must come first, and the braces ensure that the superscripts are not confused with exponentiation.</p>
+<p>All variable names (standard and tensor formats) may contain one or more apostrophes (primes) at the end of the variable name, for example, to indicate a derivative or new coordinate system. Note that some students may have trouble entering primes, which some browsers/operating systems automatically convert to a “smart apostrophe” (tablets are most likely to have this issue). We recommend providing a variable name that students may copy and paste to get around this problem.</p>
+<p>The following are examples of valid variable names: <code class="docutils literal notranslate"><span class="pre">V_out</span></code>, <code class="docutils literal notranslate"><span class="pre">m_1</span></code>, <code class="docutils literal notranslate"><span class="pre">G_{ij}</span></code>, <code class="docutils literal notranslate"><span class="pre">H^{xy}</span></code>, <code class="docutils literal notranslate"><span class="pre">f'</span></code>, <code class="docutils literal notranslate"><span class="pre">x_1''</span></code>, and <code class="docutils literal notranslate"><span class="pre">H_{ij}^{12}''</span></code>.</p>
+</section>
+<section id="children">
+<h5><span class="section-number">11.18.3.2.1.2. </span>Children<a class="headerlink" href="#children" title="Link to this heading">#</a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="label">
+<h4><span class="section-number">11.18.3.2.2. </span><code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code><a class="headerlink" href="#label" title="Link to this heading">#</a></h4>
+<p>Required. Identifies the question or prompt. You can include HTML tags within
+this element.</p>
+<section id="id1">
+<h5><span class="section-number">11.18.3.2.2.1. </span>Attributes<a class="headerlink" href="#id1" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+<section id="id2">
+<h5><span class="section-number">11.18.3.2.2.2. </span>Children<a class="headerlink" href="#id2" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="description">
+<h4><span class="section-number">11.18.3.2.3. </span><code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code><a class="headerlink" href="#description" title="Link to this heading">#</a></h4>
+<p>Optional. Provides clarifying information about how to answer the question. You
+can include HTML tags within this element.</p>
+<section id="id3">
+<h5><span class="section-number">11.18.3.2.3.1. </span>Attributes<a class="headerlink" href="#id3" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+<section id="id4">
+<h5><span class="section-number">11.18.3.2.3.2. </span>Children<a class="headerlink" href="#id4" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="formulaequationinput">
+<h4><span class="section-number">11.18.3.2.4. </span><code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code><a class="headerlink" href="#formulaequationinput" title="Link to this heading">#</a></h4>
+<p>Required. Creates a response field in the LMS where learners enter a response.</p>
+<p>Learners also see a second field below the response field that displays a
+typeset version of the entered response. The parser that renders a learner’s
+plain text into typeset math is the same parser that evaluates the response for
+grading.</p>
+<section id="id5">
+<h5><span class="section-number">11.18.3.2.4.1. </span>Attributes<a class="headerlink" href="#id5" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">size</span></code></p></td>
+<td><p>Optional. Defines the width, in characters, of the response field in
+the LMS.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id6">
+<h5><span class="section-number">11.18.3.2.4.2. </span>Children<a class="headerlink" href="#id6" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="responseparam">
+<h4><span class="section-number">11.18.3.2.5. </span><code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code><a class="headerlink" href="#responseparam" title="Link to this heading">#</a></h4>
+<p>Used to define an upper bound on the variance of the numerical methods used to
+approximate a test for equality.</p>
+<section id="id7">
+<h5><span class="section-number">11.18.3.2.5.1. </span>Attributes<a class="headerlink" href="#id7" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">&quot;tolerance&quot;</span></code> defines a tolerance for a number.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">default</span></code></p></td>
+<td><p>Required. A number or a percentage specifying how close the learner
+and grader expressions must be. If you do not include a tolerance, the
+expression is vulnerable to rounding errors during sampling. The
+result of such unavoidable errors is that the grader can mark some
+learner input as incorrect, even if it is algebraically equivalent.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id8">
+<h5><span class="section-number">11.18.3.2.5.2. </span>Children<a class="headerlink" href="#id8" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="script">
+<h4><span class="section-number">11.18.3.2.6. </span><code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code><a class="headerlink" href="#script" title="Link to this heading">#</a></h4>
+<p>Optional. Specifies a script that the grader uses to evaluate a learner’s
+response. A problem behaves as if all of the code in all of the script elements
+were in a single script element. Specifically, any variables that are used in
+multiple <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> elements share a namespace and can be overridden.</p>
+<p>As with all Python code, indentation matters, even though the code is embedded
+in XML.</p>
+<section id="id9">
+<h5><span class="section-number">11.18.3.2.6.1. </span>Attributes<a class="headerlink" href="#id9" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>Required. Must be set to <code class="docutils literal notranslate"><span class="pre">loncapa/python</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id10">
+<h5><span class="section-number">11.18.3.2.6.2. </span>Children<a class="headerlink" href="#id10" title="Link to this heading">#</a></h5>
+<p>None.</p>
+</section>
+</section>
+<section id="solution">
+<h4><span class="section-number">11.18.3.2.7. </span><code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code><a class="headerlink" href="#solution" title="Link to this heading">#</a></h4>
+<p>Optional. Identifies the explanation or solution for the problem, or for one of
+the questions in a problem that contains more than one question.</p>
+<p>This element contains an HTML division <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code>. The division contains one or
+more paragraphs <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code> of explanatory text.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="lti_component.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11.17. </span>LTI Component</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mathjax.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11.19. </span>MathJax for Mathematics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">11.18.1. Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-math-expression-input-problem">11.18.1.1. Example Math Expression Input Problem</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#analyzing-performance-on-math-expression-input-problems">11.18.1.2. Analyzing Performance on Math Expression Input Problems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-math-expression-input-problem">11.18.2. Adding a Math Expression Input Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#math-expression-input-problem-olx-reference">11.18.3. Math Expression Input Problem OLX Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#template">11.18.3.1. Template</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements">11.18.3.2. Elements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formularesponse">11.18.3.2.1. <code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#attributes">11.18.3.2.1.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#children">11.18.3.2.1.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#label">11.18.3.2.2. <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">11.18.3.2.2.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">11.18.3.2.2.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#description">11.18.3.2.3. <code class="docutils literal notranslate"><span class="pre">&lt;description&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">11.18.3.2.3.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">11.18.3.2.3.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#formulaequationinput">11.18.3.2.4. <code class="docutils literal notranslate"><span class="pre">&lt;formulaequationinput&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">11.18.3.2.4.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">11.18.3.2.4.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#responseparam">11.18.3.2.5. <code class="docutils literal notranslate"><span class="pre">&lt;responseparam&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">11.18.3.2.5.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">11.18.3.2.5.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#script">11.18.3.2.6. <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">11.18.3.2.6.1. Attributes</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id10">11.18.3.2.6.2. Children</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#solution">11.18.3.2.7. <code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

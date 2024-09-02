@@ -1,0 +1,1353 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>13. Example .rst File &#8212; EdX Style Guide  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ExampleRSTFile';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="14. Glossary" href="glossary.html" />
+    <link rel="prev" title="12. Documentation Translation Process" href="DocTranslationProcess.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Style Guide  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Style Guide  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="index.html">
+                    edX Style Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="preferred.html">2. Preferred Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wordlist.html">3. Word List</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userinterface.html">4. Documenting User Interface Interactions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="templates/index.html">5. Topic Templates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="templates/concept.html">5.1. Writing Concept Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates/concept_template.html">5.2. {Using this Concept Template}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates/task.html">5.3. Writing Task Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="templates/task_template.html">5.4. {Using This Task Template}</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="formattinglayout.html">6. Style Conventions and Content Layout</a></li>
+<li class="toctree-l1"><a class="reference internal" href="images.html">7. Images</a></li>
+<li class="toctree-l1"><a class="reference internal" href="global_English.html">8. Guidelines for Writing Global English</a></li>
+<li class="toctree-l1"><a class="reference internal" href="media_accessibility.html">9. Media Accessibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="WorkingWithEdXDocSource.html">10. Working with edX Documentation Source Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DocTranslationGuidelines.html">11. Guidelines for Translators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DocTranslationProcess.html">12. Documentation Translation Process</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">13. Example .rst File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glossary.html">14. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/edx_style_guide/source/ExampleRSTFile.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2FExampleRSTFile.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/ExampleRSTFile.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Example .rst File</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heading-levels">13.1. Heading Levels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paragraph-text-and-commented-text">13.2. Paragraph Text and Commented Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-and-unordered-lists">13.3. Ordered and Unordered Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-lists-or-content">13.3.1. Nested Lists or Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list-inside-ordered-list">13.3.1.1. Unordered List inside Ordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list-inside-unordered-list">13.3.1.2. Ordered List inside Unordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list-inside-unordered-list">13.3.1.3. Unordered List inside Unordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list-inside-ordered-list">13.3.1.4. Ordered List inside Ordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#code-images-and-other-content-inside-lists">13.3.1.5. Code, Images, and Other Content inside Lists</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-text">13.4. Conditional Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-and-warnings">13.5. Notes and Warnings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references">13.6. Cross-References</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-locations-in-the-same-document">13.6.1. Cross-References to Locations in the Same Document</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-using-the-anchor-only">13.6.1.1. Cross-References Using the Anchor Only</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-using-specified-link-text">13.6.1.2. Cross-References Using Specified Link Text</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-locations-in-different-edx-documents">13.6.2. Cross-References to Locations in Different edX Documents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-jira">13.6.3. Cross-References to JIRA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-external-web-pages">13.6.4. Cross-References to External Web Pages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-references">13.7. Image References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">13.8. Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-an-empty-cell">13.8.1. Example of a table with an empty cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-a-header-row">13.8.2. Example of a table with a header row</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-a-boldface-first-column">13.8.3. Example of a table with a boldface first column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-a-cell-that-includes-an-unordered-list">13.8.4. Example of a table with a cell that includes an unordered list</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-formatting">13.9. Code Formatting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-code">13.9.1. Inline code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks">13.9.2. Code blocks</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="example-rst-file">
+<span id="anchor-for-examplerstfile"></span><h1><span class="section-number">13. </span>Example .rst File<a class="headerlink" href="#example-rst-file" title="Link to this heading">#</a></h1>
+<p>If you work with edX documentation source files, you might find this file
+helpful as a reference. This file contains examples of .rst formatting.</p>
+<p>Explanations and more context for each type of element are provided in
+<a class="reference internal" href="WorkingWithEdXDocSource.html#work-with-edx-documentation-source-files"><span class="std std-ref">Working with edX Documentation Source Files</span></a>.</p>
+<p>This file covers the following topics.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#heading-levels" id="id11">Heading Levels</a></p></li>
+<li><p><a class="reference internal" href="#paragraph-text-and-commented-text" id="id12">Paragraph Text and Commented Text</a></p></li>
+<li><p><a class="reference internal" href="#ordered-and-unordered-lists" id="id13">Ordered and Unordered Lists</a></p></li>
+<li><p><a class="reference internal" href="#conditional-text" id="id14">Conditional Text</a></p></li>
+<li><p><a class="reference internal" href="#notes-and-warnings" id="id15">Notes and Warnings</a></p></li>
+<li><p><a class="reference internal" href="#cross-references" id="id16">Cross-References</a></p></li>
+<li><p><a class="reference internal" href="#image-references" id="id17">Image References</a></p></li>
+<li><p><a class="reference internal" href="#tables" id="id18">Tables</a></p></li>
+<li><p><a class="reference internal" href="#code-formatting" id="id19">Code Formatting</a></p></li>
+</ul>
+</nav>
+<section id="heading-levels">
+<h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">13.1. </span>Heading Levels</a><a class="headerlink" href="#heading-levels" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Heading</span> <span class="mi">1</span>
+<span class="c1">#########</span>
+
+<span class="n">Heading</span> <span class="mi">2</span>
+<span class="o">*********</span>
+
+<span class="n">Heading</span> <span class="mi">3</span>
+<span class="o">=========</span>
+
+<span class="n">Heading</span> <span class="mi">4</span>
+<span class="o">---------</span>
+
+<span class="n">Heading</span> <span class="mi">5</span>
+<span class="o">~~~~~~~~~</span>
+</pre></div>
+</div>
+</section>
+<section id="paragraph-text-and-commented-text">
+<h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">13.2. </span>Paragraph Text and Commented Text</a><a class="headerlink" href="#paragraph-text-and-commented-text" title="Link to this heading">#</a></h2>
+<p>This is an example of regular text in paragraph form. There are no indents. As
+a best practice, break lines at about 80 characters, so that each line has its
+own line number for commenting in reviews.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Throughout text and code examples, make sure double quotation
+marks and apostrophes are straight (”) or (‘), not curly quotatation marks
+and apostrophes, which might be introduced when text is cut and pasted from
+other sources or editors.</p>
+</div>
+<p>Boldface is used for labels that are visible in the user interface. The UI
+text is surrounded by double asterisks. For example, <strong>bold</strong>.</p>
+<p>Italics are rarely used. Text surrounded by single asterisks is rendered in
+<em>italics</em>.</p>
+<p>Monospace text is used for <code class="docutils literal notranslate"><span class="pre">code</span> <span class="pre">examples</span></code>. Text surrounded by double grave
+accent characters is rendered in monospace font.</p>
+<p><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">comments</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">added</span> <span class="pre">in</span> <span class="pre">a</span> <span class="pre">file</span> <span class="pre">by</span> <span class="pre">starting</span> <span class="pre">a</span> <span class="pre">line</span> <span class="pre">with</span> <span class="pre">2</span> <span class="pre">periods</span> <span class="pre">and</span> <span class="pre">a</span> <span class="pre">space.</span></code></p>
+<p>In English source files, look for comments addressed to translators from writers.</p>
+<p><code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">Translators:</span>&#160; <span class="pre">In</span> <span class="pre">this</span> <span class="pre">code</span> <span class="pre">example,</span> <span class="pre">do</span> <span class="pre">not</span> <span class="pre">translate</span> <span class="pre">such</span> <span class="pre">and</span> <span class="pre">such.</span></code></p>
+</section>
+<section id="ordered-and-unordered-lists">
+<h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">13.3. </span>Ordered and Unordered Lists</a><a class="headerlink" href="#ordered-and-unordered-lists" title="Link to this heading">#</a></h2>
+<p>Use hash symbols for ordered lists.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#. Select **Advanced Settings**.</span>
+<span class="c1">#. Find the **Course Advertised Start Date** policy key.</span>
+<span class="c1">#. Enter the value you want to display.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ordered lists usually use numerals. Nested ordered lists (ordered lists inside
+other ordered lists) use letters.</p>
+</div>
+<p>Use asterisks for unordered (bulleted) lists.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>* Who is teaching the course?
+* What university or college is the course affiliated with?
+* What topics and concepts are covered in your course?
+* Why should a learner enroll in your course?
+</pre></div>
+</div>
+<section id="nested-lists-or-content">
+<h3><span class="section-number">13.3.1. </span>Nested Lists or Content<a class="headerlink" href="#nested-lists-or-content" title="Link to this heading">#</a></h3>
+<p>You can include content including additional lists and code examples inside
+lists.</p>
+<section id="unordered-list-inside-ordered-list">
+<h4><span class="section-number">13.3.1.1. </span>Unordered List inside Ordered List<a class="headerlink" href="#unordered-list-inside-ordered-list" title="Link to this heading">#</a></h4>
+<p>To include an unordered list inside an ordered list, indent the unordered list
+three spaces. The first bullet in the unordered list must be flush with the
+text in the ordered list.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#. Review your entry to verify that the key is accurate and that it is</span>
+   <span class="n">surrounded</span> <span class="n">by</span> <span class="n">quotation</span> <span class="n">marks</span><span class="o">.</span> <span class="n">If</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">keys</span><span class="p">,</span> <span class="n">they</span> <span class="n">must</span> <span class="n">be</span>
+   <span class="n">comma</span> <span class="n">separated</span><span class="o">.</span>
+
+   <span class="o">*</span> <span class="n">In</span> <span class="n">this</span> <span class="n">example</span><span class="p">,</span> <span class="n">the</span> <span class="n">key</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Annotation</span> <span class="n">Problem</span> <span class="n">tool</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">only</span>
+     <span class="n">value</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span><span class="o">.</span>
+
+   <span class="o">*</span> <span class="n">In</span> <span class="n">this</span> <span class="n">example</span><span class="p">,</span> <span class="n">the</span> <span class="n">key</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Annotation</span> <span class="n">Problem</span> <span class="n">tool</span> <span class="ow">is</span> <span class="n">added</span> <span class="n">at</span>
+     <span class="n">the</span> <span class="n">beginning</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">other</span> <span class="n">keys</span><span class="o">.</span>
+
+<span class="c1">#. Select **Save Changes**.</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/Lists_UL_inside_OL.png"><img alt="An unordered (bulleted) list inside an ordered (numbered) list." src="_images/Lists_UL_inside_OL.png" style="width: 500px;" />
+</a>
+</section>
+<section id="ordered-list-inside-unordered-list">
+<h4><span class="section-number">13.3.1.2. </span>Ordered List inside Unordered List<a class="headerlink" href="#ordered-list-inside-unordered-list" title="Link to this heading">#</a></h4>
+<p>To include an ordered list inside an unordered list, indent the ordered list
+two spaces. The first number or letter of the ordered list must be flush with
+the text in the unordered list.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Review</span> <span class="n">your</span> <span class="n">entry</span> <span class="n">to</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">the</span> <span class="n">key</span> <span class="ow">is</span> <span class="n">accurate</span> <span class="ow">and</span> <span class="n">that</span> <span class="n">it</span> <span class="ow">is</span>
+  <span class="n">surrounded</span> <span class="n">by</span> <span class="n">quotation</span> <span class="n">marks</span><span class="o">.</span> <span class="n">If</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">keys</span><span class="p">,</span> <span class="n">they</span> <span class="n">must</span> <span class="n">be</span> <span class="n">comma</span>
+  <span class="n">separated</span><span class="o">.</span>
+
+  <span class="c1">#. In this example, the key for the Annotation Problem tool is the only</span>
+     <span class="n">value</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span><span class="o">.</span>
+
+  <span class="c1">#. In this example, the key for the Annotation Problem tool is added at the</span>
+     <span class="n">beginning</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">other</span> <span class="n">keys</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="n">Select</span> <span class="o">**</span><span class="n">Save</span> <span class="n">Changes</span><span class="o">**.</span>
+</pre></div>
+</div>
+</section>
+<section id="unordered-list-inside-unordered-list">
+<h4><span class="section-number">13.3.1.3. </span>Unordered List inside Unordered List<a class="headerlink" href="#unordered-list-inside-unordered-list" title="Link to this heading">#</a></h4>
+<p>To include an unordered list inside another unordered list, indent the second
+unordered list two spaces. The first bullet of the second unordered list must
+be flush with the text in the unordered list.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">Review</span> <span class="n">your</span> <span class="n">entry</span> <span class="n">to</span> <span class="n">verify</span> <span class="n">that</span> <span class="n">the</span> <span class="n">key</span> <span class="ow">is</span> <span class="n">accurate</span> <span class="ow">and</span> <span class="n">that</span> <span class="n">it</span> <span class="ow">is</span>
+  <span class="n">surrounded</span> <span class="n">by</span> <span class="n">quotation</span> <span class="n">marks</span><span class="o">.</span> <span class="n">If</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">keys</span><span class="p">,</span> <span class="n">they</span> <span class="n">must</span> <span class="n">be</span>
+  <span class="n">comma</span> <span class="n">separated</span><span class="o">.</span>
+
+  <span class="c1">#. In this example, the key for the Annotation Problem tool is the only</span>
+     <span class="n">value</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span><span class="o">.</span>
+
+  <span class="c1">#. In this example, the key for the Annotation Problem tool is added at the</span>
+     <span class="n">beginning</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">other</span> <span class="n">keys</span><span class="o">.</span>
+
+<span class="o">*</span> <span class="n">Select</span> <span class="o">**</span><span class="n">Save</span> <span class="n">Changes</span><span class="o">**.</span>
+</pre></div>
+</div>
+<a class="reference internal image-reference" href="_images/Lists_UL_inside_UL.png"><img alt="An ordered (numbered) list inside an unordered (bulleted) list." src="_images/Lists_UL_inside_UL.png" style="width: 500px;" />
+</a>
+</section>
+<section id="ordered-list-inside-ordered-list">
+<h4><span class="section-number">13.3.1.4. </span>Ordered List inside Ordered List<a class="headerlink" href="#ordered-list-inside-ordered-list" title="Link to this heading">#</a></h4>
+<p>To include another ordered list inside an ordered list, indent the second
+ordered list three spaces. The second ordered list must be flush with the text
+in the numbered list. The first ordered list uses numerals, and the second
+uses letters.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#. Review your entry to verify that the key is accurate and that it is</span>
+   <span class="n">surrounded</span> <span class="n">by</span> <span class="n">quotation</span> <span class="n">marks</span><span class="o">.</span> <span class="n">If</span> <span class="n">there</span> <span class="ow">is</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">keys</span><span class="p">,</span> <span class="n">they</span> <span class="n">must</span> <span class="n">be</span>
+   <span class="n">comma</span> <span class="n">separated</span><span class="o">.</span>
+
+   <span class="c1">#. In this example, the key for the Annotation Problem tool is the only</span>
+      <span class="n">value</span> <span class="ow">in</span> <span class="n">the</span> <span class="nb">list</span><span class="o">.</span>
+
+   <span class="c1">#. In this example, the key for the Annotation Problem tool is added at</span>
+      <span class="n">the</span> <span class="n">beginning</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">other</span> <span class="n">keys</span><span class="o">.</span>
+
+<span class="c1">#. Select **Save Changes**.</span>
+</pre></div>
+</div>
+</section>
+<section id="code-images-and-other-content-inside-lists">
+<h4><span class="section-number">13.3.1.5. </span>Code, Images, and Other Content inside Lists<a class="headerlink" href="#code-images-and-other-content-inside-lists" title="Link to this heading">#</a></h4>
+<p>To include content such as code or an image inside a list, position the code or
+image directive flush with the text in the list. That is, indent three spaces
+for ordered lists and two spaces for unordered lists.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#. In the ``lms.yml`` and ``studio.yml`` files, set the value of
+   ``CERTIFICATES_HTML_VIEW`` within the ``FEATURES`` object  to ``true``.
+
+   .. code-block:: bash
+
+     &quot;FEATURES&quot;: {
+         ...
+         &#39;CERTIFICATES_HTML_VIEW&#39;: true,
+         ...
+     }
+
+#. Save the ``lms.yml`` and ``studio.yml`` files.
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="conditional-text">
+<h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">13.4. </span>Conditional Text</a><a class="headerlink" href="#conditional-text" title="Link to this heading">#</a></h2>
+<p>To conditionalize a single paragraph, use either the <code class="docutils literal notranslate"><span class="pre">only::</span> <span class="pre">Partners</span></code> or
+the <code class="docutils literal notranslate"><span class="pre">only::</span> <span class="pre">Open_edX</span></code> directive, and indent the paragraph under the
+directive. You can add the conditional text as regular text or as a note.</p>
+<p>Make sure to indent the paragraph under the directive.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. only:: Partners
+
+ Data about course enrollment is available from edX Insights. You can access
+ Insights from the instructor dashboard for your live course: after you select
+ **Instructor**, follow the link in the banner at the top of each page. For
+ more information, see `Using edX Insights`_.
+
+.. only:: Open_edX
+
+    .. note::
+      If you want to require an entrance exam for your course, you also create
+      the exam in the course outline. Before you can create an exam, you must
+      set your course to require an entrance exam in Studio. For more
+      information, see :ref:`Require an Entrance Exam`.
+</pre></div>
+</div>
+<p>To conditionalize more than a paragraph, use either the <code class="docutils literal notranslate"><span class="pre">only::</span> <span class="pre">Partners</span></code> or
+the <code class="docutils literal notranslate"><span class="pre">only::</span> <span class="pre">Open_edX</span></code> directive, and then use an <code class="docutils literal notranslate"><span class="pre">include::</span></code> directive
+indented under the only directive.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">only</span><span class="p">::</span> <span class="n">Open_edX</span>
+
+   <span class="o">..</span> <span class="n">include</span><span class="p">::</span> <span class="o">../../../</span><span class="n">shared</span><span class="o">/</span><span class="n">building_and_running_chapters</span><span class="o">/</span><span class="n">running_course</span><span class="o">/</span><span class="n">Section_course_student</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+</section>
+<section id="notes-and-warnings">
+<h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">13.5. </span>Notes and Warnings</a><a class="headerlink" href="#notes-and-warnings" title="Link to this heading">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">note</span><span class="p">::</span>
+   <span class="n">This</span> <span class="ow">is</span> <span class="n">note</span> <span class="n">text</span><span class="o">.</span> <span class="n">If</span> <span class="n">note</span> <span class="n">text</span> <span class="n">runs</span> <span class="n">over</span> <span class="n">a</span> <span class="n">line</span><span class="p">,</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">the</span> <span class="n">lines</span> <span class="n">wrap</span>
+   <span class="ow">and</span> <span class="n">are</span> <span class="n">indented</span> <span class="n">to</span> <span class="n">the</span> <span class="n">same</span> <span class="n">level</span> <span class="k">as</span> <span class="n">the</span> <span class="n">note</span> <span class="n">tag</span><span class="o">.</span> <span class="n">If</span> <span class="n">formatting</span> <span class="ow">is</span>
+   <span class="n">incorrect</span><span class="p">,</span> <span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">note</span> <span class="n">might</span> <span class="ow">not</span> <span class="n">render</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">HTML</span> <span class="n">output</span><span class="o">.</span>
+
+   <span class="n">Notes</span> <span class="n">can</span> <span class="n">have</span> <span class="n">more</span> <span class="n">than</span> <span class="n">one</span> <span class="n">paragraph</span><span class="o">.</span> <span class="n">Successive</span> <span class="n">paragraphs</span> <span class="n">must</span> <span class="n">indent</span>
+   <span class="n">to</span> <span class="n">the</span> <span class="n">same</span> <span class="n">level</span> <span class="k">as</span> <span class="n">the</span> <span class="n">rest</span> <span class="n">of</span> <span class="n">the</span> <span class="n">note</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is note text. If note text runs over a line, make sure the lines wrap
+and are indented to the same level as the note tag. If formatting is
+incorrect, part of the note might not render in the HTML output.</p>
+<p>Notes can have more than one paragraph. Successive paragraphs must indent to
+the same level as the rest of the note.</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">warning</span><span class="p">::</span>
+   <span class="n">Warnings</span> <span class="n">are</span> <span class="n">formatted</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">same</span> <span class="n">way</span> <span class="k">as</span> <span class="n">notes</span><span class="o">.</span> <span class="n">In</span> <span class="n">the</span> <span class="n">same</span> <span class="n">way</span><span class="p">,</span> <span class="n">lines</span>
+   <span class="n">must</span> <span class="n">be</span> <span class="n">broken</span> <span class="ow">and</span> <span class="n">indented</span> <span class="n">under</span> <span class="n">the</span> <span class="n">warning</span> <span class="n">tag</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Warnings are formatted in the same way as notes. In the same way, lines must
+be broken and indented under the warning tag.</p>
+</div>
+</section>
+<section id="cross-references">
+<h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">13.6. </span>Cross-References</a><a class="headerlink" href="#cross-references" title="Link to this heading">#</a></h2>
+<p>In edX documents, you can include cross-references to other locations in the
+same edX document, to locations in other edX documents (such as a cross-
+reference from a location in the <em>Building and Running an edX Course</em> guide to
+a location in the <em>EdX Learner’s Guide</em>), to JIRA stories, and to external
+websites. In this section, “EdX documents” refers to the resources, including
+guides and tutorials, that are listed on docs.edx.org.</p>
+<p>For more information about creating cross-references using RST and Sphinx, see
+<a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/inline.html#cross-referencing-arbitrary-locations">Cross-referencing arbitrary locations</a> in the online Sphinx documentation.</p>
+<section id="cross-references-to-locations-in-the-same-document">
+<h3><span class="section-number">13.6.1. </span>Cross-References to Locations in the Same Document<a class="headerlink" href="#cross-references-to-locations-in-the-same-document" title="Link to this heading">#</a></h3>
+<p>Cross-references to locations in the same document use anchors that are located
+above the heading for each topic or section. Anchors can contain numbers,
+letters, spaces, underscores, and hyphens, but cannot include punctuation.
+Anchors use the following syntax.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_Anchor</span> <span class="n">Text</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>The following example shows an anchor for a section, followed by the heading
+for that section. <code class="docutils literal notranslate"><span class="pre">SFD</span> <span class="pre">SN</span> <span class="pre">Keyboard</span> <span class="pre">Shortcuts</span></code> is the anchor text.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_SFD</span> <span class="n">SN</span> <span class="n">Keyboard</span> <span class="n">Shortcuts</span><span class="p">:</span>
+
+<span class="o">******************************</span>
+<span class="n">Keyboard</span> <span class="n">Shortcuts</span> <span class="k">for</span> <span class="n">Notes</span>
+<span class="o">******************************</span>
+</pre></div>
+</div>
+<p>To create cross-references to locations in the same document, you can use the
+anchor only, or you can use your own text. The anchor text is never visible in
+output. It is replaced by the text of the heading that follows the anchor or
+the text that you specify.</p>
+<section id="cross-references-using-the-anchor-only">
+<h4><span class="section-number">13.6.1.1. </span>Cross-References Using the Anchor Only<a class="headerlink" href="#cross-references-using-the-anchor-only" title="Link to this heading">#</a></h4>
+<p>To add a cross-reference to a specific location in a document and use the text
+of the heading for that location as link text, use <code class="docutils literal notranslate"><span class="pre">:ref:`Anchor</span> <span class="pre">Text`</span></code>
+syntax, as in the following example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For more information about using keyboard shortcuts, see :ref:`SFD SN
+Keyboard Shortcuts`.
+</pre></div>
+</div>
+<p>In this example, “SFD SN Keyboard Shortcuts” is the anchor text for a section
+that is titled “Keyboard Shortcuts for Notes”. Readers will see the following
+text, and “Keyboard Shortcuts for Notes” will be an active link.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">For</span> <span class="n">more</span> <span class="n">information</span> <span class="n">about</span> <span class="n">using</span> <span class="n">keyboard</span> <span class="n">shortcuts</span><span class="p">,</span> <span class="n">see</span> <span class="n">Keyboard</span> <span class="n">Shortcuts</span>
+<span class="k">for</span> <span class="n">Notes</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+<section id="cross-references-using-specified-link-text">
+<h4><span class="section-number">13.6.1.2. </span>Cross-References Using Specified Link Text<a class="headerlink" href="#cross-references-using-specified-link-text" title="Link to this heading">#</a></h4>
+<p>For internal cross-references that use text other than the heading for the
+section that you’re linking to, use <code class="docutils literal notranslate"><span class="pre">:ref:`specified</span> <span class="pre">text&lt;Anchor</span> <span class="pre">Text&gt;`</span></code>
+syntax, as in the following example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>If you want to, you can use :ref:`keyboard shortcuts&lt;SFD SN Keyboard
+Shortcuts&gt;` to create, edit, and view notes.
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Do not include a space between the last word of the link text and the opening
+angle bracket for the anchor text.</p>
+</div>
+<p>In this example, “keyboard shortcuts” is the link text, and “SFD SN Keyboard
+Shortcuts” is the anchor text for a section that is titled “Keyboard Shortcuts
+for Notes”. Readers will see the following text, and “keyboard shortcuts” will
+be an active link.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">you</span> <span class="n">want</span> <span class="n">to</span><span class="p">,</span> <span class="n">you</span> <span class="n">can</span> <span class="n">use</span> <span class="n">keyboard</span> <span class="n">shortcuts</span> <span class="n">to</span> <span class="n">create</span><span class="p">,</span> <span class="n">edit</span><span class="p">,</span> <span class="ow">and</span> <span class="n">view</span> <span class="n">your</span>
+<span class="n">notes</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="cross-references-to-locations-in-different-edx-documents">
+<h3><span class="section-number">13.6.2. </span>Cross-References to Locations in Different edX Documents<a class="headerlink" href="#cross-references-to-locations-in-different-edx-documents" title="Link to this heading">#</a></h3>
+<p>You can create cross-references between different edX documents. For example,
+you can create a link in <em>Building and Running an edX Course</em> to a topic in the
+<em>EdX Learner’s Guide</em>. To do this, you use the intersphinx map ID of the
+document that you want to link to and the anchor text for the section you want.
+The cross-reference uses the following syntax.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:ref:`intersphinx_map_ID:Anchor Name`
+</pre></div>
+</div>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>:ref:`partnercoursestaff:Release Dates`
+</pre></div>
+</div>
+<p>To find the intersphinx map ID for the document that you want, follow these
+steps.</p>
+<ol class="arabic">
+<li><p>Open the conf.py file in the <a class="reference external" href="https://github.com/openedx/edx-documentation/blob/master/shared/conf.py">edx-documentation/shared</a> folder, and then
+locate the following line.</p>
+<p><code class="docutils literal notranslate"><span class="pre">intersphinx_mapping</span> <span class="pre">=</span> <span class="pre">{</span></code></p>
+</li>
+<li><p>In the list that follows this line, find the ID for the document that you
+want. The text between the single quotation marks (’) at the beginning of
+each line is the intersphinx map ID for the document.</p></li>
+</ol>
+<p>The following intersphinx map IDs are the most frequently used.</p>
+<div class="pst-scrollable-table-container"><table class="table" id="id10">
+<caption><span class="caption-text">:widths: 25 25 50</span><a class="headerlink" href="#id10" title="Link to this table">#</a></caption>
+<tbody>
+<tr class="row-odd"><td><p>Map ID</p></td>
+<td><p>Document</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">partnercoursestaff</span></code></p></td>
+<td><p><em>Building and Running an edX Course</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">opencoursestaff</span></code></p></td>
+<td><p><em>Building and Running an Open edX Course</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">learners</span></code></p></td>
+<td><p><em>EdX Learner’s Guide</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">openlearners</span></code></p></td>
+<td><p><em>Open edX Learner’s Guide</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">data</span></code></p></td>
+<td><p><em>EdX Research Guide</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">insights</span></code></p></td>
+<td><p><em>Using edX Insights</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">installation</span></code></p></td>
+<td><p><em>Installing, Configuring, and Running the Open edX Platform</em></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">opendevelopers</span></code></p></td>
+<td><p><em>Open edX Developer’s Guide</em></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">partnerreleasenotes</span></code></p></td>
+<td><p>Partner release notes</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">openreleasenotes</span></code></p></td>
+<td><p>Open edX release notes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="cross-references-to-jira">
+<h3><span class="section-number">13.6.3. </span>Cross-References to JIRA<a class="headerlink" href="#cross-references-to-jira" title="Link to this heading">#</a></h3>
+<p>For cross-references to JIRA tickets, use the <code class="docutils literal notranslate"><span class="pre">:jira:`PROJECT-ticketnumber`</span></code>
+syntax, as in the following example.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>For more information, see :jira:`DOC-2316`.
+</pre></div>
+</div>
+<p>Note that <code class="docutils literal notranslate"><span class="pre">jira</span></code> replaces <code class="docutils literal notranslate"><span class="pre">ref</span></code> for these links.</p>
+<p>Readers will see the following text, and “DOC-2316” will be an active link.</p>
+<p><code class="docutils literal notranslate"><span class="pre">For</span> <span class="pre">more</span> <span class="pre">information,</span> <span class="pre">see</span> <span class="pre">DOC-2316.</span></code></p>
+</section>
+<section id="cross-references-to-external-web-pages">
+<h3><span class="section-number">13.6.4. </span>Cross-References to External Web Pages<a class="headerlink" href="#cross-references-to-external-web-pages" title="Link to this heading">#</a></h3>
+<p>A cross-reference to an external web page has several elements.</p>
+<ul class="simple">
+<li><p>The URL of the external web page.</p></li>
+<li><p>The text to use for the cross-reference. This text becomes an anchor in the
+file that contains the cross-reference.</p></li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">include</span></code> directive in the file that contains the cross-reference to the
+links.rst file that is located in the <code class="docutils literal notranslate"><span class="pre">edx-documentation/en_us/links/</span></code>
+folder.</p></li>
+<li><p>An entry in the links.rst file.</p></li>
+</ul>
+<p>To create an external cross-reference, follow these steps.</p>
+<ol class="arabic">
+<li><p>In the paragraph where you want the cross-reference, add the text that you
+want to use for the link, formatted as follows (where “Release Pages” is the
+link text). This creates an anchor out of that text.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>The edX engineering wiki `Release Pages`_ provide access to detailed
+information about every change made to the edx-platform GitHub
+repository.
+</pre></div>
+</div>
+</li>
+<li><p>In the file that contains the cross-reference, add an <code class="docutils literal notranslate"><span class="pre">include</span></code> directive
+for the <code class="docutils literal notranslate"><span class="pre">edx-documentation/en_us/links/links.rst</span></code> file if one does not
+already exist. These <code class="docutils literal notranslate"><span class="pre">include</span></code> directives are typically at the end of the
+file.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">include</span><span class="p">::</span> <span class="o">../../</span><span class="n">links</span><span class="o">/</span><span class="n">links</span><span class="o">.</span><span class="n">rst</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The path to the links.rst file depends on the location of the file where
+you are creating the link. For example, the path might be
+<code class="docutils literal notranslate"><span class="pre">../../../links/links.rst</span></code> or <code class="docutils literal notranslate"><span class="pre">../links/links.rst</span></code>.</p>
+</div>
+</li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">edx-documentation/en_us/links/links.rst</span></code> file, add an entry for
+the anchor text and the URL of the external website, formatted as follows.
+Make sure that the anchor text in this file matches the anchor text in the
+file that contains the cross-reference exactly, including capitalization.</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">_Release</span> <span class="n">Pages</span><span class="p">:</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">openedx</span><span class="o">.</span><span class="n">atlassian</span><span class="o">.</span><span class="n">net</span><span class="o">/</span><span class="n">wiki</span><span class="o">/</span><span class="n">display</span><span class="o">/</span><span class="n">ENG</span><span class="o">/</span><span class="n">Release</span><span class="o">+</span><span class="n">Pages</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<p>Readers will see the following text. “Release Pages” will be an active link.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">The</span> <span class="n">edX</span> <span class="n">engineering</span> <span class="n">wiki</span> <span class="n">Release</span> <span class="n">Pages</span> <span class="n">provide</span> <span class="n">access</span> <span class="n">to</span> <span class="n">detailed</span>
+<span class="n">information</span> <span class="n">about</span> <span class="n">every</span> <span class="n">change</span> <span class="n">made</span> <span class="n">to</span> <span class="n">the</span> <span class="n">edx</span><span class="o">-</span><span class="n">platform</span> <span class="n">GitHub</span>
+<span class="n">repository</span><span class="o">.</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="image-references">
+<h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">13.7. </span>Image References</a><a class="headerlink" href="#image-references" title="Link to this heading">#</a></h2>
+<p>Image references look like this.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">image</span><span class="p">::</span> <span class="o">/</span><span class="n">Images</span><span class="o">/</span><span class="n">Course_Outline_LMS</span><span class="o">.</span><span class="n">png</span>
+   <span class="p">:</span><span class="n">width</span><span class="p">:</span> <span class="mi">100</span>
+   <span class="p">:</span><span class="n">alt</span><span class="p">:</span> <span class="n">A</span> <span class="n">screen</span> <span class="n">capture</span> <span class="n">showing</span> <span class="n">the</span> <span class="n">elements</span> <span class="n">of</span> <span class="n">the</span> <span class="n">course</span> <span class="n">outline</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">LMS</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>Image links can include optional specifications such as height, width, or
+scale. Alternative text for screen readers is required for each image. Provide
+text that is useful to someone who might not be able to see the image.</p>
+</section>
+<section id="tables">
+<span id="examples-of-tables"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">13.8. </span>Tables</a><a class="headerlink" href="#tables" title="Link to this heading">#</a></h2>
+<p>Each example in this section shows the raw formatting for the table followed
+by the table as it would render (if you are viewing this file as part of the
+Style Guide).</p>
+<section id="example-of-a-table-with-an-empty-cell">
+<h3><span class="section-number">13.8.1. </span>Example of a table with an empty cell<a class="headerlink" href="#example-of-a-table-with-an-empty-cell" title="Link to this heading">#</a></h3>
+<p>The empty cell is the second column in the first row of this table.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nb">list</span><span class="o">-</span><span class="n">table</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">widths</span><span class="p">:</span> <span class="mi">25</span> <span class="mi">25</span> <span class="mi">50</span>
+
+ <span class="o">*</span> <span class="o">-</span> <span class="n">Annotation</span> <span class="n">Problem</span>
+   <span class="o">-</span>
+   <span class="o">-</span> <span class="n">Annotation</span> <span class="n">problems</span> <span class="n">ask</span> <span class="n">students</span> <span class="n">to</span> <span class="n">respond</span> <span class="n">to</span> <span class="n">questions</span> <span class="n">about</span> <span class="n">a</span>
+     <span class="n">specific</span> <span class="n">block</span> <span class="n">of</span> <span class="n">text</span><span class="o">.</span> <span class="n">The</span> <span class="n">question</span> <span class="n">appears</span> <span class="n">above</span> <span class="n">the</span> <span class="n">text</span> <span class="n">when</span> <span class="n">the</span>
+     <span class="n">student</span> <span class="n">hovers</span> <span class="n">the</span> <span class="n">mouse</span> <span class="n">over</span> <span class="n">the</span> <span class="n">highlighted</span> <span class="n">text</span> <span class="n">so</span> <span class="n">that</span> <span class="n">students</span> <span class="n">can</span>
+     <span class="n">think</span> <span class="n">about</span> <span class="n">the</span> <span class="n">question</span> <span class="k">as</span> <span class="n">they</span> <span class="n">read</span><span class="o">.</span>
+ <span class="o">*</span> <span class="o">-</span> <span class="n">Example</span> <span class="n">Poll</span>
+   <span class="o">-</span> <span class="n">Conditional</span> <span class="n">Module</span>
+   <span class="o">-</span> <span class="n">You</span> <span class="n">can</span> <span class="n">create</span> <span class="n">a</span> <span class="n">conditional</span> <span class="n">module</span> <span class="n">to</span> <span class="n">control</span> <span class="n">versions</span> <span class="n">of</span> <span class="n">content</span> <span class="n">that</span>
+      <span class="n">groups</span> <span class="n">of</span> <span class="n">students</span> <span class="n">see</span><span class="o">.</span> <span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="n">students</span> <span class="n">who</span> <span class="n">answer</span> <span class="s2">&quot;Yes&quot;</span> <span class="n">to</span> <span class="n">a</span>
+      <span class="n">poll</span> <span class="n">question</span> <span class="n">then</span> <span class="n">see</span> <span class="n">a</span> <span class="n">different</span> <span class="n">block</span> <span class="n">of</span> <span class="n">text</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">students</span> <span class="n">who</span>
+      <span class="n">answer</span> <span class="s2">&quot;No&quot;</span> <span class="n">to</span> <span class="n">that</span> <span class="n">question</span><span class="o">.</span>
+ <span class="o">*</span> <span class="o">-</span> <span class="n">Example</span> <span class="n">JavaScript</span> <span class="n">Problem</span>
+   <span class="o">-</span> <span class="n">Custom</span> <span class="n">JavaScript</span>
+   <span class="o">-</span> <span class="n">Custom</span> <span class="n">JavaScript</span> <span class="n">display</span> <span class="ow">and</span> <span class="n">grading</span> <span class="n">problems</span> <span class="p">(</span><span class="n">also</span> <span class="n">called</span> <span class="o">*</span><span class="n">custom</span>
+     <span class="n">JavaScript</span> <span class="n">problems</span><span class="o">*</span> <span class="ow">or</span> <span class="o">*</span><span class="n">JS</span> <span class="nb">input</span> <span class="n">problems</span><span class="o">*</span><span class="p">)</span> <span class="n">allow</span> <span class="n">you</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span>
+     <span class="n">custom</span> <span class="n">problem</span> <span class="ow">or</span> <span class="n">tool</span> <span class="n">that</span> <span class="n">uses</span> <span class="n">JavaScript</span> <span class="ow">and</span> <span class="n">then</span> <span class="n">add</span> <span class="n">the</span> <span class="n">problem</span> <span class="ow">or</span>
+     <span class="n">tool</span> <span class="n">directly</span> <span class="n">into</span> <span class="n">Studio</span><span class="o">.</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 25.0%" />
+<col style="width: 50.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Annotation Problem</p></td>
+<td></td>
+<td><p>Annotation problems ask students to respond to questions about a
+specific block of text. The question appears above the text when the
+student hovers the mouse over the highlighted text so that students can
+think about the question as they read.</p></td>
+</tr>
+<tr class="row-even"><td><p>Example Poll</p></td>
+<td><p>Conditional Module</p></td>
+<td><p>You can create a conditional module to control versions of content that
+groups of students see. For example, students who answer “Yes” to a
+poll question then see a different block of text from the students who
+answer “No” to that question.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Exampel JavaScript Problem</p></td>
+<td><p>Custom JavaScript</p></td>
+<td><p>Custom JavaScript display and grading problems (also called <em>custom
+JavaScript problems</em> or <em>JS input problems</em>) allow you to create a
+custom problem or tool that uses JavaScript and then add the problem or
+tool directly into Studio.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-of-a-table-with-a-header-row">
+<h3><span class="section-number">13.8.2. </span>Example of a table with a header row<a class="headerlink" href="#example-of-a-table-with-a-header-row" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nb">list</span><span class="o">-</span><span class="n">table</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">widths</span><span class="p">:</span> <span class="mi">15</span> <span class="mi">15</span> <span class="mi">70</span>
+   <span class="p">:</span><span class="n">header</span><span class="o">-</span><span class="n">rows</span><span class="p">:</span> <span class="mi">1</span>
+
+   <span class="o">*</span> <span class="o">-</span> <span class="n">First</span> <span class="n">Name</span>
+     <span class="o">-</span> <span class="n">Last</span> <span class="n">Name</span>
+     <span class="o">-</span> <span class="n">Residence</span>
+   <span class="o">*</span> <span class="o">-</span> <span class="n">Elizabeth</span>
+     <span class="o">-</span> <span class="n">Bennett</span>
+     <span class="o">-</span> <span class="n">Longbourne</span>
+   <span class="o">*</span> <span class="o">-</span> <span class="n">Fitzwilliam</span>
+     <span class="o">-</span> <span class="n">Darcy</span>
+     <span class="o">-</span> <span class="n">Pemberley</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>First Name</p></th>
+<th class="head"><p>Last Name</p></th>
+<th class="head"><p>Residence</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Elizabeth</p></td>
+<td><p>Bennett</p></td>
+<td><p>Longbourne</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fitzwilliam</p></td>
+<td><p>Darcy</p></td>
+<td><p>Pemberley</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-of-a-table-with-a-boldface-first-column">
+<h3><span class="section-number">13.8.3. </span>Example of a table with a boldface first column<a class="headerlink" href="#example-of-a-table-with-a-boldface-first-column" title="Link to this heading">#</a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="nb">list</span><span class="o">-</span><span class="n">table</span><span class="p">::</span>
+   <span class="p">:</span><span class="n">widths</span><span class="p">:</span> <span class="mi">15</span> <span class="mi">15</span> <span class="mi">70</span>
+   <span class="p">:</span><span class="n">stub</span><span class="o">-</span><span class="n">columns</span><span class="p">:</span> <span class="mi">1</span>
+
+   <span class="o">*</span> <span class="o">-</span> <span class="n">First</span> <span class="n">Name</span>
+     <span class="o">-</span> <span class="n">Elizabeth</span>
+     <span class="o">-</span> <span class="n">Fitzwilliam</span>
+   <span class="o">*</span> <span class="o">-</span> <span class="n">Last</span> <span class="n">Name</span>
+     <span class="o">-</span> <span class="n">Bennett</span>
+     <span class="o">-</span> <span class="n">Darcy</span>
+   <span class="o">*</span> <span class="o">-</span> <span class="n">Residence</span>
+     <span class="o">-</span> <span class="n">Longboure</span>
+     <span class="o">-</span> <span class="n">Pemberley</span>
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 15.0%" />
+<col style="width: 15.0%" />
+<col style="width: 70.0%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><th class="stub"><p>First Name</p></th>
+<td><p>Elizabeth</p></td>
+<td><p>Fitzwilliam</p></td>
+</tr>
+<tr class="row-even"><th class="stub"><p>Last Name</p></th>
+<td><p>Bennett</p></td>
+<td><p>Darcy</p></td>
+</tr>
+<tr class="row-odd"><th class="stub"><p>Residence</p></th>
+<td><p>Longboure</p></td>
+<td><p>Pemberley</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-of-a-table-with-a-cell-that-includes-an-unordered-list">
+<h3><span class="section-number">13.8.4. </span>Example of a table with a cell that includes an unordered list<a class="headerlink" href="#example-of-a-table-with-a-cell-that-includes-an-unordered-list" title="Link to this heading">#</a></h3>
+<p>The blank lines before and after the unordered list are critical for the list
+to render correctly.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. list-table::
+   :widths: 15 15 60
+   :header-rows: 1
+
+   * - Field
+     - Type
+     - Details
+   * - ``correct_map``
+     - dict
+     - For each problem ID value listed by ``answers``, provides:
+
+       * ``correctness``: string; &#39;correct&#39;, &#39;incorrect&#39;
+       * ``hint``: string; Gives optional hint. Nulls allowed.
+       * ``hintmode``: string; None, &#39;on_request&#39;, &#39;always&#39;. Nulls allowed.
+       * ``msg``: string; Gives extra message response.
+       * ``npoints``: integer; Points awarded for this ``answer_id``. Nulls allowed.
+       * ``queuestate``: dict; None when not queued, else ``{key:&#39;&#39;, time:&#39;&#39;}``
+         where ``key`` is a secret string dump of a DateTime object in the form
+         &#39;%Y%m%d%H%M%S&#39;. Nulls allowed.
+
+   * - ``grade``
+     - integer
+     - Current grade value.
+   * - ``max_grade``
+     - integer
+     - Maximum possible grade value.
+</pre></div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Details</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">correct_map</span></code></p></td>
+<td><p>dict</p></td>
+<td><p>For each problem ID value listed by <code class="docutils literal notranslate"><span class="pre">answers</span></code>, provides:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">correctness</span></code>: string; ‘correct’, ‘incorrect’</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hint</span></code>: string; Gives optional hint. Nulls allowed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hintmode</span></code>: string; None, ‘on_request’, ‘always’. Nulls allowed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: string; Gives extra message response.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">npoints</span></code>: integer; Points awarded for this <code class="docutils literal notranslate"><span class="pre">answer_id</span></code>. Nulls allowed.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">queuestate</span></code>: dict; None when not queued, else <code class="docutils literal notranslate"><span class="pre">{key:'',</span> <span class="pre">time:''}</span></code>
+where <code class="docutils literal notranslate"><span class="pre">key</span></code> is a secret string dump of a DateTime object in the form
+‘%Y%m%d%H%M%S’. Nulls allowed.</p></li>
+</ul>
+</td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">grade</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Current grade value.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_grade</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>Maximum possible grade value.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="code-formatting">
+<h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">13.9. </span>Code Formatting</a><a class="headerlink" href="#code-formatting" title="Link to this heading">#</a></h2>
+<section id="inline-code">
+<h3><span class="section-number">13.9.1. </span>Inline code<a class="headerlink" href="#inline-code" title="Link to this heading">#</a></h3>
+<p>In inline text, any text can be formatted as code (monospace font) by
+enclosing the selection within a pair of double “grave accent” characters (`).
+For example, <code class="docutils literal notranslate"><span class="pre">``these</span> <span class="pre">words``</span></code> are formatted in a monospace font when the
+documentation is output as PDF or HTML.</p>
+</section>
+<section id="code-blocks">
+<h3><span class="section-number">13.9.2. </span>Code blocks<a class="headerlink" href="#code-blocks" title="Link to this heading">#</a></h3>
+<p>To set text in a code block, end the previous paragaph with 2 colons, leave
+one line before the intended code block, and make sure the code block is
+indented beyond the first colon.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">For</span> <span class="n">example</span><span class="p">,</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">introductory</span> <span class="n">paragraph</span>
+<span class="p">::</span>
+
+ <span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="ow">and</span> <span class="n">this</span> <span class="ow">is</span> <span class="n">the</span> <span class="n">code</span> <span class="n">block</span> <span class="n">following</span><span class="o">.&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>Alternatively, use the code-block tag. Optionally, indicate the type of code
+after the 2 colons in the tag, which results in the tags within the code block
+being displayed in different colors.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>.. code-block:: xml
+
+         &lt;problem&gt;
+             &lt;annotationresponse&gt;
+                 &lt;annotationinput&gt;
+                   &lt;text&gt;PLACEHOLDER: Text of annotation&lt;/text&gt;
+                     &lt;comment&gt;PLACEHOLDER: Text of question&lt;/comment&gt;
+                     &lt;comment_prompt&gt;PLACEHOLDER: Type your response below:&lt;/comment_prompt&gt;
+                     &lt;tag_prompt&gt;PLACEHOLDER: In your response to this question, which tag below
+                     do you choose?&lt;/tag_prompt&gt;
+                   &lt;options&gt;
+                     &lt;option choice=&quot;incorrect&quot;&gt;PLACEHOLDER: Incorrect answer (to make this
+                     option a correct or partially correct answer, change choice=&quot;incorrect&quot;
+                     to choice=&quot;correct&quot; or choice=&quot;partially-correct&quot;)&lt;/option&gt;
+                     &lt;option choice=&quot;correct&quot;&gt;PLACEHOLDER: Correct answer (to make this option
+                     an incorrect or partially correct answer, change choice=&quot;correct&quot; to
+                     choice=&quot;incorrect&quot; or choice=&quot;partially-correct&quot;)&lt;/option&gt;
+                     &lt;option choice=&quot;partially-correct&quot;&gt;PLACEHOLDER: Partially correct answer
+                     (to make this option a correct or partially correct answer,
+                     change choice=&quot;partially-correct&quot; to choice=&quot;correct&quot; or choice=&quot;incorrect&quot;)
+                     &lt;/option&gt;
+                   &lt;/options&gt;
+                 &lt;/annotationinput&gt;
+             &lt;/annotationresponse&gt;
+             &lt;solution&gt;
+               &lt;p&gt;PLACEHOLDER: Detailed explanation of solution&lt;/p&gt;
+             &lt;/solution&gt;
+           &lt;/problem&gt;
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="DocTranslationProcess.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">12. </span>Documentation Translation Process</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="glossary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">14. </span>Glossary</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#heading-levels">13.1. Heading Levels</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#paragraph-text-and-commented-text">13.2. Paragraph Text and Commented Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-and-unordered-lists">13.3. Ordered and Unordered Lists</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#nested-lists-or-content">13.3.1. Nested Lists or Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list-inside-ordered-list">13.3.1.1. Unordered List inside Ordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list-inside-unordered-list">13.3.1.2. Ordered List inside Unordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unordered-list-inside-unordered-list">13.3.1.3. Unordered List inside Unordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#ordered-list-inside-ordered-list">13.3.1.4. Ordered List inside Ordered List</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#code-images-and-other-content-inside-lists">13.3.1.5. Code, Images, and Other Content inside Lists</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conditional-text">13.4. Conditional Text</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#notes-and-warnings">13.5. Notes and Warnings</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references">13.6. Cross-References</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-locations-in-the-same-document">13.6.1. Cross-References to Locations in the Same Document</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-using-the-anchor-only">13.6.1.1. Cross-References Using the Anchor Only</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-using-specified-link-text">13.6.1.2. Cross-References Using Specified Link Text</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-locations-in-different-edx-documents">13.6.2. Cross-References to Locations in Different edX Documents</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-jira">13.6.3. Cross-References to JIRA</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cross-references-to-external-web-pages">13.6.4. Cross-References to External Web Pages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#image-references">13.7. Image References</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tables">13.8. Tables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-an-empty-cell">13.8.1. Example of a table with an empty cell</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-a-header-row">13.8.2. Example of a table with a header row</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-a-boldface-first-column">13.8.3. Example of a table with a boldface first column</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-a-table-with-a-cell-that-includes-an-unordered-list">13.8.4. Example of a table with a cell that includes an unordered list</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-formatting">13.9. Code Formatting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inline-code">13.9.1. Inline code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#code-blocks">13.9.2. Code blocks</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,679 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>2. Responsibilities of the Data Czar and Team &#8212; EdX Research Guide  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'data_czars/index';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Accessing the edX Data Package" href="../access/index.html" />
+    <link rel="prev" title="1. Getting Started with the edX Data Package" href="../start/index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Research Guide  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Research Guide  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Using the edX Data Package
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../start/index.html">1. Getting Started with the edX Data Package</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">2. Responsibilities of the Data Czar and Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../access/index.html">3. Accessing the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../access/credentials.html">3.1. Keys and Credentials for Data Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../access/download.html">3.2. Downloading the Data Package from Amazon S3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../using/index.html">4. Using the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../using/data_security.html">4.1. Data Security Guidelines for Data Czars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/package.html">4.2. Data Delivered in Data Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../using/resources.html">4.3. Resources for Data Czars and Researchers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rdx/index.html">5. Using the Research Data Exchange Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rdx/rdx_data.html">5.1. Data Obfuscation Procedures for RDX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../rdx/rdx_retrieval.html">5.2. Retrieving RDX Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../internal_data_formats/index.html">6. Data Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/institution_data.html">6.1. Email Opt-in Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/course_structure.html">6.2. Course Content Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/sql_schema.html">6.3. User Info and Learner Progress Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/discussion_data.html">6.4. Discussion Forums Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/wiki_data.html">6.5. Wiki Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/ora2_data.html">6.6. Open Response Assessment Data</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../internal_data_formats/tracking_logs/index.html">6.7. Events in the Tracking Logs</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/sample_events.html">6.7.1. Reviewing a Sample Event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/common_fields.html">6.7.2. Common Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/student_event_types.html">6.7.3. Student Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../internal_data_formats/tracking_logs/course_team_event_types.html">6.7.4. Course Team Events</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../internal_data_formats/event_list.html">6.8. Alphabetical Event List</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">7. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/data/source/data_czars/index.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fdata_czars/index.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/data_czars/index.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Responsibilities of the Data Czar and Team</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-experience-of-data-czars">2.1. Skills and Experience of Data Czars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-skills">2.1.1. General Skills</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-skills">2.1.2. Technical Skills</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-experience-of-other-team-members">2.2. Skills and Experience of Other Team Members</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.1. General Skills</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.2. Technical Skills</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-for-data-czars-and-teams">2.3. Resources for Data Czars and Teams</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="responsibilities-of-the-data-czar-and-team">
+<span id="data-czar"></span><h1><span class="section-number">2. </span>Responsibilities of the Data Czar and Team<a class="headerlink" href="#responsibilities-of-the-data-czar-and-team" title="Link to this heading">#</a></h1>
+<p>A data czar is the single representative at a partner institution who has the
+credentials to download and decrypt edX data packages. The data czar is
+responsible for transferring data securely to researchers and other interested
+parties after it is received. Due to the sensitivity of this data, the
+responsibility for these activities is restricted to one individual.</p>
+<p>At each partner institution, the data czar is the primary point of contact for
+information about edX data. At some institutions, only the data czar works on
+research projects that use the course data in edX data packages. At other
+institutions, the dataczar works with a team of additional contributors, or is
+responsible only formaking a secure transfer of the data to the research team.
+Typically, the data team includes members in the following roles (or a data
+czar with these skill sets).</p>
+<ul class="simple">
+<li><p>Database administrators work with the SQL and NoSQL data files and write
+queries on the data.</p></li>
+<li><p>Statisticians and data analysts mine the data.</p></li>
+<li><p>Educational researchers pose questions and interpret the results of queries
+on the data.</p></li>
+</ul>
+<p>For more information, see <a class="reference internal" href="#skills-experience-contributors"><span class="std std-ref">Skills and Experience of Other Team Members</span></a>.</p>
+<p>All of the individuals who are permitted to access the data should be trained
+in, and comply with, their institution’s secure data handling protocols. For
+more information about data security policies and procedures, see
+<a class="reference internal" href="../using/data_security.html#data-security-guidelines"><span class="std std-ref">Data Security Guidelines for Data Czars</span></a>.</p>
+<section id="skills-and-experience-of-data-czars">
+<span id="skills-experience-data-czar"></span><h2><span class="section-number">2.1. </span>Skills and Experience of Data Czars<a class="headerlink" href="#skills-and-experience-of-data-czars" title="Link to this heading">#</a></h2>
+<p>The individuals who are selected by a partner institution to be edX data czars
+typically have experience working with sensitive student data, are familiar
+with encryption, decryption, and file transfer protocols, and can validate,
+copy, move, and store large files.</p>
+<p>Depending on the size of your institution and the number of contributors in the
+research team, the data czar might need to be a qualified research and
+analytics team lead, a senior research manager, or direct the research and
+analytics program.</p>
+<p>The data czar is responsible for ensuring compliance with your institution’s
+and country’s regulations with respect to the sharing of this data.</p>
+<section id="general-skills">
+<h3><span class="section-number">2.1.1. </span>General Skills<a class="headerlink" href="#general-skills" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Ability to set up and manage data access.</p></li>
+<li><p>Knowledgeable about general data privacy and security best practices.</p></li>
+<li><p>Experience with managing sensitive student data.</p></li>
+</ul>
+</section>
+<section id="technical-skills">
+<h3><span class="section-number">2.1.2. </span>Technical Skills<a class="headerlink" href="#technical-skills" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Familiarity with PGP™ security software and GPG encryption and decryption.</p></li>
+<li><p>Ability to download large files from Amazon Simple Storage Service™ (Amazon
+S3™).</p></li>
+<li><p>Ability to set up a secure internal data distribution pipeline and run
+scripts to download files in bulk from Amazon S3.</p></li>
+<li><p>Experience working with archive files in TAR, GZ, and ZIP formats.</p></li>
+<li><p>Familiarity with SQL and noSQL databases.</p></li>
+<li><p>Familiarity with CSV and JSON file formats.</p></li>
+<li><p>Experience copying, moving, and storing large files in bulk.</p></li>
+<li><p>Ability to validate the data and files received and distributed.</p></li>
+<li><p>Ability to run scripts to process large files and do data analysis.</p></li>
+</ul>
+</section>
+</section>
+<section id="skills-and-experience-of-other-team-members">
+<span id="skills-experience-contributors"></span><h2><span class="section-number">2.2. </span>Skills and Experience of Other Team Members<a class="headerlink" href="#skills-and-experience-of-other-team-members" title="Link to this heading">#</a></h2>
+<p>In addition to the data czar, each partner institution assembles a team of
+contributors to carry out their research projects. This team might include
+database administrators, software engineers, data specialists, and educational
+researchers. The team can be large or small, but collectively its members need
+to be able to work with SQL and NoSQL databases, write queries, and convert
+the data from raw formats into standard research packages, such as CSV files,
+spreadsheets, or other desired formats.</p>
+<section id="id1">
+<h3><span class="section-number">2.2.1. </span>General Skills<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Attention to detail.</p></li>
+<li><p>Experience setting up and testing a data conversion pipeline.</p></li>
+<li><p>Ability to identify interesting features in a complex and rich data set.</p></li>
+<li><p>Familiarity with anonymization and obfuscation techniques.</p></li>
+<li><p>Familiarity with data privacy and security best practices.</p></li>
+<li><p>Experience with managing sensitive student data.</p></li>
+</ul>
+</section>
+<section id="id2">
+<h3><span class="section-number">2.2.2. </span>Technical Skills<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Familiarity with CSV files, MongoDB® collections, JSON documents, Unicode,
+XML, and HTML.</p></li>
+<li><p>Ability to set up, query, and administer both SQL and noSQL databases.</p></li>
+<li><p>Experience with bash and other command line scripts.</p></li>
+<li><p>Basic or advanced scripting (for example, using the Python or Ruby
+programming language) to convert, join, and aggregate data from different
+data sources, handle JSON serialization, and Unicode specificities.</p></li>
+<li><p>Experience with data mining and data aggregation across a rich, varied data
+set.</p></li>
+<li><p>Ability to write parsing scripts that properly handle JSON serialization and
+Unicode.</p></li>
+</ul>
+</section>
+</section>
+<section id="resources-for-data-czars-and-teams">
+<span id="resources-information"></span><h2><span class="section-number">2.3. </span>Resources for Data Czars and Teams<a class="headerlink" href="#resources-for-data-czars-and-teams" title="Link to this heading">#</a></h2>
+<p>For discussions, edX hosts the <a class="reference external" href="http://groups.google.com/forum/#!forum/openedx-analytics">openedx-analytics</a> Google Group, which is open
+to the public.  For more information about this and other resources, see
+<a class="reference internal" href="../using/resources.html#resources-for-data-czars"><span class="std std-ref">Resources for Data Czars and Researchers</span></a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../start/index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">1. </span>Getting Started with the edX Data Package</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../access/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3. </span>Accessing the edX Data Package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-experience-of-data-czars">2.1. Skills and Experience of Data Czars</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#general-skills">2.1.1. General Skills</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#technical-skills">2.1.2. Technical Skills</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skills-and-experience-of-other-team-members">2.2. Skills and Experience of Other Team Members</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">2.2.1. General Skills</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">2.2.2. Technical Skills</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources-for-data-czars-and-teams">2.3. Resources for Data Czars and Teams</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

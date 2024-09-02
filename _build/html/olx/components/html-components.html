@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.1. HTML Components &#8212; EdX Open Learning XML Guide - Alpha Version  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'components/html-components';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.2. Discussion Components" href="discussion-components.html" />
+    <link rel="prev" title="10. Course Components (XBlocks)" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EdX Open Learning XML Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-olx.html">2. What is Open Learning XML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">3. Getting Started with OLX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directory-structure.html">4. OLX Course Structure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../policies/index.html">5. Policies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../policies/course.html">5.1. Course Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/grading.html">5.2. Grading Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/assets-policy.html">5.3. Course Asset Policy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../assets/assets.html">6. Course Assets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../about/index.html">7. The Course About Pages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/overview.html">7.1. Course Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/short-description.html">7.2. Short Description</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pages.html">8. Course Tabs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../organizing-course/index.html">9. Organizing Courseware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-structure-overview.html">9.1. OLX Course Building Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-xml-file.html">9.2. The Courseware Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">10. Course Components (XBlocks)</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.1. HTML Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="discussion-components.html">10.2. Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="video-components.html">10.3. Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem-components.html">10.4. Problem Components</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../problem-xml/index.html">11. Exercises, Tools, and Problem Types</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/levels_of_support.html">11.1. Levels of Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/annotation.html">11.2. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/chemical_equation.html">11.3. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/circuit_schematic_builder.html">11.4. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/completion.html">11.5. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/conditional_module.html">11.6. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/custom_javascript.html">11.7. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/custom_python.html">11.8. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/drag_and_drop.html">11.9. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/dropdown.html">11.10. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/full_screen_image.html">11.11. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/gene_explorer.html">11.12. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/google_calendar.html">11.13. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/google_docs.html">11.14. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/iframe.html">11.15. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/image_mapped_input.html">11.16. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/lti_component.html">11.17. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/math_expression_input.html">11.18. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/mathjax.html">11.19. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/multi_select.html">11.20. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/numerical_input.html">11.21. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../problem-xml/open_response_assessments/index.html">11.22. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../problem-xml/open_response_assessments/OpenResponseAssessments.html">11.22.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../problem-xml/open_response_assessments/CreateORAAssignment.html">11.22.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../problem-xml/open_response_assessments/Manage_ORA_Assignment.html">11.22.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../problem-xml/open_response_assessments/ORA_Staff_Grading.html">11.22.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../problem-xml/open_response_assessments/Access_ORA_Info.html">11.22.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/periodic_table.html">11.23. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/poll.html">11.24. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/poll_question.html">11.25. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/problem_in_latex.html">11.26. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/problem_with_hint.html">11.27. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/protein_builder.html">11.28. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/recommenderXBlock.html">11.29. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/single_select.html">11.30. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/single_select_num_input.html">11.31. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/survey.html">11.32. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/symbolic_response.html">11.33. Symbolic Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/text_input.html">11.34. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/word_cloud.html">11.35. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../problem-xml/zooming_image.html">11.36. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content-experiments/index.html">12. Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_overview.html">12.1. Overview of Content Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_guidelines.html">12.2. Guidelines for Modifying Group Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_configure.html">12.3. Set Up Group Configuration for OLX Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_add.html">12.4. Add a Content Experiment in OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_test_olx.html">12.5. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../example-course/index.html">13. Example of an OLX Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-structure.html">13.1. The Structure of edX-Insider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-course-xml.html">13.2. The edX-Insider <code class="docutils literal notranslate"><span class="pre">course.xml</span></code> File</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../studio-example/index.html">14. Example of OLX for a Studio Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studio-example/manual-testing-structure.html">14.1. The Structure of the Manual Testing Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/index.html">15. Open Learning XML Uses</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/olx-studio.html">15.1. Use OLX with edX Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/deploy-lms.html">15.2. Build a Course in OLX and Deploy to the edX LMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/convert-to-olx.html">15.3. Convert Content in Other Formats to OLX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../drafts/index.html">16. Draft Course Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">17. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/olx/source/components/html-components.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fcomponents/html-components.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/components/html-components.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>HTML Components</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-html-component">10.1.1. Create the HTML Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-an-html-component-embedded-in-a-vertical">10.1.2. Example of an HTML Component Embedded in a Vertical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-separate-html-files">10.1.3. Example of Separate HTML Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-component-xml-file-elements">10.1.4. HTML Component XML File Elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-element-attributes">10.1.5. <code class="docutils literal notranslate"><span class="pre">html</span></code> Element Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-html-component-xml-file">10.1.6. Example HTML Component XML File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-html-component-content">10.1.7. Example HTML Component Content</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="html-components">
+<span id="id1"></span><h1><span class="section-number">10.1. </span>HTML Components<a class="headerlink" href="#html-components" title="Link to this heading">#</a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#create-the-html-component" id="id2">Create the HTML Component</a></p></li>
+<li><p><a class="reference internal" href="#example-of-an-html-component-embedded-in-a-vertical" id="id3">Example of an HTML Component Embedded in a Vertical</a></p></li>
+<li><p><a class="reference internal" href="#example-of-separate-html-files" id="id4">Example of Separate HTML Files</a></p></li>
+<li><p><a class="reference internal" href="#html-component-xml-file-elements" id="id5">HTML Component XML File Elements</a></p></li>
+<li><p><a class="reference internal" href="#html-element-attributes" id="id6"><code class="docutils literal notranslate"><span class="pre">html</span></code> Element Attributes</a></p></li>
+<li><p><a class="reference internal" href="#example-html-component-xml-file" id="id7">Example HTML Component XML File</a></p></li>
+<li><p><a class="reference internal" href="#example-html-component-content" id="id8">Example HTML Component Content</a></p></li>
+</ul>
+</nav>
+<section id="create-the-html-component">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink"><span class="section-number">10.1.1. </span>Create the HTML Component</a><a class="headerlink" href="#create-the-html-component" title="Link to this heading">#</a></h2>
+<p>To add an HTML component to your course, you can embed the XML for it in the
+parent XML file, or split it up into either 1 or 2 additional files. You can
+break up the HTML configuration into an .xml file in the html directory and an
+additional .html file in the same directory.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If you are including HTML that is not valid HTML, you must break
+out HTML content in a separate file.</p>
+</div>
+</section>
+<section id="example-of-an-html-component-embedded-in-a-vertical">
+<h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">10.1.2. </span>Example of an HTML Component Embedded in a Vertical</a><a class="headerlink" href="#example-of-an-html-component-embedded-in-a-vertical" title="Link to this heading">#</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">&lt;vertical</span><span class="w"> </span><span class="na">display_name=</span><span class="s">&quot;Lesson_1_Unit_1&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span>...
+<span class="w">    </span><span class="nt">&lt;html&gt;</span>The<span class="w"> </span>above<span class="w"> </span>has<span class="w"> </span>an<span class="w"> </span>error.<span class="w"> </span><span class="nt">&lt;b&gt;</span>x<span class="nt">&lt;/b&gt;</span><span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span><span class="nt">&lt;b&gt;</span>y<span class="nt">&lt;/b&gt;</span><span class="w"> </span>in<span class="w"> </span>the<span class="w"> </span>second<span class="w"> </span>equation.<span class="nt">&lt;/html&gt;</span>
+<span class="nt">&lt;/vertical&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="example-of-separate-html-files">
+<h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">10.1.3. </span>Example of Separate HTML Files</a><a class="headerlink" href="#example-of-separate-html-files" title="Link to this heading">#</a></h2>
+<p>You create an XML file in the <code class="docutils literal notranslate"><span class="pre">html</span></code> directory for the content that you
+choose to break out into separate HTML files.</p>
+<p>The name of the XML file must match the value of the &#64;url_name attribute of the
+<code class="docutils literal notranslate"><span class="pre">html</span></code> element in the vertical XML file.</p>
+<p>For example, a vertical XML file contains the following url_name.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nt">&lt;vertical</span><span class="w"> </span><span class="na">display_name=</span><span class="s">&quot;Lesson_1_Unit_1&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;html</span><span class="w"> </span><span class="na">url_name=</span><span class="s">&quot;Introduction&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span>.<span class="w"> </span>.<span class="w"> </span>.
+<span class="nt">&lt;/vertical&gt;</span>
+</pre></div>
+</div>
+<p>You create the file <code class="docutils literal notranslate"><span class="pre">html/Introduction.xml</span></code> to define the HTML component.</p>
+</section>
+<section id="html-component-xml-file-elements">
+<h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">10.1.4. </span>HTML Component XML File Elements</a><a class="headerlink" href="#html-component-xml-file-elements" title="Link to this heading">#</a></h2>
+<p>The root element of the XML file for the HTML component is file is <code class="docutils literal notranslate"><span class="pre">html</span></code>.</p>
+<p>In this case, the <code class="docutils literal notranslate"><span class="pre">html</span></code> element contains no children.</p>
+</section>
+<section id="html-element-attributes">
+<h2><a class="toc-backref" href="#id6" role="doc-backlink"><span class="section-number">10.1.5. </span><code class="docutils literal notranslate"><span class="pre">html</span></code> Element Attributes</a><a class="headerlink" href="#html-element-attributes" title="Link to this heading">#</a></h2>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 12.5%" />
+<col style="width: 87.5%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">display_name</span></code></p></td>
+<td><p>Required. The value that is displayed to students as the name of the
+HTML component. If you do not supply a <code class="docutils literal notranslate"><span class="pre">display_name</span></code> value, “html” is
+supplied for you.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">filename</span></code></p></td>
+<td><p>The name of the HTML file that contains the content for the HTML
+component, without the <code class="docutils literal notranslate"><span class="pre">.HTML</span></code> extension.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-html-component-xml-file">
+<h2><a class="toc-backref" href="#id7" role="doc-backlink"><span class="section-number">10.1.6. </span>Example HTML Component XML File</a><a class="headerlink" href="#example-html-component-xml-file" title="Link to this heading">#</a></h2>
+<p>The following example shows an XML file for an HTML component.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;html</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;Introduction&quot;</span><span class="w"> </span><span class="na">display_name=</span><span class="s">&quot;Unit Introduction&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="example-html-component-content">
+<h2><a class="toc-backref" href="#id8" role="doc-backlink"><span class="section-number">10.1.7. </span>Example HTML Component Content</a><a class="headerlink" href="#example-html-component-content" title="Link to this heading">#</a></h2>
+<p>In the component’s HTML file, you add valid HTML to represent the content you
+want to be displayed to students. For example, the following is from an HTML
+file for the edX Demo course:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">h3</span><span class="p">&gt;</span>Lesson 2: Let&#39;s Get INTERACTIVE!<span class="p">&lt;/</span><span class="nt">h3</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">img</span>
+<span class="na">src</span><span class="o">=</span><span class="s">&quot;/static/interactive_x250.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;Interactive&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;250&quot;</span>
+<span class="na">hspace</span><span class="o">=</span><span class="s">&quot;12&quot;</span> <span class="na">vspace</span><span class="o">=</span><span class="s">&quot;12&quot;</span> <span class="na">border</span><span class="o">=</span><span class="s">&quot;0&quot;</span> <span class="na">align</span><span class="o">=</span><span class="s">&quot;right&quot;</span> <span class="p">/&gt;</span>Now that you know your
+way around an edX course let&#39;s look at some of the exciting interactive
+tools you may encounter. Use the unit navigation bar above to explore.
+<span class="ni">&amp;nbsp;</span><span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Once you have tried the interactive tools in this lesson,
+make sure to check out the week 2 homework where we show you several of the
+really cool interactive labs we<span class="ni">&amp;rsquo;</span>ve created for past courses.
+<span class="ni">&amp;nbsp;</span>They<span class="ni">&amp;rsquo;</span>re fun to play with. <span class="ni">&amp;nbsp;</span>Many courses will have tools
+and labs that you need to use to complete homework assignments.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Course Components (XBlocks)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="discussion-components.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.2. </span>Discussion Components</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-the-html-component">10.1.1. Create the HTML Component</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-an-html-component-embedded-in-a-vertical">10.1.2. Example of an HTML Component Embedded in a Vertical</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-of-separate-html-files">10.1.3. Example of Separate HTML Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-component-xml-file-elements">10.1.4. HTML Component XML File Elements</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#html-element-attributes">10.1.5. <code class="docutils literal notranslate"><span class="pre">html</span></code> Element Attributes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-html-component-xml-file">10.1.6. Example HTML Component XML File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-html-component-content">10.1.7. Example HTML Component Content</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

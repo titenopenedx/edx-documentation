@@ -1,0 +1,1547 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>10.11. Drag and Drop Problem (Deprecated) &#8212; Building and Running an edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'exercises_tools/drag_and_drop_deprecated';</script>
+    <link rel="icon" href="https://www.edx.org/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="10.12. Dropdown Problem" href="dropdown.html" />
+    <link rel="prev" title="10.10. Drag and Drop Problem" href="drag_and_drop.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-light" alt="Building and Running an edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-dark" alt="Building and Running an edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building and Running an edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_accounts.html">2.1. Getting Started with edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_get_started_Studio.html">2.2. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/accessibility_checker.html">5.4. Accessibility Checker</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_information/index.html">6.1. Planning Course Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title, Number, and Enrollment Track</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information (edx.org and Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/index.html">6.3. Creating and Announcing a Course Using Publisher (edx.org Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_introduction.html">6.3.1. Introduction to Publisher</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/index.html">6.3.2. Creating a Course in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_course_creation.html">6.3.2.1. The Publisher Course Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_create_course.html">6.3.2.2. Create a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_find_course.html">6.3.2.3. Find a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_edit_course.html">6.3.2.4. Edit a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_send_course_marketing.html">6.3.2.5. Send a Course to edX Marketing for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_review_changes.html">6.3.2.6. Review Changes and Finalize the Course</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_add_comment_to_course.html">6.3.2.7. Add a Comment to a Course in Publisher</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course/pub_check_course_status.html">6.3.2.8. Check the Status of a Course in Publisher</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/index.html">6.3.3. Creating a Course Run in Publisher</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_course_run_creation.html">6.3.3.1. The Publisher Course Run Creation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_create_course_run.html">6.3.3.2. Create a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_access_course_run_studio.html">6.3.3.3. Access a Course Run in Studio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_edit_course_run.html">6.3.3.4. Edit a Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_course_run_staff.html">6.3.3.5. Add Course Run Staff</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_send_course_run_review.html">6.3.3.6. Send a Course Run to the edX PC for Review</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_add_comment_to_course_run.html">6.3.3.7. Add a Comment to the Course Run</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_create_edit_course_run/pub_finalize_course_run.html">6.3.3.8. Finalize a Course Run</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_publish_about_page.html">6.3.4. Publishing an About Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_add_about_video.html">6.3.5. Add a Course or Program About Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_update_course_run_info.html">6.3.6. Change a Course Run After the About Page Is Published</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/pub_create_ann_course/pub_change_publisher_settings.html">6.3.7. Change Publisher Settings</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/studio_add_course_information/index.html">6.4. Add Course and Course Run Information in Studio (Edge Courses)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html">6.4.1. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_scheduling.html">6.4.2. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_image.html">6.4.3. Add a Course Image in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_staffing.html">6.4.4. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.4.5. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_about_page.html">6.4.6. Creating a Course About Page in Studio</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developing_course/index.html">7. Developing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/testing_courseware.html">7.9. Testing Your Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/social_sharing.html">7.10. Sharing Course Content on Social Media Platforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_components/index.html">8. Adding Course Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/upload_video.html">9.3. Managing Course Videos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/create_preroll_video.html">9.7. Adding a Pre-Roll Video to Your edX Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/troubleshoot_video.html">9.8. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">10. Adding Exercises and Tools</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional_module.html">10.7. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="completion.html">10.8. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag_and_drop.html">10.10. Drag and Drop Problem</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.11. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropdown.html">10.12. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="external_graders.html">10.13. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="full_screen_image.html">10.14. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gene_explorer.html">10.15. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_calendar.html">10.16. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_docs.html">10.17. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iframe.html">10.18. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image_mapped_input.html">10.19. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lti_component.html">10.20. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math_expression_input.html">10.21. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathjax.html">10.22. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_select.html">10.23. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notes.html">10.24. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerical_input.html">10.25. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="open_response_assessments/index.html">10.26. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/OpenResponseAssessments.html">10.26.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/CreateORAAssignment.html">10.26.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/Manage_ORA_Assignment.html">10.26.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/ORA_Staff_Grading.html">10.26.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/Access_ORA_Info.html">10.26.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="oppia.html">10.27. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="peer_instruction_tool.html">10.28. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="periodic_table.html">10.29. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll_question.html">10.30. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll.html">10.31. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_with_hint.html">10.32. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_in_latex.html">10.33. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_builder.html">10.34. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="qualtrics.html">10.35. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="randomized_content_blocks.html">10.36. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recommenderXBlock.html">10.37. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="scorm.html">10.38. SCORM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_python.html">10.45. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zooming_image.html">10.46. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_live.html">11.6. Course Live</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/content_experiments/index.html">12.3. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_overview.html">12.3.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_configure.html">12.3.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_add.html">12.3.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_view.html">12.3.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/teams/index.html">12.4. Using the Teams Application</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_setup.html">12.4.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_learner_experience.html">12.4.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_discussions.html">12.4.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/credit_courses/index.html">12.5. Offering Academic Course Credit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/credit_courses/credit_courses.html">12.5.1. Academic Course Credit</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/timed_exams.html">12.6. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/lti/index.html">12.7. Using edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_reuse_content.html">12.7.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_prepare_content.html">12.7.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_address_content.html">12.7.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_grade_content.html">12.7.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_canvas_example.html">12.7.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_blackboard_example.html">12.7.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_summaries/index.html">12.8. Xpert Unit Summaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_overview.html">12.8.1. Overview of Xpert Unit Summaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_summaries/summaries_enabling.html">12.8.2. Enabling Xpert Unit Summaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/xpert_translations/index.html">12.9. Xpert Course Translations</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/feature_description.html">12.9.1. Feature Description: Xpert Course Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/enabling_disabling_translations.html">12.9.2. Enabling or Disabling Translations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/xpert_translations/reviewing_and_editing_translations.html">12.9.3. Reviewing and Editing Translations</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_enabling.html">13.2. Enable Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_create.html">13.3. Create a Proctored Exam with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/rpnow_results.html">13.4. Viewing Proctored Session Results with RPNow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_create.html">13.5. Create a Proctored Exam with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/pt_results.html">13.6. Viewing Proctored Session Results with Proctortrack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_managing.html">13.7. Managing Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_learners.html">13.8. Preparing Learners for Proctored Exams</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from edX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../managing_notifications/index.html">18. Managing Notifications</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../managing_notifications/managing_notifications.html">18.1. Accessing the Notifications Tray</a></li>
+
+
+
+
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../student_progress/index.html">19. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_student.html">19.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_answers.html">19.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_grades.html">19.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/certificate_data.html">19.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/checking_student_progress.html">19.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rerun_course/index.html">20. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rerun_course/course_rerun.html">20.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">21. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/course_authors/source/exercises_tools/drag_and_drop_deprecated.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fexercises_tools/drag_and_drop_deprecated.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/exercises_tools/drag_and_drop_deprecated.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Drag and Drop Problem (Deprecated)</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-drag-and-drop-problem">10.11.1. Adding a Drag and Drop Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-drag-and-drop-problem-code">10.11.1.1. Sample Drag and Drop Problem Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drag-and-drop-problem-xml">10.11.2. Drag and Drop Problem XML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tags">10.11.2.1. Tags</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#targets-on-draggables">10.11.3. Targets on Draggables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-targets-on-draggables">10.11.3.1. Limitations of targets on draggables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-answer-format">10.11.4. Correct answer format</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-format-for-targets-on-draggables">10.11.4.1. Answer format for targets on draggables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-logic">10.11.5. Grading logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-and-number-cases">10.11.5.1. Set and <code class="docutils literal notranslate"><span class="pre">+number</span></code> cases</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="drag-and-drop-problem-deprecated">
+<span id="drag-and-drop"></span><h1><span class="section-number">10.11. </span>Drag and Drop Problem (Deprecated)<a class="headerlink" href="#drag-and-drop-problem-deprecated" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EdX does not support this problem type.</p>
+</div>
+<p>This drag and drop problem type has been replaced by a newer drag and drop
+problem type. The newer drag and drop problem type includes significant
+improvements and you should use it for any new course development. For more
+information about the replacement drag and drop problem type, see
+<a class="reference internal" href="drag_and_drop.html#drag-and-drop-problem"><span class="std std-ref">Drag and Drop Problem</span></a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<ul>
+<li><p><strong>This deprecated drag and drop problem type is not accessible for learners
+with some disabilities, and it does not work correctly on mobile phones and
+other devices that use touch screen interfaces.</strong> If you use this kind of
+problem, make sure that you include an alternative for learners who cannot
+access drag and drop problems, or leave these problems ungraded.</p>
+<p>For more information about creating accessible content, see
+<a class="reference internal" href="../accessibility/best_practices_course_content_dev.html#accessibility-best-practices-for-course-content-development"><span class="std std-ref">Accessibility Best Practices for Developing Course Content</span></a>.</p>
+</li>
+<li><p>The <strong>Show Answer</strong> button does not work for drag and drop problems. By
+default, the <strong>Show Answer</strong> option is set to <strong>Never</strong>. If you change this
+option in the problem component, a <strong>Show Answer</strong> button appears in the
+LMS, but the button does not work.</p></li>
+</ul>
+</div>
+<p>In drag and drop problems, learners respond to a question by dragging text or
+objects to a specific location on an image.</p>
+<img alt="Image of a drag and drop problem." src="../_images/DragAndDropProblem.png" />
+<section id="adding-a-drag-and-drop-problem">
+<h2><span class="section-number">10.11.1. </span>Adding a Drag and Drop Problem<a class="headerlink" href="#adding-a-drag-and-drop-problem" title="Link to this heading">#</a></h2>
+<p>Before you can include problems that use this deprecated problem type in your
+course, you must configure your course to <a class="reference internal" href="create_exercises_and_tools.html#add-unsupported-exercises-problems"><span class="std std-ref">add unsupported problems</span></a>.</p>
+<p>To create a drag and drop problem, you upload the image that you want learners
+to drag labels onto, and then create a problem component.</p>
+<ol class="arabic">
+<li><p>On the <strong>Files &amp; Uploads</strong> page, upload your image file. For more
+information about uploading files, see <a class="reference internal" href="../course_assets/course_files.html#add-files-to-a-course"><span class="std std-ref">Adding Files to a Course</span></a>.</p></li>
+<li><p>In the unit where you want to create the problem, click <strong>Problem</strong> under
+<strong>Add New Component</strong>, and then click the <strong>Advanced</strong> tab.</p></li>
+<li><p>Click <strong>Drag and Drop</strong>.</p></li>
+<li><p>In the component that appears, click <strong>Edit</strong>.</p></li>
+<li><p>In the component editor, replace the example text with the text of your
+problem.</p></li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">&lt;drag_and_drop_input&gt;</span></code> tag, replace
+<strong>https://studio.edx.org/c4x/edX/DemoX/asset/L9_buckets.png</strong> with the URL
+of your image file on the <strong>Files &amp; Uploads</strong> page (for example,
+<strong>/static/Image.png</strong>).</p></li>
+<li><p>For at least one <code class="docutils literal notranslate"><span class="pre">&lt;draggable&gt;</span></code> tag, replace the text of the <strong>label</strong>
+attribute with the text of the label you want learners to drag. For example,
+if you want learners to drag the word “Iceland” onto your image, the new tag
+would resemble the following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;draggable</span> <span class="pre">id=&quot;1&quot;</span> <span class="pre">label=&quot;Iceland&quot;/&gt;</span></code></p>
+</li>
+</ol>
+<ol class="arabic" start="8">
+<li><p>Repeat the previous step for all the labels that you want to use. Make sure
+that the <strong>id</strong> attribute is different for each <code class="docutils literal notranslate"><span class="pre">&lt;draggable&gt;</span></code> tag.</p></li>
+<li><p>Determine the coordinates and radius of the correct area on the image.</p></li>
+<li><p>Under <code class="docutils literal notranslate"><span class="pre">correct_answer</span> <span class="pre">=</span> <span class="pre">{</span></code>, add an entry for each label, using the
+following format. These values are in pixels:</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">'id':</span>&#160;&#160;&#160; <span class="pre">[[x</span> <span class="pre">coordinate,</span> <span class="pre">y</span> <span class="pre">coordinate],</span> <span class="pre">radius]</span></code></p>
+<p>For example, if your image is 600 pixels wide and 400 pixels high, and you
+want your learners to drag the Iceland label to an area in the upper-left
+part of the image and drag a Sweden label near the lower-right part of your
+image, the code would resemble the following (where 2 is the ID for the
+Sweden label).</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>correct-answer<span class="w"> </span>=<span class="w"> </span>{
+<span class="w">        </span>&#39;1&#39;:<span class="w">    </span>[[50,<span class="w"> </span>50],<span class="w"> </span>75]
+<span class="w">        </span>&#39;2&#39;:<span class="w">    </span>[[550,<span class="w"> </span>350],<span class="w"> </span>75]}
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure the code contains the closing curly brace (<code class="docutils literal notranslate"><span class="pre">}</span></code>).</p>
+</div>
+</div></blockquote>
+</li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+<section id="sample-drag-and-drop-problem-code">
+<h3><span class="section-number">10.11.1.1. </span>Sample Drag and Drop Problem Code<a class="headerlink" href="#sample-drag-and-drop-problem-code" title="Link to this heading">#</a></h3>
+<p>To create the drag and drop problem that appears in the image above, you
+download two files from edX, upload these files to the <strong>Files &amp; Uploads</strong>
+page, and then add the code for the problem to a problem component.</p>
+<ol class="arabic simple">
+<li><p>Download the following files from edX:</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>Allopurinol.gif</p></li>
+<li><p>AllopurinolAnswer.gif</p></li>
+</ul>
+<p>To download both these files in a .zip archive, click
+<a class="reference external" href="http://files.edx.org/DragAndDropProblemFiles.zip">http://files.edx.org/DragAndDropProblemFiles.zip</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>Upload the Allopurinol.gif and AllopurinolAnswer.gif files to the <strong>Files &amp;
+Uploads</strong> page.</p></li>
+<li><p>In the unit where you want to create the problem, click <strong>Problem</strong> under
+<strong>Add New Component</strong>, and then click the <strong>Advanced</strong> tab.</p></li>
+<li><p>Click <strong>Drag and Drop</strong>.</p></li>
+<li><p>In the component that appears, click <strong>Edit</strong>.</p></li>
+<li><p>In the component editor, replace the example code with the following code.</p></li>
+<li><p>Click <strong>Save</strong>.</p></li>
+</ol>
+<p><strong>Problem Code</strong>:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p&gt;</span><span class="w"> </span>Allopurinol<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>drug<span class="w"> </span>used<span class="w"> </span>to<span class="w"> </span>treat<span class="w"> </span>and<span class="w"> </span>prevent<span class="w"> </span>gout,<span class="w"> </span>a<span class="w"> </span>very<span class="w"> </span>painful<span class="w"> </span>form<span class="w"> </span>of<span class="w"> </span>arthritis.<span class="w"> </span>Once<span class="w"> </span>only<span class="w"> </span>a<span class="w"> </span>“rich<span class="w"> </span>man’s<span class="w"> </span>disease”,<span class="w"> </span>gout<span class="w"> </span>has<span class="w"> </span>become<span class="w"> </span>more<span class="w"> </span>and<span class="w"> </span>more<span class="w"> </span>common<span class="w"> </span>in<span class="w"> </span>recent<span class="w"> </span>decades<span class="w"> </span>–<span class="w"> </span>affecting<span class="w"> </span>about<span class="w"> </span>3<span class="w"> </span>million<span class="w"> </span>people<span class="w"> </span>in<span class="w"> </span>the<span class="w"> </span>United<span class="w"> </span>States<span class="w"> </span>alone.<span class="w"> </span>Deposits<span class="w"> </span>of<span class="w"> </span>needle-like<span class="w"> </span>crystals<span class="w"> </span>of<span class="w"> </span>uric<span class="w"> </span>acid<span class="w"> </span>in<span class="w"> </span>connective<span class="w"> </span>tissue<span class="w"> </span>or<span class="w"> </span>joint<span class="w"> </span>spaces<span class="w"> </span>cause<span class="w"> </span>the<span class="w"> </span>symptoms<span class="w"> </span>of<span class="w"> </span>swelling,<span class="w"> </span>stiffness<span class="w"> </span>and<span class="w"> </span>intense<span class="w"> </span>pain.<span class="w"> </span>Individuals<span class="w"> </span>with<span class="w"> </span>gout<span class="w"> </span>overproduce<span class="w"> </span>uric<span class="w"> </span>acid<span class="w"> </span>because<span class="w"> </span>they<span class="w"> </span>cannot<span class="w"> </span>eliminate<span class="w"> </span>it<span class="w"> </span>efficiently.<span class="w"> </span>Allopurinol<span class="w"> </span>treats<span class="w"> </span>and<span class="w"> </span>prevents<span class="w"> </span>gout<span class="w"> </span>by<span class="w"> </span>stopping<span class="w"> </span>the<span class="w"> </span>overproduction<span class="w"> </span>of<span class="w"> </span>uric<span class="w"> </span>acid<span class="w"> </span>through<span class="w"> </span>inhibition<span class="w"> </span>of<span class="w"> </span>an<span class="w"> </span>enzyme<span class="w"> </span>required<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>synthesis<span class="w"> </span>of<span class="w"> </span>uric<span class="w"> </span>acid.<span class="w"> </span><span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p&gt;</span><span class="w"> </span>You<span class="w"> </span>are<span class="w"> </span>shown<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>many<span class="w"> </span>possible<span class="w"> </span>molecules.<span class="w"> </span>On<span class="w"> </span>the<span class="w"> </span>structure<span class="w"> </span>of<span class="w"> </span>allopurinol<span class="w"> </span>below,<span class="w"> </span>identify<span class="w"> </span>the<span class="w"> </span>functional<span class="w"> </span>groups<span class="w"> </span>that<span class="w"> </span>are<span class="w"> </span>present<span class="w"> </span>by<span class="w"> </span>dragging<span class="w"> </span>the<span class="w"> </span>functional<span class="w"> </span>group<span class="w"> </span>name<span class="w"> </span>listed<span class="w"> </span>onto<span class="w"> </span>the<span class="w"> </span>appropriate<span class="w"> </span>target<span class="w"> </span>boxes<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>structure.<span class="w"> </span>If<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>an<span class="w"> </span>answer,<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>drag<span class="w"> </span>off<span class="w"> </span>the<span class="w"> </span>name<span class="w"> </span>as<span class="w"> </span>well.<span class="w"> </span>You<span class="w"> </span>may<span class="w"> </span>need<span class="w"> </span>to<span class="w"> </span>scroll<span class="w"> </span>through<span class="w"> </span>the<span class="w"> </span>names<span class="w"> </span>of<span class="w"> </span>functional<span class="w"> </span>groups<span class="w"> </span>to<span class="w"> </span>see<span class="w"> </span>all<span class="w"> </span>options.<span class="w"> </span><span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;customresponse&gt;</span>
+<span class="w">    </span><span class="nt">&lt;drag_and_drop_input</span><span class="w"> </span><span class="na">no_labels=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">one_per_target=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">target_outline=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">img=</span><span class="s">&quot;/static/Allopurinol.gif&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;methyl&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;hydroxyl&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;amino&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;3&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;carboxyl&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;4&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;aldehyde&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;5&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;phosphate&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;6&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;sulfhydryl&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;7&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;phenyl&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;8&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">can_reuse=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;none&quot;</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;none&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;0&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;53&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;66&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;55.100006103515625&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;131.5&quot;</span><span class="nt">/&gt;</span>
+<span class="w">      </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;113&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;55&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;140.10000610351562&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;181.5&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/drag_and_drop_input&gt;</span>
+<span class="w">    </span><span class="nt">&lt;answer</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+correct_answer<span class="w"> </span>=<span class="w"> </span>[
+<span class="w">    </span>{&#39;draggables&#39;:<span class="w"> </span>[&#39;2&#39;],<span class="w"> </span>&#39;targets&#39;:<span class="w"> </span>[&#39;0&#39;<span class="w"> </span>],<span class="w"> </span>&#39;rule&#39;:&#39;unordered_equal&#39;<span class="w"> </span>},
+<span class="w">    </span>{&#39;draggables&#39;:<span class="w"> </span>[&#39;none&#39;],<span class="w"> </span>&#39;targets&#39;:<span class="w"> </span>[&#39;1&#39;<span class="w"> </span>],<span class="w"> </span>&#39;rule&#39;:&#39;unordered_equal&#39;<span class="w"> </span>}]
+if<span class="w"> </span>draganddrop.grade(submission[0],<span class="w"> </span>correct_answer):
+<span class="w">    </span>correct<span class="w"> </span>=<span class="w"> </span>[&#39;correct&#39;]
+else:
+<span class="w">    </span>correct<span class="w"> </span>=<span class="w"> </span>[&#39;incorrect&#39;]
+<span class="w">    </span><span class="nt">&lt;/answer&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/customresponse&gt;</span>
+<span class="w">  </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">    </span><span class="nt">&lt;img</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;/static/AllopurinolAnswer.gif&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/solution&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="drag-and-drop-problem-xml">
+<span id="id1"></span><h2><span class="section-number">10.11.2. </span>Drag and Drop Problem XML<a class="headerlink" href="#drag-and-drop-problem-xml" title="Link to this heading">#</a></h2>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">    </span><span class="nt">&lt;customresponse&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Drag<span class="w"> </span>each<span class="w"> </span>word<span class="w"> </span>in<span class="w"> </span>the<span class="w"> </span>scrollbar<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>bucket<span class="w"> </span>that<span class="w"> </span>matches<span class="w"> </span>the<span class="w"> </span>number<span class="w"> </span>of
+<span class="w">        </span>letters<span class="w"> </span>in<span class="w"> </span>the<span class="w"> </span>word.<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;drag_and_drop_input</span><span class="w"> </span><span class="na">img=</span><span class="s">&quot;https://studio.edx.org/c4x/edX/DemoX/asset/L9_buckets.png&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;a&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;bog&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;droll&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;4&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;oboe&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;5&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;swain&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;6&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;in&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;7&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;onyx&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;8&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;of&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;9&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;tap&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;strop&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;11&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;few&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/drag_and_drop_input&gt;</span>
+<span class="w">        </span><span class="nt">&lt;answer</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span>correct_answer<span class="w"> </span>=<span class="w"> </span>{
+<span class="w">                </span>&#39;1&#39;:<span class="w">      </span>[[70,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;6&#39;:<span class="w">      </span>[[190,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;8&#39;:<span class="w">      </span>[[190,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;2&#39;:<span class="w">      </span>[[310,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;9&#39;:<span class="w">      </span>[[310,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;11&#39;:<span class="w">     </span>[[310,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;4&#39;:<span class="w">      </span>[[420,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;7&#39;:<span class="w">      </span>[[420,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;3&#39;:<span class="w">      </span>[[550,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;5&#39;:<span class="w">      </span>[[550,<span class="w"> </span>150],<span class="w"> </span>121],
+<span class="w">                </span>&#39;10&#39;:<span class="w">     </span>[[550,<span class="w"> </span>150],<span class="w"> </span>121]}
+<span class="w">            </span>if<span class="w"> </span>draganddrop.grade(submission[0],<span class="w"> </span>correct_answer):
+<span class="w">                </span>correct<span class="w"> </span>=<span class="w"> </span>[&#39;correct&#39;]
+<span class="w">            </span>else:
+<span class="w">                </span>correct<span class="w"> </span>=<span class="w"> </span>[&#39;incorrect&#39;]
+<span class="w">        </span><span class="nt">&lt;/answer&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/customresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">    </span><span class="nt">&lt;customresponse&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Label<span class="w"> </span>the<span class="w"> </span>hydrogen<span class="w"> </span>atoms<span class="w"> </span>connected<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>left<span class="w"> </span>carbon<span class="w"> </span>atom.<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;drag_and_drop_input</span><span class="w"> </span><span class="na">img=</span><span class="s">&quot;https://studio.edx.org/c4x/edX/DemoX/asset/ethglycol.jpg&quot;</span>
+<span class="w">        </span><span class="na">target_outline=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">one_per_target=</span><span class="s">&quot;true&quot;</span><span class="w"> </span><span class="na">no_labels=</span><span class="s">&quot;true&quot;</span>
+<span class="w">        </span><span class="na">label_bg_color=</span><span class="s">&quot;rgb(222, 139, 238)&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;1&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;Hydrogen&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;draggable</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">label=</span><span class="s">&quot;Hydrogen&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t1_o&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;10&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;67&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t2&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;133&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;3&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;70&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t3&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;2&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;384&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;70&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t4&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;95&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;386&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;70&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t5_c&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;94&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;293&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;91&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;91&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t6_c&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;328&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;294&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;91&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;91&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t7&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;393&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;463&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;70&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t8&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;344&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;214&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;70&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t9_o&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;445&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;162&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;100&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;100&quot;</span><span class="nt">/&gt;</span>
+<span class="w">            </span><span class="nt">&lt;target</span><span class="w"> </span><span class="na">id=</span><span class="s">&quot;t10&quot;</span><span class="w"> </span><span class="na">x=</span><span class="s">&quot;591&quot;</span><span class="w"> </span><span class="na">y=</span><span class="s">&quot;132&quot;</span><span class="w"> </span><span class="na">w=</span><span class="s">&quot;70&quot;</span><span class="w"> </span><span class="na">h=</span><span class="s">&quot;70&quot;</span><span class="nt">/&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/drag_and_drop_input&gt;</span>
+<span class="w">        </span><span class="nt">&lt;answer</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span>correct_answer<span class="w"> </span>=<span class="w"> </span>[{
+<span class="w">                </span>&#39;draggables&#39;:<span class="w"> </span>[&#39;1&#39;,<span class="w"> </span>&#39;2&#39;],
+<span class="w">                </span>&#39;targets&#39;:<span class="w"> </span>[&#39;t2&#39;,<span class="w"> </span>&#39;t3&#39;,<span class="w"> </span>&#39;t4&#39;<span class="w"> </span>],
+<span class="w">                </span>&#39;rule&#39;:&#39;anyof&#39;
+<span class="w">            </span>}]
+<span class="w">            </span>if<span class="w"> </span>draganddrop.grade(submission[0],<span class="w"> </span>correct_answer):
+<span class="w">                </span>correct<span class="w"> </span>=<span class="w"> </span>[&#39;correct&#39;]
+<span class="w">            </span>else:
+<span class="w">                </span>correct<span class="w"> </span>=<span class="w"> </span>[&#39;incorrect&#39;]
+<span class="w">        </span><span class="nt">&lt;/answer&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/customresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+<section id="tags">
+<h3><span class="section-number">10.11.2.1. </span>Tags<a class="headerlink" href="#tags" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;customresponse&gt;</span></code>: Indicates that the problem is a custom response
+problem.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;drag_and_drop_input&gt;</span></code>: Indicates the custom response problem is a drag
+and drop problem.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;draggable&gt;</span></code>: Specifies a single object that a learner will drag onto the
+base image.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;target&gt;</span></code>: Specifies the location on the base image where a draggable must
+be dropped.</p></li>
+</ul>
+<p><strong>Tag:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;drag_and_drop_input&gt;</span></code></p>
+<blockquote>
+<div><p>Attributes</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>img (required)</p></td>
+<td><p>Relative path to an image that will be the base image. All draggables
+can be dragged onto it.</p></td>
+</tr>
+<tr class="row-odd"><td><p>target_outline</p></td>
+<td><p>Specifies whether an outline (gray dashed line) should be drawn around
+targets (if they are specified). It can be either ‘true’ or ‘false’.
+If not specified, the targets do not have outlines.</p></td>
+</tr>
+<tr class="row-even"><td><p>one_per_target</p></td>
+<td><p>Specify whether to allow more than one draggable to be placed onto a
+single target. It can be either ‘true’ or ‘false’. If not specified,
+the default value is ‘true’.</p></td>
+</tr>
+<tr class="row-odd"><td><p>no_labels (required)</p></td>
+<td><p>The default is false. In default behavior, if label is not set, label
+is obtained from id. If no_labels is true, labels are not
+automatically populated from id, and one cannot set labels and obtain
+only icons.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Children</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;draggable&gt;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;target&gt;</span></code></p></li>
+</ul>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Tag:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;draggable&gt;</span></code></p>
+<p>Specifies a single draggable object in a drag and drop problem.</p>
+<p>A draggable is what the user must drag out of the slider and drop onto the base
+image. After a drag operation, if the center of the draggable is located
+outside the rectangular dimensions of the image, it will be returned to the
+slider.</p>
+<p>For the grader to work, each draggable must have a unique ID.</p>
+<blockquote>
+<div><p>Attributes</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id (required)</p></td>
+<td><p>Unique identifier of the draggable object.</p></td>
+</tr>
+<tr class="row-odd"><td><p>label (optional)</p></td>
+<td><p>Text label that the user sees.</p></td>
+</tr>
+<tr class="row-even"><td><p>icon (optional)</p></td>
+<td><p>For draggables that are images, the relative path to the image file.</p></td>
+</tr>
+<tr class="row-odd"><td><p>can_reuse</p></td>
+<td><p>The default is false. If true, the same draggable can be used
+multiple times.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Children</p>
+<p>(none)</p>
+</div></blockquote>
+<p><strong>Tag:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;target&gt;</span></code></p>
+<p>Specifies the location on the base image where a learner must drop a draggable
+item. By design, if the center of a draggable lies within the target (i.e. in
+the rectangle defined by [[x, y], [x + w, y + h]],  it is within the target.
+Otherwise, it is outside.</p>
+<p>If you specify at least one target, and a learner drops a draggable item on a
+location that is outside a target, the draggable item returns to the slider.</p>
+<p>If you don’t specify a target, a learner can drop a draggable item anywhere on
+the base image.</p>
+<blockquote>
+<div><p>Attributes</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>id (required)</p></td>
+<td><p>Unique identifier of the target object.</p></td>
+</tr>
+<tr class="row-odd"><td><p>x</p></td>
+<td><p>X-coordinate on the base image where the top left corner of the target
+will be positioned.</p></td>
+</tr>
+<tr class="row-even"><td><p>y</p></td>
+<td><p>Y-coordinate on the base image where the top left corner of the target
+will be positioned.</p></td>
+</tr>
+<tr class="row-odd"><td><p>w</p></td>
+<td><p>Width of the target, in pixels.</p></td>
+</tr>
+<tr class="row-even"><td><p>h</p></td>
+<td><p>Height of the target, in pixels.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Children</p>
+<p>(none)</p>
+</div></blockquote>
+</section>
+</section>
+<section id="targets-on-draggables">
+<h2><span class="section-number">10.11.3. </span>Targets on Draggables<a class="headerlink" href="#targets-on-draggables" title="Link to this heading">#</a></h2>
+<p>Sometimes it is not enough to have targets only on the base image, and all of
+the draggables on these targets. If a complex problem exists where a draggable
+must become itself a target (or many targets), then the following extended
+syntax can be used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="o">&lt;</span><span class="n">draggable</span> <span class="p">{</span><span class="n">attribute</span> <span class="nb">list</span><span class="p">}</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">target</span> <span class="p">{</span><span class="n">attribute</span> <span class="nb">list</span><span class="p">}</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">target</span> <span class="p">{</span><span class="n">attribute</span> <span class="nb">list</span><span class="p">}</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;</span><span class="n">target</span> <span class="p">{</span><span class="n">attribute</span> <span class="nb">list</span><span class="p">}</span> <span class="o">/&gt;</span>
+    <span class="o">...</span>
+<span class="o">&lt;/</span><span class="n">draggable</span><span class="o">&gt;</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>The attribute list in the tags above (<code class="docutils literal notranslate"><span class="pre">draggable</span></code> and <code class="docutils literal notranslate"><span class="pre">target</span></code>) is the same
+as for normal <code class="docutils literal notranslate"><span class="pre">draggable</span></code> and <code class="docutils literal notranslate"><span class="pre">target</span></code> tags. The only difference is when
+you will be specifying inner target position coordinates. Use the <code class="docutils literal notranslate"><span class="pre">x</span></code> and
+<code class="docutils literal notranslate"><span class="pre">y</span></code> attributes to set the offset of the inner target from the upper-left
+corner of the parent draggable (that contains the inner target).</p>
+<section id="limitations-of-targets-on-draggables">
+<h3><span class="section-number">10.11.3.1. </span>Limitations of targets on draggables<a class="headerlink" href="#limitations-of-targets-on-draggables" title="Link to this heading">#</a></h3>
+<ul>
+<li><p>Currently there is a limitation to the level of nesting of targets.</p>
+<p>Even though you can pile up a large number of draggables on targets that
+themselves are on draggables, the drag and drop problem will be graded only
+if there is a maximum of two levels of targets. The first level are the
+<cite>base</cite> targets. They are attached to the base image. The second level are the
+targets defined on draggables.</p>
+</li>
+<li><p>Another limitation is that the target bounds are not checked against other
+targets.</p>
+<p>You must make sure that there is no overlapping of targets. You should also
+ensure that targets on draggables are smaller than the actual parent
+draggable. Technically this is not necessary, but from the usability
+perspective it is desirable.</p>
+</li>
+<li><p>You can have targets on draggables only in the case when there are base
+targets defined (base targets are attached to the base image).</p>
+<p>If you do not have base targets, then you can only have a single level of
+nesting (draggables on the base image). In this case the client side will be
+reporting (x,y) positions of each draggable on the base image.</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="correct-answer-format">
+<h2><span class="section-number">10.11.4. </span>Correct answer format<a class="headerlink" href="#correct-answer-format" title="Link to this heading">#</a></h2>
+<p>For specifying answers for targets on draggables, see <a class="reference internal" href="#answer-format-for-targets-on-draggables">Answer format for
+targets on draggables</a>.</p>
+<p>There are two correct answer formats: short and long.</p>
+<p>In short form, the correct answer is mapping of <code class="docutils literal notranslate"><span class="pre">draggable_id</span></code> to
+<code class="docutils literal notranslate"><span class="pre">target_id</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;grass&#39;</span><span class="p">:</span>     <span class="p">[[</span><span class="mi">300</span><span class="p">,</span> <span class="mi">200</span><span class="p">],</span> <span class="mi">200</span><span class="p">],</span> <span class="s1">&#39;ant&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">200</span><span class="p">]}</span>
+<span class="n">correct_answer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;name4&#39;</span><span class="p">:</span> <span class="s1">&#39;t1&#39;</span><span class="p">,</span> <span class="s1">&#39;7&#39;</span><span class="p">:</span> <span class="s1">&#39;t2&#39;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>In long form, the correct answer is list of dicts. Every dict has 3 keys:
+<code class="docutils literal notranslate"><span class="pre">draggables</span></code>, <code class="docutils literal notranslate"><span class="pre">targets</span></code> and <code class="docutils literal notranslate"><span class="pre">rule</span></code>. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="s1">&#39;t5_c&#39;</span><span class="p">,</span> <span class="s1">&#39;t6_c&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof&#39;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;t2_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t3_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t4_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t7_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t8_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t10_h&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof&#39;</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+<p>“Draggables” is the list of draggable IDs. “Target” is the list of target IDs
+that draggables must be dragged to.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Draggables in dicts inside the <code class="docutils literal notranslate"><span class="pre">correct_answer</span></code> list must not intersect.</p>
+</div>
+<p>Wrong (for draggable id 7):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="s1">&#39;t5_c&#39;</span><span class="p">,</span> <span class="s1">&#39;t6_c&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof&#39;</span>
+<span class="p">},</span>
+<span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;2&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;t2_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t3_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t4_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t7_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t8_h&#39;</span><span class="p">,</span> <span class="s1">&#39;t10_h&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof&#39;</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+<p>The values for <code class="docutils literal notranslate"><span class="pre">rule</span></code> follow.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">exact</span></code>: Targets for draggable IDs in <code class="docutils literal notranslate"><span class="pre">user_answer</span></code> are the same as
+targets from the correct answer. For example, for draggables 7 and 8, the
+user must drag 7 to target1 and 8 to target2 if the <code class="docutils literal notranslate"><span class="pre">correct_answer</span></code> is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="s1">&#39;tartget1&#39;</span><span class="p">,</span> <span class="s1">&#39;target2&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;exact&#39;</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unordered_equal</span></code>: Allows draggables be dragged to targets unordered. For
+learners to drag 7 to target1 or target2 and 8 to target2 or target1 and 7
+and 8 must be in different targets, then correct answer must be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="s1">&#39;tartget1&#39;</span><span class="p">,</span> <span class="s1">&#39;target2&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anyof</span></code>: Allows draggables to be dragged to any target. For learners to
+drag 7 and 8 to target1 or target2, any of these are correct with the <cite>anyof</cite>
+rule:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+<span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span>   <span class="p">[</span><span class="s1">&#39;7&#39;</span><span class="p">,</span> <span class="s1">&#39;8&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span>  <span class="p">[</span><span class="s1">&#39;tartget1&#39;</span><span class="p">,</span> <span class="s1">&#39;target2&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof&#39;</span>
+<span class="p">}]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>If <code class="docutils literal notranslate"><span class="pre">can_reuse</span></code> is true, then you have draggables a,b,c and 10 targets. These
+will allow you to drag 4 <code class="docutils literal notranslate"><span class="pre">a</span></code> draggables to [<code class="docutils literal notranslate"><span class="pre">target1</span></code>,  <code class="docutils literal notranslate"><span class="pre">target4</span></code>,
+<code class="docutils literal notranslate"><span class="pre">target7</span></code>, <code class="docutils literal notranslate"><span class="pre">target10</span></code>]; you do not need to write <code class="docutils literal notranslate"><span class="pre">a</span></code> four times. Also
+this will allow you to drag the <code class="docutils literal notranslate"><span class="pre">b</span></code> draggable to target2 or target5 for
+target5 and target2.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target1&#39;</span><span class="p">,</span>  <span class="s1">&#39;target4&#39;</span><span class="p">,</span> <span class="s1">&#39;target7&#39;</span><span class="p">,</span> <span class="s1">&#39;target10&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target2&#39;</span><span class="p">,</span> <span class="s1">&#39;target5&#39;</span><span class="p">,</span> <span class="s1">&#39;target8&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target3&#39;</span><span class="p">,</span> <span class="s1">&#39;target6&#39;</span><span class="p">,</span> <span class="s1">&#39;target9&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+    <span class="p">}]</span>
+</pre></div>
+</div>
+<p>Sometimes you want to allow learners to drag only two <code class="docutils literal notranslate"><span class="pre">b</span></code> draggables. In this
+case you should use the <code class="docutils literal notranslate"><span class="pre">anyof+number</span></code> or <code class="docutils literal notranslate"><span class="pre">unordered_equal+number</span></code> rule:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target1&#39;</span><span class="p">,</span>  <span class="s1">&#39;target4&#39;</span><span class="p">,</span> <span class="s1">&#39;target7&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal+number&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target2&#39;</span><span class="p">,</span> <span class="s1">&#39;target5&#39;</span><span class="p">,</span> <span class="s1">&#39;target8&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof+number&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target3&#39;</span><span class="p">,</span> <span class="s1">&#39;target6&#39;</span><span class="p">,</span> <span class="s1">&#39;target9&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+    <span class="p">}]</span>
+</pre></div>
+</div>
+<p>When there are no multiple draggables per targets (one_per_target=``true``),
+for the same number of draggables, <code class="docutils literal notranslate"><span class="pre">anyof</span></code> is equal to <code class="docutils literal notranslate"><span class="pre">unordered_equal</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">can_reuse=true</span></code>, then you must use only the long form of the correct
+answer.</p>
+<section id="answer-format-for-targets-on-draggables">
+<h3><span class="section-number">10.11.4.1. </span>Answer format for targets on draggables<a class="headerlink" href="#answer-format-for-targets-on-draggables" title="Link to this heading">#</a></h3>
+<p>As with the cases described above, an answer must provide precise positioning
+for each draggable (on which targets it must reside). In the case when a
+draggable must be placed on a target that itself is on a draggable, then the
+answer must contain the chain of target-draggable-target.</p>
+<p>For example, suppose we have three draggables - <code class="docutils literal notranslate"><span class="pre">up</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>, and <code class="docutils literal notranslate"><span class="pre">p</span></code>.
+Draggables <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">p</span></code> have targets on themselves. More specifically,
+<code class="docutils literal notranslate"><span class="pre">p</span></code> has three targets - <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, and <code class="docutils literal notranslate"><span class="pre">3</span></code>. The first requirement is
+that <code class="docutils literal notranslate"><span class="pre">s</span></code> and <code class="docutils literal notranslate"><span class="pre">p</span></code> are positioned on specific targets on the base image. The
+second requirement is that draggable <code class="docutils literal notranslate"><span class="pre">up</span></code> is positioned on specific targets
+of draggable <code class="docutils literal notranslate"><span class="pre">p</span></code>. Below is an excerpt from a problem:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">draggable</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;up&quot;</span> <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;/static/images/images_list/lcao-mo/up.png&quot;</span> <span class="n">can_reuse</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="o">/&gt;</span>
+
+<span class="o">&lt;</span><span class="n">draggable</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;s&quot;</span> <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;/static/images/images_list/lcao-mo/orbital_single.png&quot;</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;s orbital&quot;</span> <span class="n">can_reuse</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="n">target</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">w</span><span class="o">=</span><span class="s2">&quot;32&quot;</span> <span class="n">h</span><span class="o">=</span><span class="s2">&quot;32&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">draggable</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">draggable</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;p&quot;</span> <span class="n">icon</span><span class="o">=</span><span class="s2">&quot;/static/images/images_list/lcao-mo/orbital_triple.png&quot;</span> <span class="n">can_reuse</span><span class="o">=</span><span class="s2">&quot;true&quot;</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;p orbital&quot;</span> <span class="o">&gt;</span>
+  <span class="o">&lt;</span><span class="n">target</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;1&quot;</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">w</span><span class="o">=</span><span class="s2">&quot;32&quot;</span> <span class="n">h</span><span class="o">=</span><span class="s2">&quot;32&quot;</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">target</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;2&quot;</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;34&quot;</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">w</span><span class="o">=</span><span class="s2">&quot;32&quot;</span> <span class="n">h</span><span class="o">=</span><span class="s2">&quot;32&quot;</span><span class="o">/&gt;</span>
+  <span class="o">&lt;</span><span class="n">target</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;3&quot;</span> <span class="n">x</span><span class="o">=</span><span class="s2">&quot;68&quot;</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;0&quot;</span> <span class="n">w</span><span class="o">=</span><span class="s2">&quot;32&quot;</span> <span class="n">h</span><span class="o">=</span><span class="s2">&quot;32&quot;</span><span class="o">/&gt;</span>
+<span class="o">&lt;/</span><span class="n">draggable</span><span class="o">&gt;</span>
+
+<span class="o">...</span>
+
+<span class="n">correct_answer</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;p&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;p-left-target&#39;</span><span class="p">,</span> <span class="s1">&#39;p-right-target&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;s-left-target&#39;</span><span class="p">,</span> <span class="s1">&#39;s-right-target&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;up&#39;</span><span class="p">],</span>
+      <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;p-left-target[p][1]&#39;</span><span class="p">,</span> <span class="s1">&#39;p-left-target[p][2]&#39;</span><span class="p">,</span> <span class="s1">&#39;p-right-</span>
+         <span class="n">target</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span><span class="s1">&#39;, &#39;</span><span class="n">p</span><span class="o">-</span><span class="n">right</span><span class="o">-</span><span class="n">target</span><span class="p">[</span><span class="n">p</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="s1">&#39;,],</span>
+      <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that you must specify rules for all draggables, even if a draggable gets
+included in more than one chain.</p>
+</section>
+</section>
+<section id="grading-logic">
+<h2><span class="section-number">10.11.5. </span>Grading logic<a class="headerlink" href="#grading-logic" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>The learner’s answer and the correct answer are parsed to the same format.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">group_id</span><span class="p">:</span> <span class="n">group_draggables</span><span class="p">,</span> <span class="n">group_targets</span><span class="p">,</span> <span class="n">group_rule</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">group_id</span></code> is ordinal number, for every dict in correct answer incremental
+<code class="docutils literal notranslate"><span class="pre">group_id</span></code> is assigned: 0, 1, 2, …</p>
+<p>Draggables from the user answer are added to the same group_id where
+identical draggables from the correct answer are, for example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">If</span> <span class="n">correct_draggables</span><span class="p">[</span><span class="n">group_0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">]</span> <span class="n">then</span>
+<span class="n">user_draggables</span><span class="p">[</span><span class="n">group_0</span><span class="p">]</span> <span class="n">are</span> <span class="nb">all</span> <span class="n">draggables</span> <span class="n">t1</span> <span class="ow">and</span> <span class="n">t2</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">user</span> <span class="n">answer</span><span class="p">:</span>
+<span class="p">[</span><span class="n">t1</span><span class="p">]</span> <span class="ow">or</span> <span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">]</span> <span class="ow">or</span> <span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t2</span><span class="p">]</span> <span class="n">etc</span><span class="o">..</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic">
+<li><p>For every group from the user answer, for that group’s draggables, if
+<code class="docutils literal notranslate"><span class="pre">number</span></code> is in the group rule, set() is applied. If <code class="docutils literal notranslate"><span class="pre">number</span></code> is not in
+rule, set is not applied:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">set</span><span class="p">()</span> <span class="p">:</span> <span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="n">t3</span><span class="p">,</span> <span class="n">t3</span><span class="p">]</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">,</span> <span class="p">,</span><span class="n">t3</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div><p>For every group, at this step, draggables lists are equal.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p>For every group, lists of targets are compared using the rule for that
+group.</p></li>
+</ol>
+<section id="set-and-number-cases">
+<h3><span class="section-number">10.11.5.1. </span>Set and <code class="docutils literal notranslate"><span class="pre">+number</span></code> cases<a class="headerlink" href="#set-and-number-cases" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">set()</span></code> and <code class="docutils literal notranslate"><span class="pre">+number</span></code> are needed only for the case of reusable draggables.
+For other cases there are no equal draggables in list, so set() does nothing.</p>
+<ul>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">set()</span></code> operation allows you to create a rule for the case of “any
+number of the same draggable can be dragged to targets”:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;draggable_1&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target3&#39;</span><span class="p">,</span> <span class="s1">&#39;target6&#39;</span><span class="p">,</span> <span class="s1">&#39;target9&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">number</span></code> rule is used for the case of reusable draggables, when you
+want to fix number of draggable to drag. In this example only two instances
+of draggables_1 are allowed to be dragged:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;draggable_1&#39;</span><span class="p">,</span> <span class="s1">&#39;draggable_1&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target3&#39;</span><span class="p">,</span> <span class="s1">&#39;target6&#39;</span><span class="p">,</span> <span class="s1">&#39;target9&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;anyof+number&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Note, that in using rule <code class="docutils literal notranslate"><span class="pre">exact</span></code>, one does not need <code class="docutils literal notranslate"><span class="pre">number</span></code>, because you
+cannot recognize from the user interface which reusable draggable is on which
+target. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;draggable_1&#39;</span><span class="p">,</span> <span class="s1">&#39;draggable_1&#39;</span><span class="p">,</span> <span class="s1">&#39;draggable_2&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target3&#39;</span><span class="p">,</span> <span class="s1">&#39;target6&#39;</span><span class="p">,</span> <span class="s1">&#39;target9&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;exact&#39;</span>
+<span class="p">}</span>
+
+
+<span class="n">Correct</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">this</span> <span class="n">example</span> <span class="ow">is</span> <span class="n">to</span> <span class="n">create</span> <span class="n">different</span> <span class="n">rules</span> <span class="k">for</span>
+<span class="n">draggable_1</span> <span class="ow">and</span> <span class="n">draggable_2</span><span class="o">.</span>
+</pre></div>
+</div>
+</li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">unordered_equal</span></code> (or <code class="docutils literal notranslate"><span class="pre">exact</span></code>) you don’t need <code class="docutils literal notranslate"><span class="pre">number</span></code> if you have
+only the same draggable in the group, as the target length will provide
+the constraint for the number of draggables:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;draggable_1&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target3&#39;</span><span class="p">,</span> <span class="s1">&#39;target6&#39;</span><span class="p">,</span> <span class="s1">&#39;target9&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This means that only <code class="docutils literal notranslate"><span class="pre">draggable_1</span></code> can be dragged.</p>
+</li>
+<li><p>But if you have more than one different reusable draggable in the list, you
+may use the <code class="docutils literal notranslate"><span class="pre">number</span></code> rule:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;draggables&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;draggable_1&#39;</span><span class="p">,</span> <span class="s1">&#39;draggable_1&#39;</span><span class="p">,</span> <span class="s1">&#39;draggable_2&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;targets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;target3&#39;</span><span class="p">,</span> <span class="s1">&#39;target6&#39;</span><span class="p">,</span> <span class="s1">&#39;target9&#39;</span><span class="p">],</span>
+  <span class="s1">&#39;rule&#39;</span><span class="p">:</span> <span class="s1">&#39;unordered_equal+number&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p>If you do not use <code class="docutils literal notranslate"><span class="pre">number</span></code>, the draggables list will be set to
+[<code class="docutils literal notranslate"><span class="pre">draggable_1</span></code>, <code class="docutils literal notranslate"><span class="pre">draggable_2</span></code>].</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="drag_and_drop.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10.10. </span>Drag and Drop Problem</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="dropdown.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.12. </span>Dropdown Problem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-drag-and-drop-problem">10.11.1. Adding a Drag and Drop Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-drag-and-drop-problem-code">10.11.1.1. Sample Drag and Drop Problem Code</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#drag-and-drop-problem-xml">10.11.2. Drag and Drop Problem XML</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tags">10.11.2.1. Tags</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#targets-on-draggables">10.11.3. Targets on Draggables</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#limitations-of-targets-on-draggables">10.11.3.1. Limitations of targets on draggables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correct-answer-format">10.11.4. Correct answer format</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-format-for-targets-on-draggables">10.11.4.1. Answer format for targets on draggables</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#grading-logic">10.11.5. Grading logic</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-and-number-cases">10.11.5.1. Set and <code class="docutils literal notranslate"><span class="pre">+number</span></code> cases</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1047 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>7.9. Testing Your Course Content &#8212; Building and Running an Open edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developing_course/testing_courseware';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8. Adding Course Components" href="../course_components/index.html" />
+    <link rel="prev" title="7.8. Course Licensing" href="licensing_course.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Building and Running an Open edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Building and Running an Open edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building and Running an Open edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_get_started_Studio.html">2.1. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_information/index.html">6.1. Planning Course Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title and Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/studio_add_course_information/index.html">6.3. Creating a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_staffing.html">6.3.1. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html">6.3.2. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_scheduling.html">6.3.3. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_prerequisites.html">6.3.4. Specifying Prerequisite Courses and Exams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_about_page.html">6.3.5. Creating a Course About Page in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.3.6. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/search_course.html">6.3.7. Course Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/custom_courses.html">6.3.8. Creating a Custom Course</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">7. Developing Your Course</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">7.9. Testing Your Course Content</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_components/index.html">8. Adding Course Components</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_components/libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/upload_video.html">9.3. Upload a Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/troubleshoot_video.html">9.7. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises_tools/index.html">10. Adding Exercises and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/completion.html">10.7. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/conditional_module.html">10.8. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_python.html">10.10. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop.html">10.11. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop_deprecated.html">10.12. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/dropdown.html">10.13. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/external_graders.html">10.14. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/full_screen_image.html">10.15. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/gene_explorer.html">10.16. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_calendar.html">10.17. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_docs.html">10.18. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/iframe.html">10.19. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/image_mapped_input.html">10.20. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/lti_component.html">10.21. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/math_expression_input.html">10.22. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/mathjax.html">10.23. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/multi_select.html">10.24. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/notes.html">10.25. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/numerical_input.html">10.26. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/index.html">10.27. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/OpenResponseAssessments.html">10.27.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/CreateORAAssignment.html">10.27.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/Manage_ORA_Assignment.html">10.27.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/ORA_Staff_Grading.html">10.27.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/Access_ORA_Info.html">10.27.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/oppia.html">10.28. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/peer_instruction_tool.html">10.29. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/periodic_table.html">10.30. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll_question.html">10.31. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll.html">10.32. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_with_hint.html">10.33. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_in_latex.html">10.34. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/protein_builder.html">10.35. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/qualtrics.html">10.36. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/randomized_content_blocks.html">10.37. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/recommenderXBlock.html">10.38. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/zooming_image.html">10.45. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/teams/index.html">12.3. Including Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_setup.html">12.3.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_learner_experience.html">12.3.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_discussions.html">12.3.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/content_experiments/index.html">12.4. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_overview.html">12.4.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_configure.html">12.4.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_add.html">12.4.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_view.html">12.4.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/timed_exams.html">12.5. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/lti/index.html">12.6. Using Open edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_reuse_content.html">12.6.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_prepare_content.html">12.6.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_address_content.html">12.6.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_grade_content.html">12.6.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_canvas_example.html">12.6.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_blackboard_example.html">12.6.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_learners.html">13.2. Preparing Learners for Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_enabling.html">13.3. Creating Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/CA_online_proctoring_rules_students.html">13.4. Online Proctoring Rules for Learners</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from the Open edX Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../student_progress/index.html">18. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_student.html">18.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_answers.html">18.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_grades.html">18.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/certificate_data.html">18.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/checking_student_progress.html">18.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rerun_course/index.html">19. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rerun_course/course_rerun.html">19.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">20. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/open_edx_course_authors/source/developing_course/testing_courseware.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fdeveloping_course/testing_courseware.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/developing_course/testing_courseware.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Testing Your Course Content</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-published-and-released-content">7.9.1. Viewing Published and Released Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-published-and-released-content">7.9.1.1. View Published and Released Content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#previewing-draft-content">7.9.2. Previewing Draft Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-draft-content">7.9.2.1. Preview Draft Content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-course-content-based-on-roles">7.9.3. Viewing Course Content Based on Roles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staff-view">7.9.3.1. Staff View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-view">7.9.3.2. Learner View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-learner-view">7.9.3.3. Specific Learner View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-in-a-content-group-view">7.9.3.4. Learner in a Content Group View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-in-an-enrollment-track-group-view">7.9.3.5. Learner in an Enrollment Track Group View</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="testing-your-course-content">
+<span id="id1"></span><h1><span class="section-number">7.9. </span>Testing Your Course Content<a class="headerlink" href="#testing-your-course-content" title="Link to this heading">#</a></h1>
+<p>The way your course looks in Studio is different from the way that learners
+will see and experience it when it is live in the LMS. As a best practice, you
+should test content continually as you build your course, by interacting with
+the course content from a learner’s point of view.</p>
+<p>The method that you choose for experiencing the course content as a learner
+depends on the publishing status of the content.</p>
+<ul class="simple">
+<li><p>For published and released content, use <a class="reference internal" href="#view-published-content"><span class="std std-ref">View Live</span></a>.</p></li>
+<li><p>For draft and unreleased content, use <a class="reference internal" href="#preview-unpublished-content"><span class="std std-ref">Preview</span></a>.</p></li>
+</ul>
+<p>For more information, see the following topics.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#viewing-published-and-released-content" id="id3">Viewing Published and Released Content</a></p></li>
+<li><p><a class="reference internal" href="#previewing-draft-content" id="id4">Previewing Draft Content</a></p></li>
+<li><p><a class="reference internal" href="#viewing-course-content-based-on-roles" id="id5">Viewing Course Content Based on Roles</a></p></li>
+</ul>
+</nav>
+<p>Beta testing your course is another way to evaluate course content. For
+information about setting up a beta test for your course, see
+<a class="reference internal" href="../releasing_course/beta_testing.html#beta-testing"><span class="std std-ref">Beta Testing a Course</span></a>.</p>
+<p>To test content before a course has started, you can add yourself as a beta
+tester on the instructor dashboard. Make sure to set the course start date and
+the appropriate <strong>Days Early for Beta</strong> value. For more information, see
+<a class="reference internal" href="../releasing_course/beta_testing.html#beta-testing"><span class="std std-ref">Beta Testing a Course</span></a>.</p>
+<section id="viewing-published-and-released-content">
+<span id="view-published-content"></span><h2><a class="toc-backref" href="#id3" role="doc-backlink"><span class="section-number">7.9.1. </span>Viewing Published and Released Content</a><a class="headerlink" href="#viewing-published-and-released-content" title="Link to this heading">#</a></h2>
+<p>If your course has started, you can view published and released course content
+from the point of view of a learner. When you select <strong>View Live</strong> or <strong>View
+Live Version</strong> from the course outline in Studio, you can choose specific views
+in the LMS to experience the course content exactly as a particular learner
+would.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For courses that have not started, <strong>View Live</strong> mode provides only
+<strong>Staff</strong> view, and you can only view content that has a publishing
+status of Published.</p>
+</div>
+<p>In courses that have started, when you use <strong>Staff</strong> view in <strong>View Live</strong>
+mode, keep the following points in mind.</p>
+<ul class="simple">
+<li><p>In addition to units that have a publishing status of <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">published and
+live</span></a> you also see units that are published but not yet
+released.</p></li>
+<li><p>You see published units that are in <a class="reference internal" href="course_units.html#visible-to-staff-only"><span class="std std-ref">Visible to Staff Only</span></a> or
+<a class="reference internal" href="course_units.html#draft-unpublished-changes"><span class="std std-ref">Draft (Unpublished changes)</span></a> status, regardless of the release dates of
+the containing section or subsection, but you see only the latest published
+version of such units.</p></li>
+<li><p>You do not see units that are in <a class="reference internal" href="course_units.html#draft-never-published"><span class="std std-ref">Draft (Never Published)</span></a> status. To
+see these units, you must use Preview mode, as described in <a class="reference internal" href="#preview-unpublished-content"><span class="std std-ref">Previewing Draft Content</span></a>.</p></li>
+<li><p>If you view the course in a role other than <strong>Staff</strong>, you do not have
+access to the <strong>Instructor</strong> tab or to staff functions such as <strong>View Unit in
+Studio</strong>, <strong>Staff Debug Info</strong>, or <strong>Submission History</strong>.</p></li>
+</ul>
+<p>For information about unit publishing statuses, see <a class="reference internal" href="course_units.html#unit-publishing-status"><span class="std std-ref">Unit Publishing Statuses</span></a>.</p>
+<section id="view-published-and-released-content">
+<h3><span class="section-number">7.9.1.1. </span>View Published and Released Content<a class="headerlink" href="#view-published-and-released-content" title="Link to this heading">#</a></h3>
+<p>To view published and released content as it would appear to members of
+different groups, follow these steps.</p>
+<ol class="arabic">
+<li><p>From the Studio <strong>Course Outline</strong> page, select <strong>View Live</strong>.
+Alternatively, from a unit page, select <strong>View Live Version</strong>.</p>
+<p>A separate browser tab opens for the course in the LMS.</p>
+</li>
+<li><p>In the LMS, select one of the <strong>View this course as</strong> options, as described
+in <a class="reference internal" href="#roles-for-viewing-course-content"><span class="std std-ref">Viewing Course Content Based on Roles</span></a>.</p></li>
+</ol>
+<p>The course view refreshes to present published course content as a learner in
+the selected group would see it.</p>
+<p>For more information about each view, see <a class="reference internal" href="#staff-view"><span class="std std-ref">Staff View</span></a>, <a class="reference internal" href="#student-view"><span class="std std-ref">Learner View</span></a>, or <a class="reference internal" href="#specific-student-view"><span class="std std-ref">Specific Learner View</span></a>. For more information about viewing
+cohort-specific course content, see <a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html#viewing-cohort-specific-courseware"><span class="std std-ref">Viewing Cohort-Specific Course Content</span></a>.</p>
+</section>
+</section>
+<section id="previewing-draft-content">
+<span id="preview-unpublished-content"></span><h2><a class="toc-backref" href="#id4" role="doc-backlink"><span class="section-number">7.9.2. </span>Previewing Draft Content</a><a class="headerlink" href="#previewing-draft-content" title="Link to this heading">#</a></h2>
+<p>Before your course has started, or before you release content to learners, you
+can test how the content will appear when it is released.</p>
+<p>Similar to <a class="reference internal" href="#view-published-content"><span class="std std-ref">viewing published content</span></a>, you can
+choose specific views in the LMS to experience draft or unreleased course
+content as learners belonging to different groups would, but you select
+<strong>Preview</strong> from the course outline in Studio instead of <strong>View Live</strong>.</p>
+<p>In <strong>Preview</strong> mode, if you use one of the student-based <strong>View course as</strong>
+options, you can see draft course content unrestricted by release date. You
+see any content that has a publishing status of <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a> as
+well as content with publishing statuses of <a class="reference internal" href="course_units.html#draft-never-published"><span class="std std-ref">Draft (Never Published)</span></a> or
+<a class="reference internal" href="course_units.html#draft-unpublished-changes"><span class="std std-ref">Draft (Unpublished changes)</span></a>.</p>
+<p>When you use <strong>Staff</strong> view in preview mode, you also see any content that is
+<a class="reference internal" href="course_units.html#visible-to-staff-only"><span class="std std-ref">Visible to Staff Only</span></a>.</p>
+<section id="preview-draft-content">
+<h3><span class="section-number">7.9.2.1. </span>Preview Draft Content<a class="headerlink" href="#preview-draft-content" title="Link to this heading">#</a></h3>
+<p>To preview draft content and see how it would appear to members of different
+groups when it is released, follow these steps.</p>
+<ol class="arabic">
+<li><p>From a unit page in the <strong>Course Outline</strong> in Studio, select <strong>Preview</strong>.</p>
+<p>A separate browser tab opens for the course in the LMS.</p>
+</li>
+<li><p>In the LMS, select one of the <strong>View this course as</strong> options, as described
+in <a class="reference internal" href="#roles-for-viewing-course-content"><span class="std std-ref">Viewing Course Content Based on Roles</span></a>.</p></li>
+</ol>
+<p>The course view refreshes to present course content as it is currently
+configured in Studio, and as a learner in the selected group would see it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you use randomized content blocks in your course, you cannot
+preview unpublished units that contain content from randomized content
+blocks, because the randomized content is not assigned until after the unit
+is published. For information about viewing the actual content that has
+been assigned to a particular learner from a randomized content block in a
+live course, see <a class="reference internal" href="#specific-student-view"><span class="std std-ref">Specific Learner View</span></a>.</p>
+</div>
+</section>
+</section>
+<section id="viewing-course-content-based-on-roles">
+<span id="roles-for-viewing-course-content"></span><h2><a class="toc-backref" href="#id5" role="doc-backlink"><span class="section-number">7.9.3. </span>Viewing Course Content Based on Roles</a><a class="headerlink" href="#viewing-course-content-based-on-roles" title="Link to this heading">#</a></h2>
+<p>When you select <strong>View Live</strong> or <strong>Preview</strong> from the course outline in Studio,
+you can see how it would appear to members of different groups by selecting one
+of the <strong>View this course as</strong> options in the LMS.</p>
+<blockquote>
+<div><img alt="The &quot;View this course as&quot; drop down list, with a group selected." src="../_images/Groups_ViewCourseAs.png" />
+</div></blockquote>
+<p>The following table summarizes the content that is available in either <strong>View
+Live</strong> mode or <strong>Preview</strong> mode when you choose a role for viewing the
+content.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 27.3%" />
+<col style="width: 36.4%" />
+<col style="width: 36.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>“View this course as” Role</p></th>
+<th class="head"><p>In “View Live” Mode</p></th>
+<th class="head"><p>In “Preview” Mode</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference internal" href="#staff-view"><span class="std std-ref">Staff</span></a></p></td>
+<td><p>You see content that has any of the publishing statuses
+<a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a>, <a class="reference internal" href="course_units.html#published-not-yet-released"><span class="std std-ref">Published (not yet released)</span></a>, or
+<a class="reference internal" href="course_units.html#draft-unpublished-changes"><span class="std std-ref">Draft (Unpublished changes)</span></a>. In <strong>Staff</strong> view, you also see
+content that is <a class="reference internal" href="course_units.html#visible-to-staff-only"><span class="std std-ref">Visible to Staff Only</span></a>.</p></td>
+<td><p>In addition to the content you would see in “View Live” mode, you also
+see content that is in <a class="reference internal" href="course_units.html#draft-never-published"><span class="std std-ref">Draft (Never Published)</span></a> status. In
+<strong>Staff</strong> view, you also see content that is <a class="reference internal" href="course_units.html#visible-to-staff-only"><span class="std std-ref">Visible to Staff Only</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#student-view"><span class="std std-ref">Learner</span></a></p></td>
+<td><p>You see content that has a status of <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a>, and
+that is intended for all learners. For example, you see content that
+is not intended for a specific cohort group. In <strong>Student</strong> view, you
+do not see content that is <a class="reference internal" href="course_units.html#visible-to-staff-only"><span class="std std-ref">Visible to Staff Only</span></a>.</p></td>
+<td><p>In addition to the content that you would see in “View Live” mode, you
+also see content that has a status of <a class="reference internal" href="course_units.html#draft-never-published"><span class="std std-ref">Draft (Never Published)</span></a>
+or <a class="reference internal" href="course_units.html#draft-unpublished-changes"><span class="std std-ref">Draft (Unpublished changes)</span></a>. In <strong>Student</strong> view, you do not
+see content that is <a class="reference internal" href="course_units.html#visible-to-staff-only"><span class="std std-ref">Visible to Staff Only</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#specific-student-view"><span class="std std-ref">Specific Learner</span></a></p></td>
+<td><p>You see content that has a status of <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a>, and is
+intended for the specific learner whose email or username you enter.</p></td>
+<td><p><strong>Specific student</strong> view is not available for unpublished content or
+if the course has not started.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#student-in-content-group-view"><span class="std std-ref">Learner in a Specific Content Group</span></a></p></td>
+<td><p>You see content that has a status of <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a> that
+would be available to learners who belong to the specified content
+group.</p></td>
+<td><p>In addition to the content you would see in “View Live” mode, you also
+see content that has a status of <a class="reference internal" href="course_units.html#draft-never-published"><span class="std std-ref">Draft (Never Published)</span></a> or
+<a class="reference internal" href="course_units.html#draft-unpublished-changes"><span class="std std-ref">Draft (Unpublished changes)</span></a> that would be available to learners
+who belong to the specified content group.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#learner-in-enrollment-track-group-view"><span class="std std-ref">Learner in an Enrollment Track</span></a></p></td>
+<td><p>You see content that has a status of <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a> that
+would be available to learners who are in the specified enrollment
+track.</p></td>
+<td><p>In addition to the content you would see in “View Live” mode, you also
+see content that has a status of <a class="reference internal" href="course_units.html#draft-never-published"><span class="std std-ref">Draft (Never Published)</span></a> or
+<a class="reference internal" href="course_units.html#draft-unpublished-changes"><span class="std std-ref">Draft (Unpublished changes)</span></a> that would be available to learners
+who are in the specified enrollment track.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When a unit’s state is <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a>, the preview and
+the live versions of the course are exactly the same. In this case,
+selecting either <strong>View Live</strong> or <strong>Preview</strong> gives you the same view of
+that unit.</p>
+</div>
+<section id="staff-view">
+<span id="id2"></span><h3><span class="section-number">7.9.3.1. </span>Staff View<a class="headerlink" href="#staff-view" title="Link to this heading">#</a></h3>
+<p>Staff view displays content in your course as any member of the course team
+would experience it.</p>
+<p>When you view your course content using <strong>Staff</strong> view, you can execute tests
+to make sure that your course works the way you intend. For example, before
+the release date of a subsection, members of the course team can work through
+the problems to verify that the correct answer receives a green check for
+correct, and that any answer other than the correct one receives a red X for
+incorrect.</p>
+<p>When you use <strong>Staff</strong> view in the LMS, you can go back to Studio to edit
+course content in the following ways.</p>
+<ul class="simple">
+<li><p>On a unit page, select <strong>View Unit in Studio</strong> to open the unit within the
+course outline in Studio.</p></li>
+<li><p>From the instructor dashboard, select <strong>View Course in Studio</strong> to open the
+course outline in Studio.</p></li>
+<li><p>On the <strong>Progress</strong> page, select <strong>View Grading in Studio</strong> to open the
+<strong>Grading</strong> page in Studio.</p></li>
+</ul>
+</section>
+<section id="learner-view">
+<span id="student-view"></span><h3><span class="section-number">7.9.3.2. </span>Learner View<a class="headerlink" href="#learner-view" title="Link to this heading">#</a></h3>
+<p>Learner view displays content in your course as an enrolled learner in your
+course would experience it.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your course uses randomized content blocks, or if your course is
+designed so that learners in different enrollment track groups or content
+groups are shown different content, you can select an option from the <strong>View
+Course As</strong> dropdown list to see the content that a specific learner sees, or
+that a learner in a specific group sees. For more information, see
+<a class="reference internal" href="#specific-student-view"><span class="std std-ref">Specific Learner View</span></a> or <a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html#viewing-cohort-specific-courseware"><span class="std std-ref">Viewing Cohort-Specific Course Content</span></a>.</p>
+</div>
+</section>
+<section id="specific-learner-view">
+<span id="specific-student-view"></span><h3><span class="section-number">7.9.3.3. </span>Specific Learner View<a class="headerlink" href="#specific-learner-view" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This view is available only if your course has started, and only for
+content that has a status of <a class="reference internal" href="course_units.html#published-and-live"><span class="std std-ref">Published and Live</span></a>.</p>
+</div>
+<p>Specific learner view displays published content in your live course as the
+learner that you specify experiences it. When you view the <strong>Progress</strong> page,
+the page displays grades and progress for the learner that you have specified.</p>
+<p>When you view your course content as <strong>Specific student</strong>, be aware of the
+following limitations.</p>
+<ul class="simple">
+<li><p>You cannot view open response assessment problems as a specific learner.</p></li>
+<li><p>In courses with randomized content blocks, you see the actual problem that
+was assigned to a specific learner. This view allows you to evaluate a
+request to adjust a grade or reset the number of attempts for a problem. For
+details about adjusting grades or resetting attempts, see
+<a class="reference internal" href="../student_progress/course_grades.html#adjust-grades"><span class="std std-ref">Adjust Grades for One or All Learners</span></a>.</p></li>
+</ul>
+</section>
+<section id="learner-in-a-content-group-view">
+<span id="student-in-content-group-view"></span><h3><span class="section-number">7.9.3.4. </span>Learner in a Content Group View<a class="headerlink" href="#learner-in-a-content-group-view" title="Link to this heading">#</a></h3>
+<p>This view displays content as a learner who belongs to the specified content
+group would experience it. You can use this view to verify that content
+designed for learners in a specific content group is displaying as intended.</p>
+<p>For details about content groups, and about creating and previewing cohort-specific
+content, see <a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html#about-content-groups"><span class="std std-ref">Content Groups</span></a>, <a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html#cohorted-courseware-overview"><span class="std std-ref">Creating Cohort-Specific Course Content</span></a>,
+and <a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html#viewing-cohort-specific-courseware"><span class="std std-ref">Viewing Cohort-Specific Course Content</span></a>.</p>
+</section>
+<section id="learner-in-an-enrollment-track-group-view">
+<span id="learner-in-enrollment-track-group-view"></span><h3><span class="section-number">7.9.3.5. </span>Learner in an Enrollment Track Group View<a class="headerlink" href="#learner-in-an-enrollment-track-group-view" title="Link to this heading">#</a></h3>
+<p>This view displays content as a learner who is in a specific enrollment track
+would experience it. You can use this view to verify that content designed for
+learners in a specific enrollment track is displaying as intended.</p>
+<p>For more information about enrollment track groups, and about creating and
+previewing enrollment track based content, see <a class="reference internal" href="../course_features/diff_content/enroll_track_courseware.html#about-enrollment-track-groups-and-access"><span class="std std-ref">Enrollment Track Groups</span></a> and <a class="reference internal" href="../course_features/diff_content/enroll_track_courseware.html#enrollment-track-specific-courseware-overview"><span class="std std-ref">Creating Course Content for Specific Enrollment Tracks</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="licensing_course.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7.8. </span>Course Licensing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../course_components/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8. </span>Adding Course Components</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-published-and-released-content">7.9.1. Viewing Published and Released Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#view-published-and-released-content">7.9.1.1. View Published and Released Content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#previewing-draft-content">7.9.2. Previewing Draft Content</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preview-draft-content">7.9.2.1. Preview Draft Content</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#viewing-course-content-based-on-roles">7.9.3. Viewing Course Content Based on Roles</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#staff-view">7.9.3.1. Staff View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-view">7.9.3.2. Learner View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specific-learner-view">7.9.3.3. Specific Learner View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-in-a-content-group-view">7.9.3.4. Learner in a Content Group View</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#learner-in-an-enrollment-track-group-view">7.9.3.5. Learner in an Enrollment Track Group View</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

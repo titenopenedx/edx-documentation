@@ -1,0 +1,1503 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3.2. EdX Course Catalog API Reference &#8212; EdX Course Catalog API User Guide  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course_catalog/catalog';</script>
+    <link rel="icon" href="https://www.edx.org/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4. Frequently Asked Questions" href="../cc_api_faq.html" />
+    <link rel="prev" title="3.1. EdX Course Catalog API Overview" href="overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-light" alt="EdX Course Catalog API User Guide  documentation - Home"/>
+    <script>document.write(`<img src="https://www.edx.org/images/logos/edx-logo-elm.svg" class="logo__image only-dark" alt="EdX Course Catalog API User Guide  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EdX Course Catalog API User Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../intro_edx_apis.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authentication/index.html">2. Authenticating as an edX REST Web Service User</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">3. Using the EdX Course Catalog API</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="overview.html">3.1. EdX Course Catalog API Overview</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">3.2. EdX Course Catalog API Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../cc_api_faq.html">4. Frequently Asked Questions</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/course_catalog_api_user_guide/source/course_catalog/catalog.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fcourse_catalog/catalog.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/course_catalog/catalog.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>EdX Course Catalog API Reference</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-all-course-catalogs">3.2.1. Get a List of All Course Catalogs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-and-endpoint">3.2.1.1. Method and Endpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-request">3.2.1.2. Example Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-values">3.2.1.3. Response Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#results-array">3.2.1.3.1. Results Array</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-response-showing-a-list-of-all-course-catalogs">3.2.1.4. Example Response Showing a List of All Course Catalogs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-about-a-specific-catalog">3.2.2. Get Information about a Specific Catalog</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2.2.1. Method and Endpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.2.2. Example Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.2.2.3. Response Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-response-showing-information-about-a-catalog">3.2.2.4. Example Response Showing Information About a Catalog</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-all-courses-in-a-catalog">3.2.3. Get a List of All Courses in a Catalog</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.2.3.1. Method and Endpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.2.3.2. Example Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">3.2.3.3. Response Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-in-the-courses-endpoint">3.2.3.3.1. Arrays in the Courses Endpoint</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#course-runs">3.2.3.3.1.1. course_runs</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#image">3.2.3.3.1.2. image</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#organization">3.2.3.3.1.3. organization</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#person">3.2.3.3.1.4. person</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">3.2.3.3.1.5. prerequisites</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#seats">3.2.3.3.1.6. seats</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#subjects">3.2.3.3.1.7. subjects</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#video">3.2.3.3.1.8. video</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-response-showing-information-about-a-course">3.2.3.4. Example Response Showing Information about a Course</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="edx-course-catalog-api-reference">
+<span id="course-catalog-api-reference"></span><h1><span class="section-number">3.2. </span>EdX Course Catalog API Reference<a class="headerlink" href="#edx-course-catalog-api-reference" title="Link to this heading">#</a></h1>
+<p>The edX Course Catalog API is currently in beta.</p>
+<p>You can use the edX Course Catalog API to accomplish the following tasks.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#get-a-list-of-all-course-catalogs" id="id10">Get a List of All Course Catalogs</a></p></li>
+<li><p><a class="reference internal" href="#get-information-about-a-specific-catalog" id="id11">Get Information about a Specific Catalog</a></p></li>
+<li><p><a class="reference internal" href="#get-a-list-of-all-courses-in-a-catalog" id="id12">Get a List of All Courses in a Catalog</a></p></li>
+</ul>
+</nav>
+<section id="get-a-list-of-all-course-catalogs">
+<span id="id1"></span><h2><a class="toc-backref" href="#id10" role="doc-backlink"><span class="section-number">3.2.1. </span>Get a List of All Course Catalogs</a><a class="headerlink" href="#get-a-list-of-all-course-catalogs" title="Link to this heading">#</a></h2>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/</span></code> endpoint to get a list of all course
+catalogs that have been created for you.</p>
+<section id="method-and-endpoint">
+<h3><span class="section-number">3.2.1.1. </span>Method and Endpoint<a class="headerlink" href="#method-and-endpoint" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Endpoint</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GET</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-request">
+<h3><span class="section-number">3.2.1.2. </span>Example Request<a class="headerlink" href="#example-request" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: JWT {access token}&quot;</span><span class="w"> </span>https://api.edx.org/catalog/v1/catalogs/
+</pre></div>
+</div>
+</section>
+<section id="response-values">
+<h3><span class="section-number">3.2.1.3. </span>Response Values<a class="headerlink" href="#response-values" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/catalog/v1/catalogs/</span></code> request returns the following response
+values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Responses to GET requests for the edX Course Catalog API frequently contain
+the <code class="docutils literal notranslate"><span class="pre">results</span></code> response value. The <code class="docutils literal notranslate"><span class="pre">results</span></code> response value is a variable
+that represents the intended JSON object from the GET request. For the
+<code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/</span></code> endpoint, the <code class="docutils literal notranslate"><span class="pre">results</span></code> object includes an array
+of objects that list information about the catalogs that are listed on the
+current page.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">count</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The number of available catalogs.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">next</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL for the next page of results.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">previous</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL for the previous page of results.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">results</span></code></p></td>
+<td><p>array</p></td>
+<td><p>Information about the current page of catalogs. For more information,
+see <a class="reference internal" href="#catalogs-endpoint-results-array"><span class="std std-ref">Results Array</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="results-array">
+<span id="catalogs-endpoint-results-array"></span><h4><span class="section-number">3.2.1.3.1. </span>Results Array<a class="headerlink" href="#results-array" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">results</span></code> array for the <code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/</span></code> endpoint contains the
+following response values.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The catalog identifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the catalog.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">query</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The internal query that the server uses to retrieve catalog contents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">courses_count</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The number of courses this catalog contains.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">viewers</span></code></p></td>
+<td><p>array[string]</p></td>
+<td><p>Usernames of users with explicit access to view this catalog.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section id="example-response-showing-a-list-of-all-course-catalogs">
+<h3><span class="section-number">3.2.1.4. </span>Example Response Showing a List of All Course Catalogs<a class="headerlink" href="#example-response-showing-a-list-of-all-course-catalogs" title="Link to this heading">#</a></h3>
+<p>The following example response shows a list of all catalogs that are available
+for a specific user.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;next&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;previous&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;results&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All Courses&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*:*&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;courses_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;viewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">                </span><span class="s2">&quot;username1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;username2&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="get-information-about-a-specific-catalog">
+<span id="id2"></span><h2><a class="toc-backref" href="#id11" role="doc-backlink"><span class="section-number">3.2.2. </span>Get Information about a Specific Catalog</a><a class="headerlink" href="#get-information-about-a-specific-catalog" title="Link to this heading">#</a></h2>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/{id}/</span></code> endpoint to get information
+about a specific catalog.</p>
+<section id="id3">
+<h3><span class="section-number">3.2.2.1. </span>Method and Endpoint<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Endpoint</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GET</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/{id}/</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id4">
+<h3><span class="section-number">3.2.2.2. </span>Example Request<a class="headerlink" href="#id4" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: JWT {access token}&quot;</span><span class="w"> </span>https://api.edx.org/catalog/v1/catalogs/1/
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3><span class="section-number">3.2.2.3. </span>Response Values<a class="headerlink" href="#id5" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/catalog/v1/catalogs/{id}/</span></code> request returns the following
+response values.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">id</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The catalog identifier.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the catalog.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">query</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The query that the server uses to retrieve catalog contents.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">courses_count</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The number of courses this catalog contains.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">viewers</span></code></p></td>
+<td><p>array[string]</p></td>
+<td><p>Usernames of users with explicit access to view this catalog.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="example-response-showing-information-about-a-catalog">
+<h3><span class="section-number">3.2.2.4. </span>Example Response Showing Information About a Catalog<a class="headerlink" href="#example-response-showing-information-about-a-catalog" title="Link to this heading">#</a></h3>
+<p>The following example response lists information about a single catalog.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;All Courses&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;query&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;*:*&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;courses_count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">18</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;viewers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="s2">&quot;username1&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;username2&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="get-a-list-of-all-courses-in-a-catalog">
+<span id="id6"></span><h2><a class="toc-backref" href="#id12" role="doc-backlink"><span class="section-number">3.2.3. </span>Get a List of All Courses in a Catalog</a><a class="headerlink" href="#get-a-list-of-all-courses-in-a-catalog" title="Link to this heading">#</a></h2>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/{id}/courses/</span></code> endpoint to get a list
+of all the active courses in a specified catalog, along with details about each
+course. Active courses are courses that are currently open for enrollment or
+that will open for enrollment in the future.</p>
+<section id="id7">
+<h3><span class="section-number">3.2.3.1. </span>Method and Endpoint<a class="headerlink" href="#id7" title="Link to this heading">#</a></h3>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Method</p></th>
+<th class="head"><p>Endpoint</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>GET</p></td>
+<td><p>/catalog/v1/catalogs/{id}/courses/</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="id8">
+<h3><span class="section-number">3.2.3.2. </span>Example Request<a class="headerlink" href="#id8" title="Link to this heading">#</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-X<span class="w"> </span>GET<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Authorization: JWT {access token}&quot;</span><span class="w"> </span>https://api.edx.org/catalog/v1/catalogs/1/courses/
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3><span class="section-number">3.2.3.3. </span>Response Values<a class="headerlink" href="#id9" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/catalog/v1/catalogs/{id}/courses/</span></code> request returns the following
+response values.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Responses to GET requests for the edX Course Catalog API frequently contain
+the <code class="docutils literal notranslate"><span class="pre">results</span></code> response value. The <code class="docutils literal notranslate"><span class="pre">results</span></code> response value is a variable
+that represents the intended object from the GET request. For the
+<code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/{id}/courses/</span></code> endpoint, the <code class="docutils literal notranslate"><span class="pre">results</span></code> object holds
+an array of objects that list information about each individual course in the
+catalog.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">count</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The number of active courses in the catalog.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">next</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL for the next page of results.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">previous</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL for the previous page of results.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">results</span></code></p></td>
+<td><p>array</p></td>
+<td><p>A list of courses in the catalog.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Each JSON object in the <code class="docutils literal notranslate"><span class="pre">results</span></code> array contains the following response
+values. Many of these values are also arrays. For more information about
+these arrays, see <a class="reference internal" href="#cc-api-arrays-in-the-courses-endpoint"><span class="std std-ref">Arrays in the Courses Endpoint</span></a>.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">key</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The unique identifier for the course.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The title of the course.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">short_description</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The short description of the course and its content.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">full_description</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The long description of the course and its content.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">level_type</span></code></p></td>
+<td><p>ENUM string</p></td>
+<td><p>The course’s level of difficulty. Can be <code class="docutils literal notranslate"><span class="pre">high_school</span></code>,
+<code class="docutils literal notranslate"><span class="pre">introductory</span></code>, <code class="docutils literal notranslate"><span class="pre">intermediate</span></code>, or <code class="docutils literal notranslate"><span class="pre">advanced</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">subjects</span></code></p></td>
+<td><p>array</p></td>
+<td><p>Academic subjects that this course covers. See <a class="reference internal" href="#cc-api-subjects"><span class="std std-ref">subjects</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">prerequisites</span></code></p></td>
+<td><p>array</p></td>
+<td><p>Any courses a learner must complete before enrolling in the current
+course. See <a class="reference internal" href="#cc-api-prerequisites"><span class="std std-ref">prerequisites</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">expected_learning_items`</span></code></p></td>
+<td><p>array</p></td>
+<td><p>TBA</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">image</span></code></p></td>
+<td><p>array</p></td>
+<td><p>The About page image for this course. See <a class="reference internal" href="#cc-api-image"><span class="std std-ref">image</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">video</span></code></p></td>
+<td><p>array</p></td>
+<td><p>The course About video. See <a class="reference internal" href="#cc-api-video"><span class="std std-ref">video</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">owners</span></code></p></td>
+<td><p>array</p></td>
+<td><p>The institution that offers the course. See <a class="reference internal" href="#cc-api-organization"><span class="std std-ref">organization</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">sponsors</span></code></p></td>
+<td><p>array</p></td>
+<td><p>The corporate sponsor for the course. See <a class="reference internal" href="#cc-api-organization"><span class="std std-ref">organization</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">modified</span></code></p></td>
+<td><p>datetime</p></td>
+<td><p>The date and time the course was last modified.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">course_runs</span></code></p></td>
+<td><p>array</p></td>
+<td><p>Information about specific runs of the course. See <a class="reference internal" href="#cc-api-course-runs"><span class="std std-ref">course_runs</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">marketing_url</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL for the course About page.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="arrays-in-the-courses-endpoint">
+<span id="cc-api-arrays-in-the-courses-endpoint"></span><h4><span class="section-number">3.2.3.3.1. </span>Arrays in the Courses Endpoint<a class="headerlink" href="#arrays-in-the-courses-endpoint" title="Link to this heading">#</a></h4>
+<p>The response values in the <code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/{id}/courses/</span></code> endpoint
+contain a number of arrays. Some of these arrays contain additional arrays. The
+following list includes the arrays in the response values for the
+<code class="docutils literal notranslate"><span class="pre">/catalog/v1/catalogs/{id}/courses/</span></code> endpoint.</p>
+<section id="course-runs">
+<span id="cc-api-course-runs"></span><h5><span class="section-number">3.2.3.3.1.1. </span>course_runs<a class="headerlink" href="#course-runs" title="Link to this heading">#</a></h5>
+<p>An array that lists the course runs for each course.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">key</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The unique identifier for the course.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The title of the course.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">short_description</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The short description of the course and its content.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">full_description</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The long description of the course and its content.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">start</span></code></p></td>
+<td><p>datetime</p></td>
+<td><p>The course start date.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">end</span></code></p></td>
+<td><p>datetime</p></td>
+<td><p>The course end date.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">enrollment_start</span></code></p></td>
+<td><p>datetime</p></td>
+<td><p>The course enrollment start date.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">enrollment_end</span></code></p></td>
+<td><p>datetime</p></td>
+<td><p>The course enrollment end date.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">announcement</span></code></p></td>
+<td><p>datetime</p></td>
+<td><p>Day and time when the course will be announced and visible.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">image</span></code></p></td>
+<td><p>array</p></td>
+<td><p>See <a class="reference internal" href="#cc-api-image"><span class="std std-ref">image</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">video</span></code></p></td>
+<td><p>array</p></td>
+<td><p>The About video for this course run. See <a class="reference internal" href="#cc-api-video"><span class="std std-ref">video</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">seats</span></code></p></td>
+<td><p>array</p></td>
+<td><p>The available modes for this course. See <a class="reference internal" href="#cc-api-seats"><span class="std std-ref">seats</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">content_language</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The language for this course run.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">transcript_languages</span></code></p></td>
+<td><p>array[string]</p></td>
+<td><p>ISO codes for languages in which video transcripts are available.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">instructors</span></code></p></td>
+<td><p>array</p></td>
+<td><p>Information about the course instructors. See <a class="reference internal" href="#cc-api-person"><span class="std std-ref">person</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">staff</span></code></p></td>
+<td><p>array</p></td>
+<td><p>Information about the course staff. See <a class="reference internal" href="#cc-api-person"><span class="std std-ref">person</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">pacing_type</span></code></p></td>
+<td><p>ENUM string</p></td>
+<td><p>The pacing of the course. May be <code class="docutils literal notranslate"><span class="pre">self-paced</span></code> or <code class="docutils literal notranslate"><span class="pre">instructor-paced</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">min_effort</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The minimum number of estimated hours of effort per week.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">max_effort</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The maximum number of estimated hours of effort per week.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">modified</span></code></p></td>
+<td><p>datetime</p></td>
+<td><p>The date and time the course was last modified.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="image">
+<span id="cc-api-image"></span><h5><span class="section-number">3.2.3.3.1.2. </span>image<a class="headerlink" href="#image" title="Link to this heading">#</a></h5>
+<p>The following <code class="docutils literal notranslate"><span class="pre">image</span></code> objects have identical response values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">image</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">logo_image</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">profile_image</span></code></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">image</span></code> object has the following response values.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">src</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL where the image is located.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A description of the image.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">height</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The height of the image in pixels.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">width</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The width of the image in pixels.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="organization">
+<span id="cc-api-organization"></span><h5><span class="section-number">3.2.3.3.1.3. </span>organization<a class="headerlink" href="#organization" title="Link to this heading">#</a></h5>
+<p>The following <code class="docutils literal notranslate"><span class="pre">organization</span></code> objects have identical response values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">owners</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sponsors</span></code></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">organization</span></code> object has the following response values.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">key</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The unique ID for the organization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the organization.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A description of the organization.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">logo_image</span></code></p></td>
+<td><p>array</p></td>
+<td><p>See <a class="reference internal" href="#cc-api-image"><span class="std std-ref">image</span></a>.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">homepage_url</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL of the organization’s home page.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="person">
+<span id="cc-api-person"></span><h5><span class="section-number">3.2.3.3.1.4. </span>person<a class="headerlink" href="#person" title="Link to this heading">#</a></h5>
+<p>The following <code class="docutils literal notranslate"><span class="pre">person</span></code> objects have identical response values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">instructor</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">staff</span></code></p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">person</span></code> object has the following response values.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">key</span></code></p></td>
+<td><p>string</p></td>
+<td><p>A unique identifier for the instructor or staff member.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The first and last name of the instructor or staff member.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">title</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The official title of the instructor or staff member.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">bio</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Biographical information about the instructor or staff member.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">profile_image</span></code></p></td>
+<td><p>array</p></td>
+<td><p>See <a class="reference internal" href="#cc-api-image"><span class="std std-ref">image</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="prerequisites">
+<span id="cc-api-prerequisites"></span><h5><span class="section-number">3.2.3.3.1.5. </span>prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h5>
+<p>Any courses a learner must complete before enrolling in the current course.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The name of the prerequisite course.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="seats">
+<span id="cc-api-seats"></span><h5><span class="section-number">3.2.3.3.1.6. </span>seats<a class="headerlink" href="#seats" title="Link to this heading">#</a></h5>
+<p>The available modes for this course.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">type</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The course mode or modes that the course offers. Possible values are
+<code class="docutils literal notranslate"><span class="pre">audit</span></code>, <code class="docutils literal notranslate"><span class="pre">credit</span></code>, <code class="docutils literal notranslate"><span class="pre">honor</span></code>, <code class="docutils literal notranslate"><span class="pre">professional</span> <span class="pre">education</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">verified</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">price</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The cost in USD of a verified certificate, a professional education
+certificate, or academic credit for the course.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">currency</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The currency in which the course accepts payment. This value will always
+be <code class="docutils literal notranslate"><span class="pre">USD</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">upgrade_deadline</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The deadline for learners to upgrade from the audit track to the
+verified certificate track.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">credit_provider</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The institution that offers academic credit for learners who pass the
+course.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">credit_hours</span></code></p></td>
+<td><p>integer</p></td>
+<td><p>The number of credit hours that learners who pass the course earn.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="subjects">
+<span id="cc-api-subjects"></span><h5><span class="section-number">3.2.3.3.1.7. </span>subjects<a class="headerlink" href="#subjects" title="Link to this heading">#</a></h5>
+<p>Academic subjects that this course covers.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">name</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Name of a subject, such as “computer science” or “history”.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Example values:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Architecture</span>
+<span class="n">Chemistry</span>
+<span class="n">Computer</span> <span class="n">Science</span>
+<span class="n">Economics</span> <span class="o">&amp;</span> <span class="n">Finance</span>
+<span class="n">Health</span> <span class="o">&amp;</span> <span class="n">Safety</span>
+<span class="n">History</span>
+<span class="n">Music</span>
+<span class="n">Physics</span>
+<span class="n">Social</span> <span class="n">Sciences</span>
+</pre></div>
+</div>
+</section>
+<section id="video">
+<span id="cc-api-video"></span><h5><span class="section-number">3.2.3.3.1.8. </span>video<a class="headerlink" href="#video" title="Link to this heading">#</a></h5>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 16.0%" />
+<col style="width: 64.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Object</p></th>
+<th class="head"><p>Data Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">src</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL at which the video is available.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">description</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The description of the video.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">image</span></code></p></td>
+<td><p>array</p></td>
+<td><p>See <a class="reference internal" href="#cc-api-image"><span class="std std-ref">image</span></a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section id="example-response-showing-information-about-a-course">
+<h3><span class="section-number">3.2.3.4. </span>Example Response Showing Information about a Course<a class="headerlink" href="#example-response-showing-information-about-a-course" title="Link to this heading">#</a></h3>
+<p>The following example response shows a single course. A catalog may contain
+many courses.</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;count&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;next&quot;</span><span class="p">:</span><span class="s2">&quot;https://api.edx.org/catalog/v1/catalogs/1/courses/?limit=20&amp;offset=40&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;previous&quot;</span><span class="p">:</span><span class="s2">&quot;https://api.edx.org/catalog/v1/catalogs/1/courses/?limit=20&amp;offset=0&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;results&quot;</span><span class="p">:[</span>
+<span class="w">      </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;example_course_key&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Title of the Course&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;short_description&quot;</span><span class="p">:</span><span class="s2">&quot;Short description of course content&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;full_description&quot;</span><span class="p">:</span><span class="s2">&quot;Longer, more detailed description of course content.&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;level_type&quot;</span><span class="p">:</span><span class="s2">&quot;Introductory&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;subjects&quot;</span><span class="p">:[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Name of subject&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;prerequisites&quot;</span><span class="p">:[</span>
+
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;expected_learning_items&quot;</span><span class="p">:[</span>
+
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;image&quot;</span><span class="p">:[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="s2">&quot;https://example.com/directory/course_image.jpg&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="s2">&quot;Example image for the Example Title course&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="s2">&quot;300&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;400&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;video&quot;</span><span class="p">:[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.youtube.com/watch?v=abcdefghijk&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;image&quot;</span><span class="p">:</span><span class="kc">null</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;owners&quot;</span><span class="p">:[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;example_institution_key&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Example Institution&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;logo_image&quot;</span><span class="p">:[</span>
+<span class="w">                  </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="s2">&quot;https://example.com/directory/institution_logo.jpg&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;200&quot;</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="w">               </span><span class="p">],</span>
+<span class="w">               </span><span class="nt">&quot;homepage_url&quot;</span><span class="p">:</span><span class="kc">null</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;sponsors&quot;</span><span class="p">:[</span>
+
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;modified&quot;</span><span class="p">:</span><span class="s2">&quot;YYYY-MM-DDTHH:MM:SS.SSSSSSZ&quot;</span><span class="p">,</span>
+<span class="w">         </span><span class="nt">&quot;course_runs&quot;</span><span class="p">:[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">               </span><span class="nt">&quot;course&quot;</span><span class="p">:</span><span class="s2">&quot;course_number&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;example_course_key&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Title of the Course&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;short_description&quot;</span><span class="p">:</span><span class="s2">&quot;Short description of course content&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;full_description&quot;</span><span class="p">:</span><span class="s2">&quot;Longer, more detailed description of course content&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;start&quot;</span><span class="p">:</span><span class="s2">&quot;YYYY-MM-DDTHH:MM:SSZ&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;end&quot;</span><span class="p">:</span><span class="s2">&quot;YYYY-MM-DDTHH:MM:SSZ&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;enrollment_start&quot;</span><span class="p">:</span><span class="s2">&quot;YYYY-MM-DDTHH:MM:SSZ&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;enrollment_end&quot;</span><span class="p">:</span><span class="s2">&quot;YYYY-MM-DDTHH:MM:SSZ&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;announcement&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;image&quot;</span><span class="p">:[</span>
+<span class="w">                  </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="s2">&quot;https://example.com/directory/course_image.jpg&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="s2">&quot;200&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;300&quot;</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="w">               </span><span class="p">],</span>
+<span class="w">               </span><span class="nt">&quot;video&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;seats&quot;</span><span class="p">:[</span>
+<span class="w">                  </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;credit&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="s2">&quot;100.00&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;currency&quot;</span><span class="p">:</span><span class="s2">&quot;USD&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;upgrade_deadline&quot;</span><span class="p">:</span><span class="s2">&quot;YYYY-MM-DDTHH:MM:SSZ&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;credit_provider&quot;</span><span class="p">:</span><span class="s2">&quot;example institution&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;credit_hours&quot;</span><span class="p">:</span><span class="mi">3</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="w">               </span><span class="p">],</span>
+<span class="w">               </span><span class="nt">&quot;content_language&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;transcript_languages&quot;</span><span class="p">:[</span>
+
+<span class="w">               </span><span class="p">],</span>
+<span class="w">               </span><span class="nt">&quot;instructors&quot;</span><span class="p">:[</span>
+
+<span class="w">               </span><span class="p">],</span>
+<span class="w">               </span><span class="nt">&quot;staff&quot;</span><span class="p">:[</span>
+<span class="w">                  </span><span class="p">{</span>
+<span class="w">                     </span><span class="nt">&quot;key&quot;</span><span class="p">:</span><span class="s2">&quot;staff_key&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Staff Member Name&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Staff Member Title&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;bio&quot;</span><span class="p">:</span><span class="s2">&quot;Example staff member bio.&quot;</span><span class="p">,</span>
+<span class="w">                     </span><span class="nt">&quot;profile_image&quot;</span><span class="p">:{</span>
+<span class="w">                        </span><span class="nt">&quot;src&quot;</span><span class="p">:</span><span class="s2">&quot;https://example.com/image/staff_member_name.png&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;height&quot;</span><span class="p">:</span><span class="s2">&quot;150&quot;</span><span class="p">,</span>
+<span class="w">                        </span><span class="nt">&quot;width&quot;</span><span class="p">:</span><span class="s2">&quot;150&quot;</span>
+<span class="w">                     </span><span class="p">}</span>
+<span class="w">                  </span><span class="p">}</span>
+<span class="w">               </span><span class="p">],</span>
+<span class="w">               </span><span class="nt">&quot;pacing_type&quot;</span><span class="p">:</span><span class="s2">&quot;instructor_paced&quot;</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;min_effort&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;max_effort&quot;</span><span class="p">:</span><span class="kc">null</span><span class="p">,</span>
+<span class="w">               </span><span class="nt">&quot;modified&quot;</span><span class="p">:</span><span class="s2">&quot;YYYY-MM-DDTHH:MM:SSZ&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">         </span><span class="p">],</span>
+<span class="w">         </span><span class="nt">&quot;marketing_url&quot;</span><span class="p">:</span><span class="s2">&quot;https://example.org/url_for_marketing_materials&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">3.1. </span>EdX Course Catalog API Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../cc_api_faq.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Frequently Asked Questions</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-all-course-catalogs">3.2.1. Get a List of All Course Catalogs</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#method-and-endpoint">3.2.1.1. Method and Endpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-request">3.2.1.2. Example Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#response-values">3.2.1.3. Response Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#results-array">3.2.1.3.1. Results Array</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-response-showing-a-list-of-all-course-catalogs">3.2.1.4. Example Response Showing a List of All Course Catalogs</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-about-a-specific-catalog">3.2.2. Get Information about a Specific Catalog</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">3.2.2.1. Method and Endpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">3.2.2.2. Example Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">3.2.2.3. Response Values</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-response-showing-information-about-a-catalog">3.2.2.4. Example Response Showing Information About a Catalog</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-a-list-of-all-courses-in-a-catalog">3.2.3. Get a List of All Courses in a Catalog</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">3.2.3.1. Method and Endpoint</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">3.2.3.2. Example Request</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id9">3.2.3.3. Response Values</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#arrays-in-the-courses-endpoint">3.2.3.3.1. Arrays in the Courses Endpoint</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#course-runs">3.2.3.3.1.1. course_runs</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#image">3.2.3.3.1.2. image</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#organization">3.2.3.3.1.3. organization</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#person">3.2.3.3.1.4. person</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">3.2.3.3.1.5. prerequisites</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#seats">3.2.3.3.1.6. seats</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#subjects">3.2.3.3.1.7. subjects</a></li>
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#video">3.2.3.3.1.8. video</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-response-showing-information-about-a-course">3.2.3.4. Example Response Showing Information about a Course</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

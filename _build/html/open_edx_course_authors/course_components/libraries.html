@@ -1,0 +1,1181 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>8.5. Working with Content Libraries &#8212; Building and Running an Open edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course_components/libraries';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="9. Creating and Adding Video Content" href="../video/index.html" />
+    <link rel="prev" title="8.4. Working with Problem Components" href="create_problem.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Building and Running an Open edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Building and Running an Open edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building and Running an Open edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_get_started_Studio.html">2.1. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_information/index.html">6.1. Planning Course Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title and Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/studio_add_course_information/index.html">6.3. Creating a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_staffing.html">6.3.1. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html">6.3.2. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_scheduling.html">6.3.3. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_prerequisites.html">6.3.4. Specifying Prerequisite Courses and Exams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_about_page.html">6.3.5. Creating a Course About Page in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.3.6. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/search_course.html">6.3.7. Course Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/custom_courses.html">6.3.8. Creating a Custom Course</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developing_course/index.html">7. Developing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/testing_courseware.html">7.9. Testing Your Course Content</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">8. Adding Course Components</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_problem.html">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/upload_video.html">9.3. Upload a Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/troubleshoot_video.html">9.7. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises_tools/index.html">10. Adding Exercises and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/completion.html">10.7. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/conditional_module.html">10.8. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_python.html">10.10. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop.html">10.11. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop_deprecated.html">10.12. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/dropdown.html">10.13. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/external_graders.html">10.14. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/full_screen_image.html">10.15. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/gene_explorer.html">10.16. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_calendar.html">10.17. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_docs.html">10.18. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/iframe.html">10.19. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/image_mapped_input.html">10.20. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/lti_component.html">10.21. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/math_expression_input.html">10.22. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/mathjax.html">10.23. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/multi_select.html">10.24. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/notes.html">10.25. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/numerical_input.html">10.26. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/index.html">10.27. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/OpenResponseAssessments.html">10.27.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/CreateORAAssignment.html">10.27.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/Manage_ORA_Assignment.html">10.27.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/ORA_Staff_Grading.html">10.27.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/Access_ORA_Info.html">10.27.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/oppia.html">10.28. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/peer_instruction_tool.html">10.29. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/periodic_table.html">10.30. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll_question.html">10.31. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll.html">10.32. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_with_hint.html">10.33. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_in_latex.html">10.34. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/protein_builder.html">10.35. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/qualtrics.html">10.36. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/randomized_content_blocks.html">10.37. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/recommenderXBlock.html">10.38. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/zooming_image.html">10.45. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/teams/index.html">12.3. Including Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_setup.html">12.3.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_learner_experience.html">12.3.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_discussions.html">12.3.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/content_experiments/index.html">12.4. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_overview.html">12.4.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_configure.html">12.4.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_add.html">12.4.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_view.html">12.4.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/timed_exams.html">12.5. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/lti/index.html">12.6. Using Open edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_reuse_content.html">12.6.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_prepare_content.html">12.6.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_address_content.html">12.6.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_grade_content.html">12.6.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_canvas_example.html">12.6.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_blackboard_example.html">12.6.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_learners.html">13.2. Preparing Learners for Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_enabling.html">13.3. Creating Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/CA_online_proctoring_rules_students.html">13.4. Online Proctoring Rules for Learners</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from the Open edX Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../student_progress/index.html">18. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_student.html">18.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_answers.html">18.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_grades.html">18.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/certificate_data.html">18.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/checking_student_progress.html">18.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rerun_course/index.html">19. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rerun_course/course_rerun.html">19.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">20. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/open_edx_course_authors/source/course_components/libraries.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fcourse_components/libraries.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/course_components/libraries.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with Content Libraries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-libraries-overview">8.5.1. Content Libraries Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-library">8.5.2. Create a New Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-library">8.5.3. Edit a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-components-to-a-library">8.5.4. Add Components to a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-contents-of-a-library">8.5.5. View the Contents of a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-components-in-a-library">8.5.6. Edit Components in a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-library">8.5.7. Delete a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#give-other-users-access-to-your-library">8.5.8. Give Other Users Access to Your Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-user-to-the-library">8.5.8.1. Add a User to the Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-a-user-from-the-library">8.5.8.2. Remove a User from the Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-staff-or-admin-access">8.5.8.3. Add Staff or Admin Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-staff-or-admin-access">8.5.8.4. Remove Staff or Admin Access</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-and-importing-a-library">8.5.9. Exporting and Importing a Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-a-library">8.5.9.1. Export a Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-library">8.5.9.2. Import a Library</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="working-with-content-libraries">
+<span id="content-libraries"></span><h1><span class="section-number">8.5. </span>Working with Content Libraries<a class="headerlink" href="#working-with-content-libraries" title="Link to this heading">#</a></h1>
+<p>This section describes how to work with content libraries in Studio.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#content-libraries-overview" id="id13">Content Libraries Overview</a></p></li>
+<li><p><a class="reference internal" href="#create-a-new-library" id="id14">Create a New Library</a></p></li>
+<li><p><a class="reference internal" href="#edit-a-library" id="id15">Edit a Library</a></p></li>
+<li><p><a class="reference internal" href="#add-components-to-a-library" id="id16">Add Components to a Library</a></p></li>
+<li><p><a class="reference internal" href="#view-the-contents-of-a-library" id="id17">View the Contents of a Library</a></p></li>
+<li><p><a class="reference internal" href="#edit-components-in-a-library" id="id18">Edit Components in a Library</a></p></li>
+<li><p><a class="reference internal" href="#delete-a-library" id="id19">Delete a Library</a></p></li>
+<li><p><a class="reference internal" href="#give-other-users-access-to-your-library" id="id20">Give Other Users Access to Your Library</a></p></li>
+<li><p><a class="reference internal" href="#exporting-and-importing-a-library" id="id21">Exporting and Importing a Library</a></p></li>
+</ul>
+</nav>
+<section id="content-libraries-overview">
+<span id="id1"></span><h2><a class="toc-backref" href="#id13" role="doc-backlink"><span class="section-number">8.5.1. </span>Content Libraries Overview</a><a class="headerlink" href="#content-libraries-overview" title="Link to this heading">#</a></h2>
+<p>In Studio, you can create a library to build a pool of components for use in
+randomized assignments in your courses. You can add Text components, problems,
+and video components to a library. Open response assessment and discussion
+components are not supported in libraries.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Content libraries are available only for courses that have course
+identifiers in this format: <code class="docutils literal notranslate"><span class="pre">{key</span> <span class="pre">type}:{org}+{course}+{run}</span></code>. For
+example, <code class="docutils literal notranslate"><span class="pre">course-v1:edX+DemoX+Demo_2015</span></code>. Your course identifier appears
+in the browser address bar as the final part of the URL when you open your
+course in Studio. For more details, see <a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html#create-a-new-course"><span class="std std-ref">Create a Course</span></a>.</p>
+</div>
+<p>After creating a library and adding components to it, if you have <a class="reference internal" href="../exercises_tools/randomized_content_blocks.html#enable-content-libraries"><span class="std std-ref">enabled
+content libraries</span></a> in your course, you can use these
+library components in randomized assignments in your course. You do this by
+adding a randomized content block to a course unit and specifying the name of
+the library from which the randomized content is to drawn. You also specify the
+number and type of problems that each learner is assigned. For information about randomized content blocks, see <a class="reference internal" href="../exercises_tools/randomized_content_blocks.html#randomized-content-blocks"><span class="std std-ref">Randomized Content Blocks</span></a>.</p>
+<p>Libraries have separate users and levels of access from courses. Initially,
+only the person who created the library has access. She can add other users to
+the library. For details, see <a class="reference internal" href="#give-other-users-access-to-your-library"><span class="std std-ref">Give Other Users Access to Your Library</span></a>.
+The libraries that you create or have access to are listed on the <strong>Libraries</strong>
+tab on the Studio Home page.</p>
+</section>
+<section id="create-a-new-library">
+<span id="id2"></span><h2><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">8.5.2. </span>Create a New Library</a><a class="headerlink" href="#create-a-new-library" title="Link to this heading">#</a></h2>
+<p>Use <a class="reference internal" href="#content-libraries"><span class="std std-ref">content libraries</span></a> to build a pool of components
+that can be used in randomized assignments in your courses.</p>
+<p>To create a new library, follow these steps.</p>
+<ol class="arabic">
+<li><p>Log in to Studio.</p></li>
+<li><p>Select <strong>New Library</strong>.</p></li>
+<li><p>Enter the required information for your new library, then select <strong>Create</strong>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Enter new library information carefully. The values in these
+fields become part of the URL for your library, therefore the total
+number of characters in the <strong>Library Name</strong>, <strong>Organization</strong>, and
+<strong>Library Code</strong> fields must be 65 or fewer.</p>
+</div>
+<a class="reference internal image-reference" href="../_images/ContentLibrary_NewCL.png"><img alt="Image of the library creation page." src="../_images/ContentLibrary_NewCL.png" style="width: 600px;" />
+</a>
+</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>For <strong>Library Name</strong>, enter the public display name for your library.
+Choose a meaningful name that will help you and other course team members
+to identify the library. For example, “Level 200 Math Problems”. When you
+add a randomized content block to a course unit, you use the library name
+to specify this library as a source for the randomized assignment.</p></li>
+<li><p>For <strong>Organization</strong>, enter the identifier for your university. For
+example, enter HarvardX or MITx. Do not include spaces or special
+characters.</p></li>
+<li><p>For <strong>Library Code</strong>, enter an identifier for your library that is unique
+within your organization. This code becomes part of the URL for your
+library, so do not include spaces or special characters in the code.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>Select <strong>Create</strong>.</p></li>
+</ol>
+<p>You see the new library, to which you can now add components. For information
+about adding components to a library, see <a class="reference internal" href="#add-components-to-a-library"><span class="std std-ref">Add Components to a Library</span></a>.</p>
+<p>After you create a library, you are automatically assigned an <strong>Admin</strong> role
+for the library. For information about adding other users to a library after
+you create it, see <a class="reference internal" href="#give-other-users-access-to-your-library"><span class="std std-ref">Give Other Users Access to Your Library</span></a>.</p>
+</section>
+<section id="edit-a-library">
+<span id="id3"></span><h2><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">8.5.3. </span>Edit a Library</a><a class="headerlink" href="#edit-a-library" title="Link to this heading">#</a></h2>
+<p>After you create a library, the only change you can make to the initial library
+information is to the name. However, at any time, you can make changes to the
+components in your library, including adding or deleting components or editing
+the settings of components. For details about editing the contents of a
+library, see <a class="reference internal" href="#edit-components-in-a-library"><span class="std std-ref">Edit Components in a Library</span></a> and <a class="reference internal" href="#add-components-to-a-library"><span class="std std-ref">Add Components to a Library</span></a>.</p>
+<p>To change the name of a library, follow these steps.</p>
+<ol class="arabic">
+<li><p>Log in to Studio.</p></li>
+<li><p>Select <strong>Libraries</strong>, then select the library whose name you want to edit.</p></li>
+<li><p>Select the <strong>Edit</strong> icon next to the library name.</p>
+<p>The library name field becomes editable.</p>
+<a class="reference internal image-reference" href="../_images/ContentLibrary_EditName.png"><img alt="The Edit icon to the right of the Library Name." src="../_images/ContentLibrary_EditName.png" style="width: 300px;" />
+</a>
+</li>
+<li><p>In the library name field, make edits or enter a new library name.</p></li>
+<li><p>Select anywhere outside the library name field to save your changes.</p></li>
+</ol>
+<p>For details about giving other users access to the library, see <a class="reference internal" href="#give-other-users-access-to-your-library"><span class="std std-ref">Give Other Users Access to Your Library</span></a>.</p>
+</section>
+<section id="add-components-to-a-library">
+<span id="id4"></span><h2><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">8.5.4. </span>Add Components to a Library</a><a class="headerlink" href="#add-components-to-a-library" title="Link to this heading">#</a></h2>
+<p>To add new <a class="reference internal" href="../developing_course/course_components.html#developing-course-components"><span class="std std-ref">components</span></a> to your library,
+follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Log in to Studio.</p></li>
+<li><p>Select <strong>Libraries</strong>, then select the library that you want to add
+components to.</p></li>
+<li><p>Select <strong>Add Component</strong>, then select the component type that you want to
+add under <strong>Add New Component</strong>.</p></li>
+</ol>
+<p>For more information about the types of components you can add to a library,
+see these topics.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/course_components/create_html_component.html#working-with-text-components" title="(in Building and Running an edX Course)"><span class="xref std std-ref">Working with Text Components</span></a></p></li>
+<li><p><a class="reference internal" href="create_problem.html#working-with-problem-components"><span class="std std-ref">Working with Problem Components</span></a></p></li>
+<li><p><a class="reference internal" href="create_video.html#working-with-video-components"><span class="std std-ref">Working with Video Components</span></a></p></li>
+</ul>
+<p>After you add a component to a library, you can edit its settings. These
+settings are retained when the component is selected from the library and used
+in a course.</p>
+<p>When a component from the library is used in a randomized content block, you
+can further edit the component as it exists in the unit, without affecting the
+original version in the library. For details, refer to <a class="reference internal" href="#edit-components-in-a-library"><span class="std std-ref">Edit Components in a Library</span></a> and <a class="reference internal" href="../exercises_tools/randomized_content_blocks.html#get-the-latest-version-of-library-content"><span class="std std-ref">Getting the Latest Version of Library Content</span></a>.</p>
+</section>
+<section id="view-the-contents-of-a-library">
+<span id="id5"></span><h2><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">8.5.5. </span>View the Contents of a Library</a><a class="headerlink" href="#view-the-contents-of-a-library" title="Link to this heading">#</a></h2>
+<p>To view the entire contents of a library in Studio, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Log in to Studio.</p></li>
+<li><p>Select <strong>Libraries</strong>, then select the library whose components you want to
+view.</p></li>
+<li><p>Optionally, select <strong>Hide Previews</strong> at the top right of the library page to
+collapse the component previews and see only the list of component display
+names. To return to the full preview of components in the library, select
+<strong>Show Previews</strong>.</p></li>
+</ol>
+<p>The components in the library are shown in the order in which they were added,
+with the most recently added at the bottom. If your library has more than 10
+components, additional components are shown on other pages.</p>
+<p>The range of the components shown on the current page, and the total number of
+components, are shown at the top of the page.</p>
+<p>You can navigate through the pages in the following ways.</p>
+<ul>
+<li><p>Use the <strong>&lt;</strong> and <strong>&gt;</strong> buttons at the top and bottom of the list to navigate
+to the previous and next pages.</p></li>
+<li><p>At the bottom of the page, you can edit the first number in the page range.
+Select the number to place your cursor in the field, then enter the page
+number you want to jump to.</p>
+<a class="reference internal image-reference" href="../_images/file_pagination.png"><img alt="Image showing a pair of page numbers with the first number circled." src="../_images/file_pagination.png" style="width: 300px;" />
+</a>
+</li>
+</ul>
+<p>To view the list of matching components in the library, see <a class="reference internal" href="../exercises_tools/randomized_content_blocks.html#view-the-matching-components-in-a-randomized-content-block"><span class="std std-ref">View the Matching Components in a Randomized Content Block</span></a>.</p>
+<p>To view the randomized content that was assigned to a specific learner, see
+<a class="reference internal" href="../developing_course/testing_courseware.html#specific-student-view"><span class="std std-ref">Specific Learner View</span></a>.</p>
+</section>
+<section id="edit-components-in-a-library">
+<span id="id6"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">8.5.6. </span>Edit Components in a Library</a><a class="headerlink" href="#edit-components-in-a-library" title="Link to this heading">#</a></h2>
+<p>After you have added components to a library, you can edit, duplicate, or
+delete them.</p>
+<p>For step-by-step instructions for editing, duplicating, or deleting components,
+refer to the following topics.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../developing_course/course_components.html#edit-a-component"><span class="std std-ref">Edit a Component</span></a></p></li>
+<li><p><a class="reference internal" href="../developing_course/course_components.html#duplicate-a-component"><span class="std std-ref">Duplicate a Component</span></a></p></li>
+<li><p><a class="reference internal" href="../developing_course/course_components.html#delete-a-component"><span class="std std-ref">Delete a Component</span></a></p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you modify components in your library that are in use in a course,
+these updates in the “source” library are not reflected in the course unless
+you manually update the randomized content block in the course unit. For
+details about updating library components used in your course to match the
+latest version in the library, see <a class="reference internal" href="../exercises_tools/randomized_content_blocks.html#get-the-latest-version-of-library-content"><span class="std std-ref">Getting the Latest Version of Library Content</span></a>.</p>
+</div>
+</section>
+<section id="delete-a-library">
+<span id="id7"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">8.5.7. </span>Delete a Library</a><a class="headerlink" href="#delete-a-library" title="Link to this heading">#</a></h2>
+<p>You cannot delete a library. Instead, you can discontinue use of an unwanted
+library. To do so, first make sure that none of its components are in use in
+any courses, then delete all components in the library. You can also <a class="reference internal" href="#edit-a-library"><span class="std std-ref">edit
+the name of the library</span></a> to make it clear to other course team
+members that the library should not be used as a source of randomized
+assignment content in courses.</p>
+<p>For details about deleting components in a library, see <a class="reference internal" href="#edit-components-in-a-library"><span class="std std-ref">Edit Components in a Library</span></a>.</p>
+</section>
+<section id="give-other-users-access-to-your-library">
+<span id="id8"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">8.5.8. </span>Give Other Users Access to Your Library</a><a class="headerlink" href="#give-other-users-access-to-your-library" title="Link to this heading">#</a></h2>
+<p>When you create a library, you are automatically assigned an Admin role in that
+library.</p>
+<p>You can give other Studio users access to your library. Depending on the level
+of access  that you give them in the library, additional library users can view
+and use library content in courses, edit library content, or add and manage
+other library users. All users to whom you give library access must be
+registered with Studio and have an active account.</p>
+<p>These are the levels of access for libraries.</p>
+<ul class="simple">
+<li><p><strong>User</strong> – Users can view library content and can use library components in
+their courses, but they cannot edit the contents of a library.</p></li>
+<li><p><strong>Staff</strong> – Staff can use library components in their courses. In addition,
+as content co-authors, they have full editing privileges in a library.</p></li>
+<li><p><strong>Admin</strong> – Admins have full editing privileges for a library. In addition,
+they can add and remove other team members from library access. There must be
+at least one user with Admin privileges in a library.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The levels of access for libraries are hierarchical. You can add new
+library members only with the <strong>User</strong> level of access, after which you can
+give them the <strong>Staff</strong> level of access. You can give the <strong>Admin</strong> level of
+access only to people who already have the <strong>Staff</strong> level of access.</p>
+</div>
+<section id="add-a-user-to-the-library">
+<h3><span class="section-number">8.5.8.1. </span>Add a User to the Library<a class="headerlink" href="#add-a-user-to-the-library" title="Link to this heading">#</a></h3>
+<p>To grant a user initial <strong>User</strong> access to a library, follow these steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only library users with the <strong>Admin</strong> level of access can add users
+to the library.</p>
+</div>
+<ol class="arabic">
+<li><p>Ensure that the new library member has an active Studio account.</p></li>
+<li><p>On the Studio home page, select the <strong>Libraries</strong> tab and locate the library
+to which you are adding this user.</p></li>
+<li><p>From the <strong>Settings</strong> menu select <strong>User Access</strong>.</p></li>
+<li><p>On the <strong>User Access</strong> page, select <strong>Add a New User</strong>.</p></li>
+<li><p>Enter the new user’s email address, then select <strong>ADD USER</strong>.</p>
+<p>The new user is added to the list of library members with the <strong>User</strong> level
+of access.</p>
+</li>
+</ol>
+</section>
+<section id="remove-a-user-from-the-library">
+<h3><span class="section-number">8.5.8.2. </span>Remove a User from the Library<a class="headerlink" href="#remove-a-user-from-the-library" title="Link to this heading">#</a></h3>
+<p>You can remove users from the library at any time, regardless of the level of
+access that they have.</p>
+<p>To remove a user from the library, follow these steps.</p>
+<ol class="arabic">
+<li><p>In Studio, select the <strong>Libraries</strong> tab and locate your library.</p></li>
+<li><p>From the <strong>Settings</strong> menu select <strong>User Access</strong>.</p></li>
+<li><p>On the <strong>User Access</strong> page, locate the user that you want to remove.</p></li>
+<li><p>Hover over the user’s box and select the trash can icon.</p>
+<p>You are prompted to confirm the deletion.</p>
+</li>
+<li><p>Select <strong>Delete</strong>.</p></li>
+</ol>
+<blockquote>
+<div><p>The user is removed from the library.</p>
+</div></blockquote>
+</section>
+<section id="add-staff-or-admin-access">
+<h3><span class="section-number">8.5.8.3. </span>Add Staff or Admin Access<a class="headerlink" href="#add-staff-or-admin-access" title="Link to this heading">#</a></h3>
+<p>The levels of access for libraries are hierarchical. You can add new library
+members only with the <strong>User</strong> level of access, after which you can give them
+the <strong>Staff</strong> level of access. You can give the <strong>Admin</strong> level of access only
+to people who already have the <strong>Staff</strong> level of access.</p>
+<p>To give a library member a higher level of access to the library, follow these
+steps.</p>
+<ol class="arabic simple">
+<li><p>In Studio, select the <strong>Libraries</strong> tab and locate your library.</p></li>
+<li><p>From the <strong>Settings</strong> menu select <strong>User Access</strong>.</p></li>
+<li><p>On the <strong>User Access</strong> page, locate the user to whom you are giving
+additional privileges.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>If he currently has <strong>User</strong> access, select <strong>Add Staff Access</strong>.</p></li>
+<li><p>If he currently has <strong>Staff</strong> access, select <strong>Add Admin Access</strong>.</p></li>
+</ul>
+<p>The user’s display listing is updated to indicate the new level of access. In
+addition, their listing now includes a button to remove their current level
+of access and move them back to their previous level of access. For details
+about reducing a user’s level of access to a library, see <a class="reference internal" href="#remove-staff-or-admin-access"><span class="std std-ref">Remove Staff or Admin Access</span></a>.</p>
+</div></blockquote>
+</section>
+<section id="remove-staff-or-admin-access">
+<span id="id9"></span><h3><span class="section-number">8.5.8.4. </span>Remove Staff or Admin Access<a class="headerlink" href="#remove-staff-or-admin-access" title="Link to this heading">#</a></h3>
+<p>After you have granted users <strong>Staff</strong> or <strong>Admin</strong> access, you (or other
+<strong>Admin</strong> library users) can reduce their levels of access.</p>
+<p>To remove <strong>Staff</strong> or <strong>Admin</strong> access from a library user, follow these
+steps.</p>
+<ol class="arabic simple">
+<li><p>In Studio, select the <strong>Libraries</strong> tab and locate your library.</p></li>
+<li><p>From the <strong>Settings</strong> menu select <strong>User Access</strong>.</p></li>
+<li><p>On the <strong>User Access</strong> page, locate the user whose access level you are
+changing.</p></li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><p>If she currently has <strong>Staff</strong> access, select <strong>Remove Staff Access</strong>.</p></li>
+<li><p>If she currently has <strong>Admin</strong> access, select <strong>Remove Admin Access</strong>.</p></li>
+</ul>
+<blockquote>
+<div><p>The user’s display listing is updated to indicate the new role.</p>
+</div></blockquote>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>There must always be at least one Admin for a library. If there is
+only one user with the Admin role, you cannot remove him or her from the
+Admin role unless you first assign another user to the Admin role.</p>
+</div>
+</section>
+</section>
+<section id="exporting-and-importing-a-library">
+<span id="id10"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">8.5.9. </span>Exporting and Importing a Library</a><a class="headerlink" href="#exporting-and-importing-a-library" title="Link to this heading">#</a></h2>
+<p>You can <a class="reference internal" href="#export-a-library"><span class="std std-ref">export</span></a> and <a class="reference internal" href="#import-a-library"><span class="std std-ref">import</span></a> a
+content library in Studio.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you import a library, the imported library completely
+replaces the existing library and its contents. You cannot undo a library
+import. Before you proceed, we recommend that you export the current
+library, so that you have a backup copy of it.</p>
+</div>
+<section id="export-a-library">
+<span id="id11"></span><h3><span class="section-number">8.5.9.1. </span>Export a Library<a class="headerlink" href="#export-a-library" title="Link to this heading">#</a></h3>
+<p>There are several reasons why you might want to export your library.</p>
+<ul class="simple">
+<li><p>To save your work in progress</p></li>
+<li><p>To edit the XML in your library directly</p></li>
+<li><p>To create a backup copy of your library</p></li>
+<li><p>To share with another course team member</p></li>
+</ul>
+<p>When you export your library, Studio creates a <strong>.tar.gz</strong> file (that is, a
+.tar file compressed using GNU Zip). This export file contains the problems in
+the library, including any customizations you made in the library to problem
+settings. The export does not include library settings such as user access
+permissions.</p>
+<p>To export a library, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>In Studio, select the <strong>Libraries</strong> tab.</p></li>
+<li><p>Locate the library that you want to export.</p></li>
+<li><p>From the <strong>Tools</strong> menu, select <strong>Export</strong>.</p></li>
+<li><p>Select <strong>Export Library Content</strong> and specify where you want the file to be
+saved.</p></li>
+</ol>
+<p>When the export process finishes, you can access the .tar.gz file on your
+computer.</p>
+</section>
+<section id="import-a-library">
+<span id="id12"></span><h3><span class="section-number">8.5.9.2. </span>Import a Library<a class="headerlink" href="#import-a-library" title="Link to this heading">#</a></h3>
+<p>You might want to import a library if you developed or updated library content
+outside of Studio, or if you want to overwrite a problematic or outdated
+version of the library.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>When you import a library, the imported library completely
+replaces the existing library and its contents. You cannot undo a library
+import. Before you proceed, we recommend that you export the current
+library, so that you have a backup copy of it.</p>
+</div>
+<p>The library file that you import must be a .tar.gz file (that is, a .tar file
+compressed using GNU Zip). This .tar.gz file must contain a library.xml file.</p>
+<p>To import a library, follow these steps.</p>
+<ol class="arabic">
+<li><p>In Studio, select the <strong>Libraries</strong> tab.</p></li>
+<li><p>Locate the library to which you want to import the new library content.</p></li>
+<li><p>From the <strong>Tools</strong> menu, select <strong>Import</strong>.</p></li>
+<li><p>Select <strong>Choose a File to Import</strong> and select the .tar.gz file that you want
+to import.</p></li>
+<li><p>Select <strong>Replace my library with the selected file</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The import process has five stages. During the first two stages
+(Uploading and Unpacking), do not navigate away from the
+<strong>Library Import</strong> page. Doing so causes the import process to end. You
+can leave the page only after the Unpacking stage completes. We recommend
+that you do not make important changes to the library until all stages of
+the import process have finished.</p>
+</div>
+</li>
+<li><p>When the import process finishes, select <strong>View Updated Library</strong> to view
+the imported library.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If your imported library includes changes to components that are in
+use in a course, the course does not reflect these library updates until you
+manually update the randomized content block in the course unit. For details
+about updating library components used in your course to match the latest
+version in the content library, see <a class="reference internal" href="../exercises_tools/randomized_content_blocks.html#get-the-latest-version-of-library-content"><span class="std std-ref">Getting the Latest Version of Library Content</span></a>.</p>
+</div>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="create_problem.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8.4. </span>Working with Problem Components</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../video/index.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Creating and Adding Video Content</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#content-libraries-overview">8.5.1. Content Libraries Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-new-library">8.5.2. Create a New Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-a-library">8.5.3. Edit a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#add-components-to-a-library">8.5.4. Add Components to a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#view-the-contents-of-a-library">8.5.5. View the Contents of a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-components-in-a-library">8.5.6. Edit Components in a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#delete-a-library">8.5.7. Delete a Library</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#give-other-users-access-to-your-library">8.5.8. Give Other Users Access to Your Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-a-user-to-the-library">8.5.8.1. Add a User to the Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-a-user-from-the-library">8.5.8.2. Remove a User from the Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-staff-or-admin-access">8.5.8.3. Add Staff or Admin Access</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-staff-or-admin-access">8.5.8.4. Remove Staff or Admin Access</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-and-importing-a-library">8.5.9. Exporting and Importing a Library</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#export-a-library">8.5.9.1. Export a Library</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#import-a-library">8.5.9.2. Import a Library</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

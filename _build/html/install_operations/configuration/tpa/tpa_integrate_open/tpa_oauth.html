@@ -1,0 +1,1070 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.23.3.2.1. Integrating with an OAuth2 Identity Provider &#8212; Installing, Configuring, and Running the Open edX Platform  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'configuration/tpa/tpa_integrate_open/tpa_oauth';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="4.23.3.2.2. Integrating with a SAML Identity Provider" href="tpa_SAML_IdP.html" />
+    <link rel="prev" title="4.23.3. Integrating Third Party Authentication in Open edX" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../../index.html">
+                    Installing, Configuring, and Running the Open edX Platform
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../front_matter/getting_help.html">1.2. Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../front_matter/preface.html">1.3. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../front_matter/browsers.html">1.4. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../platform_releases/index.html">2. Open edX Platform Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/olive.html">2.1. Open edX Olive Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/nutmeg.html">2.2. Open edX Nutmeg Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/maple.html">2.3. Open edX Maple Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/lilac.html">2.4. Open edX Lilac Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/koa.html">2.5. Open edX Koa Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/juniper.html">2.6. Open edX Juniper Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/ironwood.html">2.7. Open edX Ironwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/hawthorn.html">2.8. Open edX Hawthorn Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/ginkgo.html">2.9. Open edX Ginkgo Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/ficus.html">2.10. Open edX Ficus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/eucalyptus.html">2.11. Open edX Eucalyptus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/dogwood.html">2.12. Open edX Dogwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/cypress.html">2.13. Open edX Cypress Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../platform_releases/birch.html">2.14. Open edX Birch Release</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../installation/index.html">3. Installing and Starting the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../installation/tutor.html">3.2.1. Open edX Tutor Installation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../../index.html">4. Configuring the Open edX Platform</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../updating_platform.html">4.1. Guidelines for Updating the Open edX Platform</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../sites/index.html">4.2. Configuring Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../sites/create_site.html">4.2.1. Create an Open edX Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../sites/configure_site.html">4.2.2. Configuring Sites Independently</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../changing_appearance/index.html">4.3. Changing the Appearance of Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../changing_appearance/theming/index.html">4.3.1. Changing Themes for an Open edX Site</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../changing_appearance/theming/overview_themes.html">4.3.1.1. Themes Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changing_appearance/theming/theme_directories.html">4.3.1.2. Root Directories for Theme Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changing_appearance/theming/create_theme.html">4.3.1.3. Creating a Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changing_appearance/theming/enable_themes.html">4.3.1.4. Enabling and Applying Themes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../changing_appearance/theming/compiling_theme.html">4.3.1.5. Compiling a Theme</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../../changing_appearance/drag_and_drop_problem_styling.html">4.3.2. Styling Drag and Drop Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../customize_registration_page.html">4.4. Adding Custom Fields to the Registration Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../config_allowed_regis_emails.html">4.5. Specifying Allowed Registration Email Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../deprecated_add_course_talk_widget.html">4.6. Adding the CourseTalk Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../edx_search.html">4.7. Enabling Open edX Search</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_badging.html">4.8. Enabling Badging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_certificates.html">4.9. Enabling Course Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_pacing.html">4.10. Enabling Self-Paced Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_public_course.html">4.11. Enabling Public Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_ccx.html">4.12. Enabling Custom Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_custom_course_settings.html">4.13. Enabling Custom Course Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_discussion_notifications.html">4.14. Enabling Discussion Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_entrance_exams.html">4.15. Enabling Entrance Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../ora2/index.html">4.16. Configuring Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../ora2/ora2_uploads.html">4.16.1. Configuring ORA2 to Upload Files to Alternative Storage Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../ora2/ora2_blacklist.html">4.16.2. Prohibiting Submission of Specified File Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_prerequisites.html">4.17. Enabling Course Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_licensing.html">4.18. Enabling Course and Video Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../transcripts.html">4.19. Configuring Transcript Behavior</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../lti/index.html">4.20. Configuring an edX Instance as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../lti/enable_lti.html">4.20.1. Enable LTI Provider Functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lti/configure_lti.html">4.20.2. Configuring Credentials for a Tool Consumer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lti/settings_lti.html">4.20.3. Define an Interval for Grade Aggregation (Optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lti/authentication_options_lti.html">4.20.4. Options for LTI Authentication and User Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../lti/tpa_lti.html">4.20.5. Configuring Open edX User Authentication for LTI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_socialsharing_icons.html">4.21. Enabling Social Sharing of Courses and Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../password.html">4.22. Configuring a Password Policy</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="../index.html">4.23. Enabling Third Party Authentication</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../tpa_providers.html">4.23.1. Supported Identity Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tpa_behavior.html">4.23.2. SSO Behavior</a></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="index.html">4.23.3. Integrating Third Party Authentication in Open edX</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">4.23.3.2.1. Integrating with an OAuth2 Identity Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tpa_SAML_IdP.html">4.23.3.2.2. Integrating with a SAML Identity Provider</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="../tpa_SAML_SP.html">4.23.4. Configuring your Open edX Site as a SAML Service Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tpa_advanced_features.html">4.23.5. Advanced Third Party Authentication Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tpa_eliminating_pii.html">4.23.6. Eliminating PII From Third-Party Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../tpa_IDmap_api.html">4.23.7. Third Party Auth ID Mapping API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_timed_exams.html">4.24. Enabling Timed Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../youtube_api.html">4.25. Setting Up the YouTube API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../install_xblock.html">4.26. Installing an XBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../static_replace/cdn.html">4.27. Enabling a CDN for Course Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../enable_weekly_learning_goals.html">4.28. Enabling the Weekly Learning Goals Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../retrieve_extended_profile_metadata.html">4.29. Retrieving Extended Profile Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../insights/index.html">5. Adding edX Insights for Course Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../insights/install_insights.html">5.1. Options for Installing edX Insights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../insights/elastic_mapreduce.html">5.2. Using Elastic MapReduce on AWS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../../ecommerce/index.html">6. Adding E-Commerce to the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../ecommerce/install_ecommerce.html">6.1. Install and Start the E-Commerce Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ecommerce/theming.html">6.2. Comprehensive Theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ecommerce/manage_assets.html">6.3. Manage Static Assets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ecommerce/create_products/index.html">6.4. Create E-Commerce Products</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/create_products/create_products_overview.html">6.4.1. Creating Products Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/create_products/create_course_seats.html">6.4.2. Create Course Seats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/create_products/create_coupons.html">6.4.3. Create and Manage Coupons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/create_products/create_enrollment_codes.html">6.4.4. Enable and Create Enrollment Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/create_products/create_programs.html">6.4.5. About Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/create_products/create_program_offers.html">6.4.6. Create Program Offers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ecommerce/enable_receipt_page.html">6.5. Enable the E-Commerce Service Receipt Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ecommerce/manage_orders.html">6.6. Manage Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ecommerce/test_ecommerce.html">6.7. Test Your E-Commerce Application</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../../ecommerce/additional_features/index.html">6.8. Additional E-Commerce Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/additional_features/send_notifications.html">6.8.1. Sending Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/additional_features/change_processors.html">6.8.2. Changing Payment Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/additional_features/apple_pay.html">6.8.3. Apple Pay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/additional_features/track_data.html">6.8.4. Tracking Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/additional_features/gate_ecommerce.html">6.8.5. Gating E-Commerce Service Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../ecommerce/additional_features/maintain_ecommerce.html">6.8.6. Maintaining the E-Commerce Service</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../ecommerce/internationalization.html">6.9. Internationalization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../mobile.html">7. Setting Up the Open edX Mobile Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../feature_flags/feature_flag_index.html">8. Index of Open edX Feature Flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../glossary.html">9. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/install_operations/source/configuration/tpa/tpa_integrate_open/tpa_oauth.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fconfiguration/tpa/tpa_integrate_open/tpa_oauth.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/configuration/tpa/tpa_integrate_open/tpa_oauth.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Integrating with an OAuth2 Identity Provider</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-oauth2-providers">4.23.3.2.1.1. Common OAuth2 Providers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance">4.23.3.2.1.1.1. Register the Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-google">4.23.3.2.1.1.1.1. Register the Open edX Instance with Google</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-facebook">4.23.3.2.1.1.1.2. Register the Open edX Instance with Facebook</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-linkedin">4.23.3.2.1.1.1.3. Register the Open edX Instance with LinkedIn</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-azure-active-directory">4.23.3.2.1.1.1.4. Register the Open edX Instance with Azure Active Directory</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-open-edx">4.23.3.2.1.1.2. Configure Open edX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-provider-configuration">4.23.3.2.1.1.3. Add the Provider Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-oauth2-providers-advanced">4.23.3.2.1.2. Additional OAuth2 Providers (Advanced)</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="integrating-with-an-oauth2-identity-provider">
+<span id="id1"></span><h1><span class="section-number">4.23.3.2.1. </span>Integrating with an OAuth2 Identity Provider<a class="headerlink" href="#integrating-with-an-oauth2-identity-provider" title="Link to this heading">#</a></h1>
+<p>Open edX has specific instructions for Google, Facebook, LinkedIn, and Azure
+Active Directory. For more information about how to set up one or more of these
+integrations, see <a class="reference internal" href="#common-oauth2-providers"><span class="std std-ref">Common OAuth2 Providers</span></a>.</p>
+<p>The system also supports integrations with alternative OAuth2 providers. For
+more information, see <a class="reference internal" href="#additional-providers"><span class="std std-ref">Additional OAuth2 Providers (Advanced)</span></a>.</p>
+<section id="common-oauth2-providers">
+<span id="id2"></span><h2><span class="section-number">4.23.3.2.1.1. </span>Common OAuth2 Providers<a class="headerlink" href="#common-oauth2-providers" title="Link to this heading">#</a></h2>
+<p>Integrating with the most common OAuth2 IdPs has several steps.</p>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="#register-the-open-edx-instance"><span class="std std-ref">Register the Open edX instance with the provider</span></a>.</p></li>
+<li><p><a class="reference internal" href="#oauth2-configure-open-edx"><span class="std std-ref">Configure Open edX</span></a>.</p></li>
+<li><p><a class="reference internal" href="#add-the-provider-configuration"><span class="std std-ref">Add the provider configuration</span></a>.</p></li>
+</ol>
+<section id="register-the-open-edx-instance">
+<span id="id3"></span><h3><span class="section-number">4.23.3.2.1.1.1. </span>Register the Open edX Instance<a class="headerlink" href="#register-the-open-edx-instance" title="Link to this heading">#</a></h3>
+<p>The most common OAuth2 providers are Google, Facebook, LinkedIn, and Azure
+Active Directory.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#register-the-open-edx-instance-with-google" id="id14">Register the Open edX Instance with Google</a></p></li>
+<li><p><a class="reference internal" href="#register-the-open-edx-instance-with-facebook" id="id15">Register the Open edX Instance with Facebook</a></p></li>
+<li><p><a class="reference internal" href="#register-the-open-edx-instance-with-linkedin" id="id16">Register the Open edX Instance with LinkedIn</a></p></li>
+<li><p><a class="reference internal" href="#register-the-open-edx-instance-with-azure-active-directory" id="id17">Register the Open edX Instance with Azure Active Directory</a></p></li>
+</ul>
+</nav>
+<section id="register-the-open-edx-instance-with-google">
+<h4><a class="toc-backref" href="#id14" role="doc-backlink"><span class="section-number">4.23.3.2.1.1.1.1. </span>Register the Open edX Instance with Google</a><a class="headerlink" href="#register-the-open-edx-instance-with-google" title="Link to this heading">#</a></h4>
+<p>The following instructions describe how to configure Google as a third party
+authentication provider so that users can use Google accounts (which includes
+Google Apps accounts) to sign in. These are based on the official Google
+instructions.</p>
+<ol class="arabic simple">
+<li><p>Obtain credentials to access the Google API. To do this, follow the
+<a class="reference external" href="https://developers.google.com/identity/protocols/oauth2">official Google instructions</a> to go to the <a class="reference external" href="https://console.developers.google.com/project/_/apiui/apis/library">Google Developers Console</a>,
+create a new project, and enable the Google+ API service.</p></li>
+<li><p>In the Google Developers Console, select <strong>API Manager</strong>, and then select
+<strong>OAuth Consent Screen</strong>.</p></li>
+<li><p>For <strong>Product name shown to users</strong> enter the name of your Open edX instance
+(for example, “Example Academy Online”).</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+<li><p>Select the <strong>Credentials</strong> tab, select <strong>Create credentials</strong>, and then
+select <strong>OAuth client ID</strong>.</p>
+<ul class="simple">
+<li><p>For <strong>Application type</strong>, select <strong>Web application</strong>.</p></li>
+<li><p>Leave the <strong>Authorized JavaScript origins</strong> field blank.</p></li>
+<li><p>For <strong>Authorized redirect URIs</strong>, enter <code class="docutils literal notranslate"><span class="pre">&lt;Open</span> <span class="pre">edX</span> <span class="pre">instance</span>
+<span class="pre">domain&gt;/auth/complete/google-oauth2/</span></code>. For example, for devstack, enter
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8000/auth/complete/google-oauth2/</span></code>.</p></li>
+<li><p>Select <strong>Create</strong> to finish creating the credentials.</p></li>
+</ul>
+</li>
+<li><p>After you obtain the credentials, note the client ID and the client secret.</p></li>
+</ol>
+</section>
+<section id="register-the-open-edx-instance-with-facebook">
+<h4><a class="toc-backref" href="#id15" role="doc-backlink"><span class="section-number">4.23.3.2.1.1.1.2. </span>Register the Open edX Instance with Facebook</a><a class="headerlink" href="#register-the-open-edx-instance-with-facebook" title="Link to this heading">#</a></h4>
+<p>To create the app in the Facebook developer portal, follow these steps.</p>
+<ol class="arabic">
+<li><p>Sign in to Facebook, then go to the <a class="reference external" href="https://developers.facebook.com/apps/?action=create">Facebook for Developers</a> page.</p></li>
+<li><p>Select <strong>Add a New App</strong>, and then select <strong>Website</strong>.</p></li>
+<li><p>Enter a name for the app, and then select <strong>Create New Facebook App ID</strong>.</p></li>
+<li><p>Enter your information in the rest of the fields in the app creation
+process.</p></li>
+<li><p>Under <strong>Quick Start for Website</strong>, select <strong>Skip Quick Start</strong>.</p>
+<p>You are now at the developer console page for the new Facebook app.</p>
+</li>
+<li><p>Select <strong>Settings</strong>, and note the <strong>App ID</strong> and <strong>App Secret</strong>.</p></li>
+<li><p>On the <strong>Settings</strong> page, select <strong>Add Platform</strong>, and then select
+<strong>Website</strong>.</p></li>
+<li><p>For <strong>Site URL</strong>, enter the URL of your Open edX instance (for example,
+<code class="docutils literal notranslate"><span class="pre">&lt;http://localhost:8000/&gt;</span></code> for devstack).</p></li>
+<li><p>In the <strong>App Domains</strong> field, enter the domain name from this URL (for
+example, <code class="docutils literal notranslate"><span class="pre">localhost</span></code>).</p></li>
+<li><p>Select <strong>Save Changes</strong>.</p></li>
+<li><p>Under <strong>Products</strong> -&gt; <strong>Facebook Login</strong> -&gt; <strong>Settings</strong> -&gt;
+<strong>Authorized redirect URIs</strong>, enter <code class="docutils literal notranslate"><span class="pre">&lt;Open</span> <span class="pre">edX</span> <span class="pre">instance</span>
+<span class="pre">domain&gt;/auth/complete/facebook/</span></code>. For example, for devstack, enter
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8000/auth/complete/facebook/</span></code>.</p></li>
+<li><p>Select <strong>Save Changes</strong>.</p></li>
+</ol>
+</section>
+<section id="register-the-open-edx-instance-with-linkedin">
+<h4><a class="toc-backref" href="#id16" role="doc-backlink"><span class="section-number">4.23.3.2.1.1.1.3. </span>Register the Open edX Instance with LinkedIn</a><a class="headerlink" href="#register-the-open-edx-instance-with-linkedin" title="Link to this heading">#</a></h4>
+<p>To create the LinkedIn app, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>Go to the <a class="reference external" href="https://www.linkedin.com/secure/developer">LinkedIn Developers</a> page.</p></li>
+<li><p>Click <strong>Create Application</strong>, enter your information in the form, and then
+submit the form.</p></li>
+<li><p>On the page that opens with information about the app, note the <strong>Client
+ID</strong> and <strong>Client Secret</strong>.</p></li>
+<li><p>In the <strong>OAuth 2.0</strong> section, for <strong>Authorized Redirect URL</strong>, enter <code class="docutils literal notranslate"><span class="pre">&lt;Open</span>
+<span class="pre">edX</span> <span class="pre">instance</span> <span class="pre">domain&gt;/auth/complete/linkedin-oauth2/</span></code>. For example, for
+devstack, enter <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/auth/complete/linkedin-oauth2/</span></code>.</p></li>
+<li><p>Select <strong>Update</strong> to save your information.</p></li>
+</ol>
+</section>
+<section id="register-the-open-edx-instance-with-azure-active-directory">
+<h4><a class="toc-backref" href="#id17" role="doc-backlink"><span class="section-number">4.23.3.2.1.1.1.4. </span>Register the Open edX Instance with Azure Active Directory</a><a class="headerlink" href="#register-the-open-edx-instance-with-azure-active-directory" title="Link to this heading">#</a></h4>
+<p>You can use Azure Active Directory to allow users with Microsoft Office 365
+Business accounts to sign in to Open edX. Note that this feature currently does
+not work with other types of Microsoft accounts (such as “&#64;live.com” or
+“&#64;hotmail.com” accounts).</p>
+<ol class="arabic">
+<li><p>If you do not have a Microsoft account, create one on the <a class="reference external" href="https://account.live.com">Microsoft sign in</a> page.</p></li>
+<li><p>If you do not have an Azure subscription, create one on the <a class="reference external" href="https://azure.microsoft.com/en-us/pricing/free-trial">Azure account
+creation</a> page.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must enter a credit card on this page, but if you do not create any
+virtual machines or other services besides Azure AD, you will not be
+charged.</p>
+</div>
+</li>
+<li><p>Go to the <a class="reference external" href="https://portal.azure.com">Azure sign in</a> page.</p></li>
+<li><p>Click <strong>New</strong>, locate <strong>Active Directory</strong>, and then select <strong>Create</strong>.</p></li>
+<li><p>Enter a name, domain name, and country.</p></li>
+<li><p>Create a new application.</p>
+<ol class="arabic simple">
+<li><p>Find the new Active Directory in the portal, select <strong>Applications</strong>,
+select <strong>Add</strong>, and then select <strong>Add an application my organization is
+developing</strong>.</p></li>
+<li><p>Enter a name for the app, and then select <strong>Web Application</strong>.</p></li>
+<li><p>For <strong>Sign-on URL</strong>, enter <code class="docutils literal notranslate"><span class="pre">&lt;LMS</span> <span class="pre">URI&gt;/auth/complete/azuread-oauth2/</span></code>.
+For example, you might enter
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8000/auth/complete/azuread-oauth2/</span></code>.</p></li>
+<li><p>For <strong>App ID URL</strong>, enter <code class="docutils literal notranslate"><span class="pre">&lt;LMS</span> <span class="pre">URI&gt;/sign</span> <span class="pre">in</span></code>. For example, you might
+enter <code class="docutils literal notranslate"><span class="pre">http://localhost:8000/sign</span> <span class="pre">in</span></code>.</p></li>
+<li><p>Finish creating the new app.</p></li>
+</ol>
+</li>
+<li><p>In the portal, locate your Azure AD application, click <strong>Configure</strong>, and
+then locate and make a note of the client ID. For example, the client ID may
+be <code class="docutils literal notranslate"><span class="pre">fe3c3868-0faa-44ee-a1bf-1110aeab1a65</span></code>.</p></li>
+<li><p>In the <strong>Keys</strong> section, select a two-year duration, and then select
+<strong>Save</strong> to create a secret key. Note the value of the key. For example, the
+key-value may be <code class="docutils literal notranslate"><span class="pre">abcdef12341yHlmOrR8D3vlV1cD2VtL7k9xk9DSB8vw=</span></code>.</p></li>
+<li><p>In the <strong>Permissions to other applications</strong> section, locate the <strong>Delegated
+Permissions</strong> option for Windows Azure Active Directory, and then select
+<strong>Sign in and read user profile</strong>.</p></li>
+<li><p>Verify the Azure AD domain name. To do this, follow these steps.</p>
+<ol class="arabic simple">
+<li><p>In the portal, locate the new Active Directory.</p></li>
+<li><p>Select <strong>Domains</strong>, select <strong>Add</strong>, and then add the root domain you want
+to use (for example, <code class="docutils literal notranslate"><span class="pre">edx.org</span></code>). Make sure that you add the root domain
+first, and then follow the TXT record verification process.</p></li>
+<li><p>(optional) After the domain has been verified, add subdomains (for
+example, <code class="docutils literal notranslate"><span class="pre">courses.edx.org</span></code>). Subdomains also request verification, but
+do not need it.</p></li>
+</ol>
+</li>
+<li><p>In the Active Directory, select <strong>Applications</strong>, and then select the
+application that you created.</p></li>
+<li><p>Enable <strong>multi-tenant</strong> support.</p></li>
+</ol>
+</section>
+</section>
+<section id="configure-open-edx">
+<span id="oauth2-configure-open-edx"></span><h3><span class="section-number">4.23.3.2.1.1.2. </span>Configure Open edX<a class="headerlink" href="#configure-open-edx" title="Link to this heading">#</a></h3>
+<p>Configuring Open edX is very similar for Google, Facebook, LinkedIn, and Azure.</p>
+<ol class="arabic">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> file, change the value of <code class="docutils literal notranslate"><span class="pre">FEATURES</span></code> &gt;
+<code class="docutils literal notranslate"><span class="pre">ENABLE_THIRD_PARTY_AUTH</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> (it is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default).</p></li>
+<li><p>If necessary, make sure that the correct backend is specified.</p>
+<ul>
+<li><p>If you are using Google, Facebook, LinkedIn, or Active Directory, open the
+<code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> file and look for the <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code> list.
+By default, the file does not contain this list.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> file does not contain the
+<code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code> list, you do not have to complete any
+additional steps.</p>
+<p>If the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> file contains the <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code>
+list, add the backend for the applicable IdP to the list.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For Google, add <code class="docutils literal notranslate"><span class="pre">&quot;social_core.backends.google.GoogleOAuth2&quot;</span></code>.</p></li>
+<li><p>For Facebook, add <code class="docutils literal notranslate"><span class="pre">&quot;social_core.backends.facebook.FacebookOAuth2&quot;</span></code>.</p></li>
+<li><p>For LinkedIn, add <code class="docutils literal notranslate"><span class="pre">&quot;social_core.backends.linkedin.LinkedinOAuth2&quot;</span></code>.</p></li>
+<li><dl class="simple">
+<dt>For Azure Active Directory, add</dt><dd><p><code class="docutils literal notranslate"><span class="pre">&quot;social_core.backends.azuread.AzureADOAuth2&quot;</span></code>.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>If you are using a custom backend, add the applicable OAuth2 provider to
+the <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code> list in the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> file. If
+the file does not contain the <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code> list, create
+the list, and then add the OAuth2 provider.</p></li>
+</ul>
+<p>For more information, see the <a class="reference external" href="https://github.com/openedx/edx-platform/blob/b3462e5b1c3cc45ad8673f3f12e84fa17ffa6b64/lms/envs/aws.py#L586-L596">AWS template file</a> file in GitHub.</p>
+</li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> file, add the client secret. To do this, create the
+<code class="docutils literal notranslate"><span class="pre">SOCIAL_AUTH_OAUTH_SECRETS</span></code> key if the key does not already exist, and
+then add the appropriate value for your IdP.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are using Ansible, set the <code class="docutils literal notranslate"><span class="pre">EDXAPP_SOCIAL_AUTH_OAUTH_SECRETS</span></code>
+variable.</p>
+</div>
+<ul>
+<li><p>For Google, add the following value.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;SOCIAL_AUTH_OAUTH_SECRETS&quot;: { &quot;google-oauth2&quot;:
+   &quot;abcdef123456789101112131&quot; }
+</pre></div>
+</div>
+</li>
+<li><p>For Facebook, add the following value.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;SOCIAL_AUTH_OAUTH_SECRETS&quot;: {
+   &quot;facebook&quot;: &quot;98765432181bbe3a2596efa8ba7abcde&quot;
+}
+</pre></div>
+</div>
+</li>
+<li><p>For LinkedIn, add the following value.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;SOCIAL_AUTH_OAUTH_SECRETS&quot;: { &quot;linkedin-oauth2&quot;: &quot;4D3Cb2aB1C0dEFGH&quot; }
+</pre></div>
+</div>
+</li>
+<li><p>For Azure, add the following value.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;SOCIAL_AUTH_OAUTH_SECRETS&quot;: { &quot;azuread-oauth2&quot;:
+    &quot;abcdef12341yHlmOrR8D3vlV1cD2VtL7k9xk9DSB8vw=&quot; }
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Restart the LMS server so that it will use the new settings.</p></li>
+</ol>
+</section>
+<section id="add-the-provider-configuration">
+<span id="id4"></span><h3><span class="section-number">4.23.3.2.1.1.3. </span>Add the Provider Configuration<a class="headerlink" href="#add-the-provider-configuration" title="Link to this heading">#</a></h3>
+<ol class="arabic">
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">&lt;LMS</span> <span class="pre">URI&gt;/admin/third_party_auth/oauth2providerconfig/</span></code>. For
+example, on devstack, go to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8000/admin/third_party_auth/oauth2providerconfig/</span></code>.</p></li>
+<li><p>Select <strong>Add Provider Configuration (OAuth)</strong>.</p></li>
+<li><p>Make sure that <strong>Enabled</strong> is selected.</p></li>
+<li><p>Make sure that <strong>Visible</strong> is selected.</p></li>
+<li><p>For <strong>Icon Class</strong>, enter the appropriate value.</p>
+<ul class="simple">
+<li><p>For Google, enter <code class="docutils literal notranslate"><span class="pre">fa-google-plus</span></code>.</p></li>
+<li><p>For Facebook, enter <code class="docutils literal notranslate"><span class="pre">fa-facebook</span></code>.</p></li>
+<li><p>For LinkedIn, enter <code class="docutils literal notranslate"><span class="pre">fa-linkedin</span></code>.</p></li>
+<li><p>For Azure, leave the field blank.</p></li>
+</ul>
+</li>
+<li><p>For <strong>Name</strong>, enter the appropriate value.</p>
+<ul class="simple">
+<li><p>For Google, enter <code class="docutils literal notranslate"><span class="pre">Google</span></code>.</p></li>
+<li><p>For Facebook, enter <code class="docutils literal notranslate"><span class="pre">Facebook</span></code>.</p></li>
+<li><p>For LinkedIn, enter <code class="docutils literal notranslate"><span class="pre">LinkedIn</span></code>.</p></li>
+<li><p>For Azure, enter <code class="docutils literal notranslate"><span class="pre">Microsoft</span></code>.</p></li>
+</ul>
+</li>
+<li><p>For <strong>Backend Name</strong>, select the appropriate value.</p>
+<ul class="simple">
+<li><p>For Google, select <strong>google-oauth2</strong>.</p></li>
+<li><p>For Facebook, select <strong>facebook</strong>.</p></li>
+<li><p>For LinkedIn, select <strong>linkedin-oauth2</strong>.</p></li>
+<li><p>For Azure, select <strong>azuread-oauth2</strong>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If the value does not appear in the list, either the
+<code class="docutils literal notranslate"><span class="pre">ENABLE_THIRD_PARTY_AUTH</span></code> setting or the <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code>
+setting is not configured correctly.</p>
+</div>
+</li>
+<li><p>For <strong>Client ID</strong>, enter the client ID that you noted earlier.</p></li>
+<li><p>Leave <strong>Client Secret</strong> blank. Open edX sets the secret through
+<code class="docutils literal notranslate"><span class="pre">lms.yml</span></code>, which is more secure.</p></li>
+<li><p>(Optional) If you want Facebook or LinkedIn to provide the user’s email
+address during registration, enter the following code into <strong>Other
+settings</strong>.</p>
+<p>For Facebook, use this code.</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+    &quot;SCOPE&quot;: [&quot;email&quot;],
+    &quot;PROFILE_EXTRA_PARAMS&quot;: {
+        &quot;fields&quot;: &quot;id, name, email&quot;
+    }
+}
+</pre></div>
+</div>
+</div></blockquote>
+<p>For LinkedIn, use this code.</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{ &quot;SCOPE&quot;: [&quot;r_basicprofile&quot;, &quot;r_emailaddress&quot;], &quot;FIELD_SELECTORS&quot;:
+ [&quot;email-address&quot;] }
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+<p>Users who have an account with the IdP that you have configured can now sign
+in.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For Google only, if you see the following error message, the
+<code class="docutils literal notranslate"><span class="pre">SOCIAL_AUTH_OAUTH_SECRETS</span></code> setting is not correct.</p>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">'unicode'</span> <span class="pre">object</span> <span class="pre">has</span> <span class="pre">no</span> <span class="pre">attribute</span> <span class="pre">'get'</span></code></p>
+</div></blockquote>
+<p>To resolve this problem, make sure that this setting does not appear multiple
+times in the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> file.</p>
+</div>
+</section>
+</section>
+<section id="additional-oauth2-providers-advanced">
+<span id="additional-providers"></span><h2><span class="section-number">4.23.3.2.1.2. </span>Additional OAuth2 Providers (Advanced)<a class="headerlink" href="#additional-oauth2-providers-advanced" title="Link to this heading">#</a></h2>
+<p>You can add any other third party authentication provider that supports the
+OAuth2 standard to the Open edX platform. To do this, follow these steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>OAuth1 providers are also supported and can be configured using these same
+steps. However, OAuth2 is preferred over OAuth1 wherever possible.</p>
+</div>
+<ol class="arabic">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code>, change the value of <code class="docutils literal notranslate"><span class="pre">FEATURES</span></code> &gt;
+<code class="docutils literal notranslate"><span class="pre">ENABLE_THIRD_PARTY_AUTH</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code> (it is <code class="docutils literal notranslate"><span class="pre">false</span></code> by default).</p></li>
+<li><p>Install the python-social-auth authentication backend specific to
+that provider, and determine the python module path of the backend.</p>
+<ul>
+<li><p>If the provider is a <a class="reference external" href="http://python-social-auth.readthedocs.io/en/latest/backends/index.html#social-backends">python-social-auth supported backend</a>, the backend
+is already installed.</p>
+<p>To determine the python module path of the backend, locate the backend in
+the <a class="reference external" href="https://github.com/omab/python-social-auth/tree/master/social/backends">list of python-social-auth backends</a>, open the file for the backend,
+and locate the name of the class. The python module path is of the format
+<code class="docutils literal notranslate"><span class="pre">social_core.backends.&lt;file</span> <span class="pre">name&gt;.&lt;class</span> <span class="pre">name&gt;</span></code>.</p>
+<p>For example, for GitHub, the file is <code class="docutils literal notranslate"><span class="pre">github.py</span></code> and the class in that
+file is <code class="docutils literal notranslate"><span class="pre">GithubOAuth2</span></code>. The backend module path is therefore
+<code class="docutils literal notranslate"><span class="pre">social_core.backends.github.GithubOAuth2</span></code>.</p>
+</li>
+<li><p>If the provider is not a python-social-auth supported backend, you must
+create a new Python package that includes the code required to implement
+the backend. Your python package must contain a module with a class that
+subclasses <code class="docutils literal notranslate"><span class="pre">social_core.backends.oauth.BaseOAuth2</span></code>. For more information, see
+the <a class="reference external" href="http://python-social-auth.readthedocs.io/en/latest/index.html">python-social-auth documentation</a>, or see the code of the fully
+supported backends (such as Google or Facebook) for examples.</p></li>
+</ul>
+</li>
+<li><p>Enable the python-social-auth authentication backend specific to that
+provider:</p>
+<ol class="arabic simple">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code> setting in <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code>, add the
+full path of the module to the list.</p></li>
+<li><p>(optional) Set the value of <code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code> to match <a class="reference external" href="https://github.com/openedx/edx-platform/blob/b3462e5b1c3cc45ad8673f3f12e84fa17ffa6b64/lms/envs/aws.py#L586-L596">the
+default value in the aws.py file</a>, and then add any additional backends
+you need.</p></li>
+</ol>
+</li>
+<li><p>Obtain a client ID and client secret from the provider.</p></li>
+<li><p>Add the client secret to <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code>. To do this, create a new key
+called <code class="docutils literal notranslate"><span class="pre">SOCIAL_AUTH_OAUTH_SECRETS</span></code> if it doesn’t already exist, and then
+add the backend name to that key as follows.</p>
+<blockquote>
+<div><div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;SOCIAL_AUTH_OAUTH_SECRETS&quot;: { &quot;backend-name&quot;: &quot;secret&quot; }
+</pre></div>
+</div>
+</div></blockquote>
+<p>If you are using Ansible, the variable to set is called
+<code class="docutils literal notranslate"><span class="pre">EDXAPP_SOCIAL_AUTH_OAUTH_SECRETS</span></code>.</p>
+</li>
+<li><p>Restart the LMS server so that it will use the new settings.</p></li>
+<li><p>Go to <code class="docutils literal notranslate"><span class="pre">&lt;LMS</span> <span class="pre">URI&gt;/admin/third_party_auth/oauth2providerconfig/</span></code>. For
+example, on devstack, go to
+<code class="docutils literal notranslate"><span class="pre">http://localhost:8000/admin/third_party_auth/oauth2providerconfig/</span></code>.</p></li>
+<li><p>Select <strong>Add Provider Configuration (OAuth)</strong>.</p></li>
+<li><p>Make sure that <strong>Enabled</strong> is selected.</p></li>
+<li><p>Make sure that <strong>Visible</strong> is selected.</p></li>
+<li><p>For <strong>Icon Class</strong>, select one of the following options.</p>
+<ul class="simple">
+<li><p>Use a generic icon by entering <code class="docutils literal notranslate"><span class="pre">fa-sign-in</span></code>.</p></li>
+<li><p>Use a relevant Font Awesome icon.</p></li>
+<li><p>Upload an SVG icon using the <strong>Icon Image</strong> field.</p></li>
+</ul>
+</li>
+<li><p>For <strong>Name</strong>, enter the name of the provider.</p></li>
+<li><p>For <strong>Site</strong>, choose the site which you want to apply the provider config to,
+if there are multiple site configurations.</p></li>
+<li><p>For <strong>Backend Name</strong>, select the backend name from the list. (If it does not
+appear in the list, either the <code class="docutils literal notranslate"><span class="pre">ENABLE_THIRD_PARTY_AUTH</span></code> setting or the
+<code class="docutils literal notranslate"><span class="pre">THIRD_PARTY_AUTH_BACKENDS</span></code> setting is not configured correctly.)</p></li>
+<li><p>For <strong>Client ID</strong>, enter the client ID that you noted earlier.</p></li>
+<li><p>Leave <strong>Client Secret</strong> blank. Open edX sets the secret through
+<code class="docutils literal notranslate"><span class="pre">lms.yml</span></code>, which is more secure.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+<p>Users can now sign in using this OAuth2 provider.</p>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.23.3. </span>Integrating Third Party Authentication in Open edX</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="tpa_SAML_IdP.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.23.3.2.2. </span>Integrating with a SAML Identity Provider</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-oauth2-providers">4.23.3.2.1.1. Common OAuth2 Providers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance">4.23.3.2.1.1.1. Register the Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-google">4.23.3.2.1.1.1.1. Register the Open edX Instance with Google</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-facebook">4.23.3.2.1.1.1.2. Register the Open edX Instance with Facebook</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-linkedin">4.23.3.2.1.1.1.3. Register the Open edX Instance with LinkedIn</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#register-the-open-edx-instance-with-azure-active-directory">4.23.3.2.1.1.1.4. Register the Open edX Instance with Azure Active Directory</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-open-edx">4.23.3.2.1.1.2. Configure Open edX</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#add-the-provider-configuration">4.23.3.2.1.1.3. Add the Provider Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-oauth2-providers-advanced">4.23.3.2.1.2. Additional OAuth2 Providers (Advanced)</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

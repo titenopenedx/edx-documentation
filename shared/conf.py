@@ -6,6 +6,7 @@ import sys
 import urllib
 from pathlib import Path
 
+
 # What release line is this?  Use "master" for master, and the release name
 # on release branches.  Zebrawood should have "zebrawood".
 release_line = "master"
@@ -71,7 +72,7 @@ path_to_docs = '/'.join(Path.cwd().parts[-3:])
 
 # html_theme_path = []
 html_theme_options = {
-    "repository_url": "https://github.com/openedx/edx-documentation",
+    "repository_url": "https://github.com/Symbyagnesh/edx-documentation",
     "repository_branch": "master",
     "path_to_docs": path_to_docs,
     "home_page_in_toc": True,
@@ -104,7 +105,7 @@ html_theme_options = {
 }
 html_theme_options['navigation_depth'] = 3
 
-html_logo = "https://logos.openedx.org/open-edx-logo-color.png"
+html_logo = "https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png"
 html_favicon = "https://logos.openedx.org/open-edx-favicon.ico"
 
 # Help and Feedback links.  These are customized for the category and audience
@@ -199,7 +200,7 @@ def openedx_rtd_url(slug):
 def ism_location(dir_name):
     """Calculate the intersphinx_mapping location to use for a book.
 
-    `dir_name` is the directory name under edx-documentation/en_us for the book.
+    dir_name is the directory name under edx-documentation/en_us for the book.
 
     """
     objects_inv = f"../../{dir_name}/build/html/objects.inv"
@@ -207,25 +208,23 @@ def ism_location(dir_name):
         return (objects_inv, None)
     else:
         return None
-
 intersphinx_mapping = {
-    "opencoursestaff" : (openedx_rtd_url("open-edx-building-and-running-a-course"), ism_location("open_edx_course_authors")),
-    "data" : (edx_rtd_url("devdata"), ism_location("data")),
+    "opencoursestaff": (openedx_rtd_url("open-edx-building-and-running-a-course"), ism_location("open_edx_course_authors")),
+    "data": (edx_rtd_url("devdata"), ism_location("data")),
     "partnercoursestaff": (edx_rtd_url("edx-partner-course-staff"), ism_location("course_authors")),
-    "insights" : (edx_rtd_url("edx-insights"), None),
-    "xblockapi" : (edx_rtd_url("xblock"), None),
-    "xblocktutorial" : (edx_rtd_url("xblock-tutorial"), ism_location("xblock-tutorial")),
-    "installation" : (openedx_rtd_url("edx-installing-configuring-and-running"), ism_location("install_operations")),
-    "olx" : (edx_rtd_url("edx-open-learning-xml"), ism_location("olx")),
-    "learners" : ("", ism_location("students_redirect")),
-    "openlearners" : (openedx_rtd_url("open-edx-learner-guide"), ism_location("open_edx_students")),
-    "opendevelopers" : (edx_rtd_url("edx-developer-guide"), ism_location("developers")),
-    "opendataapi" : (edx_rtd_url("edx-data-analytics-api"), None),
-    "openreleasenotes" : (edx_rtd_url("open-edx-release-notes"), ism_location("open_edx_release_notes")),
-
+    "insights": (edx_rtd_url("edx-insights"), None),
+    "xblockapi": (edx_rtd_url("xblock"), None),
+    "xblocktutorial": (edx_rtd_url("xblock-tutorial"), ism_location("xblock-tutorial")),
+    "installation": (openedx_rtd_url("edx-installing-configuring-and-running"), ism_location("install_operations")),
+    "olx": (edx_rtd_url("edx-open-learning-xml"), ism_location("olx")),
+    "learners": (edx_rtd_url("edx-learner-guide"), ism_location("students_redirect")),  # Updated this line
+    "openlearners": (openedx_rtd_url("open-edx-learner-guide"), ism_location("open_edx_students")),
+    "opendevelopers": (edx_rtd_url("edx-developer-guide"), ism_location("developers")),
+    "opendataapi": (edx_rtd_url("edx-data-analytics-api"), None),
+    "openreleasenotes": (edx_rtd_url("open-edx-release-notes"), ism_location("open_edx_release_notes")),
 }
 
 extlinks = {
-    # :jira:`TNL-4904` becomes: <a href='https://openedx.atlassian.net/browse/TNL-4904'>TNL-4904</a>
+    # :jira:TNL-4904 becomes: <a href='https://openedx.atlassian.net/browse/TNL-4904'>TNL-4904</a>
     'jira': ('https://openedx.atlassian.net/browse/%s', 'Jira Issue %s'),
 }

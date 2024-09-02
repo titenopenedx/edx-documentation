@@ -1,0 +1,805 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>6.7.2. Common Fields &#8212; EdX Research Guide  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'internal_data_formats/tracking_logs/common_fields';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="6.7.3. Student Events" href="student_event_types.html" />
+    <link rel="prev" title="6.7.1. Reviewing a Sample Event" href="sample_events.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Research Guide  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Research Guide  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Using the edX Data Package
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../start/index.html">1. Getting Started with the edX Data Package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_czars/index.html">2. Responsibilities of the Data Czar and Team</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../access/index.html">3. Accessing the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../access/credentials.html">3.1. Keys and Credentials for Data Transfers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../access/download.html">3.2. Downloading the Data Package from Amazon S3</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../using/index.html">4. Using the edX Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../using/data_security.html">4.1. Data Security Guidelines for Data Czars</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../using/package.html">4.2. Data Delivered in Data Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../using/resources.html">4.3. Resources for Data Czars and Researchers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../rdx/index.html">5. Using the Research Data Exchange Data Package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../rdx/rdx_data.html">5.1. Data Obfuscation Procedures for RDX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../rdx/rdx_retrieval.html">5.2. Retrieving RDX Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../index.html">6. Data Reference</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../institution_data.html">6.1. Email Opt-in Report</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_structure.html">6.2. Course Content Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sql_schema.html">6.3. User Info and Learner Progress Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../discussion_data.html">6.4. Discussion Forums Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../wiki_data.html">6.5. Wiki Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ora2_data.html">6.6. Open Response Assessment Data</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">6.7. Events in the Tracking Logs</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sample_events.html">6.7.1. Reviewing a Sample Event</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">6.7.2. Common Fields</a></li>
+<li class="toctree-l3"><a class="reference internal" href="student_event_types.html">6.7.3. Student Events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="course_team_event_types.html">6.7.4. Course Team Events</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../event_list.html">6.8. Alphabetical Event List</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../glossary.html">7. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/data/source/internal_data_formats/tracking_logs/common_fields.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Finternal_data_formats/tracking_logs/common_fields.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/internal_data_formats/tracking_logs/common_fields.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Common Fields</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accept-language-field">6.7.2.1. <code class="docutils literal notranslate"><span class="pre">accept_language</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agent-field">6.7.2.2. <code class="docutils literal notranslate"><span class="pre">agent</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-field">6.7.2.3. <code class="docutils literal notranslate"><span class="pre">context</span></code> Field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-member-fields-common-to-all-events">6.7.2.3.1. <code class="docutils literal notranslate"><span class="pre">context</span></code> Member Fields Common to All Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-member-fields-for-applicable-events">6.7.2.3.2. <code class="docutils literal notranslate"><span class="pre">context</span></code> Member Fields for Applicable Events</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-field">6.7.2.4. <code class="docutils literal notranslate"><span class="pre">event</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-source-field">6.7.2.5. <code class="docutils literal notranslate"><span class="pre">event_source</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-type-field">6.7.2.6. <code class="docutils literal notranslate"><span class="pre">event_type</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#host-field">6.7.2.7. <code class="docutils literal notranslate"><span class="pre">host</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip-field">6.7.2.8. <code class="docutils literal notranslate"><span class="pre">ip</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-field">6.7.2.9. <code class="docutils literal notranslate"><span class="pre">name</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-field">6.7.2.10. <code class="docutils literal notranslate"><span class="pre">page</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referer-field">6.7.2.11. <code class="docutils literal notranslate"><span class="pre">referer</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-field">6.7.2.12. <code class="docutils literal notranslate"><span class="pre">session</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-field">6.7.2.13. <code class="docutils literal notranslate"><span class="pre">time</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#username-field">6.7.2.14. <code class="docutils literal notranslate"><span class="pre">username</span></code> Field</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="common-fields">
+<span id="common"></span><h1><span class="section-number">6.7.2. </span>Common Fields<a class="headerlink" href="#common-fields" title="Link to this heading">#</a></h1>
+<p>This section describes the JSON fields that are common to the schema
+definitions of all events. These fields are at the root level of the event
+JSON documents.</p>
+<p>This section presents the common fields in alphabetical order. Actual events
+in your data package can include these fields in different sequences.</p>
+<section id="accept-language-field">
+<h2><span class="section-number">6.7.2.1. </span><code class="docutils literal notranslate"><span class="pre">accept_language</span></code> Field<a class="headerlink" href="#accept-language-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> The value from the HTTP Accept-Language request-header field. For
+more information, see the HTTP/1.1 header field definition for
+<a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.4">Accept-Language</a>.</p>
+<p><strong>History:</strong> Added 23 Feb 2015.</p>
+</section>
+<section id="agent-field">
+<h2><span class="section-number">6.7.2.2. </span><code class="docutils literal notranslate"><span class="pre">agent</span></code> Field<a class="headerlink" href="#agent-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> Browser agent string of the user who triggered the event.</p>
+</section>
+<section id="context-field">
+<span id="context"></span><h2><span class="section-number">6.7.2.3. </span><code class="docutils literal notranslate"><span class="pre">context</span></code> Field<a class="headerlink" href="#context-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> object</p>
+<p><strong>Details:</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">context</span></code> field includes member fields that provide contextual
+information.</p>
+<ul class="simple">
+<li><p>This field contains a core set of member fields that are common to all
+events.</p></li>
+<li><p>For certain events with additional contextual requirements, this field
+contains a set of additional member fields that are common to those events
+only.</p></li>
+<li><p>For any event, this field can also include one or more additional member
+fields. For more information about the <code class="docutils literal notranslate"><span class="pre">context</span></code> member fields for an
+event, see the description of that event later in this section.</p></li>
+</ul>
+<section id="context-member-fields-common-to-all-events">
+<h3><span class="section-number">6.7.2.3.1. </span><code class="docutils literal notranslate"><span class="pre">context</span></code> Member Fields Common to All Events<a class="headerlink" href="#context-member-fields-common-to-all-events" title="Link to this heading">#</a></h3>
+<p>The following member fields are present in the <code class="docutils literal notranslate"><span class="pre">context</span></code> field for all
+events.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">context</span></code> Member Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Details</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">course_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>Identifies the course that generated the event.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">org_id</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The organization that lists the course.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">path</span></code></p></td>
+<td><p>string</p></td>
+<td><p>The URL that generated the event.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code></p></td>
+<td><p>number</p></td>
+<td><p>Identifies the individual who is performing the action.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Occasionally, an event is recorded with a missing or blank
+<code class="docutils literal notranslate"><span class="pre">context.user_id</span></code> value. This can occur when a user logs out, or the login
+session times out, while a browser window remains open. Subsequent actions are
+logged, but the system cannot supply the user identifier. EdX recommends that
+you ignore these events during analysis.</p>
+</div>
+</section>
+<section id="context-member-fields-for-applicable-events">
+<h3><span class="section-number">6.7.2.3.2. </span><code class="docutils literal notranslate"><span class="pre">context</span></code> Member Fields for Applicable Events<a class="headerlink" href="#context-member-fields-for-applicable-events" title="Link to this heading">#</a></h3>
+<p>When applicable for an event, the <code class="docutils literal notranslate"><span class="pre">context</span></code> field also includes these member
+fields to provide additional information.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p><code class="docutils literal notranslate"><span class="pre">context</span></code> Member Field</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Details</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">course_user_tags</span></code></p></td>
+<td><p>object</p></td>
+<td><p>Contains the key(s) and value(s) from the <code class="docutils literal notranslate"><span class="pre">user_api_usercoursetag</span></code>
+table for the user. See <a class="reference internal" href="../sql_schema.html#user-api-usercoursetag"><span class="std std-ref">Columns in the user_api_usercoursetag Table</span></a>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">module</span></code></p></td>
+<td><p>object</p></td>
+<td><p>Provides identifying information for the components involved in a
+server event.</p>
+<p>For example, in a server <code class="docutils literal notranslate"><span class="pre">problem_check</span></code> event, the <code class="docutils literal notranslate"><span class="pre">module</span></code> field
+indicates the problem component that the server checked successfully.
+The member fields are <code class="docutils literal notranslate"><span class="pre">display_name</span></code> and <code class="docutils literal notranslate"><span class="pre">usage_key</span></code>.</p>
+<p>For modules that are used in a course to present content from a
+library, <code class="docutils literal notranslate"><span class="pre">module</span></code> also includes the <code class="docutils literal notranslate"><span class="pre">original_usage_key</span></code> and
+<code class="docutils literal notranslate"><span class="pre">original_usage_version</span></code> fields. These member fields provide a
+consistent way to identify components that are sourced from a library,
+and can be used to identify the source library.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">context</span></code> member fields are blank if values cannot be determined.</p>
+<p><strong>History</strong>: <code class="docutils literal notranslate"><span class="pre">usage_key</span></code> added 28 Jan 2015. <code class="docutils literal notranslate"><span class="pre">path</span></code> added 07 May 2014.
+<code class="docutils literal notranslate"><span class="pre">course_user_tags</span></code> added 12 Mar 2014. <code class="docutils literal notranslate"><span class="pre">user_id</span></code> added 6 Nov 2013. Other
+event fields may duplicate this data. Added 23 Oct 2013.</p>
+</section>
+</section>
+<section id="event-field">
+<h2><span class="section-number">6.7.2.4. </span><code class="docutils literal notranslate"><span class="pre">event</span></code> Field<a class="headerlink" href="#event-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> object</p>
+<p><strong>Details:</strong> This field includes member fields that identify specifics of each
+triggered event. Different member fields are supplied for different events.
+For more information about the <code class="docutils literal notranslate"><span class="pre">event</span></code> member fields for an event, see the
+description of that event later in this section.</p>
+</section>
+<section id="event-source-field">
+<h2><span class="section-number">6.7.2.5. </span><code class="docutils literal notranslate"><span class="pre">event_source</span></code> Field<a class="headerlink" href="#event-source-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> Specifies the source of the interaction that triggered the event.
+The values in this field are:</p>
+<ul class="simple">
+<li><p>‘browser’</p></li>
+<li><p>‘mobile’</p></li>
+<li><p>‘server’</p></li>
+<li><p>‘task’</p></li>
+</ul>
+<p><strong>History</strong>: Updated 16 Oct 2014 to identify events emitted from mobile
+devices.</p>
+</section>
+<section id="event-type-field">
+<h2><span class="section-number">6.7.2.6. </span><code class="docutils literal notranslate"><span class="pre">event_type</span></code> Field<a class="headerlink" href="#event-type-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> The type of event triggered. Values depend on <code class="docutils literal notranslate"><span class="pre">event_source</span></code>.</p>
+<p><a class="reference internal" href="student_event_types.html#student-event-types"><span class="std std-ref">Student Events</span></a> and <a class="reference internal" href="course_team_event_types.html#instructor-event-types"><span class="std std-ref">Course Team Events</span></a> later in this
+section provide descriptions of each type of event that is included in
+data packages. To locate information about a specific event type, see the
+<a class="reference internal" href="../event_list.html#event-list"><span class="std std-ref">Alphabetical Event List</span></a>.</p>
+</section>
+<section id="host-field">
+<h2><span class="section-number">6.7.2.7. </span><code class="docutils literal notranslate"><span class="pre">host</span></code> Field<a class="headerlink" href="#host-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> The site visited by the user, for example, <code class="docutils literal notranslate"><span class="pre">courses.edx.org</span></code>.</p>
+</section>
+<section id="ip-field">
+<h2><span class="section-number">6.7.2.8. </span><code class="docutils literal notranslate"><span class="pre">ip</span></code> Field<a class="headerlink" href="#ip-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> IP address of the user who triggered the event. Empty for events
+that originate on mobile devices.</p>
+</section>
+<section id="name-field">
+<h2><span class="section-number">6.7.2.9. </span><code class="docutils literal notranslate"><span class="pre">name</span></code> Field<a class="headerlink" href="#name-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> Identifies the type of event triggered.</p>
+<p><strong>History:</strong> Server and mobile events added beginning on 07 May 2014 include a
+<code class="docutils literal notranslate"><span class="pre">name</span></code> field. When this field is present for an event, it supersedes the
+<code class="docutils literal notranslate"><span class="pre">event_type</span></code> field.</p>
+</section>
+<section id="page-field">
+<h2><span class="section-number">6.7.2.10. </span><code class="docutils literal notranslate"><span class="pre">page</span></code> Field<a class="headerlink" href="#page-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> The ‘$URL’ of the page the user was visiting when the event was
+emitted.</p>
+<p>For video events that originate on mobile devices, identifies the URL for the
+video component.</p>
+</section>
+<section id="referer-field">
+<span id="id1"></span><h2><span class="section-number">6.7.2.11. </span><code class="docutils literal notranslate"><span class="pre">referer</span></code> Field<a class="headerlink" href="#referer-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> The URI from the HTTP Referer request-header field. For more
+information, see the HTTP/1.1 header field definition for <a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.36">Referer</a>.</p>
+<p><strong>History:</strong> Added 23 Feb 2015.</p>
+</section>
+<section id="session-field">
+<h2><span class="section-number">6.7.2.12. </span><code class="docutils literal notranslate"><span class="pre">session</span></code> Field<a class="headerlink" href="#session-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> This 32-character value is a key that identifies the user’s
+session. All browser events and the server <a class="reference internal" href="student_event_types.html#enrollment"><span class="std std-ref">enrollment</span></a> events
+include a value for the session. Other server events and mobile events do not
+include a session value.</p>
+</section>
+<section id="time-field">
+<h2><span class="section-number">6.7.2.13. </span><code class="docutils literal notranslate"><span class="pre">time</span></code> Field<a class="headerlink" href="#time-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> Gives the UTC time at which the event was emitted in
+‘YYYY-MM-DDThh:mm:ss.xxxxxx’ format.</p>
+</section>
+<section id="username-field">
+<h2><span class="section-number">6.7.2.14. </span><code class="docutils literal notranslate"><span class="pre">username</span></code> Field<a class="headerlink" href="#username-field" title="Link to this heading">#</a></h2>
+<p><strong>Type:</strong> string</p>
+<p><strong>Details:</strong> The username of the user who caused the event to be emitted.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Occasionally, an event is recorded with a blank <code class="docutils literal notranslate"><span class="pre">username</span></code>
+value. This can occur when a user logs out, or the login session times out,
+while a browser window remains open. Subsequent actions are logged, but the
+system cannot supply the user identifier. EdX recommends that you ignore these
+events during analysis.</p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="sample_events.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">6.7.1. </span>Reviewing a Sample Event</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="student_event_types.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">6.7.3. </span>Student Events</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#accept-language-field">6.7.2.1. <code class="docutils literal notranslate"><span class="pre">accept_language</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#agent-field">6.7.2.2. <code class="docutils literal notranslate"><span class="pre">agent</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#context-field">6.7.2.3. <code class="docutils literal notranslate"><span class="pre">context</span></code> Field</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-member-fields-common-to-all-events">6.7.2.3.1. <code class="docutils literal notranslate"><span class="pre">context</span></code> Member Fields Common to All Events</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#context-member-fields-for-applicable-events">6.7.2.3.2. <code class="docutils literal notranslate"><span class="pre">context</span></code> Member Fields for Applicable Events</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-field">6.7.2.4. <code class="docutils literal notranslate"><span class="pre">event</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-source-field">6.7.2.5. <code class="docutils literal notranslate"><span class="pre">event_source</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#event-type-field">6.7.2.6. <code class="docutils literal notranslate"><span class="pre">event_type</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#host-field">6.7.2.7. <code class="docutils literal notranslate"><span class="pre">host</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ip-field">6.7.2.8. <code class="docutils literal notranslate"><span class="pre">ip</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#name-field">6.7.2.9. <code class="docutils literal notranslate"><span class="pre">name</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#page-field">6.7.2.10. <code class="docutils literal notranslate"><span class="pre">page</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#referer-field">6.7.2.11. <code class="docutils literal notranslate"><span class="pre">referer</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-field">6.7.2.12. <code class="docutils literal notranslate"><span class="pre">session</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-field">6.7.2.13. <code class="docutils literal notranslate"><span class="pre">time</span></code> Field</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#username-field">6.7.2.14. <code class="docutils literal notranslate"><span class="pre">username</span></code> Field</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

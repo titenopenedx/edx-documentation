@@ -1,0 +1,1820 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>8.4. Working with Problem Components &#8212; Building and Running an Open edX Course  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'course_components/create_problem';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="8.5. Working with Content Libraries" href="libraries.html" />
+    <link rel="prev" title="8.3. Working with Discussion Components" href="create_discussion.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Building and Running an Open edX Course  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Building and Running an Open edX Course  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Building and Running an Open edX Course
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../getting_started/index.html">2. Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../getting_started/CA_get_started_Studio.html">2.1. Getting Started with Studio</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../CA_dashboard_profile_SectionHead.html">3. Exploring Your Dashboard and Profile</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../reaching_learners/index.html">4. Reaching As Many Learners As Possible</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../reaching_learners/design_for_mobile.html">4.1. Designing Your Course For a Mobile Experience</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../accessibility/index.html">5. Accessibility Best Practices Guidance for Content Providers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/edX_accessib_guidelines.html">5.1. What Is The edX Accessibility Best Practices Guidance Based On?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/supporting_learners_diverse_needs.html">5.2. Supporting Learners with Diverse Needs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../accessibility/best_practices_course_content_dev.html">5.3. Accessibility Best Practices for Developing Course Content</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../set_up_course/index.html">6. Setting Up a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_information/index.html">6.1. Planning Course Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/title_number_guidelines.html">6.1.1. Course Title and Number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/image_guidelines.html">6.1.2. Images and Videos for a Course or Program</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/description_guidelines.html">6.1.3. Course Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_information/additional_course_information.html">6.1.4. Additional Course Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/planning_course_run_information/index.html">6.2. Planning Course Run Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/staffing.html">6.2.1. Planning Course Staff</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/scheduling.html">6.2.2. Scheduling a Course Run</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/planning_course_run_information/additional_course_run_information.html">6.2.3. Additional Course Run Information</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../set_up_course/studio_add_course_information/index.html">6.3. Creating a Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_course_staffing.html">6.3.1. Adding Course Team Members in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_new_course.html">6.3.2. Creating a New Course in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_scheduling.html">6.3.3. Set the Course Run Schedule and Pacing in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_prerequisites.html">6.3.4. Specifying Prerequisite Courses and Exams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/creating_about_page.html">6.3.5. Creating a Course About Page in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/studio_creating_certificates.html">6.3.6. Setting Up Certificates in Studio</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/search_course.html">6.3.7. Course Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../set_up_course/studio_add_course_information/custom_courses.html">6.3.8. Creating a Custom Course</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../developing_course/index.html">7. Developing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/workflow.html">7.1. Getting Started with Course Content Development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_outline.html">7.2. Developing Your Course Outline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_sections.html">7.3. Developing Course Sections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_subsections.html">7.4. Developing Course Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_units.html">7.5. Developing Course Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/course_components.html">7.6. Developing Course Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/controlling_content_visibility.html">7.7. Controlling Content Visibility and Access</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/licensing_course.html">7.8. Course Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developing_course/testing_courseware.html">7.9. Testing Your Course Content</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">8. Adding Course Components</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="create_html_component.html">8.1. Working with Text Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_video.html">8.2. Working with Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="create_discussion.html">8.3. Working with Discussion Components</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.4. Working with Problem Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="libraries.html">8.5. Working with Content Libraries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../video/index.html">9. Creating and Adding Video Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../video/video_process_overview.html">9.1. Video Process Overview</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../video/prepare_video/index.html">9.2. Preparing a Video</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/set_up_host.html">9.2.1. Set Up a Hosting Service</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/create_video.html">9.2.2. Create a Video</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../video/prepare_video/obtain_transcript.html">9.2.3. Obtain a Video Transcript</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/upload_video.html">9.3. Upload a Video</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/add_video_to_course.html">9.4. Adding a Video to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_video_options.html">9.5. Specifying Additional Video Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/additional_transcript_options.html">9.6. Specifying Transcript Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../video/troubleshoot_video.html">9.7. Troubleshooting Video Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../exercises_tools/index.html">10. Adding Exercises and Tools</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/create_exercises_and_tools.html">10.1. Problems, Exercises, and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/enable_exercises_tools.html">10.2. Enabling Additional Exercises and Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/annotation.html">10.3. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/calculator.html">10.4. Calculator Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/chemical_equation.html">10.5. Chemical Equation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/circuit_schematic_builder.html">10.6. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/completion.html">10.7. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/conditional_module.html">10.8. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_javascript.html">10.9. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/custom_python.html">10.10. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop.html">10.11. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/drag_and_drop_deprecated.html">10.12. Drag and Drop Problem (Deprecated)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/dropdown.html">10.13. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/external_graders.html">10.14. External Grader</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/full_screen_image.html">10.15. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/gene_explorer.html">10.16. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_calendar.html">10.17. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/google_docs.html">10.18. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/iframe.html">10.19. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/image_mapped_input.html">10.20. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/lti_component.html">10.21. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/math_expression_input.html">10.22. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/mathjax.html">10.23. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/multi_select.html">10.24. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/notes.html">10.25. Notes Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/numerical_input.html">10.26. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/index.html">10.27. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/OpenResponseAssessments.html">10.27.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/CreateORAAssignment.html">10.27.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../exercises_tools/open_response_assessments/Manage_ORA_Assignment.html">10.27.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/ORA_Staff_Grading.html">10.27.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../exercises_tools/open_response_assessments/Access_ORA_Info.html">10.27.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/oppia.html">10.28. Oppia Exploration Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/peer_instruction_tool.html">10.29. Peer Instruction Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/periodic_table.html">10.30. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll_question.html">10.31. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/poll.html">10.32. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_with_hint.html">10.33. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/problem_in_latex.html">10.34. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/protein_builder.html">10.35. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/qualtrics.html">10.36. Qualtrics Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/randomized_content_blocks.html">10.37. Randomized Content Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/recommenderXBlock.html">10.38. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select.html">10.39. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/single_select_num_input.html">10.40. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/staffgraded.html">10.41. Staff Graded Assignment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/survey.html">10.42. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/text_input.html">10.43. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/word_cloud.html">10.44. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exercises_tools/zooming_image.html">10.45. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_assets/index.html">11. Adding Course Assets</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_files.html">11.1. Adding Files to a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/handouts_updates.html">11.2. Adding Course Updates and Handouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/pages.html">11.3. Managing the Pages in Your Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/textbooks.html">11.4. Textbooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_assets/course_wiki.html">11.5. Using the Course Wiki</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../course_features/index.html">12. Using Enhanced Capabilities In Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/cohorts/index.html">12.1. Including Learner Cohorts</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_overview.html">12.1.1. Using Cohorts in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohort_config.html">12.1.2. Enabling and Configuring the Cohorts Feature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorted_courseware.html">12.1.3. Creating Cohort-Specific Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/cohorts/cohorts_setup_discussions.html">12.1.4. Setting up Discussions in Courses with Cohorts</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/diff_content/index.html">12.2. Offering Different Content to Different Learner Groups</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/teams/index.html">12.3. Including Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_setup.html">12.3.1. Using Teams in Your Courses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_learner_experience.html">12.3.2. The Learner’s Experience of Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/teams/teams_discussions.html">12.3.3. Managing Team Discussions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/content_experiments/index.html">12.4. Creating Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_overview.html">12.4.1. Overview of Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_configure.html">12.4.2. Configure Your Course for Content Experiments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_add.html">12.4.3. Add Content Experiments to Your Course</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/content_experiments/content_experiments_view.html">12.4.4. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../course_features/timed_exams.html">12.5. Offering Timed Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../course_features/lti/index.html">12.6. Using Open edX as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_reuse_content.html">12.6.1. Reusing Course Content with LTI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_prepare_content.html">12.6.2. Preparing to Reuse Course Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_address_content.html">12.6.3. Determining Content Addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_grade_content.html">12.6.4. Grading Remote Content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_canvas_example.html">12.6.5. Example: edX as an LTI Provider to Canvas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../course_features/lti/lti_blackboard_example.html">12.6.6. Example: edX as an LTI Provider to Blackboard</a></li>
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../proctored_exams/index.html">13. Proctored Exams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/overview.html">13.1. Proctored Exam Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_learners.html">13.2. Preparing Learners for Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/proctored_enabling.html">13.3. Creating Proctored Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../proctored_exams/CA_online_proctoring_rules_students.html">13.4. Online Proctoring Rules for Learners</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../grading/index.html">14. Establishing a Grading Policy For Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grade_range.html">14.1. Set the Grade Range</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/grace_period.html">14.2. Set the Grace Period</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/configure_assignment_type.html">14.3. Configure the Assignment Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/graded_subsections.html">14.4. Graded Subsections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grading/learner_view_of_grades.html">14.5. The Learner View of Grades</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../releasing_course/index.html">15. Releasing Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/beta_testing.html">15.1. Beta Testing a Course</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/course_launching.html">15.2. Course Launching Activities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../releasing_course/export_import_course.html">15.3. Exporting and Importing a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_live_course/index.html">16. Managing a Running Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_data.html">16.1. Course Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/automatic_email.html">16.2. Automatic Email Messages from the Open edX Platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/bulk_email.html">16.3. Bulk Email Messages from the Course Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/course_enrollment.html">16.4. Enrollment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_live_course/staff_debug_info.html">16.5. Staff Debug Info</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../manage_discussions/index.html">17. Managing Discussions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussions.html">17.1. Creating Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/running_discussions.html">17.2. Running Course Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/set_up_divided_discussions.html">17.3. About Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/manage_divided_discussions.html">17.4. Managing Divided Discussion Topics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/moderate_discussions.html">17.5. Moderating Discussions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manage_discussions/discussion_guidance_moderators.html">17.6. Guidance for Discussion Moderators</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../student_progress/index.html">18. Managing Learner Progress and Grades</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_student.html">18.1. Learner Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_answers.html">18.2. Answer Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/course_grades.html">18.3. Learner Grades and Grading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/certificate_data.html">18.4. Obtaining Certificate Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../student_progress/checking_student_progress.html">18.5. Ending a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../rerun_course/index.html">19. Re-running Your Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../rerun_course/course_rerun.html">19.1. Re-running a Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">20. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/open_edx_course_authors/source/course_components/create_problem.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fcourse_components/create_problem.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/course_components/create_problem.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Working with Problem Components</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-problem">8.4.1. Adding a Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-graded-or-ungraded-problems">8.4.1.1. Adding Graded or Ungraded Problems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-learner-view-of-a-problem">8.4.2. The Learner View of a Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-a-problem-in-studio">8.4.3. Editing a Problem in Studio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-simple-editor">8.4.3.1. The Simple Editor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-and-explanation-fields">8.4.3.2. Question and Explanation Fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-fields">8.4.3.3. Answer Fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-feedback">8.4.3.4. Adding Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-providing-feedback">8.4.3.4.1. Best Practices for Providing Feedback</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-mathematics">8.4.3.5. Adding Mathematics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-paste">8.4.3.6. Power Paste</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-settings-for-problem-components">8.4.4. Defining Settings for Problem Components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-name">8.4.4.1. Display Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type">8.4.4.2. Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring">8.4.4.3. Scoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-points">8.4.4.3.1. Problem Points</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#attempts">8.4.4.3.2. Attempts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">8.4.4.4. Hints</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-providing-hints">8.4.4.4.1. Best Practices for Providing Hints</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-answer">8.4.4.5. Show Answer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-attempts">8.4.4.5.1. Number of Attempts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-reset-button">8.4.4.6. Show Reset Button</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-between-attempts">8.4.4.7. Time Between Attempts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-advanced-editor">8.4.5. The Advanced Editor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-editor-features">8.4.6. Advanced Editor Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization">8.4.6.1. Randomization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#including-multiple-questions-in-one-component">8.4.6.2. Including Multiple Questions in One Component</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-questions-to-a-problem-component">8.4.6.2.1. Adding Multiple Questions to a Problem Component</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#awarding-partial-credit-for-a-problem">8.4.6.3. Awarding Partial Credit for a Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-learners-receive-partial-credit">8.4.6.3.1. How Learners Receive Partial Credit</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-credit-and-reporting-on-learner-performance">8.4.6.3.2. Partial Credit and Reporting on Learner Performance</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-tooltips-to-a-problem">8.4.6.4. Adding Tooltips to a Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-randomization">8.4.7. Problem Randomization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-a-released-problem">8.4.8. Modifying a Released Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workarounds">8.4.8.1. Workarounds</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="working-with-problem-components">
+<span id="id1"></span><h1><span class="section-number">8.4. </span>Working with Problem Components<a class="headerlink" href="#working-with-problem-components" title="Link to this heading">#</a></h1>
+<p>This section introduces the core set of problem types that course teams can add
+to any course by using the problem component. It also describes editing options
+and settings for problem components.</p>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#adding-a-problem" id="id28">Adding a Problem</a></p></li>
+<li><p><a class="reference internal" href="#the-learner-view-of-a-problem" id="id29">The Learner View of a Problem</a></p></li>
+<li><p><a class="reference internal" href="#editing-a-problem-in-studio" id="id30">Editing a Problem in Studio</a></p></li>
+<li><p><a class="reference internal" href="#defining-settings-for-problem-components" id="id31">Defining Settings for Problem Components</a></p></li>
+<li><p><a class="reference internal" href="#the-advanced-editor" id="id32">The Advanced Editor</a></p></li>
+<li><p><a class="reference internal" href="#advanced-editor-features" id="id33">Advanced Editor Features</a></p></li>
+<li><p><a class="reference internal" href="#problem-randomization" id="id34">Problem Randomization</a></p></li>
+<li><p><a class="reference internal" href="#modifying-a-released-problem" id="id35">Modifying a Released Problem</a></p></li>
+</ul>
+</nav>
+<p>For information about specific problem types, and the other exercises and tools
+that you can add to your course, see <a class="reference internal" href="../exercises_tools/create_exercises_and_tools.html#create-exercises"><span class="std std-ref">Problems, Exercises, and Tools</span></a>.</p>
+<section id="adding-a-problem">
+<span id="id2"></span><h2><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">8.4.1. </span>Adding a Problem</a><a class="headerlink" href="#adding-a-problem" title="Link to this heading">#</a></h2>
+<p>To add interactive problems to a course in Studio, in the course outline, at
+the <a class="reference internal" href="../developing_course/course_units.html#the-unit-workflow"><span class="std std-ref">unit</span></a> level, you select <strong>Problem</strong>. You then
+choose the type of problem that you want to build on the Problem Type Selection
+page.</p>
+<p>The simple problem types include relatively straightforward CAPA problems such
+as single select and text or numeric input. The advanced problem types can be
+more complex to set up, such as math expression input, open response
+assessment, or custom JavaScript problems.</p>
+<section id="adding-graded-or-ungraded-problems">
+<h3><span class="section-number">8.4.1.1. </span>Adding Graded or Ungraded Problems<a class="headerlink" href="#adding-graded-or-ungraded-problems" title="Link to this heading">#</a></h3>
+<p>When you <a class="reference internal" href="../grading/index.html#grading-index"><span class="std std-ref">establish the grading policy</span></a> for your course,
+you define the assignment types that count toward learners’ grades: for
+example, homework, labs, midterm, final, and participation. You specify
+one of these assignment types for each of the subsections in your course.</p>
+<p>As you develop your course, you can add problem components to a unit in any
+subsection. The problem components that you add automatically inherit the
+assignment type that is defined at the subsection level. For example, all of
+the problem components that you add to a unit in the midterm
+subsection are graded.</p>
+<p>For more information, see <a class="reference internal" href="../developing_course/course_subsections.html#set-the-assignment-type-and-due-date-for-a-subsection"><span class="std std-ref">Set the Assignment Type and Due Date for a Subsection</span></a>.</p>
+</section>
+</section>
+<section id="the-learner-view-of-a-problem">
+<span id="section-learner-problem-view"></span><span id="problem-learner-view"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">8.4.2. </span>The Learner View of a Problem</a><a class="headerlink" href="#the-learner-view-of-a-problem" title="Link to this heading">#</a></h2>
+<p>All problems on the edX platform have these component parts, some of which can
+be configured. For configurable options, you can specify whether and when
+an option is available in problems.</p>
+<a class="reference internal image-reference" href="../_images/AnatomyOfExercise.png"><img alt="A problem from a learner's point of view, with numbered callouts for elements of the problem." src="../_images/AnatomyOfExercise.png" style="width: 600px;" />
+</a>
+<ol class="arabic">
+<li><p><strong>Problem text.</strong> The problem text can contain any standard HTML
+formatting.</p>
+<p>Within the problem text for each problem component, you must identify a
+question or prompt, which is, specifically, the question that learners need
+to answer. This question or prompt also serves as the required accessible
+label, and is used by screen readers, reports, and Insights. For more
+information about identifying the question text in your problem, see
+<a class="reference internal" href="#simple-editor"><span class="std std-ref">The Simple Editor</span></a>.</p>
+</li>
+<li><p><strong>Response field.</strong> Learners enter answers in response fields. The
+appearance of the response field depends on the type of the problem.</p></li>
+<li><p><strong>Rendered answer.</strong> For some problem types, the LMS uses MathJax to render
+plain text as “beautiful math.”</p></li>
+<li><p><strong>Submit.</strong> When a learner selects <strong>Submit</strong> to submit a response for a
+problem, the LMS saves the grade and current state of the problem. The
+LMS immediately provides feedback about whether the response is correct
+or incorrect, as well as the problem score. The <strong>Submit</strong> option remains
+available if the learner has unused attempts remaining, so that they can
+try to answer the problem again.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to temporarily or permanently hide learners’ results for
+problems inside of a subsection, see <a class="reference internal" href="../developing_course/course_subsections.html#problem-results-visibility"><span class="std std-ref">Set Problem Results Visibility</span></a>.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p><strong>Attempts.</strong> You can set a specific number of attempts or allow unlimited
+attempts for a problem. By default, the course-wide <strong>Maximum Attempts</strong>
+advanced setting is null, meaning that the maximum number of attempts for
+problems is unlimited.</p>
+<p>In courses where a specific number has been specified for <strong>Maximum
+Attempts</strong> in Advanced Settings, if you do not specify a value for <strong>Maximum
+Attempts</strong> for an individual problem, the number of attempts for that
+problem defaults to the number of attempts defined in Advanced Settings.</p>
+</li>
+<li><p><strong>Save.</strong> The learner can select <strong>Save</strong> to save their current response
+without submitting it for grading. This allows the learner to stop working
+on a problem and come back to it later.</p></li>
+<li><p><strong>Reset.</strong> You can specify whether the <strong>Reset</strong> option is available for a
+problem. This setting at the problem level overrides the default setting
+for the course in <strong>Advanced Settings</strong>.</p>
+<p>If the <strong>Reset</strong> option is available, learners can select <strong>Reset</strong> to
+clear any input that has not yet been submitted, and try again to answer
+the question.</p>
+<ul class="simple">
+<li><p>If the learner has already submitted an answer, selecting <strong>Reset</strong> clears
+the submission and, if the problem includes a Python script to randomize
+variables and the randomization setting is <strong>On Reset</strong>, changes the
+values the learner sees in the problem.</p></li>
+<li><p>If the problem has already been answered correctly, <strong>Reset</strong> is not
+available.</p></li>
+<li><p>If the number of <strong>Maximum Attempts</strong> that was set for this problem has
+been reached, <strong>Reset</strong> is not available.</p></li>
+</ul>
+</li>
+<li><p><strong>Show Answer.</strong> You can specify whether this option is available for a
+problem. If a learner selects <strong>Show Answer</strong>, the learner sees both the
+correct answer and the explanation, if any.</p>
+<p>If you specify a number in <strong>Show Answer: After Some Number of Attempts</strong>, the learner
+must submit at least that number of attempted answers before the <strong>Show
+Answer</strong> option is available for the problem.</p>
+</li>
+<li><p><strong>Feedback.</strong> After a learner selects <strong>Submit</strong>, an icon appears beside
+each response field or selection within a problem. A green check mark
+indicates that the response was correct, a green asterisk (*) indicates that
+the response was partially correct, and a red X indicates that the response
+was incorrect. Underneath the problem, feedback text indicates whether the
+problem was answered correctly, incorrectly, or partially correctly, and
+shows the problem score.</p>
+<a class="reference internal image-reference" href="../_images/AnatomyOfExercise2.png"><img alt="A problem from a learner's point of view, with callouts showing the feedback elements of an answered problem." src="../_images/AnatomyOfExercise2.png" style="width: 600px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to temporarily or permanently hide learners’ results for
+problems inside of a subsection, see <a class="reference internal" href="../developing_course/course_subsections.html#problem-results-visibility"><span class="std std-ref">Set Problem Results Visibility</span></a>.</p>
+</div>
+</li>
+</ol>
+<p>In addition to the items above, which are shown in the example, problems also
+have the following elements.</p>
+<ul class="simple">
+<li><p><strong>Correct answer.</strong> Most problems require that you specify a single correct
+answer.</p></li>
+<li><p><strong>Explanation.</strong> You can include an explanation that appears when a learner
+selects <strong>Show Answer</strong>.</p></li>
+<li><p><strong>Grading.</strong> You can specify whether a group of problems is graded.</p></li>
+<li><p><strong>Due date.</strong> The date that the problem is due. Learners cannot submit
+answers for problems whose due dates have passed, although they can select
+<strong>Show Answer</strong> to show the correct answer and the explanation, if any.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Problems can be <strong>open</strong> or <strong>closed</strong>. Closed problems, such as problems
+whose due dates are in the past, do not accept further responses and cannot
+be reset. Learners can still see questions, solutions, and revealed
+explanations, but they cannot submit responses or reset problems.</p>
+</div>
+<p>There are also some attributes of problems that are not immediately
+visible. You can set these attributes in Studio.</p>
+<ul class="simple">
+<li><p><strong>Accessible Label.</strong> Within the problem text, you can identify the text
+that is, specifically, the question that learners need to answer. The text
+that is labeled as the question is used by screen readers, reports, and
+Insights. For more information, see <a class="reference internal" href="#simple-editor"><span class="std std-ref">The Simple Editor</span></a>.</p></li>
+<li><p><strong>Randomization.</strong> In certain types of problems, you can include a Python
+script to randomize the values that are presented to learners. You use this
+setting to define when values are randomized. For more information, see
+<a class="reference internal" href="#randomization"><span class="std std-ref">Randomization</span></a>.</p></li>
+</ul>
+</section>
+<section id="editing-a-problem-in-studio">
+<span id="problem-studio-view"></span><h2><a class="toc-backref" href="#id30" role="doc-backlink"><span class="section-number">8.4.3. </span>Editing a Problem in Studio</a><a class="headerlink" href="#editing-a-problem-in-studio" title="Link to this heading">#</a></h2>
+<p>When you select <strong>Problem</strong>, Studio adds a blank problem to the unit and brings
+you to the problem editor. From here, you can select 1 of 5 <strong>simple problem
+types</strong> or select Advanced problem types for a list of <strong>advanced problem types</strong>.</p>
+<ul class="simple">
+<li><p>For simple problem types, the <a class="reference internal" href="#simple-editor"><span class="std std-ref">simple editor</span></a> opens. In
+this editor, you can quickly create problems with question and answer formats.
+Options for scoring, hints, feedback and more can be entered.</p></li>
+<li><p>For advanced problem types, the <a class="reference internal" href="#advanced-editor"><span class="std std-ref">advanced editor</span></a> opens.
+In this editor you use <a class="reference external" href="https://edx.readthedocs.io/projects/edx-open-learning-xml/en/latest/index.html#edx-open-learning-xml-guide" title="(in EdX Open Learning XML Guide - Alpha Version)"><span class="xref std std-ref">open learning XML (OLX)</span></a>
+elements and attributes to identify the elements of the problem. Options for scoring,
+feedback and more can be entered.</p></li>
+<li><p>For open response assessment problem types, you define the problem elements and
+options by using a graphical user interface. For more information, see
+<a class="reference internal" href="../exercises_tools/open_response_assessments/CreateORAAssignment.html#pa-create-an-ora-assignment"><span class="std std-ref">Create an Open Response Assessment Assignment</span></a>.</p></li>
+<li><p>For drag and drop problem types, you build an interactive assessment in a
+customized interface in which you define areas that learners can drag into target
+zones on a background image. For more information, see
+<a class="reference internal" href="../exercises_tools/drag_and_drop.html#creating-a-drag-and-drop-problem"><span class="std std-ref">Creating a Drag and Drop Problem</span></a>.</p></li>
+</ul>
+<p>You can switch from the simple editor to the advanced editor at any time by
+selecting the <strong>Switch to advanced editor</strong> from the simple editor’s settings.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After you save a problem in the advanced editor with complex OLX, you may not
+be able to open it again in the simple editor.</p>
+</div>
+<section id="the-simple-editor">
+<span id="simple-editor"></span><h3><span class="section-number">8.4.3.1. </span>The Simple Editor<a class="headerlink" href="#the-simple-editor" title="Link to this heading">#</a></h3>
+<p>When you select one of the <strong>simple problem types</strong>, you will be directed to
+the simple editor.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../exercises_tools/single_select.html#single-select"><span class="std std-ref">Single Select</span></a></p></li>
+<li><p><a class="reference internal" href="../exercises_tools/multi_select.html#multi-select"><span class="std std-ref">Multi-select</span></a></p></li>
+<li><p><a class="reference internal" href="../exercises_tools/dropdown.html#dropdown"><span class="std std-ref">Dropdown</span></a></p></li>
+<li><p><a class="reference internal" href="../exercises_tools/numerical_input.html#numerical-input"><span class="std std-ref">Numerical Input</span></a></p></li>
+<li><p><a class="reference internal" href="../exercises_tools/text_input.html#text-input"><span class="std std-ref">Text Input</span></a></p></li>
+</ul>
+</section>
+<section id="question-and-explanation-fields">
+<span id="id3"></span><h3><span class="section-number">8.4.3.2. </span>Question and Explanation Fields<a class="headerlink" href="#question-and-explanation-fields" title="Link to this heading">#</a></h3>
+<p>The question and explanation fields (and other text fields as well) offer a
+number of formatting tools to craft your problem.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_question_box.png"><img alt="an image of the Problem Editor toolbar and a number associated with each icon in the toolbar." src="../_images/problem_editor_question_box.png" style="width: 800px;" />
+</a>
+<ol class="arabic simple">
+<li><p><strong>Undo/Redo</strong>: Undo or redo changes made to the text field.</p></li>
+<li><p><strong>HTML Tags</strong>: Applies HTML tags to the selected block of text.</p></li>
+<li><p><strong>Label</strong>: Applies a “Question” label to the selected text which is picked
+up by screen readers. Screen readers read all of the text that you supply
+for the problem, and then repeat the text that is identified by this label
+immediately before reading the answer choices for the problem. This label
+can be removed by selecting the block of text and clicking this button
+again.</p></li>
+<li><p><strong>Formatting</strong>: Applies various formatting to the selected text such as
+bold, italicize, underline, color, text alignment, bullet points and
+indentation.</p></li>
+<li><p><strong>Add Image and Links</strong>: Allows you to add images and links to your text
+field.</p></li>
+<li><p><strong>Blockquote and Code</strong>: Applies blockquote or code formatting to the
+selected text. This can be removed by selecting the text and clicking this
+button again.</p></li>
+<li><p><strong>Various Inserts</strong>: Insert tables, emoticons, special characters and page
+breaks using these buttons.</p></li>
+<li><p><strong>Clear Formatting</strong>: Clears all formatting applied to the selected text.</p></li>
+<li><p><strong>Accessibility Checker</strong>: allows you to check HTML in the editor for
+various accessibility problems.</p></li>
+<li><p><strong>More</strong>: Depending on page size, some of the toolbar may not show. Click
+this button to expand or shrink the toolbar.</p></li>
+</ol>
+<p>The explanation field is almost identical to the question field, only missing
+the Label button for marking questions.</p>
+</section>
+<section id="answer-fields">
+<span id="id4"></span><h3><span class="section-number">8.4.3.3. </span>Answer Fields<a class="headerlink" href="#answer-fields" title="Link to this heading">#</a></h3>
+<p>Enter your answers below in this section. While what you see below is the
+general layout of the answer fields, there are some minor differences between
+problem types.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_answer_box.png"><img alt="An example answer field in the simple editor." src="../_images/problem_editor_answer_box.png" style="width: 600px;" />
+</a>
+<ol class="arabic simple">
+<li><p><strong>Correct Answer</strong>: The selected or checked answer(s) are the correct answers.
+Due to the nature of dropdowns only allowing a single selection, the dropdown
+problem type has radio buttons which allow you to select only one correct
+answer. As you cannot enter incorrect answers for numeric input problems,
+the numeric input problem type automatically comes with checked answers.
+The other problem types allow you to select any number of correct answers.</p></li>
+<li><p><strong>Answer Feedback</strong>: Opens up the feedback panel for an answer option. For
+more information, see the following <strong>Adding Feedback</strong> section.</p></li>
+<li><p><strong>Delete Answer</strong>: Removes the corresponding line of answer buttons and
+fields.</p></li>
+<li><p><strong>Add Answer</strong>: Adds a new line of answer buttons and fields.</p></li>
+</ol>
+</section>
+<section id="adding-feedback">
+<span id="id5"></span><h3><span class="section-number">8.4.3.4. </span>Adding Feedback<a class="headerlink" href="#adding-feedback" title="Link to this heading">#</a></h3>
+<p>You can add feedback that displays to learners after they submit an answer.</p>
+<p>For example, the following single select problem provides feedback in
+response to the selected option when the learner selects <strong>Submit</strong>. In this
+case, feedback is given for an incorrect answer.</p>
+<a class="reference internal image-reference" href="../_images/multiple_choice_feedback.png"><img alt="Image of a single select problem with feedback." src="../_images/multiple_choice_feedback.png" style="width: 600px;" />
+</a>
+<p>While editing a problem block, you can apply <strong>Answer-specific feedback</strong>
+for all problem types. <strong>Group feedback</strong> can only be applied to
+<strong>multi-select</strong> problems.</p>
+<p><strong>Answer-specific feedback</strong> can be added under each answer by pressing
+the feedback icon to the right of the answer text. Feedback entered in
+these fields are given when the learner selects that answer or when the
+learner does not select that answer.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_feedback_box.png"><img alt="Image of the answer-specific feedback settings." src="../_images/problem_editor_feedback_box.png" style="width: 600px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The “is not selected” feedback field shown above is only available
+for the <strong>multi-select</strong> problem type.</p>
+</div>
+<p><strong>Group Feedback</strong> can be found on the collapsible settings to the right of
+the problem editor. Feedback entered in this field will display if and
+only if the learner selects all of the checked answers. Click the
+<strong>Add group feedback</strong> button to add additional feedback for different
+groups of checked answers. <strong>Group feedback</strong> can only be applied for
+the <strong>multi-select</strong> problem type.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_group_feedback_box.png"><img alt="Image of the group feedback settings." src="../_images/problem_editor_group_feedback_box.png" style="width: 300px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Feedback for incorrect answers in the <strong>numerical input</strong> problem type
+is not supported.</p>
+</div>
+<section id="best-practices-for-providing-feedback">
+<h4><span class="section-number">8.4.3.4.1. </span>Best Practices for Providing Feedback<a class="headerlink" href="#best-practices-for-providing-feedback" title="Link to this heading">#</a></h4>
+<p>The immediacy of the feedback available to learners is a key advantage of
+online instruction and difficult to do in a traditional classroom environment.</p>
+<p>You can target feedback for common incorrect answers to the misconceptions that
+are common for the level of the learner (for example, elementary, middle, high
+school, college).</p>
+<p>In addition, you can create feedback that provides some guidance to the learner
+about how to arrive at the correct answer. This is especially important in text
+input problems, because without such guidance, learners might
+not be able to proceed.</p>
+<p>You should also include feedback for the correct answer to reinforce why the
+answer is correct. Especially in questions where learners are able to guess,
+such as single select and dropdown problems, the feedback should provide a
+reason why the selection is correct.</p>
+</section>
+</section>
+<section id="adding-mathematics">
+<span id="id6"></span><h3><span class="section-number">8.4.3.5. </span>Adding Mathematics<a class="headerlink" href="#adding-mathematics" title="Link to this heading">#</a></h3>
+<p>To add mathematics, you can use LaTeX, MathML, or AsciiMath notation. Studio
+uses MathJax to render equations. For more information, see <a class="reference internal" href="../exercises_tools/mathjax.html#mathjax-in-studio"><span class="std std-ref">MathJax for Mathematics</span></a>.</p>
+</section>
+<section id="power-paste">
+<h3><span class="section-number">8.4.3.6. </span>Power Paste<a class="headerlink" href="#power-paste" title="Link to this heading">#</a></h3>
+<p>Many course authoring teams rely on copying and pasting content from documents
+such as Google docs or Microsoft Word. Correct formatting in Studio and the LMS
+can be most easily realized through Power Paste. To learn how to use Power
+Paste, see <a class="reference internal" href="create_html_component.html#power-paste"><span class="std std-ref">Power Paste</span></a>.</p>
+</section>
+</section>
+<section id="defining-settings-for-problem-components">
+<span id="problem-settings"></span><h2><a class="toc-backref" href="#id31" role="doc-backlink"><span class="section-number">8.4.4. </span>Defining Settings for Problem Components</a><a class="headerlink" href="#defining-settings-for-problem-components" title="Link to this heading">#</a></h2>
+<p>In addition to the text of the problem and its formatting or OLX
+markup, you define the following settings for problem components. To access
+these settings, edit the problem. With the exception of <strong>Display Name</strong>,
+you can find all of these settings on the right side of your problem. Click
+on <strong>Show advanced settings</strong> to view additional options such as
+<strong>Show Answer</strong>, <strong>Show reset option</strong> and <strong>Time between attempts</strong>.</p>
+<nav class="contents local" id="id7">
+<ul class="simple">
+<li><p><a class="reference internal" href="#display-name" id="id36">Display Name</a></p></li>
+<li><p><a class="reference internal" href="#type" id="id37">Type</a></p></li>
+<li><p><a class="reference internal" href="#scoring" id="id38">Scoring</a></p>
+<ul>
+<li><p><a class="reference internal" href="#problem-points" id="id39">Problem Points</a></p></li>
+<li><p><a class="reference internal" href="#attempts" id="id40">Attempts</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#hints" id="id41">Hints</a></p>
+<ul>
+<li><p><a class="reference internal" href="#best-practices-for-providing-hints" id="id42">Best Practices for Providing Hints</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#show-answer" id="id43">Show Answer</a></p>
+<ul>
+<li><p><a class="reference internal" href="#number-of-attempts" id="id44">Number of Attempts</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#show-reset-button" id="id45">Show Reset Button</a></p></li>
+<li><p><a class="reference internal" href="#time-between-attempts" id="id46">Time Between Attempts</a></p></li>
+</ul>
+</nav>
+<p>If you do not edit these settings, default values are supplied for your
+problems.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to temporarily or permanently hide problem results from learners,
+you use the subsection-level <strong>Results Visibility</strong> setting. You cannot
+change the visibility of individual problems. For more information,
+see <a class="reference internal" href="../developing_course/course_subsections.html#problem-results-visibility"><span class="std std-ref">Set Problem Results Visibility</span></a>.</p>
+</div>
+<section id="display-name">
+<h3><a class="toc-backref" href="#id36" role="doc-backlink"><span class="section-number">8.4.4.1. </span>Display Name</a><a class="headerlink" href="#display-name" title="Link to this heading">#</a></h3>
+<p>This required setting provides an identifying name for the problem. The display
+name appears as a heading above the problem in the LMS, and it identifies the
+problem for you in Insights. Be sure to add unique, descriptive display names
+so that you, and your learners, can identify specific problems quickly and
+accurately.</p>
+<p>You can find the display name setting at the top of your problem. To edit,
+click the pen symbol to the right of the field and enter the desired text.</p>
+<p>The following illustration shows the display name of a problem in Studio, in
+the LMS, and in Insights.</p>
+<a class="reference internal image-reference" href="../_images/display_names_problem.png"><img alt="The identifying display name for a problem in Studio, the LMS, and Insights." src="../_images/display_names_problem.png" style="width: 800px;" />
+</a>
+<p>For more information about metrics for your course’s problem components, see
+<a class="reference external" href="http://edx.readthedocs.io/projects/edx-insights/en/latest/">Using edX Insights</a>.</p>
+</section>
+<section id="type">
+<span id="problem-type"></span><h3><a class="toc-backref" href="#id37" role="doc-backlink"><span class="section-number">8.4.4.2. </span>Type</a><a class="headerlink" href="#type" title="Link to this heading">#</a></h3>
+<p>You can change the problem type after your initial selection. The current
+problem type is shown with a check mark. Selecting any other problem type will
+change your problem to that type while carrying over the content you have already
+prepared. Please check your selection for correct answers as these may not carry
+over when changing problem types.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you would like to convert your problem into an advanced problem,
+scroll down to the bottom of the settings, click <strong>Show advanced settings</strong>
+and then click <strong>Switch to advanced editor</strong>.</p>
+</div>
+</section>
+<section id="scoring">
+<span id="problem-scoring"></span><h3><a class="toc-backref" href="#id38" role="doc-backlink"><span class="section-number">8.4.4.3. </span>Scoring</a><a class="headerlink" href="#scoring" title="Link to this heading">#</a></h3>
+<p>These settings allow you to change the amount of points your problem is worth
+and the number of attempts a student has for answering it.</p>
+<section id="problem-points">
+<h4><a class="toc-backref" href="#id39" role="doc-backlink"><span class="section-number">8.4.4.3.1. </span>Problem Points</a><a class="headerlink" href="#problem-points" title="Link to this heading">#</a></h4>
+<p>This setting specifies the total number of points possible for the problem.
+This defaults to 1 point. In the LMS, the number of points a problem is worth
+appears near the problem’s display name.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The LMS scores all problems. However, only scores for problem
+components that are in graded subsections count toward a learner’s final
+grade.</p>
+</div>
+</section>
+<section id="attempts">
+<h4><a class="toc-backref" href="#id40" role="doc-backlink"><span class="section-number">8.4.4.3.2. </span>Attempts</a><a class="headerlink" href="#attempts" title="Link to this heading">#</a></h4>
+<p>This setting specifies the number of times that a learner is allowed to try
+to answer this problem correctly. You can define a different <strong>Attempts</strong>
+value for each problem. Setting the Attempts value to empty means that learners
+have an unlimited number of attempts.</p>
+<p>A course-wide <strong>Maximum Attempts</strong> setting defines the default value for this
+problem-specific setting. Initially, the value for the course-wide setting is
+null, meaning that learners can try to answer problems an unlimited number of
+times. You can change the course-wide default by selecting <strong>Settings</strong> and
+then <strong>Advanced Settings</strong>. Note that if you change the course-wide default
+from null to a specific number, you can no longer change the problem-specific
+<strong>Attempts</strong> value to unlimited.</p>
+<p>Only problems that have an <strong>Attempts</strong> setting of 1 or higher are included in
+the answer distribution computations used in edX Insights and the Student
+Answer Distribution report.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EdX recommends setting <strong>Maximum Attempts</strong> to unlimited or a
+large number when possible. Problems that allow unlimited attempts encourage
+risk taking and experimentation, both of which lead to improved learning
+outcomes. However, allowing for unlimited attempts might not be feasible in
+some courses, such as those that use primarily single select or dropdown
+problems in graded subsections.</p>
+</div>
+</section>
+</section>
+<section id="hints">
+<span id="id8"></span><h3><a class="toc-backref" href="#id41" role="doc-backlink"><span class="section-number">8.4.4.4. </span>Hints</a><a class="headerlink" href="#hints" title="Link to this heading">#</a></h3>
+<p>In the settings panels on the right of the editor, you’ll find a Hints panel.</p>
+<a class="reference internal image-reference" href="../_images/problem_editor_hints_box.png"><img alt="An example of the hints settings panel." src="../_images/problem_editor_hints_box.png" style="width: 200px;" />
+</a>
+<p>Click the <strong>Add hint</strong> button to add a new hint text field. To delete any hints
+you’ve added, click the trash can icon next to its respective hint field.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can configure any number of hints. The learner views one hint at a time
+and views the next one by selecting <strong>Hint</strong> again.</p>
+</div>
+<p>When you add hints, the <strong>Hint</strong> button is automatically displayed to learners.
+Learners can access the hints by selecting <strong>Hint</strong> beneath the problem.  A
+learner can view multiple hints by selecting <strong>Hint</strong> multiple times.</p>
+<p>For example, in the following single select problem, the learner selects
+<strong>Hint</strong> after having made one incorrect attempt.</p>
+<a class="reference internal image-reference" href="../_images/multiple_choice_hint.png"><img alt="Image of a single select problem with the first hint." src="../_images/multiple_choice_hint.png" style="width: 600px;" />
+</a>
+<p>The hint text indicates that it is the first of two hints. After the learner
+selects <strong>Next Hint</strong>, both of the available hints appear. When all hints have
+been used, the <strong>Hint</strong> or <strong>Next Hint</strong> option is no longer available.</p>
+<a class="reference internal image-reference" href="../_images/multiple_choice_hint2.png"><img alt="Image of a single select problem with the second hint." src="../_images/multiple_choice_hint2.png" style="width: 600px;" />
+</a>
+<section id="best-practices-for-providing-hints">
+<h4><a class="toc-backref" href="#id42" role="doc-backlink"><span class="section-number">8.4.4.4.1. </span>Best Practices for Providing Hints</a><a class="headerlink" href="#best-practices-for-providing-hints" title="Link to this heading">#</a></h4>
+<p>To ensure that your hints can assist learners with varying backgrounds and
+levels of understanding, you should provide multiple hints with different
+levels of detail.</p>
+<p>For example, the first hint can orient the learner to the problem and help
+those struggling to better understand what is being asked.</p>
+<p>The second hint can then take the learner further towards the answer.</p>
+<p>In problems that are not graded, the third and final hint can explain the
+solution for learners who are still confused.</p>
+</section>
+</section>
+<section id="show-answer">
+<span id="id9"></span><h3><a class="toc-backref" href="#id43" role="doc-backlink"><span class="section-number">8.4.4.5. </span>Show Answer</a><a class="headerlink" href="#show-answer" title="Link to this heading">#</a></h3>
+<p>This setting can be found on the collapsible settings to the right of the
+problem editor after clicking Show advanced settings. This will add a
+<strong>Show Answer</strong> option to the problem for the learner. The following
+options define when the answer is shown to learners.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 17.6%" />
+<col style="width: 82.4%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><strong>After All Attempts</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have used all of
+their attempts. Requires max attempts to be set on the problem.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>After All Attempts or Correct</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have used all of
+their attempts or have correctly answered the question. If max attempts
+are not set, the learner will need to answer correctly before they can
+<strong>Show Answer</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>After Some Number of Attempts</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have attempted the
+problem a minimum number of times (this value is set by the course team
+in Studio).</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Always</strong></p></td>
+<td><p>Always present the <strong>Show Answer</strong> option.</p>
+<p>Note: If you specify <strong>Always</strong>, learners can submit a response even
+after they select <strong>Show Answer</strong> to see the correct answer.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Answered</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have correctly
+answered the problem.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Attempted</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have made at least
+1 attempt on the problem.</p>
+<p>If the problem can be, and is, reset, the answer continues to show.
+(When a learner answers a problem, the problem is considered to be both
+attempted and answered. When the problem is reset, the problem is still
+considered to have been attempted, but is not considered to be
+answered.)</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p><strong>Attempted or Past Due</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have made at least
+1 attempt on the problem or the problem’s due date is in the past.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Closed</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have used all
+attempts on the problem or the due date for the problem is in the past.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Correct or Past Due</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have correctly
+answered the problem or the due date for the problem is in the past.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Finished</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after they have used all
+attempts on the problem or the due date for the problem is in the past
+or they have correctly answered the problem.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Never</strong></p></td>
+<td><p>Learners and Staff will never be able to <strong>Show Answer</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Past Due</strong></p></td>
+<td><p>Learners will be able to <strong>Show Answer</strong> after the due date for the
+problem is in the past.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>An explanation for the correct answer can be entered below. This explanation
+is displayed when the learner presses the Show answer option.</p>
+<section id="number-of-attempts">
+<span id="show-answer-number-of-attempts"></span><h4><a class="toc-backref" href="#id44" role="doc-backlink"><span class="section-number">8.4.4.5.1. </span>Number of Attempts</a><a class="headerlink" href="#number-of-attempts" title="Link to this heading">#</a></h4>
+<p>This setting appears under the Show answer dropdown when the
+<strong>After some number of attempts</strong>, <strong>After all attempts</strong> or
+<strong>After all attempts or correct</strong> option is selected. This limits when
+learners can select the <strong>Show Answer</strong> option for a problem. Learners must
+submit at least the specified number of attempted answers for the problem
+before the <strong>Show Answer</strong> option is available to them.</p>
+</section>
+</section>
+<section id="show-reset-button">
+<span id="id10"></span><h3><a class="toc-backref" href="#id45" role="doc-backlink"><span class="section-number">8.4.4.6. </span>Show Reset Button</a><a class="headerlink" href="#show-reset-button" title="Link to this heading">#</a></h3>
+<p>This setting can be found on the collapsible settings to the right of the
+problem editor after clicking <strong>Show advanced settings</strong>. It defines whether a
+<strong>Reset</strong> option is available for the problem.</p>
+<p>Learners can select <strong>Reset</strong> to clear any input that has not yet been
+submitted, and try again to answer the problem.</p>
+<p>If the learner has already submitted an answer, selecting <strong>Reset</strong> clears the
+submission and, if the problem contains randomized variables and randomization
+is set to <strong>On Reset</strong>, changes the values in the problem.</p>
+<p>If the number of Maximum Attempts that was set for this problem has been
+reached, the <strong>Reset</strong> option is not visible.</p>
+<p>This problem-level setting overrides the course-level <strong>Show Reset Button for
+Problems</strong> advanced setting.</p>
+</section>
+<section id="time-between-attempts">
+<span id="id11"></span><h3><a class="toc-backref" href="#id46" role="doc-backlink"><span class="section-number">8.4.4.7. </span>Time Between Attempts</a><a class="headerlink" href="#time-between-attempts" title="Link to this heading">#</a></h3>
+<p>This setting can be found on the collapsible settings to the right of the
+problem editor after clicking <strong>Show advanced settings</strong>. It specifies the
+number of seconds that a learner must wait between submissions for a problem
+that allows multiple attempts. If the value is 0, the learner can attempt the
+problem again immediately after an incorrect attempt.</p>
+<p>Adding required wait time between attempts can help to prevent learners from
+simply guessing when multiple attempts are allowed.</p>
+<p>If a learner attempts a problem again before the required time has elapsed, they
+see a message below the problem indicating the remaining wait time. The format
+of the message is, “You must wait at least {n} seconds between submissions. {n}
+seconds remaining.”</p>
+</section>
+</section>
+<section id="the-advanced-editor">
+<span id="advanced-editor"></span><h2><a class="toc-backref" href="#id32" role="doc-backlink"><span class="section-number">8.4.5. </span>The Advanced Editor</a><a class="headerlink" href="#the-advanced-editor" title="Link to this heading">#</a></h2>
+<p>If the simple editor cannot fulfill your needs, you might turn your attention
+to the Advanced Editor. This editor will allow you to directly edit the open
+learning XML (OLX) of your problem. The Advanced Editor can be accessed one of
+two ways.</p>
+<p>If you are creating a new problem, on the <strong>Select problem type</strong> screen,
+select the <strong>Advanced problem types</strong>. This will bring you to a list of advanced
+problems with varying levels of support. To create an advanced problem from
+scratch, select <strong>Blank advanced problem</strong>.</p>
+<p>If you are looking to turn your simple problem into an advanced problem, click
+the <strong>Switch to advanced editor</strong> button, which can be found on the collapsible
+settings to the right of the problem editor after clicking
+<strong>Show advanced settings</strong>.</p>
+<p>The Advanced Editor retains several settings from the simple editor such as
+<strong>Scoring</strong>, <strong>Show answer</strong>, <strong>Show reset option</strong>, <strong>Time between attempts</strong>
+and <strong>MATLAB API Key</strong> as well as introduces the <strong>Randomization</strong> setting.
+While the other settings are not shown on the collapsible panes to the right of
+the problem editor, they can be added via editing the OLX.</p>
+<p>OLX specifications can be found under each problem type in
+<a class="reference internal" href="../exercises_tools/index.html#exercises-and-tools-index"><span class="std std-ref">Adding Exercises and Tools</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you have turned your problem into an advanced problem, it is possible to
+turn it back into a simple problem. When you edit a problem, as long as the
+problem editor can fully parse the OLX, the editor will open as the Simple
+Editor instead of the Advanced Editor.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful when using certain values in your tag’s class attribute. The
+following are used when running the problem: <code class="docutils literal notranslate"><span class="pre">capa_inputtype</span></code>,
+<code class="docutils literal notranslate"><span class="pre">choicegroup</span></code>, <code class="docutils literal notranslate"><span class="pre">collapsible</span></code>, <code class="docutils literal notranslate"><span class="pre">full</span></code>, <code class="docutils literal notranslate"><span class="pre">inputtype</span></code>, <code class="docutils literal notranslate"><span class="pre">longform</span></code>,
+<code class="docutils literal notranslate"><span class="pre">message</span></code>, <code class="docutils literal notranslate"><span class="pre">notification-gentle-alert</span></code>, <code class="docutils literal notranslate"><span class="pre">notification-hint</span></code>,
+<code class="docutils literal notranslate"><span class="pre">notification-message</span></code>, <code class="docutils literal notranslate"><span class="pre">notification-save</span></code>, <code class="docutils literal notranslate"><span class="pre">problem</span></code>,
+<code class="docutils literal notranslate"><span class="pre">script_placeholder</span></code>, <code class="docutils literal notranslate"><span class="pre">shortform</span></code>, <code class="docutils literal notranslate"><span class="pre">shortform-custom</span></code>, <code class="docutils literal notranslate"><span class="pre">show</span></code>,
+<code class="docutils literal notranslate"><span class="pre">wrapper-problem-response</span></code></p>
+</div>
+</section>
+<section id="advanced-editor-features">
+<span id="id12"></span><h2><a class="toc-backref" href="#id33" role="doc-backlink"><span class="section-number">8.4.6. </span>Advanced Editor Features</a><a class="headerlink" href="#advanced-editor-features" title="Link to this heading">#</a></h2>
+<p>Since the Advanced Editor allows you to edit the problem directly using the OLX,
+there are many more ways to write a problem. Below are several features the
+Advanced Editor is capable of:</p>
+<nav class="contents local" id="id13">
+<ul class="simple">
+<li><p><a class="reference internal" href="#randomization" id="id47">Randomization</a></p></li>
+<li><p><a class="reference internal" href="#including-multiple-questions-in-one-component" id="id48">Including Multiple Questions in One Component</a></p></li>
+<li><p><a class="reference internal" href="#awarding-partial-credit-for-a-problem" id="id49">Awarding Partial Credit for a Problem</a></p></li>
+<li><p><a class="reference internal" href="#adding-tooltips-to-a-problem" id="id50">Adding Tooltips to a Problem</a></p></li>
+</ul>
+</nav>
+<section id="randomization">
+<span id="id14"></span><h3><a class="toc-backref" href="#id47" role="doc-backlink"><span class="section-number">8.4.6.1. </span>Randomization</a><a class="headerlink" href="#randomization" title="Link to this heading">#</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This Randomization setting serves a different purpose from “problem
+randomization”. This Randomization setting affects how numeric values are
+randomized within a single problem and requires the inclusion of a Python
+script. Problem randomization presents different problems or problem
+versions to different learners. For more information, see
+<a class="reference internal" href="#problem-randomization"><span class="std std-ref">Problem Randomization</span></a>.</p>
+</div>
+<p>This setting can be found on the collapsible settings to the right of the
+problem editor. For problems that include a Python script to generate numbers
+randomly, this setting specifies how frequently the values in the problem
+change: each time a different learner accesses the problem, each time a single
+learner tries to answer the problem, both, or never.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This setting should only be set to an option other than <strong>Never</strong> for
+problems that are configured to do random number generation.</p>
+</div>
+<p>For example, in this problem, the highlighted values change each time a
+learner submits an answer to the problem.</p>
+<a class="reference internal image-reference" href="../_images/Rerandomize.png"><img alt="An image of the same problem shown twice, with color highlighting on values that change." src="../_images/Rerandomize.png" style="width: 800px;" />
+</a>
+<p>If you want to randomize numeric values in a problem, you complete both of
+these steps.</p>
+<ul class="simple">
+<li><p>Make sure that you edit your problem to include a Python script that randomly
+generates numbers.</p></li>
+<li><p>Select an option other than <strong>Never</strong> for the <strong>Randomization</strong> setting.</p></li>
+</ul>
+<p>The edX Platform has a 20-seed maximum for randomization. This means that
+learners see up to 20 different problem variants for every problem that has
+<strong>Randomization</strong> set to an option other than <strong>Never</strong>. It also means that
+every answer for the 20 different variants is reported by the Answer
+Distribution report and edX Insights. Limiting the number of variants to a
+maximum of 20 allows for better analysis of learner submissions by allowing you
+to detect common incorrect answers and usage patterns for such answers.</p>
+<p>For more information, see <a class="reference internal" href="../student_progress/course_answers.html#student-answer-distribution"><span class="std std-ref">Student Answer Distribution</span></a> in this guide, or
+<a class="reference external" href="http://edx.readthedocs.io/projects/edx-insights/en/latest/performance/Performance_Answers.html#review-answers-to-graded-problems">Review Answers to Graded Problems</a> or <a class="reference external" href="http://edx.readthedocs.io/projects/edx-insights/en/latest/performance/Performance_Ungraded.html#review-answers-to-ungraded-problems">Review Answers to Ungraded Problems</a>
+in <em>Using edX Insights</em>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Whenever you choose an option other than <strong>Never</strong> for a
+problem, the computations for the Answer Distribution report and edX Insights
+include up to 20 variants for the problem, <strong>even if the problem was not
+actually configured to include randomly generated values</strong>. This can make data
+collected for problems that cannot include randomly generated values,
+(including, but not limited to, all single select, multi-select, dropdown, and
+text input problems), extremely difficult to interpret.</p>
+</div>
+<p>You can choose the following options for the <strong>Randomization</strong> setting.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 17.6%" />
+<col style="width: 82.4%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Always</strong></p></td>
+<td><p>Learners see a different version of the problem each time they select
+<strong>Submit</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>On Reset</strong></p></td>
+<td><p>Learners see a different version of the problem each time they select
+<strong>Reset</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>Never</strong></p></td>
+<td><p>All learners see the same version of the problem. For most courses, this
+option is supplied by default. Select this option for every problem in
+your course that does not include a Python script to generate random
+numbers.</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Per Student</strong></p></td>
+<td><p>Individual learners see the same version of the problem each time they
+look at it, but that version is different from the version that other
+learners see.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="including-multiple-questions-in-one-component">
+<span id="multiple-problems-in-one-component"></span><h3><a class="toc-backref" href="#id48" role="doc-backlink"><span class="section-number">8.4.6.2. </span>Including Multiple Questions in One Component</a><a class="headerlink" href="#including-multiple-questions-in-one-component" title="Link to this heading">#</a></h3>
+<p>In some cases, you might want to design an assessment that combines multiple
+questions in a single problem component. For example, you might want learners
+to demonstrate mastery of a concept by providing the correct responses to
+several questions, and only giving them credit for a problem if all of the
+answers are correct.</p>
+<p>Another example involves learners who have slow or intermittent internet
+connections. When every problem appears on a separately loaded web page, these
+learners can find the amount of time it takes to complete an assignment or exam
+discouraging. For these learners, grouping several questions together can
+promote increased engagement with course assignments.</p>
+<p>When you add multiple questions to a single problem component, the settings
+that you define, including the display name and whether to show the <strong>Reset</strong>
+button, apply to all of the questions in that component. The answers to all of
+the questions are submitted when learners select <strong>Submit</strong>, and the correct
+answers for all of the questions appear when learners select <strong>Show Answer</strong>.
+By default, learners receive one point for each question they answer correctly.
+For more information about changing the default problem points and other
+settings, see <a class="reference internal" href="#problem-settings"><span class="std std-ref">Defining Settings for Problem Components</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>To assure that the data collected for learner interactions with
+your problem components is complete and accurate, include a maximum of 10
+questions in a single problem component.</p>
+</div>
+<section id="adding-multiple-questions-to-a-problem-component">
+<h4><span class="section-number">8.4.6.2.1. </span>Adding Multiple Questions to a Problem Component<a class="headerlink" href="#adding-multiple-questions-to-a-problem-component" title="Link to this heading">#</a></h4>
+<p>To design an assignment that includes several questions, you add one problem
+component and then edit it to add every question and its answer options, one
+after the other, in that component. Be sure to identify the text of every
+question or prompt with the appropriate OLX <code class="docutils literal notranslate"><span class="pre">&lt;label&gt;</span></code> element, and include
+all of the other required elements for each question.</p>
+<ul class="simple">
+<li><p>Each question and its answer options are enclosed by the element that
+identifies the type of problem, such as
+<code class="docutils literal notranslate"><span class="pre">&lt;multiplechoiceresponse&gt;</span></code> for a single select question or
+<code class="docutils literal notranslate"><span class="pre">&lt;formularesponse&gt;</span></code> for a math expression input question.</p></li>
+<li><p>You can provide a different explanation for each question with the
+OLX <code class="docutils literal notranslate"><span class="pre">&lt;solution&gt;</span></code> element.</p></li>
+</ul>
+<p>As a best practice, edX recommends that you avoid including unformatted
+paragraph text between the questions. Screen readers can skip over text that is
+inserted among multiple questions.</p>
+<p>The questions that you include can all be of the same problem type, such as a
+series of text input questions, or you can include questions that use different
+problem types, such as both numerical input and math expression input.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You cannot use a <a class="reference internal" href="../exercises_tools/custom_javascript.html#custom-javascript"><span class="std std-ref">Custom JavaScript Display and Grading Problem</span></a> in a problem component that
+contains more than one question. Each custom JavaScript problem must be in
+its own component.</p>
+</div>
+<p>An example of a problem component that includes a text input question and a
+numerical input question follows.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">  </span><span class="nt">&lt;stringresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;Caesar Cardini&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ci&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>Who<span class="w"> </span>invented<span class="w"> </span>the<span class="w"> </span>Caesar<span class="w"> </span>salad?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;description&gt;</span>Be<span class="w"> </span>sure<span class="w"> </span>to<span class="w"> </span>check<span class="w"> </span>your<span class="w"> </span>spelling.<span class="nt">&lt;/description&gt;</span>
+<span class="w">    </span><span class="nt">&lt;textline</span><span class="w"> </span><span class="na">size=</span><span class="s">&quot;20&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;detailed-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Explanation<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Caesar<span class="w"> </span>Cardini<span class="w"> </span>is<span class="w"> </span>credited<span class="w"> </span>with<span class="w"> </span>inventing<span class="w"> </span>this<span class="w"> </span>salad<span class="w"> </span>and<span class="w"> </span>received
+<span class="w">         </span>a<span class="w"> </span>U.S.<span class="w"> </span>trademark<span class="w"> </span>for<span class="w"> </span>his<span class="w"> </span>salad<span class="w"> </span>dressing<span class="w"> </span>recipe.<span class="nt">&lt;/p&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/stringresponse&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;numericalresponse</span><span class="w"> </span><span class="na">answer=</span><span class="s">&quot;1924&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;label&gt;</span>In<span class="w"> </span>what<span class="w"> </span>year?<span class="nt">&lt;/label&gt;</span>
+<span class="w">    </span><span class="nt">&lt;formulaequationinput/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">      </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;detailed-solution&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Explanation<span class="nt">&lt;/p&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Cardini<span class="w"> </span>invented<span class="w"> </span>the<span class="w"> </span>dish<span class="w"> </span>at<span class="w"> </span>his<span class="w"> </span>restaurant<span class="w"> </span>on<span class="w"> </span>4<span class="w"> </span>July<span class="w"> </span>1924<span class="w"> </span>after
+<span class="w">         </span>the<span class="w"> </span>rush<span class="w"> </span>of<span class="w"> </span>holiday<span class="w"> </span>business<span class="w"> </span>left<span class="w"> </span>the<span class="w"> </span>kitchen<span class="w"> </span>with<span class="w"> </span>fewer<span class="w"> </span>supplies
+<span class="w">         </span>than<span class="w"> </span>usual.<span class="nt">&lt;/p&gt;</span>
+<span class="w">      </span><span class="nt">&lt;/div&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/solution&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/numericalresponse&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="awarding-partial-credit-for-a-problem">
+<span id="id15"></span><h3><a class="toc-backref" href="#id49" role="doc-backlink"><span class="section-number">8.4.6.3. </span>Awarding Partial Credit for a Problem</a><a class="headerlink" href="#awarding-partial-credit-for-a-problem" title="Link to this heading">#</a></h3>
+<p>You can configure the following problem types so that learners can receive
+partial credit for a problem if they submit an answer that is partly correct.</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../exercises_tools/single_select.html#awarding-partial-credit-in-a-multiple-choice-problem"><span class="std std-ref">Single Select</span></a></p></li>
+<li><p><a class="reference internal" href="../exercises_tools/multi_select.html#awarding-partial-credit-in-a-multi-select-problem"><span class="std std-ref">Multi-select</span></a></p></li>
+<li><p><a class="reference internal" href="../exercises_tools/numerical_input.html#awarding-partial-credit-in-a-numerical-input-problem"><span class="std std-ref">Numerical Input</span></a></p></li>
+<li><p><a class="reference internal" href="../exercises_tools/custom_python.html#award-half-credit"><span class="std std-ref">Custom Python-evaluated Input Problem (Write-Your-Own Grader)</span></a></p></li>
+</ul>
+<p>By awarding partial credit for problems, you can motivate learners who have
+mastered some of the course content and provide a score that accurately
+demonstrates their progress.</p>
+<p>For more information about configuring partial credit, see the topic for each
+problem type.</p>
+<section id="how-learners-receive-partial-credit">
+<h4><span class="section-number">8.4.6.3.1. </span>How Learners Receive Partial Credit<a class="headerlink" href="#how-learners-receive-partial-credit" title="Link to this heading">#</a></h4>
+<p>Learners receive partial credit when they submit an answer in the LMS.</p>
+<p>In the following example, the course team configured a single select problem
+to award 25% of the possible points (instead of 0 points) for one of the
+incorrect answer options. The learner selected this incorrect option, and
+received 25% of the possible points.</p>
+<a class="reference internal image-reference" href="../_images/partial_credit_multiple_choice.png"><img alt="A single select problem with partial credit for an incorrect answer." src="../_images/partial_credit_multiple_choice.png" style="width: 500px;" />
+</a>
+</section>
+<section id="partial-credit-and-reporting-on-learner-performance">
+<h4><span class="section-number">8.4.6.3.2. </span>Partial Credit and Reporting on Learner Performance<a class="headerlink" href="#partial-credit-and-reporting-on-learner-performance" title="Link to this heading">#</a></h4>
+<p>When a learner receives partial credit for a problem, the LMS only adds the
+points that the learner earned to the grade. However, the LMS reports any
+problem for which a learner receives credit, in full or in part, as correct in
+the following ways.</p>
+<ul>
+<li><p>Events that the system generates when learners receive partial credit for a
+problem indicate that the answer was correct. Specifically, the
+<code class="docutils literal notranslate"><span class="pre">correctness</span></code> field has a value of <code class="docutils literal notranslate"><span class="pre">correct</span></code>.</p>
+<p>For more information about events, see <a class="reference external" href="https://edx.readthedocs.io/projects/devdata/en/latest/internal_data_formats/tracking_logs/student_event_types.html#problem" title="(in EdX Research Guide)"><span>Problem Interaction Events</span></a> in the <em>EdX Research Guide</em>.</p>
+</li>
+<li><p>The <strong>AnswerValue</strong> in the <a class="reference internal" href="../student_progress/course_answers.html#student-answer-distribution"><span class="std std-ref">Student Answer Distribution</span></a> report is
+<strong>1</strong>, for correct.</p></li>
+<li><p>The edX Insights <a class="reference external" href="https://edx.readthedocs.io/projects/edx-insights/en/latest/performance/index.html#performance-index" title="(in Using edX Insights)"><span class="xref std std-ref">insights:student performance reports</span></a> count the answer as correct.</p></li>
+</ul>
+<p>Course teams can see that a learner received partial credit for a problem in
+the learner’s submission history. The submission history shows the score that
+the learner received out of the total available score, and the value in the
+<code class="docutils literal notranslate"><span class="pre">correctness</span></code> field is <code class="docutils literal notranslate"><span class="pre">partially-correct</span></code>.  For more information, see
+<a class="reference internal" href="../student_progress/course_answers.html#student-answer-submission"><span class="std std-ref">Learner Answer Submissions</span></a>.</p>
+</section>
+</section>
+<section id="adding-tooltips-to-a-problem">
+<span id="id16"></span><h3><a class="toc-backref" href="#id50" role="doc-backlink"><span class="section-number">8.4.6.4. </span>Adding Tooltips to a Problem</a><a class="headerlink" href="#adding-tooltips-to-a-problem" title="Link to this heading">#</a></h3>
+<p>To help learners understand terminology or other aspects of a problem, you can
+add inline tooltips. Tooltips show text to learners when they move their
+cursors over a tooltip icon.</p>
+<p>The following example problem includes two tooltips. The tooltip that provides
+a definition for “ROI” is being shown.</p>
+<a class="reference internal image-reference" href="../_images/tooltip.png"><img alt="An example of a tooltip from a learner's point of view." src="../_images/tooltip.png" style="width: 500px;" />
+</a>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For learners using a screen reader, the tooltip expands to make its
+associated text accessible when the screen reader focuses on the tooltip
+icon.</p>
+</div>
+<p>To add the tooltip, you wrap the text that you want to appear as the tooltip in
+the <code class="docutils literal notranslate"><span class="pre">clarification</span></code> element.  For example, the following problem contains two
+tooltips.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w">    </span><span class="nt">&lt;text&gt;</span>
+<span class="w">        </span><span class="nt">&lt;p&gt;</span>Given<span class="w"> </span>the<span class="w"> </span>data<span class="w"> </span>in<span class="w"> </span>Table<span class="w"> </span>7<span class="w"> </span><span class="nt">&lt;clarification&gt;</span>Table<span class="w"> </span>7:<span class="w"> </span>&quot;Example<span class="w"> </span>PV
+<span class="w">          </span>Installation<span class="w"> </span>Costs&quot;,<span class="w"> </span>Page<span class="w"> </span>171<span class="w"> </span>of<span class="w"> </span>Roberts<span class="w"> </span>textbook<span class="nt">&lt;/clarification&gt;</span>,
+<span class="w">          </span>compute<span class="w"> </span>the<span class="w"> </span>ROI<span class="w"> </span><span class="nt">&lt;clarification&gt;&lt;strong&gt;</span>ROI<span class="nt">&lt;/strong&gt;</span>:<span class="w"> </span>Return<span class="w"> </span>on
+<span class="w">          </span>Investment<span class="nt">&lt;/clarification&gt;</span><span class="w"> </span>over<span class="w"> </span>20<span class="w"> </span>years.
+<span class="w">        </span><span class="nt">&lt;/p&gt;</span>
+<span class="w">     </span>.<span class="w"> </span>.<span class="w"> </span>.
+</pre></div>
+</div>
+</section>
+</section>
+<section id="problem-randomization">
+<span id="id17"></span><h2><a class="toc-backref" href="#id34" role="doc-backlink"><span class="section-number">8.4.7. </span>Problem Randomization</a><a class="headerlink" href="#problem-randomization" title="Link to this heading">#</a></h2>
+<p>Presenting different learners with different problems or with different
+versions of the same problem is referred to as “problem randomization”.</p>
+<p>You can provide different learners with different problems by using randomized
+content blocks, which randomly draw problems from pools of problems stored in
+content libraries. For more information, see <a class="reference internal" href="../exercises_tools/randomized_content_blocks.html#randomized-content-blocks"><span class="std std-ref">Randomized Content Blocks</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Problem randomization is different from the <strong>Randomization</strong> setting
+that you define in Studio. Problem randomization presents different problems
+or problem versions to different learners, while the <strong>Randomization</strong>
+setting controls when a Python script randomizes the variables within a
+single problem. For more information about the <strong>Randomization</strong> setting,
+see <a class="reference internal" href="#randomization"><span class="std std-ref">Randomization</span></a>.</p>
+</div>
+<p id="create-randomized-problems">Creating randomized problems by exporting your course and editing some of your
+course’s XML files is no longer supported.</p>
+</section>
+<section id="modifying-a-released-problem">
+<span id="id18"></span><h2><a class="toc-backref" href="#id35" role="doc-backlink"><span class="section-number">8.4.8. </span>Modifying a Released Problem</a><a class="headerlink" href="#modifying-a-released-problem" title="Link to this heading">#</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Be careful when you modify problems after they have been
+released. Changes that you make to published problems can affect the learner
+experience in the course and analysis of course data.</p>
+</div>
+<p>After a learner submits a response to a problem, the LMS stores that response,
+the score that the learner received, and the maximum score for the problem. For
+problems with a <strong>Maximum Attempts</strong> setting greater than 1, the LMS updates
+these values each time the learner submits a new response to a problem.
+However, if you change a problem or its attributes, existing learner
+information for that problem is not automatically updated.</p>
+<p>For example, you release a problem and specify that its answer is 3.
+After some learners have submitted responses, you notice that the answer
+should be 2 instead of 3. When you update the problem with the correct
+answer, the LMS does not update scores for learners who originally answered
+2 for the problem and received the wrong score.</p>
+<p>For another example, you change the number of response fields to
+three. Learners who submitted answers before the change have a score of
+0, 1, or 2 out of 2.0 for that problem. Learners who submitted answers
+after the change have scores of 0, 1, 2, or 3 out of 3.0 for the same
+problem.</p>
+<p>If you change the points setting for the problem in Studio, however, existing
+scores update when the learner’s <strong>Progress</strong> page is refreshed. In a live
+section, learners will see the effect of these changes.</p>
+<section id="workarounds">
+<h3><span class="section-number">8.4.8.1. </span>Workarounds<a class="headerlink" href="#workarounds" title="Link to this heading">#</a></h3>
+<p>If you have to modify a released problem in a way that affects grading, you
+have two options to ensure that every learner has the opportunity
+to submit a new response and be regraded. Note that both options require you to
+ask your learners to go back and resubmit answers to a problem.</p>
+<ul class="simple">
+<li><p>In the problem component that you changed, increase the number of attempts
+for the problem, and then ask all of your learners to redo the problem.</p></li>
+<li><p>Delete the entire problem component in Studio and replace it with a new
+problem component that has the content and settings that you want. Then ask
+all of your learners to complete the new problem. (If the revisions you must
+make are minor, you might want to duplicate the problem component before you
+delete it, and then revise the copy.)</p></li>
+</ul>
+<p>For information about how to review and adjust learner grades in the LMS, see
+<a class="reference internal" href="../student_progress/course_grades.html#adjust-grades"><span class="std std-ref">Adjust Grades for One or All Learners</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="create_discussion.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">8.3. </span>Working with Discussion Components</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="libraries.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">8.5. </span>Working with Content Libraries</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-problem">8.4.1. Adding a Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-graded-or-ungraded-problems">8.4.1.1. Adding Graded or Ungraded Problems</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-learner-view-of-a-problem">8.4.2. The Learner View of a Problem</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#editing-a-problem-in-studio">8.4.3. Editing a Problem in Studio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-simple-editor">8.4.3.1. The Simple Editor</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#question-and-explanation-fields">8.4.3.2. Question and Explanation Fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#answer-fields">8.4.3.3. Answer Fields</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-feedback">8.4.3.4. Adding Feedback</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-providing-feedback">8.4.3.4.1. Best Practices for Providing Feedback</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-mathematics">8.4.3.5. Adding Mathematics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#power-paste">8.4.3.6. Power Paste</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-settings-for-problem-components">8.4.4. Defining Settings for Problem Components</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-name">8.4.4.1. Display Name</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#type">8.4.4.2. Type</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scoring">8.4.4.3. Scoring</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-points">8.4.4.3.1. Problem Points</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#attempts">8.4.4.3.2. Attempts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#hints">8.4.4.4. Hints</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices-for-providing-hints">8.4.4.4.1. Best Practices for Providing Hints</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-answer">8.4.4.5. Show Answer</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#number-of-attempts">8.4.4.5.1. Number of Attempts</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#show-reset-button">8.4.4.6. Show Reset Button</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-between-attempts">8.4.4.7. Time Between Attempts</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-advanced-editor">8.4.5. The Advanced Editor</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced-editor-features">8.4.6. Advanced Editor Features</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#randomization">8.4.6.1. Randomization</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#including-multiple-questions-in-one-component">8.4.6.2. Including Multiple Questions in One Component</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-multiple-questions-to-a-problem-component">8.4.6.2.1. Adding Multiple Questions to a Problem Component</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#awarding-partial-credit-for-a-problem">8.4.6.3. Awarding Partial Credit for a Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-learners-receive-partial-credit">8.4.6.3.1. How Learners Receive Partial Credit</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-credit-and-reporting-on-learner-performance">8.4.6.3.2. Partial Credit and Reporting on Learner Performance</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-tooltips-to-a-problem">8.4.6.4. Adding Tooltips to a Problem</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-randomization">8.4.7. Problem Randomization</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modifying-a-released-problem">8.4.8. Modifying a Released Problem</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#workarounds">8.4.8.1. Workarounds</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

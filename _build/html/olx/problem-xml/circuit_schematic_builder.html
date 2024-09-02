@@ -1,0 +1,779 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>11.4. Circuit Schematic Builder Problem &#8212; EdX Open Learning XML Guide - Alpha Version  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'problem-xml/circuit_schematic_builder';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="11.5. Completion Tool" href="completion.html" />
+    <link rel="prev" title="11.3. Chemical Equation Problem" href="chemical_equation.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="EdX Open Learning XML Guide - Alpha Version  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    EdX Open Learning XML Guide
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.2. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.3. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../what-is-olx.html">2. What is Open Learning XML?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started.html">3. Getting Started with OLX</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../directory-structure.html">4. OLX Course Structure</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../policies/index.html">5. Policies</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../policies/course.html">5.1. Course Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/grading.html">5.2. Grading Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../policies/assets-policy.html">5.3. Course Asset Policy</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../assets/assets.html">6. Course Assets</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../about/index.html">7. The Course About Pages</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../about/overview.html">7.1. Course Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../about/short-description.html">7.2. Short Description</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../pages/pages.html">8. Course Tabs</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../organizing-course/index.html">9. Organizing Courseware</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-structure-overview.html">9.1. OLX Course Building Blocks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../organizing-course/course-xml-file.html">9.2. The Courseware Structure</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../components/index.html">10. Course Components (XBlocks)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../components/html-components.html">10.1. HTML Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/discussion-components.html">10.2. Discussion Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/video-components.html">10.3. Video Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components/problem-components.html">10.4. Problem Components</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">11. Exercises, Tools, and Problem Types</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="levels_of_support.html">11.1. Levels of Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotation.html">11.2. Annotation Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="chemical_equation.html">11.3. Chemical Equation Problem</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">11.4. Circuit Schematic Builder Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="completion.html">11.5. Completion Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="conditional_module.html">11.6. Conditional Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_javascript.html">11.7. Custom JavaScript Display and Grading Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="custom_python.html">11.8. Custom Python-evaluated Input Problem (Write-Your-Own-Grader)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="drag_and_drop.html">11.9. Drag and Drop Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dropdown.html">11.10. Dropdown Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="full_screen_image.html">11.11. Full Screen Image Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gene_explorer.html">11.12. Gene Explorer Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_calendar.html">11.13. Google Calendar Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="google_docs.html">11.14. Google Drive Files Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="iframe.html">11.15. Iframe Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="image_mapped_input.html">11.16. Image Mapped Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lti_component.html">11.17. LTI Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math_expression_input.html">11.18. Math Expression Input Problems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathjax.html">11.19. MathJax for Mathematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="multi_select.html">11.20. Multi-select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numerical_input.html">11.21. Numerical Input Problem</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="open_response_assessments/index.html">11.22. Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/OpenResponseAssessments.html">11.22.1. Introduction to Open Response Assessments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/CreateORAAssignment.html">11.22.2. Create an Open Response Assessment Assignment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="open_response_assessments/Manage_ORA_Assignment.html">11.22.3. Managing Open Response Assessment Assignments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/ORA_Staff_Grading.html">11.22.4. Staff Grading for Open Response Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="open_response_assessments/Access_ORA_Info.html">11.22.5. Accessing Metrics for ORA Assignments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="periodic_table.html">11.23. Periodic Table Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll.html">11.24. Poll Tool for OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="poll_question.html">11.25. Poll Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_in_latex.html">11.26. Problem Written in LaTeX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="problem_with_hint.html">11.27. Problem with Adaptive Hint</a></li>
+<li class="toctree-l2"><a class="reference internal" href="protein_builder.html">11.28. Protex Protein Builder Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recommenderXBlock.html">11.29. Recommender Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select.html">11.30. Single Select Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="single_select_num_input.html">11.31. Single Select and Numerical Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="survey.html">11.32. Survey Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="symbolic_response.html">11.33. Symbolic Response</a></li>
+<li class="toctree-l2"><a class="reference internal" href="text_input.html">11.34. Text Input Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="word_cloud.html">11.35. Word Cloud Tool</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zooming_image.html">11.36. Zooming Image Tool</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../content-experiments/index.html">12. Content Experiments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_overview.html">12.1. Overview of Content Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_guidelines.html">12.2. Guidelines for Modifying Group Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_configure.html">12.3. Set Up Group Configuration for OLX Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_add.html">12.4. Add a Content Experiment in OLX</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../content-experiments/content_experiments_test_olx.html">12.5. Test Content Experiments</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../example-course/index.html">13. Example of an OLX Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-structure.html">13.1. The Structure of edX-Insider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../example-course/insider-course-xml.html">13.2. The edX-Insider <code class="docutils literal notranslate"><span class="pre">course.xml</span></code> File</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../studio-example/index.html">14. Example of OLX for a Studio Course</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../studio-example/manual-testing-structure.html">14.1. The Structure of the Manual Testing Course</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tasks/index.html">15. Open Learning XML Uses</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/olx-studio.html">15.1. Use OLX with edX Studio</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/deploy-lms.html">15.2. Build a Course in OLX and Deploy to the edX LMS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../tasks/convert-to-olx.html">15.3. Convert Content in Other Formats to OLX</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../drafts/index.html">16. Draft Course Content</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="simple">
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">17. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/olx/source/problem-xml/circuit_schematic_builder.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fproblem-xml/circuit_schematic_builder.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/problem-xml/circuit_schematic_builder.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Circuit Schematic Builder Problem</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-circuit-schematic-builder-problem">11.4.1. Create a Circuit Schematic Builder Problem</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="circuit-schematic-builder-problem">
+<span id="circuit-schematic-builder"></span><h1><span class="section-number">11.4. </span>Circuit Schematic Builder Problem<a class="headerlink" href="#circuit-schematic-builder-problem" title="Link to this heading">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>EdX does not support this problem type.</p>
+</div>
+<p>In circuit schematic builder problems, students can arrange circuit elements
+such as voltage sources, capacitors, resistors, and MOSFETs on an interactive
+grid. They then submit a DC, AC, or transient analysis of their circuit to the
+system for grading.</p>
+<a class="reference internal image-reference" href="../_images/CircuitSchematicExample.png"><img alt="A problem that asks learners to use the circuit schematic builder to build a mixer that combines the signals generated by two voltage sources." src="../_images/CircuitSchematicExample.png" style="width: 600px;" />
+</a>
+<section id="create-a-circuit-schematic-builder-problem">
+<h2><span class="section-number">11.4.1. </span>Create a Circuit Schematic Builder Problem<a class="headerlink" href="#create-a-circuit-schematic-builder-problem" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>In the unit where you want to create the problem, under <strong>Add New
+Component</strong> select <strong>Problem</strong>.</p></li>
+<li><p>In the problem editor, select <strong>Advanced problem types</strong>. Then select
+<strong>Circuit Schematic Builder</strong>.</p></li>
+<li><p>In the advanced problem editor, replace the example code with your own code.</p></li>
+<li><p>Select <strong>Save</strong>.</p></li>
+</ol>
+<p><strong>Problem Code</strong></p>
+<p>The illustration above shows a condensed version of an actual problem from
+MITx’s 6.002.1x. To create the entire problem, paste the following code into
+the advanced editor.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;problem&gt;</span>
+<span class="w"> </span><span class="nt">&lt;p&gt;</span>A<span class="w"> </span>circuit<span class="w"> </span>that<span class="w"> </span>combines<span class="w"> </span>two<span class="w"> </span>or<span class="w"> </span>more<span class="w"> </span>signals<span class="w"> </span>is<span class="w"> </span>called<span class="w"> </span>a<span class="w"> </span><span class="nt">&lt;i&gt;</span>mixer<span class="nt">&lt;/i&gt;</span>.<span class="w">  </span>In
+<span class="w"> </span>this<span class="w"> </span>lab,<span class="w"> </span>your<span class="w"> </span>goal<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>build<span class="w"> </span>a<span class="w"> </span>mixer<span class="w"> </span>that<span class="w"> </span>combines<span class="w"> </span>the<span class="w"> </span>signals<span class="w"> </span>generated
+<span class="w"> </span>by<span class="w"> </span>two<span class="w"> </span>voltage<span class="w"> </span>sources,<span class="w"> </span>V1<span class="w"> </span>and<span class="w"> </span>V2,<span class="w"> </span>where:<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;ul</span><span class="w"> </span><span class="na">style=</span><span class="s">&quot;margin-left:2em;&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;li&gt;</span>
+<span class="w">      </span><span class="nt">&lt;p&gt;</span>V1<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>1<span class="w"> </span>kHz<span class="w"> </span>square<span class="w"> </span>wave<span class="w"> </span>that<span class="w"> </span>varies<span class="w"> </span>between<span class="w"> </span>0V<span class="w"> </span>and<span class="w"> </span>+1V,<span class="w"> </span>and<span class="nt">&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/li&gt;</span>
+<span class="w">    </span><span class="nt">&lt;li&gt;</span>
+<span class="w">      </span><span class="nt">&lt;p&gt;</span>V2<span class="w"> </span>is<span class="w"> </span>a<span class="w"> </span>5<span class="w"> </span>kHz<span class="w"> </span>sine<span class="w"> </span>wave<span class="w"> </span>that<span class="w"> </span>varies<span class="w"> </span>between<span class="w"> </span>-1V<span class="w"> </span>and<span class="w"> </span>+1V.<span class="nt">&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/li&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/ul&gt;</span>
+<span class="w"> </span><span class="nt">&lt;p&gt;</span>Please<span class="w"> </span>design<span class="w"> </span>a<span class="w"> </span>circuit<span class="w"> </span>that<span class="w"> </span>mixes<span class="w"> </span>V1<span class="w"> </span>and<span class="w"> </span>V2<span class="w"> </span>to<span class="w"> </span>produce<span class="w"> </span>Vout<span class="w"> </span>such<span class="w"> </span>that<span class="nt">&lt;/p&gt;</span>
+<span class="w"> </span><span class="nt">&lt;center&gt;</span>\[V_\mathrm{out}<span class="w"> </span>\approx<span class="w"> </span>\frac{1}{2}V_1<span class="w"> </span>+<span class="w"> </span>\frac{1}{6}V_2.\]<span class="nt">&lt;/center&gt;</span>
+<span class="w"> </span><span class="nt">&lt;p&gt;</span>The<span class="w"> </span>resulting<span class="w"> </span>output<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>similar<span class="w"> </span>to<span class="w"> </span>that<span class="w"> </span>shown<span class="w"> </span>in<span class="w"> </span>Figure<span class="w"> </span>1.<span class="w">  </span>The
+<span class="w"> </span>maximum<span class="w"> </span>value<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>is<span class="w"> </span>approximately<span class="w"> </span>\(667mV\)<span class="w"> </span>and<span class="w"> </span>the<span class="w"> </span>minimum<span class="w"> </span>value
+<span class="w"> </span>is<span class="w"> </span>approximately<span class="w"> </span>\(-167mV\).<span class="nt">&lt;/p&gt;</span>
+<span class="w"> </span><span class="nt">&lt;center&gt;&lt;img</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;/static/images/circuits/Lab2B_1.png&quot;</span><span class="nt">/&gt;&lt;br/&gt;</span>Figure<span class="w"> </span>1.<span class="w">  </span>Desired<span class="w"> </span>output<span class="w"> </span>waveform<span class="nt">&lt;/center&gt;</span>
+<span class="w"> </span><span class="nt">&lt;p&gt;</span>Hint:<span class="w"> </span>Figure<span class="w"> </span>2<span class="w"> </span>shows<span class="w"> </span>a<span class="w"> </span>simple<span class="w"> </span>resistive<span class="w"> </span>mixer<span class="w"> </span>for<span class="w"> </span>combining<span class="w"> </span>two<span class="w"> </span>signals.<span class="nt">&lt;/p&gt;</span>
+<span class="w"> </span><span class="nt">&lt;center&gt;&lt;img</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;/static/images/circuits/Lab2B_2.png&quot;</span><span class="nt">/&gt;&lt;br/&gt;</span>Figure<span class="w"> </span>2.<span class="w">  </span>Simple<span class="w"> </span>resistive<span class="w"> </span>mixer<span class="nt">&lt;/center&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>Enter<span class="w"> </span>your<span class="w"> </span>circuit<span class="w"> </span>below,<span class="w"> </span>using<span class="w"> </span>the<span class="w"> </span>appropriate<span class="w"> </span>configuration<span class="w"> </span>of
+<span class="w">  </span>resistors.<span class="w"> </span>Please<span class="w"> </span>do<span class="w"> </span>not<span class="w"> </span>modify<span class="w"> </span>the<span class="w"> </span>wiring<span class="w"> </span>or<span class="w"> </span>parameters<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>voltage
+<span class="w">  </span>sources<span class="w"> </span>--<span class="w"> </span>your<span class="w"> </span>goal<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>take<span class="w"> </span>the<span class="w"> </span>signals<span class="w"> </span>they<span class="w"> </span>generate<span class="w"> </span>and<span class="w"> </span>combine<span class="w"> </span>them,
+<span class="w">  </span>not<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>what<span class="w"> </span>is<span class="w"> </span>generated.<span class="w"> </span>Run<span class="w"> </span>a<span class="w"> </span>5ms<span class="w"> </span>transient<span class="w"> </span>analysis<span class="w"> </span>to<span class="w"> </span>verify<span class="w"> </span>the
+<span class="w">  </span>correct<span class="w"> </span>operation<span class="w"> </span>of<span class="w"> </span>your<span class="w"> </span>circuit.<span class="w"> </span>We<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>checking<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>transient
+<span class="w">  </span>waveform<span class="w"> </span>at<span class="w"> </span>the<span class="w"> </span>&quot;output&quot;<span class="w"> </span>node.<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;schematicresponse&gt;</span>
+<span class="w">    </span><span class="nt">&lt;center&gt;</span>
+<span class="w">      </span><span class="nt">&lt;schematic</span><span class="w"> </span><span class="na">height=</span><span class="s">&quot;500&quot;</span><span class="w"> </span><span class="na">width=</span><span class="s">&quot;650&quot;</span><span class="w"> </span><span class="na">parts=</span><span class="s">&quot;g,r,s&quot;</span><span class="w"> </span><span class="na">analyses=</span><span class="s">&quot;dc,tran&quot;</span><span class="w"> </span><span class="na">submit_analyses=</span><span class="s">&quot;{&amp;quot;tran&amp;quot;:[[&amp;quot;output&amp;quot;,0.00025,0.00035,0.00065,0.00075]]}&quot;</span><span class="w"> </span><span class="na">initial_value=</span><span class="s">&quot;[[&amp;quot;v&amp;quot;,[56,48,0],{&amp;quot;name&amp;quot;:&amp;quot;V1&amp;quot;,&amp;quot;value&amp;quot;:&amp;quot;square(0,1,1k)&amp;quot;,&amp;quot;_json_&amp;quot;:0},[&amp;quot;2&amp;quot;,&amp;quot;0&amp;quot;]],[&amp;quot;g&amp;quot;,[56,96,0],{&amp;quot;_json_&amp;quot;:1},[&amp;quot;0&amp;quot;]],[&amp;quot;v&amp;quot;,[56,128,0],{&amp;quot;name&amp;quot;:&amp;quot;V2&amp;quot;,&amp;quot;value&amp;quot;:&amp;quot;sin(0,1,5k,0,0)&amp;quot;,&amp;quot;_json_&amp;quot;:2},[&amp;quot;1&amp;quot;,&amp;quot;0&amp;quot;]],[&amp;quot;g&amp;quot;,[56,176,0],{&amp;quot;_json_&amp;quot;:3},[&amp;quot;0&amp;quot;]],[&amp;quot;w&amp;quot;,[56,48,88,48]],[&amp;quot;w&amp;quot;,[56,128,88,128]],[&amp;quot;L&amp;quot;,[224,48,3],{&amp;quot;label&amp;quot;:&amp;quot;output&amp;quot;,&amp;quot;_json_&amp;quot;:6},[&amp;quot;output&amp;quot;]],[&amp;quot;w&amp;quot;,[224,48,200,48]],[&amp;quot;w&amp;quot;,[224,48,224,128]],[&amp;quot;w&amp;quot;,[224,128,200,128]],[&amp;quot;s&amp;quot;,[224,48,0],{&amp;quot;color&amp;quot;:&amp;quot;magenta&amp;quot;,&amp;quot;_json_&amp;quot;:10},[&amp;quot;output&amp;quot;]],[&amp;quot;view&amp;quot;,0,0,2,&amp;quot;5&amp;quot;,&amp;quot;10&amp;quot;,&amp;quot;10MEG&amp;quot;,null,&amp;quot;100&amp;quot;,&amp;quot;5ms&amp;quot;]]&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/center&gt;</span>
+<span class="w">    </span><span class="nt">&lt;answer</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;loncapa/python&quot;</span><span class="nt">&gt;</span>
+#<span class="w"> </span>for<span class="w"> </span>a<span class="w"> </span>schematic<span class="w"> </span>response,<span class="w"> </span>submission[i]<span class="w"> </span>is<span class="w"> </span>the<span class="w"> </span>json<span class="w"> </span>representation
+#<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>diagram<span class="w"> </span>and<span class="w"> </span>analysis<span class="w"> </span>results<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>i-th<span class="w"> </span>schematic<span class="w"> </span>tag
+
+def<span class="w"> </span>get_tran(json,signal):
+<span class="w">  </span>for<span class="w"> </span>element<span class="w"> </span>in<span class="w"> </span>json:
+<span class="w">    </span>if<span class="w"> </span>element[0]<span class="w"> </span>==<span class="w"> </span>&#39;transient&#39;:
+<span class="w">      </span>return<span class="w"> </span>element[1].get(signal,[])
+<span class="w">  </span>return<span class="w"> </span>[]
+
+output<span class="w"> </span>=<span class="w"> </span>get_tran(submission[0],&#39;output&#39;)
+
+answer<span class="w"> </span>=<span class="w"> </span>[[0.00025,<span class="w"> </span>0.666],
+<span class="w">          </span>[0.00035,<span class="w"> </span>0.333],
+<span class="w">          </span>[0.00065,<span class="w"> </span>0.166],
+<span class="w">          </span>[0.00075,<span class="w"> </span>-0.166]]
+
+okay<span class="w"> </span>=<span class="w"> </span>True
+if<span class="w"> </span>not<span class="w"> </span>output<span class="w"> </span>or<span class="w"> </span>output[0][1]<span class="w"> </span>==<span class="w"> </span>&#39;undefined&#39;:<span class="w"> </span>#<span class="w"> </span>No<span class="w"> </span>transient<span class="w"> </span>or<span class="w"> </span>output<span class="w"> </span>node<span class="w"> </span>floating
+<span class="w">  </span>okay<span class="w"> </span>=<span class="w"> </span>False
+else:
+<span class="w">  </span>for<span class="w"> </span>(at,av)<span class="w"> </span>in<span class="w"> </span>answer:
+<span class="w">    </span>for<span class="w"> </span>(t,v)<span class="w"> </span>in<span class="w"> </span>output:
+<span class="w">      </span>if<span class="w"> </span>at==t<span class="w"> </span>and<span class="w"> </span>abs(av<span class="w"> </span>-<span class="w"> </span>v)<span class="w"> </span><span class="ni">&amp;lt;</span><span class="w"> </span>0.05*abs(av):
+<span class="w">        </span>#<span class="w"> </span>found<span class="w"> </span>a<span class="w"> </span>good<span class="w"> </span>match<span class="w"> </span>for<span class="w"> </span>this<span class="w"> </span>answer,<span class="w"> </span>on<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>next<span class="w"> </span>one
+<span class="w">        </span>break
+<span class="w">    </span>else:
+<span class="w">      </span>print<span class="w"> </span>&#39;check&#39;,at,av
+<span class="w">      </span>#<span class="w"> </span>no<span class="w"> </span>submission<span class="w"> </span>matched<span class="w"> </span>answer,<span class="w"> </span>complain
+<span class="w">      </span>okay<span class="w"> </span>=<span class="w"> </span>False;
+<span class="w">      </span>break;
+
+correct<span class="w"> </span>=<span class="w"> </span>[&#39;correct&#39;<span class="w"> </span>if<span class="w"> </span>okay<span class="w"> </span>else<span class="w"> </span>&#39;incorrect&#39;]
+
+<span class="nt">&lt;/answer&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/schematicresponse&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>When<span class="w"> </span>you&#39;re<span class="w"> </span>done<span class="w"> </span>or<span class="w"> </span>if<span class="w"> </span>you<span class="w"> </span>wish<span class="w"> </span>to<span class="w"> </span>save<span class="w"> </span>your<span class="w"> </span>work,<span class="w"> </span>please<span class="w"> </span>click<span class="w"> </span>CHECK.
+<span class="w">  </span>The<span class="w"> </span>checker<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>verifying<span class="w"> </span>the<span class="w"> </span>voltage<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>output<span class="w"> </span>node<span class="w"> </span>at<span class="w"> </span>several
+<span class="w">  </span>different<span class="w"> </span>times,<span class="w"> </span>so<span class="w"> </span>you&#39;ll<span class="w"> </span>earn<span class="w"> </span>a<span class="w"> </span>point<span class="w"> </span>only<span class="w"> </span><span class="nt">&lt;i&gt;</span>after<span class="nt">&lt;/i&gt;</span><span class="w"> </span>you&#39;ve<span class="w"> </span>performed
+<span class="w">  </span>the<span class="w"> </span>transient<span class="w"> </span>simulation<span class="w"> </span>so<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>checker<span class="w"> </span>will<span class="w"> </span>have<span class="w"> </span>a<span class="w"> </span>waveform<span class="w"> </span>to<span class="w"> </span>check!<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;solution&gt;</span>
+<span class="w">    </span><span class="nt">&lt;div</span><span class="w"> </span><span class="na">class=</span><span class="s">&quot;detailed-solution&quot;</span><span class="nt">&gt;&lt;p&gt;</span>Explanation:<span class="nt">&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;p&gt;</span>The<span class="w"> </span>goal<span class="w"> </span>is<span class="w"> </span>to<span class="w"> </span>design<span class="w"> </span>a<span class="w"> </span>mixer<span class="w"> </span>circuit<span class="w"> </span>with<span class="w"> </span>characteristics<span class="w"> </span>of
+<span class="w">    </span>\(V_{out}=\frac{1}{2}\cdot<span class="w"> </span>V_1+\frac{1}{6}\cdot<span class="w"> </span>V_2\)
+<span class="w">    </span>You<span class="w"> </span>might<span class="w"> </span>have<span class="w"> </span>started<span class="w"> </span>to<span class="w"> </span>design<span class="w"> </span>your<span class="w"> </span>mixer<span class="w"> </span>with<span class="w"> </span>two<span class="w"> </span>resistors<span class="w"> </span>only<span class="w"> </span>as<span class="w"> </span>the<span class="w"> </span>example<span class="w"> </span>suggests.
+<span class="w">    </span>But<span class="w"> </span>working<span class="w"> </span>through<span class="w"> </span>the<span class="w"> </span>math,<span class="w"> </span>soon<span class="w"> </span>you&#39;ll<span class="w"> </span>realize<span class="w"> </span>that<span class="w"> </span>the<span class="w"> </span>equations<span class="w"> </span>return<span class="w"> </span>no<span class="w"> </span>non-zero<span class="w"> </span>value<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>resistor<span class="w"> </span>components.
+<span class="w">    </span>Thus<span class="w"> </span>you<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>change<span class="w"> </span>the<span class="w"> </span>design.<span class="w"> </span>The<span class="w"> </span>next<span class="w"> </span>simplest<span class="w"> </span>design<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>to<span class="w"> </span>add<span class="w"> </span>a<span class="w"> </span>resistor<span class="w"> </span>\(R_3\)<span class="w"> </span>that<span class="w"> </span>connects<span class="w"> </span>the<span class="w"> </span>node<span class="w"> </span>Vout<span class="w"> </span>to<span class="w"> </span>ground.
+<span class="w">    </span>See<span class="w"> </span>the<span class="w"> </span>schematic<span class="w"> </span>below:<span class="nt">&lt;/p&gt;</span>
+<span class="w">    </span><span class="nt">&lt;img</span><span class="w"> </span><span class="na">src=</span><span class="s">&quot;/static/images/circuits/lab2fmt.png&quot;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;p&gt;</span>Since<span class="w"> </span>we<span class="w"> </span>are<span class="w"> </span>going<span class="w"> </span>to<span class="w"> </span>use<span class="w"> </span>only<span class="w"> </span>linear<span class="w"> </span>elements<span class="w"> </span>in<span class="w"> </span>this<span class="w"> </span>circuit
+<span class="w">    </span>(resistors<span class="w"> </span>are<span class="w"> </span>linear),<span class="w"> </span>superposition<span class="w"> </span>will<span class="w"> </span>hold
+<span class="w">    </span>and<span class="w"> </span>thus<span class="w"> </span>one<span class="w"> </span>can<span class="w"> </span>look<span class="w"> </span>at<span class="w"> </span>the<span class="w"> </span>effect<span class="w"> </span>of<span class="w"> </span>each<span class="w"> </span>source<span class="w"> </span>\(V_1\)<span class="w"> </span>and<span class="w"> </span>\(V_2\)
+<span class="w">    </span>one<span class="w"> </span>at<span class="w"> </span>the<span class="w"> </span>time:<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span>[mathjax]<span class="w"> </span>V_{out1}<span class="w"> </span>=<span class="w"> </span>V_1<span class="w"> </span>\cdot<span class="w"> </span>\frac{\left(R_2<span class="w"> </span>\parallel<span class="w"> </span>R_3\right)}
+<span class="w">  </span>{\left(R_2<span class="w"> </span>\parallel<span class="w"> </span>R_3+R_1\right)}\\<span class="w"> </span>V_{out2}<span class="w"> </span>=<span class="w"> </span>V_2<span class="w"> </span>\cdot
+<span class="w">  </span>\frac{\left(R_1<span class="w"> </span>\parallel<span class="w"> </span>R_3\right)}{\left(R_1<span class="w"> </span>\parallel<span class="w"> </span>R_3+R_2\right)}
+<span class="w">  </span>\\<span class="w"> </span>V_{out}<span class="w"> </span>=<span class="w"> </span>V_{out<span class="w"> </span>1}<span class="w"> </span>+<span class="w"> </span>V_{out<span class="w"> </span>2}<span class="w"> </span>\\<span class="w"> </span>V_{out}<span class="w"> </span>=<span class="w"> </span>V_1<span class="w"> </span>\cdot
+<span class="w">  </span>\frac{\left(R_2<span class="w"> </span>\parallel<span class="w"> </span>R_3\right)}{\left(R_2\parallel<span class="w"> </span>R_3+R_1\right)}<span class="w"> </span>+
+<span class="w">  </span>V_2<span class="w"> </span>\cdot<span class="w"> </span>\frac{\left(R_1<span class="w"> </span>\parallel<span class="w"> </span>R_3\right)}{\left(R_1<span class="w"> </span>\parallel<span class="w"> </span>R_3<span class="w"> </span>+
+<span class="w">  </span>R_2\right)}<span class="w"> </span>=<span class="w"> </span>\frac{1}{2}<span class="w"> </span>\cdot<span class="w"> </span>V_1+\frac{1}{6}<span class="w"> </span>\cdot<span class="w"> </span>V_2<span class="w"> </span>[/mathjax]
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>Therefore:<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span>[mathjax]<span class="w"> </span>\frac{<span class="w"> </span>\left(R_2<span class="w"> </span>\parallel<span class="w"> </span>R_3<span class="w"> </span>\right)<span class="w"> </span>}
+<span class="w">  </span>{<span class="w"> </span>\left(<span class="w"> </span>R_2<span class="w"> </span>\parallel<span class="w"> </span>R_3<span class="w"> </span>+<span class="w"> </span>R_1<span class="w"> </span>\right)}<span class="w"> </span>=
+<span class="w">  </span>\frac{1}{2}<span class="w"> </span>\\\frac{\left(<span class="w"> </span>R_1<span class="w"> </span>\parallel<span class="w"> </span>R_3<span class="w"> </span>\right)<span class="w"> </span>}
+<span class="w">  </span>{<span class="w"> </span>\left(R_1<span class="w"> </span>\parallel<span class="w"> </span>R_3<span class="w"> </span>+<span class="w"> </span>R_2<span class="w"> </span>\right)}<span class="w"> </span>=<span class="w"> </span>\frac{1}{6}<span class="w">  </span>[/mathjax]
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>So<span class="w"> </span>we<span class="w"> </span>have<span class="w"> </span>to<span class="w"> </span>solve<span class="w"> </span>for<span class="w"> </span>the<span class="w"> </span>resistors<span class="w"> </span>given<span class="w"> </span>these<span class="w"> </span>two<span class="w"> </span>equations.<span class="w"> </span>You
+<span class="w">  </span>might<span class="w"> </span>notice<span class="w"> </span>that<span class="w"> </span>we<span class="w"> </span>have<span class="w"> </span>2<span class="w"> </span>equations<span class="w"> </span>and<span class="w"> </span>3<span class="w"> </span>unknowns,<span class="w"> </span>and<span class="w"> </span>that<span class="w"> </span>there<span class="w"> </span>is
+<span class="w">  </span>therefore<span class="w"> </span>not<span class="w"> </span>a<span class="w"> </span>unique<span class="w"> </span>solution.<span class="w"> </span>That<span class="w"> </span>is<span class="w"> </span>okay,<span class="w"> </span>though.<span class="w"> </span>We<span class="w"> </span>only<span class="w"> </span>have<span class="w"> </span>to
+<span class="w">  </span>worry<span class="w"> </span>if<span class="w"> </span>there<span class="w"> </span>is<span class="w"> </span>no<span class="w"> </span>solution,<span class="w"> </span>not<span class="w"> </span>if<span class="w"> </span>there<span class="w"> </span>are<span class="w"> </span>too<span class="w"> </span>many<span class="w"> </span>solutions.<span class="w"> </span>We<span class="w"> </span>will
+<span class="w">  </span>simply<span class="w"> </span>find<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>many<span class="w"> </span>possible<span class="w"> </span>correct<span class="w"> </span>answers<span class="w"> </span>by<span class="w"> </span>arbitrarily
+<span class="w">  </span>choosing<span class="w"> </span>a<span class="w"> </span>value<span class="w"> </span>for<span class="w"> </span>one<span class="w"> </span>of<span class="w"> </span>the<span class="w"> </span>variables<span class="w"> </span>later.<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>The<span class="w"> </span>first<span class="w"> </span>equation<span class="w"> </span>simplifies<span class="w"> </span>to<span class="w"> </span>\(<span class="w"> </span>R_1<span class="w"> </span>=<span class="w"> </span>R_2\parallel<span class="w"> </span>R_3\)<span class="w"> </span>and<span class="w"> </span>the
+<span class="w">  </span>second<span class="w"> </span>simplifies<span class="w"> </span>to<span class="w"> </span>\(R_2<span class="w"> </span>=<span class="w"> </span>5<span class="w"> </span>\cdot<span class="w"> </span>R_1\parallel<span class="w"> </span>R_3\)
+<span class="w">  </span>Expanding<span class="w"> </span>the<span class="w"> </span>notation<span class="w"> </span>gives:<span class="w"> </span><span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span>[mathjax]\frac{1}{R_1}=\frac{1}{R_2}+\frac{1}{R_3}
+<span class="w">  </span>\tag{*}<span class="w"> </span>\\\frac{1}{R_1}+\frac{1}{R_3}=\frac{5}{R_2}<span class="w">  </span>[/mathjax]
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>Subtracting<span class="w"> </span>these<span class="w"> </span>two<span class="w"> </span>equations<span class="w"> </span>will<span class="w"> </span>yield<span class="w"> </span>\(R_2<span class="w"> </span>=<span class="w"> </span>2<span class="w"> </span>\cdot<span class="w"> </span>R_3\)
+<span class="w">  </span>And<span class="w"> </span>putting<span class="w"> </span>this<span class="w"> </span>back<span class="w"> </span>to<span class="w"> </span>the<span class="w"> </span>starred<span class="w"> </span>equation<span class="w"> </span>,<span class="w"> </span>will<span class="w"> </span>result<span class="w"> </span>in
+<span class="w">  </span>\(R_1<span class="w"> </span>=<span class="w"> </span>\frac{2}{3}<span class="w"> </span>\cdot<span class="w"> </span>R_3\)
+<span class="w">  </span>So<span class="w"> </span>now<span class="w"> </span>we<span class="w"> </span>have<span class="w"> </span>\(R_2\)<span class="w"> </span>and<span class="w"> </span>\(R_1\)<span class="w"> </span>in<span class="w"> </span>terms<span class="w"> </span>of<span class="w"> </span>\(R_3\)<span class="w"> </span>with<span class="w"> </span>the<span class="w"> </span>following
+<span class="w">  </span>ratios:<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span>[mathjax]R_2<span class="w"> </span>=<span class="w"> </span>2<span class="w"> </span>\cdot<span class="w"> </span>R_3<span class="w"> </span>\\<span class="w"> </span>R_1<span class="w"> </span>=<span class="w"> </span>\frac{2}{3}<span class="w"> </span>\cdot<span class="w"> </span>R_3<span class="w"> </span>\\[/mathjax]
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>Since<span class="w"> </span>the<span class="w"> </span>design<span class="w"> </span>hadn&#39;t<span class="w"> </span>mentioned<span class="w"> </span>anything<span class="w"> </span>about<span class="w"> </span>the<span class="w"> </span>resistances,<span class="w"> </span>one<span class="w"> </span>can
+<span class="w">  </span>use<span class="w"> </span>a<span class="w"> </span>simple<span class="w"> </span>value<span class="w"> </span>of<span class="w"> </span>\(R_3=<span class="w"> </span>3Ω\)<span class="w"> </span>and<span class="w"> </span>find<span class="w"> </span>the<span class="w"> </span>rest<span class="w"> </span>accordingly:<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span>[mathjax]R_1=<span class="w"> </span>2Ω<span class="w"> </span>\\
+<span class="w">  </span>R_2=<span class="w"> </span>6Ω<span class="w"> </span>\\
+<span class="w">  </span>R_3=<span class="w"> </span>3Ω<span class="w"> </span>\\
+<span class="w">  </span>[/mathjax]
+<span class="w">  </span><span class="nt">&lt;p&gt;</span>With<span class="w"> </span>these<span class="w"> </span>resistor<span class="w"> </span>values,<span class="w"> </span>doing<span class="w"> </span>a<span class="w"> </span>transient<span class="w"> </span>analysis<span class="w"> </span>shows<span class="w"> </span>a<span class="w"> </span>result<span class="w"> </span>which<span class="w"> </span>meets<span class="w"> </span>the<span class="w"> </span>required<span class="w"> </span>specs<span class="w"> </span>of<span class="w"> </span>\(V_{out}\).<span class="nt">&lt;/p&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/div&gt;</span>
+<span class="w"> </span><span class="nt">&lt;/solution&gt;</span>
+<span class="nt">&lt;/problem&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="chemical_equation.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">11.3. </span>Chemical Equation Problem</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="completion.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">11.5. </span>Completion Tool</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-circuit-schematic-builder-problem">11.4.1. Create a Circuit Schematic Builder Problem</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

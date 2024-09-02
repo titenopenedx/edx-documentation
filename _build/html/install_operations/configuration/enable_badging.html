@@ -1,0 +1,1327 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>4.8. Enabling Badging &#8212; Installing, Configuring, and Running the Open edX Platform  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css?v=fd3f3429" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'configuration/enable_badging';</script>
+    <link rel="icon" href="https://logos.openedx.org/open-edx-favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="4.9. Enabling Course Certificates" href="enable_certificates.html" />
+    <link rel="prev" title="4.7. Enabling Open edX Search" href="edx_search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-light" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>
+    <script>document.write(`<img src="https://titaned.com/wp-content/uploads/2023/07/TitanEdLogoHigherEdOrange.png" class="logo__image only-dark" alt="Installing, Configuring, and Running the Open edX Platform  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../index.html">
+                    Installing, Configuring, and Running the Open edX Platform
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../front_matter/index.html">1. General Information</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/read_me.html">1.1. Read Me</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/getting_help.html">1.2. Getting Help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/preface.html">1.3. Other edX Resources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../front_matter/browsers.html">1.4. Open edX Browser Support</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../platform_releases/index.html">2. Open edX Platform Releases</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/olive.html">2.1. Open edX Olive Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/nutmeg.html">2.2. Open edX Nutmeg Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/maple.html">2.3. Open edX Maple Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/lilac.html">2.4. Open edX Lilac Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/koa.html">2.5. Open edX Koa Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/juniper.html">2.6. Open edX Juniper Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ironwood.html">2.7. Open edX Ironwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/hawthorn.html">2.8. Open edX Hawthorn Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ginkgo.html">2.9. Open edX Ginkgo Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/ficus.html">2.10. Open edX Ficus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/eucalyptus.html">2.11. Open edX Eucalyptus Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/dogwood.html">2.12. Open edX Dogwood Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/cypress.html">2.13. Open edX Cypress Release</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../platform_releases/birch.html">2.14. Open edX Birch Release</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../installation/index.html">3. Installing and Starting the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation/tutor.html">3.2.1. Open edX Tutor Installation</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">4. Configuring the Open edX Platform</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="updating_platform.html">4.1. Guidelines for Updating the Open edX Platform</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="sites/index.html">4.2. Configuring Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="sites/create_site.html">4.2.1. Create an Open edX Site</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sites/configure_site.html">4.2.2. Configuring Sites Independently</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="changing_appearance/index.html">4.3. Changing the Appearance of Open edX Sites</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="changing_appearance/theming/index.html">4.3.1. Changing Themes for an Open edX Site</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/overview_themes.html">4.3.1.1. Themes Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/theme_directories.html">4.3.1.2. Root Directories for Theme Files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/create_theme.html">4.3.1.3. Creating a Theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/enable_themes.html">4.3.1.4. Enabling and Applying Themes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="changing_appearance/theming/compiling_theme.html">4.3.1.5. Compiling a Theme</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="changing_appearance/drag_and_drop_problem_styling.html">4.3.2. Styling Drag and Drop Problems</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="customize_registration_page.html">4.4. Adding Custom Fields to the Registration Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="config_allowed_regis_emails.html">4.5. Specifying Allowed Registration Email Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated_add_course_talk_widget.html">4.6. Adding the CourseTalk Widget</a></li>
+<li class="toctree-l2"><a class="reference internal" href="edx_search.html">4.7. Enabling Open edX Search</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">4.8. Enabling Badging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_certificates.html">4.9. Enabling Course Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_pacing.html">4.10. Enabling Self-Paced Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_public_course.html">4.11. Enabling Public Course Content</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_ccx.html">4.12. Enabling Custom Courses</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_custom_course_settings.html">4.13. Enabling Custom Course Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_discussion_notifications.html">4.14. Enabling Discussion Notifications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_entrance_exams.html">4.15. Enabling Entrance Exams</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ora2/index.html">4.16. Configuring Open Response Assessments</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="ora2/ora2_uploads.html">4.16.1. Configuring ORA2 to Upload Files to Alternative Storage Systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ora2/ora2_blacklist.html">4.16.2. Prohibiting Submission of Specified File Types</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_prerequisites.html">4.17. Enabling Course Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_licensing.html">4.18. Enabling Course and Video Licensing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="transcripts.html">4.19. Configuring Transcript Behavior</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="lti/index.html">4.20. Configuring an edX Instance as an LTI Tool Provider</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="lti/enable_lti.html">4.20.1. Enable LTI Provider Functionality</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/configure_lti.html">4.20.2. Configuring Credentials for a Tool Consumer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/settings_lti.html">4.20.3. Define an Interval for Grade Aggregation (Optional)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/authentication_options_lti.html">4.20.4. Options for LTI Authentication and User Provisioning</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lti/tpa_lti.html">4.20.5. Configuring Open edX User Authentication for LTI</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_socialsharing_icons.html">4.21. Enabling Social Sharing of Courses and Certificates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="password.html">4.22. Configuring a Password Policy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="tpa/index.html">4.23. Enabling Third Party Authentication</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_providers.html">4.23.1. Supported Identity Providers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_behavior.html">4.23.2. SSO Behavior</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="tpa/tpa_integrate_open/index.html">4.23.3. Integrating Third Party Authentication in Open edX</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="tpa/tpa_integrate_open/tpa_oauth.html">4.23.3.2.1. Integrating with an OAuth2 Identity Provider</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tpa/tpa_integrate_open/tpa_SAML_IdP.html">4.23.3.2.2. Integrating with a SAML Identity Provider</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_SAML_SP.html">4.23.4. Configuring your Open edX Site as a SAML Service Provider</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_advanced_features.html">4.23.5. Advanced Third Party Authentication Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_eliminating_pii.html">4.23.6. Eliminating PII From Third-Party Authentication</a></li>
+<li class="toctree-l3"><a class="reference internal" href="tpa/tpa_IDmap_api.html">4.23.7. Third Party Auth ID Mapping API</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_timed_exams.html">4.24. Enabling Timed Exams</a></li>
+<li class="toctree-l2"><a class="reference internal" href="youtube_api.html">4.25. Setting Up the YouTube API Key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install_xblock.html">4.26. Installing an XBlock</a></li>
+<li class="toctree-l2"><a class="reference internal" href="static_replace/cdn.html">4.27. Enabling a CDN for Course Assets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="enable_weekly_learning_goals.html">4.28. Enabling the Weekly Learning Goals Feature</a></li>
+<li class="toctree-l2"><a class="reference internal" href="retrieve_extended_profile_metadata.html">4.29. Retrieving Extended Profile Metadata</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../insights/index.html">5. Adding edX Insights for Course Teams</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../insights/install_insights.html">5.1. Options for Installing edX Insights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../insights/elastic_mapreduce.html">5.2. Using Elastic MapReduce on AWS</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ecommerce/index.html">6. Adding E-Commerce to the Open edX Platform</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/install_ecommerce.html">6.1. Install and Start the E-Commerce Service</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/theming.html">6.2. Comprehensive Theming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/manage_assets.html">6.3. Manage Static Assets</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ecommerce/create_products/index.html">6.4. Create E-Commerce Products</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_products_overview.html">6.4.1. Creating Products Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_course_seats.html">6.4.2. Create Course Seats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_coupons.html">6.4.3. Create and Manage Coupons</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_enrollment_codes.html">6.4.4. Enable and Create Enrollment Codes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_programs.html">6.4.5. About Programs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/create_products/create_program_offers.html">6.4.6. Create Program Offers</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/enable_receipt_page.html">6.5. Enable the E-Commerce Service Receipt Page</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/manage_orders.html">6.6. Manage Orders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/test_ecommerce.html">6.7. Test Your E-Commerce Application</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../ecommerce/additional_features/index.html">6.8. Additional E-Commerce Features</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/send_notifications.html">6.8.1. Sending Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/change_processors.html">6.8.2. Changing Payment Processors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/apple_pay.html">6.8.3. Apple Pay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/track_data.html">6.8.4. Tracking Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/gate_ecommerce.html">6.8.5. Gating E-Commerce Service Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ecommerce/additional_features/maintain_ecommerce.html">6.8.6. Maintaining the E-Commerce Service</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../ecommerce/internationalization.html">6.9. Internationalization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../mobile.html">7. Setting Up the Open edX Mobile Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../feature_flags/feature_flag_index.html">8. Index of Open edX Feature Flags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../glossary.html">9. Glossary</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/edit/master/en_us/install_operations/source/configuration/enable_badging.rst" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Symbyagnesh/edx-documentation/issues/new?title=Issue%20on%20page%20%2Fconfiguration/enable_badging.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/configuration/enable_badging.rst" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.rst</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Enabling Badging</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">4.8.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.8.2. Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-certificates-are-enabled">4.8.2.1. Make Sure Certificates Are Enabled</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-badge-generator">4.8.2.2. Specify a Badge Generator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-badgr-server">4.8.2.2.1. Install Badgr Server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-badge-issuer-for-your-organization">4.8.2.2.2. Specify a Badge Issuer for Your Organization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-badge-generator-other-than-badgr-server">4.8.2.2.3. Specify a Badge Generator Other Than Badgr Server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-badges-in-studio-and-the-learning-management-system">4.8.3. Enable Badges in Studio and the Learning Management System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-badges-within-each-course">4.8.4. Enable Badges Within Each Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-badges-for-your-open-edx-instance">4.8.5. Configure Badges for Your Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-completion-badges">4.8.5.1. Course Completion Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-event-badges">4.8.5.2. Course Event Badges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-course-completion-badges-for-your-open-edx-instance">4.8.6. Create Course Completion Badges for Your Open edX Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-course-event-badges-for-your-open-edx-instance">4.8.7. Create Course Event Badges for Your Open edX Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-badges-for-your-open-edx-instance">4.8.8. Creating New Badges for Your Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-badges-for-your-open-edx-instance">4.8.8.1. Create New Badges for Your Open edX Instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-about-badge-assertions">4.8.8.2. Get Information about Badge Assertions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-badges-api-endpoint">4.8.8.3. Supported Badges API Endpoint</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="enabling-badging">
+<span id="enable-badging"></span><h1><span class="section-number">4.8. </span>Enabling Badging<a class="headerlink" href="#enabling-badging" title="Link to this heading">#</a></h1>
+<p>This topic describes how to enable and configure badging in your instance of
+Open edX.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Before proceeding, make sure you have read <a class="reference internal" href="updating_platform.html#guidelines-for-updating-the-open-edx-platform"><span class="std std-ref">Guidelines for Updating the Open edX Platform</span></a>.</p>
+</div>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#overview" id="id18">Overview</a></p></li>
+<li><p><a class="reference internal" href="#prerequisites" id="id19">Prerequisites</a></p></li>
+<li><p><a class="reference internal" href="#enable-badges-in-studio-and-the-learning-management-system" id="id20">Enable Badges in Studio and the Learning Management System</a></p></li>
+<li><p><a class="reference internal" href="#enable-badges-within-each-course" id="id21">Enable Badges Within Each Course</a></p></li>
+<li><p><a class="reference internal" href="#configure-badges-for-your-open-edx-instance" id="id22">Configure Badges for Your Open edX Instance</a></p></li>
+<li><p><a class="reference internal" href="#create-course-completion-badges-for-your-open-edx-instance" id="id23">Create Course Completion Badges for Your Open edX Instance</a></p></li>
+<li><p><a class="reference internal" href="#create-course-event-badges-for-your-open-edx-instance" id="id24">Create Course Event Badges for Your Open edX Instance</a></p></li>
+<li><p><a class="reference internal" href="#creating-new-badges-for-your-open-edx-instance" id="id25">Creating New Badges for Your Open edX Instance</a></p></li>
+</ul>
+</nav>
+<section id="overview">
+<span id="badges-overview"></span><h2><a class="toc-backref" href="#id18" role="doc-backlink"><span class="section-number">4.8.1. </span>Overview</a><a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>Badges provide a way for learners to share their course achievements. For
+courses that have course completion badges enabled, learners receive a badge at
+the same time that they receive a course certificate, and have the option of
+sharing their badges to a badging site such as Mozilla Backpack. For more
+information, see <a class="reference internal" href="#course-completion-badges"><span class="std std-ref">Course Completion Badges</span></a>.</p>
+<p>In addition to badges that are awarded for completing single courses, you can
+also issue badges for various cross-course events. For example, you can create
+badges to be awarded when any of the following events occur.</p>
+<ul class="simple">
+<li><p>A learner enrolls in a certain number of courses.</p></li>
+<li><p>A learner receives a completion certificate for a certain number of courses.</p></li>
+<li><p>A learner receives a completion certificate for every course in a specified
+list of courses.</p></li>
+</ul>
+<p>For more information, see <a class="reference internal" href="#course-event-badges"><span class="std std-ref">Course Event Badges</span></a>.</p>
+<p>By default, Open edX supports Open Badges (<a class="reference external" href="http://openbadges.org/">http://openbadges.org/</a>), an open
+standard originally developed by the Mozilla Foundation. Open Badges provides a
+badge generator called Badgr Server, which is used by default in Open edX.</p>
+<p>You can use a badge generator other than Badgr Server. For information, see
+<a class="reference internal" href="#specify-a-badge-generator-other-than-badgr-server"><span class="std std-ref">Specify a Badge Generator Other Than Badgr Server</span></a>.</p>
+<p>For information about creating custom badges, see <a class="reference internal" href="#create-new-badges"><span class="std std-ref">Create New Badges for Your Open edX Instance</span></a>.</p>
+</section>
+<section id="prerequisites">
+<span id="badging-prerequisites"></span><h2><a class="toc-backref" href="#id19" role="doc-backlink"><span class="section-number">4.8.2. </span>Prerequisites</a><a class="headerlink" href="#prerequisites" title="Link to this heading">#</a></h2>
+<p>Setting up the badges feature on your instance of Open edX involves performing
+the set up and configuration tasks that are described in the topics below.</p>
+<nav class="contents local" id="id1">
+<ul class="simple">
+<li><p><a class="reference internal" href="#make-sure-certificates-are-enabled" id="id26">Make Sure Certificates Are Enabled</a></p></li>
+<li><p><a class="reference internal" href="#specify-a-badge-generator" id="id27">Specify a Badge Generator</a></p></li>
+</ul>
+</nav>
+<section id="make-sure-certificates-are-enabled">
+<span id="id2"></span><h3><a class="toc-backref" href="#id26" role="doc-backlink"><span class="section-number">4.8.2.1. </span>Make Sure Certificates Are Enabled</a><a class="headerlink" href="#make-sure-certificates-are-enabled" title="Link to this heading">#</a></h3>
+<p>Badge generation depends on certificate generation. Badges for course
+completion are automatically generated when a course certificate is generated
+for a learner. Make sure certificates are enabled on your Open edX instance.
+For information, see <a class="reference internal" href="enable_certificates.html#enable-certificates"><span class="std std-ref">Enabling Course Certificates</span></a>.</p>
+</section>
+<section id="specify-a-badge-generator">
+<span id="id3"></span><h3><a class="toc-backref" href="#id27" role="doc-backlink"><span class="section-number">4.8.2.2. </span>Specify a Badge Generator</a><a class="headerlink" href="#specify-a-badge-generator" title="Link to this heading">#</a></h3>
+<p>By default, Open edX uses Badgr Server as the badge generator. If you do not use
+Badgr Server, you can configure a different badge generator.</p>
+<ul class="simple">
+<li><p>To use Badgr Server register an Issuer App at <a class="reference external" href="https://badgr.org/app-developers/#issuer-apps">https://badgr.org/app-developers/#issuer-apps</a>
+or <a class="reference internal" href="#install-badgr-server"><span class="std std-ref">Install Badgr Server</span></a> and <a class="reference internal" href="#specify-a-badge-issuer"><span class="std std-ref">Specify a Badge Issuer for Your Organization</span></a>.</p></li>
+<li><p>To use a different badge generator, see <a class="reference internal" href="#specify-a-badge-generator-other-than-badgr-server"><span class="std std-ref">Specify a Badge Generator Other Than Badgr Server</span></a>.</p></li>
+</ul>
+<section id="install-badgr-server">
+<span id="id4"></span><h4><span class="section-number">4.8.2.2.1. </span>Install Badgr Server<a class="headerlink" href="#install-badgr-server" title="Link to this heading">#</a></h4>
+<p>Badgr Server provides an API for issuing Open Badges. Follow the instructions
+at <a class="github reference external" href="https://github.com/concentricsky/badgr-server">concentricsky/badgr-server</a> to install and run Badgr
+Server.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You must install Badgr Server at a publicly accessible IP
+address, to allow the Open edX LMS and services such as Mozilla Backpack to
+contact Badgr Server.</p>
+</div>
+<p>If you do not use Badgr Server, you can configure a different badge generator.
+See <a class="reference internal" href="#specify-a-badge-generator-other-than-badgr-server"><span class="std std-ref">Specify a Badge Generator Other Than Badgr Server</span></a>.</p>
+</section>
+<section id="specify-a-badge-issuer-for-your-organization">
+<span id="specify-a-badge-issuer"></span><h4><span class="section-number">4.8.2.2.2. </span>Specify a Badge Issuer for Your Organization<a class="headerlink" href="#specify-a-badge-issuer-for-your-organization" title="Link to this heading">#</a></h4>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This step is required only if you use Badgr Server for your badge
+generator.</p>
+</div>
+<p>If you are using Badgr Server, log in to your installation of Badgr
+Server and add an issuer of Open Badges for your organization.</p>
+<p>For more information about issuing Open Badges, see the <a class="reference external" href="https://wiki.mozilla.org/Badges/Onboarding-Issuer#Issuing_Badges">Issuing Badges</a> topic
+on the Mozilla wiki.</p>
+</section>
+<section id="specify-a-badge-generator-other-than-badgr-server">
+<span id="id5"></span><h4><span class="section-number">4.8.2.2.3. </span>Specify a Badge Generator Other Than Badgr Server<a class="headerlink" href="#specify-a-badge-generator-other-than-badgr-server" title="Link to this heading">#</a></h4>
+<p>By default, Open edX uses Badgr Server as the badge generator. To use Badgr
+Server, see <a class="reference internal" href="#install-badgr-server"><span class="std std-ref">Install Badgr Server</span></a> and <a class="reference internal" href="#specify-a-badge-issuer"><span class="std std-ref">Specify a Badge Issuer for Your Organization</span></a>.</p>
+<p>To specify a different badge generator, follow these steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Because the services and software used for badge generation can differ
+significantly, the steps described in this topic are intended as guidelines
+and not as exact procedures.</p>
+</div>
+<ol class="arabic">
+<li><p>Add the BadgingBackend object as a subclass to
+<code class="docutils literal notranslate"><span class="pre">lms/djangoapps/badges/backends/base.py</span></code>.</p>
+<p>A BadgingBackend object must include the <code class="docutils literal notranslate"><span class="pre">award</span></code> function</p>
+<p><code class="docutils literal notranslate"><span class="pre">award(badge_class,</span> <span class="pre">user_id,</span> <span class="pre">evidence_url=None)</span></code></p>
+<p>where</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">badge_class</span></code> is the definition of the badge class for which the
+BadgeAssertion is created,</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user_id</span></code> is an ID for the user that the BadgeAssertion is to be created
+for, and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">evidence_url</span></code> is an optional URL for the location where the badge
+evidence can be viewed.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">award</span></code> function is responsible for the server awarding a badge to a
+learner. It is also responsible for all checks leading up to the awarding of
+the badge, including making sure the badge specification does not already
+exist on the target before creating a new badge specification.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">award</span></code> function should either return a BadgeAssertion object or raise
+an exception if the award cannot be given. By default, a base badge
+generation object called <code class="docutils literal notranslate"><span class="pre">BadgeBackend</span></code> exists, and contains a dummy
+version of the <code class="docutils literal notranslate"><span class="pre">award</span></code> function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BadgeBackend</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Defines the interface for badge generators.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">__metaclass__</span> <span class="o">=</span> <span class="n">ABCMeta</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">award</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">badge_class</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">evidence_url</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a badge assertion for the user using this badge generator.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>In the BadgeAssertion object that is generated by the <code class="docutils literal notranslate"><span class="pre">award</span></code> function, make
+sure the <code class="docutils literal notranslate"><span class="pre">backend</span></code> value is the name of the BadgingBackend subclass.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BadgeAssertion</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Tracks badges on our side of the badge baking transaction</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">User</span><span class="p">)</span>
+    <span class="n">badge_class</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">ForeignKey</span><span class="p">(</span><span class="n">BadgeClass</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">JSONField</span><span class="p">()</span>
+    <span class="n">backend</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">CharField</span><span class="p">(</span><span class="n">max_length</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+    <span class="n">image_url</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">URLField</span><span class="p">()</span>
+    <span class="n">assertion_url</span> <span class="o">=</span> <span class="n">models</span><span class="o">.</span><span class="n">URLField</span><span class="p">(</span>
+</pre></div>
+</div>
+</li>
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">studio.yml</span></code> files, set the value of
+<code class="docutils literal notranslate"><span class="pre">BADGING_BACKEND</span></code> as a dot-separated python path specification to the
+object that you use to create and assign badges.</p></li>
+<li><p>When you have finished modifying your configuration files for the badge
+generator, restart the Studio and Learning Management System processes so
+that the updated environment configurations are loaded.</p></li>
+</ol>
+</section>
+</section>
+</section>
+<section id="enable-badges-in-studio-and-the-learning-management-system">
+<span id="enable-badges-in-studio-and-lms"></span><h2><a class="toc-backref" href="#id20" role="doc-backlink"><span class="section-number">4.8.3. </span>Enable Badges in Studio and the Learning Management System</a><a class="headerlink" href="#enable-badges-in-studio-and-the-learning-management-system" title="Link to this heading">#</a></h2>
+<p>To enable badges, you modify the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">studio.yml</span></code> files,
+which are located one level above the <code class="docutils literal notranslate"><span class="pre">edx-platform</span></code> directory.</p>
+<ol class="arabic">
+<li><p>In the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">studio.yml</span></code> files, in the FEATURES
+section, set the value of <code class="docutils literal notranslate"><span class="pre">ENABLE_OPENBADGES</span></code>  to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Enable OpenBadge support.
+&#39;ENABLE_OPENBADGES&#39;: True,
+</pre></div>
+</div>
+</li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code>, set the values for the following parameters.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">BADGR_USERNAME</span></code>: The username connected to your Issuer App in Badgr.org
+or in your installation of Badgr Server. This will be used to create OAuth2 tokens.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BADGR_PASSWORD</span></code>: The password connected to your Issuer App in Badgr.org
+or in your installation of Badgr Server. This will be used to create OAuth2 tokens.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BADGR_TOKENS_CACHE_KEY</span></code>: The cache key for Badgr API tokens. Once created,
+the tokens will be stored in cache and can be retrieved using this key.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BADGR_BASE_URL</span></code>: A string containing the base URL for Badgr Server.
+If you are running your own installation, the Badgr Server must be installed
+at a publicly accessible IP address. If you have registered an Issuer App
+with Badgr.org, this will be provided for you.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BADGR_ISSUER_SLUG</span></code>: A string that is the slug for the Badgr issuer.
+The slug can be obtained from the URL of the Badgr Server page that
+displays the issuer. For example, in the URL
+<code class="docutils literal notranslate"><span class="pre">http://exampleserver.com/issuer/test-issuer</span></code>, the issuer slug is
+<code class="docutils literal notranslate"><span class="pre">test-issuer</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BADGR_ENABLE_NOTIFICATIONS</span></code>: Optional boolean setting for enabling
+email notifications. When set to “True”, learners will be notified by email
+when they earn a badge. Default is “False”.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>############## Badgr OpenBadges generation ##############
+
+BADGR_USERNAME = &quot;example@example.com&quot;
+BADGR_PASSWORD = &quot;password&quot;
+BADGR_TOKENS_CACHE_KEY = &quot;secret-test-cache-key&quot;
+# Do not add the trailing slash here.
+BADGR_BASE_URL = &quot;http://localhost:8005&quot;
+BADGR_ISSUER_SLUG = &quot;test-issuer&quot;
+BADGR_ENABLE_NOTIFICATIONS = True
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p>Save the <code class="docutils literal notranslate"><span class="pre">lms.yml</span></code> and <code class="docutils literal notranslate"><span class="pre">studio.yml</span></code> files.</p></li>
+<li><p>Run database migrations.</p></li>
+<li><p>Restart the Studio and Learning Management System processes so that the
+updated environment configurations are loaded.</p></li>
+</ol>
+</section>
+<section id="enable-badges-within-each-course">
+<span id="enable-badges-for-a-course"></span><h2><a class="toc-backref" href="#id21" role="doc-backlink"><span class="section-number">4.8.4. </span>Enable Badges Within Each Course</a><a class="headerlink" href="#enable-badges-within-each-course" title="Link to this heading">#</a></h2>
+<p>The ability to issue course completion badges is enabled by default for all
+courses, but can be turned off or on again using an advanced setting in
+Studio. For information, see <a class="reference external" href="https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/set_up_course/studio_add_course_information/studio_creating_certificates.html#enable-badges-in-course" title="(in Building and Running an Open edX Course)"><span>Enable or Disable Badges for Your Course</span></a> in
+<em>Building and Running an Open edX Course</em>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The course-level setting to enable badges does not affect badges that
+are issued for completing or enrolling in multiple courses.</p>
+</div>
+</section>
+<section id="configure-badges-for-your-open-edx-instance">
+<span id="badge-types"></span><h2><a class="toc-backref" href="#id22" role="doc-backlink"><span class="section-number">4.8.5. </span>Configure Badges for Your Open edX Instance</a><a class="headerlink" href="#configure-badges-for-your-open-edx-instance" title="Link to this heading">#</a></h2>
+<p>You can configure several types of badges to issue to learners in your Open edX
+instance.</p>
+<nav class="contents local" id="id6">
+<ul class="simple">
+<li><p><a class="reference internal" href="#course-completion-badges" id="id28">Course Completion Badges</a></p></li>
+<li><p><a class="reference internal" href="#course-event-badges" id="id29">Course Event Badges</a></p></li>
+</ul>
+</nav>
+<p>In addition, you can use the badging framework to create custom badges. For
+information, see <a class="reference internal" href="#about-creating-new-badges"><span class="std std-ref">Creating New Badges for Your Open edX Instance</span></a>.</p>
+<section id="course-completion-badges">
+<span id="id7"></span><h3><a class="toc-backref" href="#id28" role="doc-backlink"><span class="section-number">4.8.5.1. </span>Course Completion Badges</a><a class="headerlink" href="#course-completion-badges" title="Link to this heading">#</a></h3>
+<p>For courses that have badges enabled, learners receive a course completion
+badge at the same time as they receive a course certificate, and have the
+option of sharing their badges to a badging site such as Mozilla Backpack.</p>
+<p>You can configure a different course completion badge for each course mode that
+you support (for example, “professional”, “advanced”, or “basic”). You can also
+specify a different badge image for each of the badges that you configure. For
+information, see <a class="reference internal" href="#enable-badges-for-a-course"><span class="std std-ref">Enable Badges Within Each Course</span></a> and <a class="reference internal" href="#create-course-completion-badges"><span class="std std-ref">Create Course Completion Badges for Your Open edX Instance</span></a>.</p>
+</section>
+<section id="course-event-badges">
+<span id="id8"></span><h3><a class="toc-backref" href="#id29" role="doc-backlink"><span class="section-number">4.8.5.2. </span>Course Event Badges</a><a class="headerlink" href="#course-event-badges" title="Link to this heading">#</a></h3>
+<p>Course event badges are awarded across courses, and can be awarded when any of
+the following events occur.</p>
+<ul class="simple">
+<li><p>A learner enrolls in a certain number of courses.</p></li>
+<li><p>A learner receives a completion certificate for a certain number of courses.</p></li>
+<li><p>A learner receives a completion certificate for every course in a specified
+list of courses.</p></li>
+</ul>
+<p>You can customize these course event badges with your parameters and badge
+images. For information, see <a class="reference internal" href="#create-course-event-badges"><span class="std std-ref">Create Course Event Badges for Your Open edX Instance</span></a>.</p>
+</section>
+</section>
+<section id="create-course-completion-badges-for-your-open-edx-instance">
+<span id="create-course-completion-badges"></span><h2><a class="toc-backref" href="#id23" role="doc-backlink"><span class="section-number">4.8.6. </span>Create Course Completion Badges for Your Open edX Instance</a><a class="headerlink" href="#create-course-completion-badges-for-your-open-edx-instance" title="Link to this heading">#</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Default images are supplied in Open edX for course completion
+badges. Be sure to replace these default badge images with your
+organization’s own badge images before any badges are issued. When the first
+badge is issued for a given course, badge images are uploaded to Badgr
+Server. All badges issued in future for this course will use this uploaded
+original badge image, even if you subsequently change badge images in the
+Django Administration badge image configuration.</p>
+</div>
+<ol class="arabic">
+<li><p>Access the Django Administration website for your instance of Open edX. To
+do this, go to <code class="docutils literal notranslate"><span class="pre">https://&lt;host</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">Open</span> <span class="pre">edX</span> <span class="pre">instance&gt;/admin</span></code>. For
+example, this might be <code class="docutils literal notranslate"><span class="pre">https://YourOrganization.org/admin</span></code>.</p></li>
+<li><p>Select <strong>Site Administration</strong> &gt; <strong>Badges</strong> &gt; <strong>Course complete image
+configurations</strong>, and then define a course complete image configuration for
+each course mode on your platform for which you want to issue badges upon
+course completion. Examples of course modes are “professional” or “advanced”
+or “basic”.</p></li>
+<li><p>For each course complete badge image configuration, set these parameters.</p>
+<ul class="simple">
+<li><p>Mode: The course mode for which the badge image should be used.</p></li>
+<li><p>Icon: The badge image to use for the specified course mode.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Be sure to replace the default badge images with your
+organization’s own badge images before any badges are issued.</p>
+</div>
+</li>
+<li><p>Optionally, you can define a badge image that will be used as the default
+badge image for any course modes that do not have an explicitly specified
+badge image.</p>
+<p>To do so, in the course complete image configuration that references the
+image you want to use as a default, select the <strong>Default</strong> checkbox. After
+you save the configuration, this badge image is used for any course
+completion badge configurations that do not have a badge image explicitly
+specified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can specify only one default badge image.</p>
+</div>
+</li>
+<li><p>Save each configuration parameter and exit the Django Administration
+website.</p></li>
+</ol>
+</section>
+<section id="create-course-event-badges-for-your-open-edx-instance">
+<span id="create-course-event-badges"></span><h2><a class="toc-backref" href="#id24" role="doc-backlink"><span class="section-number">4.8.7. </span>Create Course Event Badges for Your Open edX Instance</a><a class="headerlink" href="#create-course-event-badges-for-your-open-edx-instance" title="Link to this heading">#</a></h2>
+<p>Open edX provides several customizable course event badges that can be awarded
+when any of the following events occur.</p>
+<ul class="simple">
+<li><p>A learner enrolls in a certain number of courses.</p></li>
+<li><p>A learner receives a completion certificate for a certain number of courses.</p></li>
+<li><p>A learner receives a completion certificate for every course in a specified
+list of courses.</p></li>
+</ul>
+<p>Before course event badges can be awarded, you must customize them with your
+parameters and badge images. To customize any of the course event badges, follow
+these steps.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also use the badging framework to create custom badges. For
+information, see <a class="reference internal" href="#about-creating-new-badges"><span class="std std-ref">Creating New Badges for Your Open edX Instance</span></a>.</p>
+</div>
+<ol class="arabic">
+<li><p>Access the Django Administration website for your instance of Open edX. To
+do this, go to <code class="docutils literal notranslate"><span class="pre">https://&lt;host</span> <span class="pre">name</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">Open</span> <span class="pre">edX</span> <span class="pre">instance&gt;/admin</span></code>. For
+example, this might be <code class="docutils literal notranslate"><span class="pre">https://YourOrganization.org/admin</span></code></p></li>
+<li><p>Select <strong>Site Administration</strong> &gt; <strong>Badges</strong> &gt; <strong>Badge Classes</strong>.</p></li>
+<li><p>Add a badge class for each course event for which you want to issue badges.
+Examples of course events might be enrolling in five courses, or completing
+three required courses.</p></li>
+<li><p>For each badge class, set the following parameters.</p>
+<ul>
+<li><p>Slug: A unique identifier that you choose to identify the badge class. This
+identifier can contain only numbers, lowercase letters, underscores, or
+hyphens. The slug, combined with the Issuing Component value, uniquely
+identifies a badge.</p></li>
+<li><p>Issuing Component: Identifies the part of the platform that is issuing the
+badge. This identifier can contain only numbers, lowercase
+letters,underscores, or hyphens. For the three customizable course event
+badges that are included in the Open edX platform, the value for <strong>Issuing
+Component</strong> must be <code class="docutils literal notranslate"><span class="pre">openedx__course</span></code> (with two underscores). For
+<a class="reference internal" href="#course-completion-badges"><span class="std std-ref">course completion badges</span></a> that are included
+in the Open edX platform, the issuing component value should be empty.</p>
+<p>For new badge types that you create, specify an
+<strong>Issuing Component</strong> value that identifies the software component
+responsible for issuing the badge. For example, if badges are issued by the
+course management component, you might define <strong>Issuing Component</strong> as
+<code class="docutils literal notranslate"><span class="pre">platform__course</span></code>; if badges are issued based on activity in course
+discussions, you might define <strong>Issuing Component</strong> as
+<code class="docutils literal notranslate"><span class="pre">platform__discussions</span></code>.</p>
+</li>
+<li><p>Display name: The human readable badge name that is used when badges are
+shown to learners, for example, in the Accomplishments view of learners’
+profiles.</p></li>
+<li><p>Course ID: This value should be blank for course event type badges, as
+they are not associated with a single course.</p></li>
+<li><p>Description: A description of this badge.</p></li>
+<li><p>Criteria: A description of the criteria for awarding this badge.</p></li>
+<li><p>Mode: The course mode for the course associated with this badge, if
+applicable.</p></li>
+<li><p>Image: The badge image to use for this badge. Badge images should be
+square .png files less than 250KB in size.</p></li>
+</ul>
+<p>An example of a badge class configuration might have the following values.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">slug</span></code>: <code class="docutils literal notranslate"><span class="pre">enrolled_three</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">issuing_component</span></code>: <code class="docutils literal notranslate"><span class="pre">openedx__course</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">display_name</span></code>: Enroll in Three Courses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">description</span></code>: Enrolled in three courses</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">criteria</span></code>: A learner must enroll in three courses to receive this badge</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">image</span></code>: triple_enrollment_badge_image.png</p></li>
+</ul>
+</li>
+<li><p>When you have finished defining the badge class, select <strong>Save</strong>.</p></li>
+<li><p>Next, you create a new course event badge configuration that defines all of
+the course event badges that you want to issue. Select <strong>Site
+Administration</strong> &gt; <strong>Badges</strong> &gt; <strong>Course event badges configurations</strong> &gt;
+<strong>Add course event badges configuration</strong>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can create more than one course event badge configuration,
+but you can only mark one configuration as <strong>Enabled</strong>. Only the most
+recently activated course event badge configuration is used.</p>
+</div>
+</li>
+<li><p>Within the new course event badge configuration, set the following
+parameters.</p>
+<ul>
+<li><p>Courses completed: Define badges to be awarded for completing a certain
+number of courses, or completion of specific courses. Define one badge
+per line. On each line, enter the number of courses that must be completed,
+followed by a comma and then the slug of the badge class to associate
+with this badge.</p>
+<p>For example, to configure two badges, one that is awarded when a learner
+completes 3 courses, and another that is awarded when a learner completes
+8 courses, you add two lines to the <strong>Courses completed</strong> field.</p>
+<p><code class="docutils literal notranslate"><span class="pre">3,completed_three</span></code>
+<code class="docutils literal notranslate"><span class="pre">8,completed_eight</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">completed_three</span></code> and <code class="docutils literal notranslate"><span class="pre">completed_eight</span></code> are badge slugs that
+you previously defined in badge classes.</p>
+</li>
+<li><p>Courses enrolled: Define badges to be awarded for enrolling in a certain
+number of courses, or enrolling in specific courses. Define one badge per
+line. On each line, enter the number of courses that must be enrolled in,
+followed by a comma and then the slug of the badge class to associate
+with this badge.</p>
+<p>For example, to configure a badge that is awarded when a learner enrolls in
+5 courses, you add this definition.</p>
+<p><code class="docutils literal notranslate"><span class="pre">5,enrolled_five</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">enrolled_five</span></code> is a badge slug that you previously defined in a
+badge class.</p>
+</li>
+<li><p>Course groups: Define badges to be awarded for completing a list of
+specific courses. Define one badge per line. On each line, enter the slug
+of the badge class, a comma, then the list of course keys.</p>
+<p>For example, to configure a badge that is awarded when a learner completes
+the 3 prerequisite courses in a series, you add this definition.</p>
+<p><code class="docutils literal notranslate"><span class="pre">prereq_computerscience_badge_slug,course1_identifier,course2_identifier,course_3_identifier</span></code></p>
+<p>where <code class="docutils literal notranslate"><span class="pre">prereq_computerscience_badge_slug</span></code> is a badge slug that you
+previously defined in a badge class, and <code class="docutils literal notranslate"><span class="pre">course1_identifier</span></code>,
+<code class="docutils literal notranslate"><span class="pre">course2_identifier</span></code>, and <code class="docutils literal notranslate"><span class="pre">course3_identifier</span></code> are the Course IDs for
+the three courses that must be completed for this badge.</p>
+</li>
+</ul>
+</li>
+<li><p>When you have finished defining badges in the configuration, select <strong>Save</strong>.</p></li>
+<li><p>To activate this configuration, select <strong>Enabled</strong> at the top of the
+configuration page.</p></li>
+</ol>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You can create more than one course event badge configuration,
+but you can only mark one configuration as <strong>Enabled</strong>. Only the most
+recently activated course event badge configuration is used.</p>
+</div>
+</section>
+<section id="creating-new-badges-for-your-open-edx-instance">
+<span id="about-creating-new-badges"></span><h2><a class="toc-backref" href="#id25" role="doc-backlink"><span class="section-number">4.8.8. </span>Creating New Badges for Your Open edX Instance</a><a class="headerlink" href="#creating-new-badges-for-your-open-edx-instance" title="Link to this heading">#</a></h2>
+<p>In addition to using the default customizable badges that are provided with the
+Open edX platform, you can design new badges that are generated when a
+particular XBlock-related or course-related action occurs.</p>
+<p>Before you create new badges, you should understand the following concepts.</p>
+<ul>
+<li><p>Badge Class - The specification of the badge that is to be awarded.
+Parameters for badge classes are described in Step 4 of the <a class="reference internal" href="#create-course-event-badges"><span class="std std-ref">Create Course Event Badges for Your Open edX Instance</span></a> topic.</p></li>
+<li><p>Slug - This field in the BadgeClass model uniquely identifies the badge
+class.</p></li>
+<li><p>Issuing Component - This field in the BadgeClass model identifies the part
+of the software that is issuing the badge. For example, the name of the
+XBlock where the occurrence of some event triggers the awarding of a badge.</p>
+<p>For the customizable <a class="reference internal" href="#course-event-badges"><span class="std std-ref">course event badges</span></a> that are
+included with the Open edX platform, the value for <code class="docutils literal notranslate"><span class="pre">issuing_component</span></code> must
+be <code class="docutils literal notranslate"><span class="pre">openedx__course</span></code> (with two underscores). For <a class="reference internal" href="#course-completion-badges"><span class="std std-ref">course completion
+badges</span></a> that are included in the Open edX platform,
+the issuing component value should be empty.</p>
+<p>For new badge types that you create, specify an <strong>Issuing Component</strong> value
+that identifies the software component responsible for issuing the badge. For
+example, if badges are issued by the course management component, you might
+define <strong>Issuing Component</strong> as <code class="docutils literal notranslate"><span class="pre">platform__course</span></code>; if badges are issued
+based on activity in course discussions, you might define <strong>Issuing
+Component</strong> as <code class="docutils literal notranslate"><span class="pre">platform__discussions</span></code>.</p>
+</li>
+<li><p>The combination of badge slug, issuing component, and optionally, course ID
+uniquely identifies an awarded badge.</p></li>
+<li><p>Award method - The <code class="docutils literal notranslate"><span class="pre">award</span></code> function on the Badge Class instantiates the
+badge generator and calls the badge generator’s <code class="docutils literal notranslate"><span class="pre">award</span></code> function, which is
+responsible for awarding a badge to a learner, as well as for performing all
+checks leading up to the awarding of the badge. On the Badge Class, the
+<code class="docutils literal notranslate"><span class="pre">award</span></code> function either returns a BadgeAssertion object or raises an
+exception if the award cannot be given.</p></li>
+<li><p>Badge Assertion - A specific generated instance of a badge that a
+learner has been awarded. Badge assertions contain data about the learner
+who earned the badge, and the date and time that the badge was awarded.
+Multiple badge assertions can be awarded for a specific BadgeClass,
+including to the same learner. You can get all assertions for a particular
+learner for a specific BadgeClass using the <code class="docutils literal notranslate"><span class="pre">get_for_user</span></code> method, using
+<code class="docutils literal notranslate"><span class="pre">user</span></code> as an argument.</p></li>
+</ul>
+<p>For instructions for creating new badges, see <a class="reference internal" href="#create-new-badges"><span class="std std-ref">Create New Badges for Your Open edX Instance</span></a>.</p>
+<section id="create-new-badges-for-your-open-edx-instance">
+<span id="create-new-badges"></span><h3><span class="section-number">4.8.8.1. </span>Create New Badges for Your Open edX Instance<a class="headerlink" href="#create-new-badges-for-your-open-edx-instance" title="Link to this heading">#</a></h3>
+<p>To create new badges for use within your Open edX platform, follow these steps.</p>
+<ol class="arabic">
+<li><p>Create a Badge Class specifying the details of the badge you want to award.
+You can do this using the <code class="docutils literal notranslate"><span class="pre">get_badge_class</span></code> method from the <code class="docutils literal notranslate"><span class="pre">badges</span></code>
+app, or create a badge class in Django Admin. For Django Admin
+instructions, see steps 1-5 in <a class="reference internal" href="#create-course-event-badges"><span class="std std-ref">Create Course Event Badges for Your Open edX Instance</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">BadgeClass.get_badge_class</span></code> creates the requested badge class if one does
+not already exist that has the same combination of <code class="docutils literal notranslate"><span class="pre">slug</span></code> and
+<code class="docutils literal notranslate"><span class="pre">issuing_component</span></code>. Badge classes are uniquely identified by a
+combination of their <code class="docutils literal notranslate"><span class="pre">slug</span></code> and <code class="docutils literal notranslate"><span class="pre">issuing_component</span></code> fields, and
+optionally also the <code class="docutils literal notranslate"><span class="pre">course_id</span></code> field if a badge is associated with an
+individual course.</p>
+<p>If a badge class already exists with the same combination of <code class="docutils literal notranslate"><span class="pre">slug</span></code> and
+<code class="docutils literal notranslate"><span class="pre">issuing_component</span></code> that is in the request, the existing badge is returned.
+No new badge class is created, and no changes are made to the values of the
+existing badge class.</p>
+</li>
+<li><p>In the XBlock or component where badges are to be awarded based on some
+event occurring, add declarations to the <code class="docutils literal notranslate"><span class="pre">badging</span></code> and <code class="docutils literal notranslate"><span class="pre">user</span></code> services.</p>
+<p>The following example illustrates creating a badge class and awarding it
+from an XBlock.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">xblock</span> <span class="kn">import</span> <span class="n">XBlock</span>
+<span class="kn">from</span> <span class="nn">xblock.fragment</span> <span class="kn">import</span> <span class="n">Fragment</span>
+<span class="kn">import</span> <span class="nn">pkg_resources</span>
+
+<span class="nd">@XBlock</span><span class="o">.</span><span class="n">wants</span><span class="p">(</span><span class="s1">&#39;badging&#39;</span><span class="p">)</span>
+<span class="nd">@XBlock</span><span class="o">.</span><span class="n">wants</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
+<span class="k">class</span> <span class="nc">AwardBlock</span><span class="p">(</span><span class="n">XBlock</span><span class="p">):</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">A Block that awards a badge when a learner visits it.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">def</span> <span class="nf">award_badge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_service</span><span class="p">,</span> <span class="n">badge_service</span><span class="p">):</span>
+     <span class="n">user</span> <span class="o">=</span> <span class="n">user_service</span><span class="o">.</span><span class="n">get_current_user</span><span class="p">()</span>
+     <span class="n">badge_class</span> <span class="o">=</span> <span class="n">badge_service</span><span class="o">.</span><span class="n">get_badge_class</span><span class="p">(</span>
+         <span class="n">slug</span><span class="o">=</span><span class="s1">&#39;general_award&#39;</span><span class="p">,</span> <span class="n">issuing_component</span><span class="o">=</span><span class="s1">&#39;my_org__award_block&#39;</span><span class="p">,</span>
+         <span class="n">description</span><span class="o">=</span><span class="s2">&quot;A shiny badge, given to anyone who finds it!&quot;</span><span class="p">,</span>
+         <span class="n">criteria</span><span class="o">=</span><span class="s2">&quot;Visit a page with an award block.&quot;</span><span class="p">,</span>
+         <span class="c1"># This attribute not available in all runtimes,</span>
+         <span class="c1"># but if we have both of these services, it&#39;s a safe bet we&#39;re in the LMS.</span>
+         <span class="n">course_id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">course_id</span><span class="p">,</span>
+         <span class="c1"># The path to this file should be somewhere relative to your XBlock&#39;s package.</span>
+         <span class="n">image_file_handle</span><span class="o">=</span><span class="n">pkg_resources</span><span class="o">.</span><span class="n">get_resource_stream</span><span class="p">(</span><span class="vm">__name__</span><span class="p">,</span> <span class="s1">&#39;badge_images/award.png&#39;</span><span class="p">)</span>
+         <span class="c1"># Badge image should be a square PNG file less than 250KB in size.</span>
+     <span class="p">)</span>
+     <span class="c1"># Award the badge.</span>
+     <span class="k">if</span> <span class="ow">not</span> <span class="n">badge_class</span><span class="o">.</span><span class="n">get_for_user</span><span class="p">(</span><span class="n">user</span><span class="p">):</span>
+         <span class="n">badge_class</span><span class="o">.</span><span class="n">award</span><span class="p">(</span><span class="n">user</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">student_view</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Displayed to the learner when they visit.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># If the user and badge services are not present, we cannot award the badge.</span>
+    <span class="c1"># If they are, we are ready to award one.</span>
+    <span class="n">user_service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;user&#39;</span><span class="p">)</span>
+    <span class="n">badge_service</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">runtime</span><span class="o">.</span><span class="n">service</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;badging&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">user_service</span> <span class="ow">and</span> <span class="n">badge_service</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">award_badge</span><span class="p">(</span><span class="n">user_service</span><span class="p">,</span> <span class="n">badge_service</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Fragment</span><span class="p">(</span><span class="sa">u</span><span class="s2">&quot;&lt;div&gt;&lt;p&gt;You just earned a badge!&lt;/p&gt;&lt;/div&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="get-information-about-badge-assertions">
+<span id="get-badge-assertions-info"></span><h3><span class="section-number">4.8.8.2. </span>Get Information about Badge Assertions<a class="headerlink" href="#get-information-about-badge-assertions" title="Link to this heading">#</a></h3>
+<p>Depending on the type of badge you have created and are awarding, you might
+want to limit the number of times that a learner can receive a badge. You can
+find whether a specific learner has already received a particular badge in
+either of the following ways.</p>
+<ul class="simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">badge_class.assertions_for_user</span></code> with <code class="docutils literal notranslate"><span class="pre">user</span></code> as an argument, to
+return a list of all assertions that the specified user has received for the
+badge class.</p></li>
+<li><p>Use the Badges API GET method to return a list of assertions for a particular
+username. For example, use <code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/badges/v1/assertions/user/{username}/</span></code>.</p></li>
+</ul>
+<p>For more information and additional parameters, see <a class="reference internal" href="#badges-api-endpoints"><span class="std std-ref">Supported Badges API Endpoint</span></a>.</p>
+</section>
+<section id="supported-badges-api-endpoint">
+<span id="badges-api-endpoints"></span><h3><span class="section-number">4.8.8.3. </span>Supported Badges API Endpoint<a class="headerlink" href="#supported-badges-api-endpoint" title="Link to this heading">#</a></h3>
+<p>The Badges API supports the endpoint
+<code class="docutils literal notranslate"><span class="pre">GET</span> <span class="pre">/api/badges/v1/assertions/user/{username}/</span></code>. You can use the following
+query parameters with this endpoint.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of these query parameters are optional.</p>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>slug</p></td>
+<td><p>If used, filters by the badge class identified by this slug. Unless
+<code class="docutils literal notranslate"><span class="pre">issuing</span> <span class="pre">component</span></code> is also specified, assumes a null/empty issuing
+component.</p></td>
+</tr>
+<tr class="row-odd"><td><p>issuing component</p></td>
+<td><p>If used, also requires <code class="docutils literal notranslate"><span class="pre">slug</span></code> to be specified. Filters by the badge
+class.</p></td>
+</tr>
+<tr class="row-even"><td><p>courseid</p></td>
+<td><p>If used, returns only badge assertions that were awarded as part of the
+specific course.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>For example, to get a list of badge assertions issued for a badge with an
+<code class="docutils literal notranslate"><span class="pre">issuing_component</span></code> value of <code class="docutils literal notranslate"><span class="pre">openedx__course</span></code> and a <code class="docutils literal notranslate"><span class="pre">slug</span></code> value of
+<code class="docutils literal notranslate"><span class="pre">enroll_in_three_courses</span></code>, the query would be</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{openedx domain}/api/badges/v1/assertions/user/?issuing_component=openedx__course&amp;slug=enroll_in_three_courses
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;openedx_instance&gt;</span></code> is the site URL for your Open edX instance.</p>
+<p>Possible query results are as follows.</p>
+<ul class="simple">
+<li><p>200 on success, with a list of badge assertions.</p></li>
+<li><p>403 if a user who does not have permission to masquerade as another user
+specifies a username other than their own.</p></li>
+<li><p>404 if the specified user, badge class, or course does not exist.</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="edx_search.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">4.7. </span>Enabling Open edX Search</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="enable_certificates.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">4.9. </span>Enabling Course Certificates</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">4.8.1. Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#prerequisites">4.8.2. Prerequisites</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-sure-certificates-are-enabled">4.8.2.1. Make Sure Certificates Are Enabled</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-badge-generator">4.8.2.2. Specify a Badge Generator</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-badgr-server">4.8.2.2.1. Install Badgr Server</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-badge-issuer-for-your-organization">4.8.2.2.2. Specify a Badge Issuer for Your Organization</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#specify-a-badge-generator-other-than-badgr-server">4.8.2.2.3. Specify a Badge Generator Other Than Badgr Server</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-badges-in-studio-and-the-learning-management-system">4.8.3. Enable Badges in Studio and the Learning Management System</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#enable-badges-within-each-course">4.8.4. Enable Badges Within Each Course</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-badges-for-your-open-edx-instance">4.8.5. Configure Badges for Your Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-completion-badges">4.8.5.1. Course Completion Badges</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#course-event-badges">4.8.5.2. Course Event Badges</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-course-completion-badges-for-your-open-edx-instance">4.8.6. Create Course Completion Badges for Your Open edX Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-course-event-badges-for-your-open-edx-instance">4.8.7. Create Course Event Badges for Your Open edX Instance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-new-badges-for-your-open-edx-instance">4.8.8. Creating New Badges for Your Open edX Instance</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-new-badges-for-your-open-edx-instance">4.8.8.1. Create New Badges for Your Open edX Instance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-information-about-badge-assertions">4.8.8.2. Get Information about Badge Assertions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#supported-badges-api-endpoint">4.8.8.3. Supported Badges API Endpoint</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Author name not set
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024, The Axim Collaborative.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  
+        <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+            <img
+                alt="Creative Commons License"
+                style="border-width:0"
+                src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png"/>
+        </a>
+        <br>
+        These works by
+            <a
+                xmlns:cc="https://creativecommons.org/ns#"
+                href="https://openedx.org"
+                property="cc:attributionName"
+                rel="cc:attributionURL"
+            >The Axim Collaborative</a>
+        are licensed under a
+            <a
+                rel="license"
+                href="https://creativecommons.org/licenses/by-sa/4.0/"
+            >Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+    
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
