@@ -43,3 +43,5 @@ health.csv
 # transifex exe
 tx
 
+# remove build
+_build
